@@ -19,3 +19,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# Claude Code & Temporary storage
+.claude/
+app/backend/storage/
