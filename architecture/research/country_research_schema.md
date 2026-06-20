@@ -55,7 +55,7 @@ internal/                      자사 자산·계산 파라미터. 국가 무관
   "country": "Poland",
   "country_ko": "폴란드",
   "code": "PL",                    // ISO 3166-1 alpha-2. 파일명과 매칭
-  "region": "EU",                  // EU | AMERICAS | APAC
+  "region": "EU",                  // EU | NORTH_AMERICA | SOUTH_AMERICA | APAC
   "is_baseline": false,            // 이 국가가 자사 베이스라인인지 (모든 국가 공통 필드)
   "currency": "PLN",
 
@@ -85,6 +85,7 @@ internal/                      자사 자산·계산 파라미터. 국가 무관
 | `item` | string | 항목명 (예: "오토금융 시장규모") |
 | `category` | enum | `business` \| `it` \| `shared` — 탭 필터용 |
 | `role` | enum | `gate` \| `score` \| `context` — 렌더 방식 분기 |
+| `region` | enum | `EU` \| `NORTH_AMERICA` \| `SOUTH_AMERICA` \| `APAC` |
 | `tier` | int(1~4) | 출처 신뢰도. 1=법령/공식, 4=AI추정 |
 | `source` | string | 출처 명시 |
 | `insight` | string | 컨설턴트 코멘트 (★AI 생성 — 검토 필요) |
