@@ -1,0 +1,624 @@
+{
+  "report_type": "gap_analysis",
+  "country": "Spain",
+  "country_code": "ES",
+  "generated_at": "2026-06-20T23:52:35.171409",
+  "schema_version": "1.1",
+  "summary": {
+    "total_items": 48,
+    "target_items_type1": 48,
+    "target_items_type2": 48,
+    "completeness_pct": 100.0
+  },
+  "by_category": {
+    "business": [
+      {
+        "item": "오토금융/리스 시장규모",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "오토금융 성장률(CAGR)",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "금융 이용률(신차)",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "금융 이용률(중고차)",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 3
+      },
+      {
+        "item": "평균 금리/APR",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "신차 판매대수",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "구매 패턴(할부·리스 비중)",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "캡티브 강도(점유율)",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "1위사 점유율",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "법인세율",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "이자소득 원천징수",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "배당 원천징수",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "EV 보급률",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "EV·ICE 잔존가치 리스크",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 3
+      },
+      {
+        "item": "해당국 정성 요약",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 3
+      },
+      {
+        "item": "브랜드 Top10",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "OEM 순위",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "금융사 순위",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "경쟁사 리스트",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "경쟁사 진출 형태",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "경쟁사 금리 범위",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "평균 신차가격",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      },
+      {
+        "item": "외부 이슈 스캔",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 2
+      }
+    ],
+    "shared": [
+      {
+        "item": "외국인 지분 한도",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "외환·배당 송금 자유도",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "데이터 현지화 의무",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "국가신용등급",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "라이선스 취득 가능 여부(외국사)",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "라이선스 체제(세그먼트별)",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "금리 상한 규제",
+        "role": "gate",
+        "has_timeseries": false,
+        "source_tier": 1
+      },
+      {
+        "item": "최저자본금",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "차량회수 절차 용이성",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "법적 회수 소요기간",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "추심 규제",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "충당금 규정",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "연체 분류 기준",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "의무보험 규제",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "신용생명보험 규제",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "보험 끼워팔기 규제",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "AI 신용평가 규제",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "규제기관 식별",
+        "role": "context",
+        "has_timeseries": false,
+        "source_tier": 1
+      }
+    ],
+    "it": [
+      {
+        "item": "솔루션 벤더",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "솔루션 유형",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "디지털 채널 성숙도",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "신용정보(CB) 인프라",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "결제·정산 인프라",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      },
+      {
+        "item": "디지털 딜러 성숙도",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 2
+      },
+      {
+        "item": "국외이전 제한",
+        "role": "score",
+        "has_timeseries": true,
+        "source_tier": 1
+      }
+    ]
+  },
+  "data_quality": {
+    "overall_completeness": "N/A",
+    "timeseries_coverage": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 22,
+      "tier2": 23,
+      "tier3": 3,
+      "tier4": 0
+    },
+    "data_sources": [
+      "Banco de España & CNMV",
+      "ANFAC & ICCT",
+      "GDPR & SCC",
+      "ANFAC",
+      "Business analysis",
+      "EU 규정 & 스페인 은행법",
+      "스페인 외국투자법",
+      "시장 추정",
+      "Spanish Banking IT Survey 2025",
+      "CNMV Regulations",
+      "Banco de España Regulations",
+      "Spanish Consumer Credit Directive (Ley 16/1989)",
+      "GDPR & Banco de España",
+      "AI Act (EU) & Banco de España",
+      "AEPF Annual Report 2025",
+      "스페인 소득세법",
+      "Banco de España & SEPA",
+      "Market research",
+      "Government structure",
+      "스페인 금융시장 분석",
+      "S&P·Moody's·Fitch",
+      "ANFAC & Market data",
+      "AEPF(스페인금융협회) & ECB 신용통계",
+      "Spanish Judicial System",
+      "AEPF",
+      "ANFAC 2025",
+      "AEPF & ANFAC(스페인자동차제조협회)",
+      "Spanish Banking Law (Ley del Mercado de Valores)",
+      "스페인 금융 IT 현황",
+      "Spanish Consumer Protection Law",
+      "ECB 금리 통계 & 스페인 은행 조사",
+      "Spanish dealer survey",
+      "Spanish Debt Collection Regulations",
+      "Spanish Motor Insurance Law",
+      "Insurance Contract Act",
+      "Spanish Civil Code & Judicial Practice",
+      "화이트리스트 매체",
+      "Banco de España Standards",
+      "AEPF 2025",
+      "AEPF & market research",
+      "Market intelligence",
+      "Banco de España & ASNEF",
+      "스페인 국세청",
+      "Price comparison",
+      "ACEA & ANFAC 신차 등록 통계",
+      "Cox Automotive Spain adjusted",
+      "EBF Digital Report"
+    ],
+    "gaps_by_tab": {
+      "Type1-Tab-1-1": [
+        "솔루션_유형",
+        "디지털채널성숙도",
+        "상품판매현황",
+        "라이선스종류",
+        "데이터현지화",
+        "차량회수절차"
+      ],
+      "Type1-Tab-1-2": [
+        "특화요건_상품판매",
+        "특화요건_개인정보보호",
+        "특화요건_의무보험",
+        "특화요건_신용생명보험"
+      ],
+      "Type1-Tab-1-3": [
+        "신차판매대수",
+        "금융침투율",
+        "구매패턴",
+        "경쟁사점유율",
+        "평균신차가격"
+      ],
+      "Type1-Tab-1-4": [
+        "금융사순위",
+        "캡티브강도",
+        "경쟁사금리범위",
+        "OEM순위",
+        "EV보급률",
+        "잔존가치리스크"
+      ],
+      "Type2-Tab-2-0": [
+        "외국인지분한도",
+        "외환송금",
+        "데이터현지화"
+      ],
+      "Type2-Tab-2-1": [
+        "GDP성장률",
+        "자동차판매CAGR",
+        "금융침투율",
+        "경쟁강도",
+        "디지털성숙도"
+      ],
+      "Type2-Tab-2-2": [
+        "솔루션유형",
+        "디지털채널성숙도",
+        "라이선스종류",
+        "데이터현지화",
+        "상품판매현황"
+      ],
+      "Type2-Tab-2-3": [
+        "OEM순위",
+        "브랜드Top10",
+        "구매유형",
+        "화이트스페이스"
+      ]
+    }
+  },
+  "critical_gaps": [
+    {
+      "tab": "Type1-Tab-1-1",
+      "missing_fields": [
+        "솔루션_유형",
+        "디지털채널성숙도",
+        "상품판매현황",
+        "라이선스종류",
+        "데이터현지화",
+        "차량회수절차"
+      ],
+      "count": 6,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type1-Tab-1-2",
+      "missing_fields": [
+        "특화요건_상품판매",
+        "특화요건_개인정보보호",
+        "특화요건_의무보험",
+        "특화요건_신용생명보험"
+      ],
+      "count": 4,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type1-Tab-1-3",
+      "missing_fields": [
+        "신차판매대수",
+        "금융침투율",
+        "구매패턴",
+        "경쟁사점유율",
+        "평균신차가격"
+      ],
+      "count": 5,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type1-Tab-1-4",
+      "missing_fields": [
+        "금융사순위",
+        "캡티브강도",
+        "경쟁사금리범위",
+        "OEM순위",
+        "EV보급률",
+        "잔존가치리스크"
+      ],
+      "count": 6,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type2-Tab-2-0",
+      "missing_fields": [
+        "외국인지분한도",
+        "외환송금",
+        "데이터현지화"
+      ],
+      "count": 3,
+      "severity": "MEDIUM"
+    },
+    {
+      "tab": "Type2-Tab-2-1",
+      "missing_fields": [
+        "GDP성장률",
+        "자동차판매CAGR",
+        "금융침투율",
+        "경쟁강도",
+        "디지털성숙도"
+      ],
+      "count": 5,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type2-Tab-2-2",
+      "missing_fields": [
+        "솔루션유형",
+        "디지털채널성숙도",
+        "라이선스종류",
+        "데이터현지화",
+        "상품판매현황"
+      ],
+      "count": 5,
+      "severity": "HIGH"
+    },
+    {
+      "tab": "Type2-Tab-2-3",
+      "missing_fields": [
+        "OEM순위",
+        "브랜드Top10",
+        "구매유형",
+        "화이트스페이스"
+      ],
+      "count": 4,
+      "severity": "HIGH"
+    }
+  ],
+  "type1_readiness": {
+    "can_generate": false,
+    "tabs": {
+      "1-1": {
+        "name": "Similarity Scoring (vs Baseline)",
+        "ready": false,
+        "missing_count": 6,
+        "missing_fields": [
+          "솔루션_유형",
+          "디지털채널성숙도",
+          "상품판매현황",
+          "라이선스종류",
+          "데이터현지화",
+          "차량회수절차"
+        ]
+      },
+      "1-2": {
+        "name": "System Decision Tree",
+        "ready": false,
+        "missing_count": 4,
+        "missing_fields": [
+          "특화요건_상품판매",
+          "특화요건_개인정보보호",
+          "특화요건_의무보험",
+          "특화요건_신용생명보험"
+        ]
+      },
+      "1-3": {
+        "name": "Contract Volume & 10Y TCO",
+        "ready": false,
+        "missing_count": 5,
+        "missing_fields": [
+          "신차판매대수",
+          "금융침투율",
+          "구매패턴",
+          "경쟁사점유율",
+          "평균신차가격"
+        ]
+      },
+      "1-4": {
+        "name": "Market & Competition Background",
+        "ready": false,
+        "missing_count": 6,
+        "missing_fields": [
+          "금융사순위",
+          "캡티브강도",
+          "경쟁사금리범위",
+          "OEM순위",
+          "EV보급률",
+          "잔존가치리스크"
+        ]
+      }
+    }
+  },
+  "type2_readiness": {
+    "can_generate": false,
+    "tabs": {
+      "2-0": {
+        "name": "Kill Switch Filter",
+        "ready": false,
+        "missing_count": 3,
+        "missing_fields": [
+          "외국인지분한도",
+          "외환송금",
+          "데이터현지화"
+        ]
+      },
+      "2-1": {
+        "name": "Business Attractiveness",
+        "ready": false,
+        "missing_count": 5,
+        "missing_fields": [
+          "GDP성장률",
+          "자동차판매CAGR",
+          "금융침투율",
+          "경쟁강도",
+          "디지털성숙도"
+        ]
+      },
+      "2-2": {
+        "name": "IT/Speed-to-Market Similarity",
+        "ready": false,
+        "missing_count": 5,
+        "missing_fields": [
+          "솔루션유형",
+          "디지털채널성숙도",
+          "라이선스종류",
+          "데이터현지화",
+          "상품판매현황"
+        ]
+      },
+      "2-3": {
+        "name": "Market Background",
+        "ready": false,
+        "missing_count": 4,
+        "missing_fields": [
+          "OEM순위",
+          "브랜드Top10",
+          "구매유형",
+          "화이트스페이스"
+        ]
+      }
+    }
+  }
+}
