@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Diagnostic Progress</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "primary": "#00204e",
+                        "outline-variant": "#c4c6d2",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "primary-container": "#003478",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary": "#ffffff",
+                        "text-secondary": "#555555",
+                        "text-disabled": "#BEBEBE",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434751",
+                        "surface-border": "#DCDCDC",
+                        "primary-fixed-dim": "#aec6ff",
+                        "secondary": "#005db7",
+                        "surface-container": "#efeded",
+                        "secondary-container": "#599bfe",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303031",
+                        "on-secondary-container": "#003268",
+                        "accent-red": "#E63946",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-primary-fixed-variant": "#1c4489",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747782",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001b3d",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f9",
+                        "surface-tint": "#395da2",
+                        "on-primary-container": "#7d9fe9",
+                        "on-tertiary-fixed-variant": "#92001c",
+                        "on-tertiary-fixed": "#410007",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-variant": "#e3e2e2",
+                        "on-background": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "tertiary": "#4d000a",
+                        "tertiary-container": "#750015",
+                        "surface-light": "#F8F9FA",
+                        "on-primary-fixed": "#001a43",
+                        "inverse-primary": "#aec6ff",
+                        "background": "#fbf9f9",
+                        "text-primary": "#000000",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-container": "#ff7576"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "48px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-lg-mobile": [
+                            "Hanken Grotesk"
+                        ],
+                        "display-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "label-sm": [
+                            "Hanken Grotesk"
+                        ],
+                        "label-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-sm": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-md": [
+                            "Hanken Grotesk"
+                        ]
+                    },
+                    "fontSize": {
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "display-lg": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "label-sm": [
+                            "11px",
+                            {
+                                "lineHeight": "14px",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "label-md": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-sm": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased h-screen w-full flex items-center justify-center overflow-hidden">
+<!-- Modal Overlay -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-md flex items-center justify-center z-50 p-4 md:p-margin-desktop">
+    <!-- Modal Container -->
+    <div class="bg-surface rounded-[12px] shadow-[0_12px_24px_rgba(0,32,78,0.16)] w-full max-w-2xl flex flex-col overflow-hidden max-h-[921px]">
+        <!-- Header -->
+        <div class="flex items-start justify-between p-lg border-b border-surface-border">
+            <div>
+                <h2 class="font-headline-md text-headline-md text-primary mb-xs">Diagnostic Progress</h2>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Generating your customized report</p>
+            </div>
+            <button class="text-outline hover:text-primary transition-colors p-sm rounded-lg hover:bg-surface-variant">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+            </button>
+        </div>
+        <!-- Scrollable Content -->
+        <div class="p-lg overflow-y-auto flex-1 flex flex-col gap-xl">
+            <!-- Total Progress Summary -->
+            <div class="flex flex-col gap-sm">
+                <div class="flex justify-between items-center mb-xs">
+                    <span class="font-headline-md text-primary">Total Progress</span>
+                    <span class="font-headline-md text-primary">75%</span>
+                </div>
+                <div class="w-full bg-surface-variant rounded-full h-4 overflow-hidden">
+                    <div class="bg-primary-container h-4 rounded-full transition-all duration-500" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="h-px bg-surface-border w-full"></div>
+            <!-- Individual Progress Sections -->
+            <div class="flex flex-col gap-lg">
+                <!-- Market -->
+                <div class="flex flex-col gap-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="font-body-md text-on-surface font-medium">Market (시장)</span>
+                        <span class="font-label-sm text-on-surface-variant px-sm py-xs bg-surface-variant rounded-full">Completed</span>
+                    </div>
+                    <div class="flex items-center gap-md">
+                        <div class="flex-1 bg-surface-variant rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary-container h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <span class="font-body-sm text-primary-container font-semibold w-10 text-right">100%</span>
+                    </div>
+                </div>
+                <!-- Regulation -->
+                <div class="flex flex-col gap-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="font-body-md text-on-surface font-medium">Regulation (규제)</span>
+                        <span class="font-label-sm text-on-surface-variant px-sm py-xs bg-surface-variant rounded-full">Completed</span>
+                    </div>
+                    <div class="flex items-center gap-md">
+                        <div class="flex-1 bg-surface-variant rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary-container h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <span class="font-body-sm text-primary-container font-semibold w-10 text-right">100%</span>
+                    </div>
+                </div>
+                <!-- Product -->
+                <div class="flex flex-col gap-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="font-body-md text-on-surface font-medium">Product (상품)</span>
+                        <span class="font-label-sm text-primary px-sm py-xs bg-primary/10 rounded-full animate-pulse">Analyzing...</span>
+                    </div>
+                    <div class="flex items-center gap-md">
+                        <div class="flex-1 bg-surface-variant rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary-container h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <span class="font-body-sm text-primary-container font-semibold w-10 text-right">60%</span>
+                    </div>
+                </div>
+                <!-- System -->
+                <div class="flex flex-col gap-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="font-body-md text-on-surface font-medium">System (시스템)</span>
+                        <span class="font-label-sm text-on-surface-variant px-sm py-xs bg-surface-variant rounded-full">Pending</span>
+                    </div>
+                    <div class="flex items-center gap-md">
+                        <div class="flex-1 bg-surface-variant rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary-container h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <span class="font-body-sm text-primary-container font-semibold w-10 text-right">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="p-lg border-t border-surface-border bg-surface-light flex items-center justify-end gap-md">
+            <button class="px-lg py-sm font-label-md text-label-md text-primary bg-transparent hover:bg-surface-variant rounded-lg transition-colors">
+                Cancel
+            </button>
+            <button class="px-lg py-sm font-label-md text-label-md text-on-surface-variant bg-surface-variant rounded-lg shadow-sm cursor-not-allowed flex items-center gap-sm" disabled="">
+                View Report (보고서 보기)
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">lock</span>
+            </button>
+        </div>
+    </div>
+</div>
+</body></html>

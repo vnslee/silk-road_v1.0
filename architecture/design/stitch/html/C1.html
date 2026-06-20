@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en" style=""><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Chatbot Popup</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#410007",
+                        "tertiary": "#4d000a",
+                        "on-primary-fixed-variant": "#1c4489",
+                        "surface-light": "#F8F9FA",
+                        "surface-container-high": "#e9e8e7",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-border": "#DCDCDC",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-secondary": "#ffffff",
+                        "primary": "#00204e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-bright": "#fbf9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001a43",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#001b3d",
+                        "accent-red": "#E63946",
+                        "outline-variant": "#c4c6d2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "secondary-container": "#599bfe",
+                        "text-disabled": "#BEBEBE",
+                        "surface-tint": "#395da2",
+                        "primary-fixed-dim": "#aec6ff",
+                        "on-surface": "#1b1c1c",
+                        "outline": "#747782",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#303031",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed-variant": "#92001c",
+                        "background": "#fbf9f9",
+                        "on-surface-variant": "#434751",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7d9fe9",
+                        "surface-variant": "#e3e2e2",
+                        "surface-dim": "#dbdad9",
+                        "inverse-primary": "#aec6ff",
+                        "surface": "#fbf9f9",
+                        "text-secondary": "#555555",
+                        "surface-container": "#efeded",
+                        "on-primary": "#ffffff",
+                        "secondary": "#005db7",
+                        "text-primary": "#000000",
+                        "on-secondary-container": "#003268",
+                        "primary-container": "#003478",
+                        "on-tertiary-container": "#ff7576",
+                        "tertiary-container": "#750015",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "margin-desktop": "48px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": [
+                            "Hanken Grotesk"
+                        ],
+                        "display-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "label-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "label-sm": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-lg-mobile": [
+                            "Hanken Grotesk"
+                        ]
+                    },
+                    "fontSize": {
+                        "body-sm": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "display-lg": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "label-md": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "label-sm": [
+                            "11px",
+                            {
+                                "lineHeight": "14px",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+    </style>
+    <link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/></head>
+<body class="h-full bg-background font-body-md text-body-md text-on-background overflow-hidden relative">
+<!-- Background Map Context (Dimmed) -->
+<!-- Modal Backdrop -->
+<div class="min-h-screen bg-background flex items-center justify-center p-md">
+    <div class="w-full max-w-2xl h-[70vh] max-h-[800px] rounded-xl shadow-[0_12px_24px_rgba(0,32,78,0.16)] flex flex-col overflow-hidden relative z-50 bg-surface-container-lowest">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-lg py-md border-surface-border">
+            <div class="flex items-center gap-md">
+                <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+                    <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                </div>
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary m-0 p-0 leading-tight">Diagnostic Assistant</h2>
+                    <p class="font-label-sm text-label-sm text-text-secondary m-0 p-0 uppercase tracking-widest mt-1">Powered by Hyundai Capital AI</p>
+                </div>
+            </div>
+            <button class="w-8 h-8 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-lowest">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Chat Area -->
+        <div class="flex-1 overflow-y-auto p-lg flex flex-col gap-lg">
+            <!-- AI Message -->
+            <div class="flex gap-md max-w-[85%]">
+                <div class="w-8 h-8 rounded-full bg-primary-container flex-shrink-0 flex items-center justify-center mt-1">
+                    <span class="material-symbols-outlined text-on-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-surface border border-surface-border rounded-2xl rounded-tl-sm p-md shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
+                    <p class="font-body-md text-body-md text-on-surface">Hello. I am the Hyundai Capital Diagnostic Assistant. How can I assist you with global market analysis or internal portfolio diagnostics today?</p>
+                </div>
+            </div>
+            <!-- User Message -->
+            <div class="flex gap-md max-w-[85%] self-end flex-row-reverse">
+                <div class="w-8 h-8 rounded-full bg-secondary-container flex-shrink-0 flex items-center justify-center mt-1">
+                    <span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">person</span>
+                </div>
+                <div class="bg-primary text-on-primary rounded-2xl rounded-tr-sm p-md shadow-[0_4px_8px_rgba(0,32,78,0.08)]">
+                    <p class="font-body-md text-body-md text-on-primary">Can you summarize the recent mobility financing trends in the APAC region?</p>
+                </div>
+            </div>
+            <!-- AI Message (Typing) -->
+            <div class="flex gap-md max-w-[85%]">
+                <div class="w-8 h-8 rounded-full bg-primary-container flex-shrink-0 flex items-center justify-center mt-1">
+                    <span class="material-symbols-outlined text-on-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-surface border border-surface-border rounded-2xl rounded-tl-sm px-lg py-md shadow-[0_4px_8px_rgba(0,32,78,0.04)] flex items-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-outline animate-bounce" style="animation-delay: 0ms;"></div>
+                    <div class="w-2 h-2 rounded-full bg-outline animate-bounce" style="animation-delay: 150ms;"></div>
+                    <div class="w-2 h-2 rounded-full bg-outline animate-bounce" style="animation-delay: 300ms;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Mode Selector & Input Area Container -->
+        <div class="border-surface-border px-lg py-md flex flex-col gap-md shadow-[0_-4px_12px_rgba(0,32,78,0.04)] relative z-10">
+            <!-- Mode Selector -->
+            <div class="flex items-center justify-center mb-sm">
+                <div class="bg-surface-container-high rounded-full p-1 inline-flex border border-surface-border">
+                    <button class="px-md py-sm rounded-full font-label-md text-label-md bg-surface-container-lowest text-primary shadow-[0_2px_4px_rgba(0,32,78,0.08)] transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[16px]">database</span>
+                        Internal Data
+                    </button>
+                    <button class="px-md py-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[16px]">travel_explore</span>
+                        External Research
+                    </button>
+                </div>
+            </div>
+            <!-- Input Area -->
+            <div class="flex items-center gap-sm">
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-variant hover:text-primary transition-colors focus:outline-none flex-shrink-0">
+                    <span class="material-symbols-outlined">attach_file</span>
+                </button>
+                <div class="flex-1 relative">
+                    <input class="w-full h-[48px] bg-surface rounded-lg border border-surface-border pl-md pr-[80px] font-body-md text-body-md text-on-surface placeholder:text-text-disabled focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Type your query..." type="text"/>
+                    <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        <button class="w-8 h-8 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-variant hover:text-primary transition-colors focus:outline-none">
+                            <span class="material-symbols-outlined text-[20px]">mic</span>
+                        </button>
+                        <button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors focus:outline-none shadow-[0_2px_4px_rgba(0,32,78,0.16)]">
+                            <span class="material-symbols-outlined text-[18px]">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="font-label-sm text-label-sm text-text-disabled m-0">AI-generated responses may contain inaccuracies. Please verify important information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body></html>

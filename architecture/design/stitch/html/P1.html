@@ -1,0 +1,307 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Hyundai Capital Diagnostic</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "accent-red": "#E63946",
+                        "surface-bright": "#fbf9f9",
+                        "on-primary-fixed-variant": "#1c4489",
+                        "tertiary-fixed": "#ffdad8",
+                        "primary-fixed-dim": "#aec6ff",
+                        "inverse-surface": "#303031",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#005db7",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#92001c",
+                        "secondary-fixed": "#d6e3ff",
+                        "tertiary": "#4d000a",
+                        "inverse-primary": "#aec6ff",
+                        "primary-container": "#003478",
+                        "on-primary-container": "#7d9fe9",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#003268",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-border": "#DCDCDC",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed": "#410007",
+                        "surface-variant": "#e3e2e2",
+                        "on-tertiary-container": "#ff7576",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline": "#747782",
+                        "surface-light": "#F8F9FA",
+                        "text-secondary": "#555555",
+                        "on-primary-fixed": "#001a43",
+                        "surface-tint": "#395da2",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-surface-variant": "#434751",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c6d2",
+                        "text-disabled": "#BEBEBE",
+                        "secondary-container": "#599bfe",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-secondary": "#ffffff",
+                        "background": "#fbf9f9",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf9f9",
+                        "on-background": "#1b1c1c",
+                        "text-primary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "primary": "#00204e",
+                        "tertiary-container": "#750015",
+                        "on-surface": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #fbf9f9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill { font-variation-settings: 'FILL' 1; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c4c6d2; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #747782; }
+
+        /* Chart Animations */
+        @keyframes drawBar { from { height: 0; } to { height: var(--target-height); } }
+        .animate-bar { animation: drawBar 1s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<div class="flex flex-1 overflow-hidden">
+    <!-- SideNavBar -->
+    <!-- Main Canvas Area -->
+    <main class="flex-1 bg-background flex items-center justify-center p-md">
+        <!-- Global Map Background Context (Simulated) -->
+        <!-- Country Information Popup (P1 Modal Simulation) -->
+        <div class="relative z-10 max-w-5xl mx-auto border border-surface-border rounded-xl shadow-[0_4px_8px_rgba(0,32,78,0.12)] flex flex-col h-[calc(100vh-160px)] bg-surface-container-lowest">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-start p-lg border-surface-border rounded-t-xl shrink-0">
+                <div class="flex items-center gap-md">
+                    <div class="w-16 h-12 rounded shadow-sm overflow-hidden border border-surface-border flex-shrink-0" data-alt="A crisp, vibrant national flag of South Korea, perfectly rectangular, presented in a clean, brightly lit corporate context without any distressing or stylization." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCktFXWsI3bn8GPCUiYFBqwh4BCUqsBMjGRlKcDMQzKDk44qsNybE_IJlavCOozncp5Y-fzwk_tcVQK7yWqzZmdOtBOism8I-pvDQafTyZo_EdVA2sduV528OI_xlXnA8zKV7n2cKlbgECNTEvsS1Yjy2EfFqzvMesEDKZkr6pPhvDfox4S5pSjKFZqJUZNTwbGyFlEMdfT5ICKVXzr_1-wbDeVqe6htmVOjxJprI0tlFbSijdQeux7ovCzBuGh_c2etc2hr3-i8juu')"></div>
+                    <div>
+                        <div class="flex items-baseline gap-sm">
+                            <h2 class="font-headline-lg text-headline-lg text-primary">South Korea</h2>
+                            <span class="font-body-lg text-body-lg text-on-surface-variant">대한민국</span>
+                        </div>
+                        <div class="flex items-center gap-sm mt-xs">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-label-sm bg-[#e8f5e9] text-[#2e7d32] border border-[#a5d6a7]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2e7d32] mr-1.5"></span>
+                                    Operational
+                                </span>
+                            <span class="font-label-sm text-label-sm text-outline">Region: APAC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-sm">
+                    <button class="flex items-center gap-xs px-4 py-2 border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">play_circle</span>
+                        Simulation
+                    </button>
+                    <button aria-label="Close" class="p-2 text-on-surface-variant hover:text-accent-red hover:bg-error-container rounded-full transition-colors">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Content Area -->
+            <div class="flex-1 overflow-y-auto p-lg grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+                <!-- General Information & Charts -->
+                <div class="flex flex-col gap-lg">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-secondary">monitoring</span>
+                            General Information
+                        </h3>
+                        <div class="grid grid-cols-2 gap-sm mb-lg">
+                            <div class="p-md border border-surface-border rounded-lg bg-surface flex flex-col gap-xs">
+                                <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Population</span>
+                                <span class="font-body-lg text-body-lg font-semibold text-on-surface">51.74M</span>
+                            </div>
+                            <div class="p-md border border-surface-border rounded-lg bg-surface flex flex-col gap-xs">
+                                <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Currency</span>
+                                <span class="font-body-lg text-body-lg font-semibold text-on-surface">KRW (₩)</span>
+                            </div>
+                        </div>
+                        <!-- GDP Growth Chart Area (Simulated) -->
+                        <div class="border border-surface-border rounded-lg p-md bg-surface mb-md">
+                            <div class="flex justify-between items-center mb-md">
+                                <h4 class="font-label-md text-label-md text-on-surface-variant">GDP Growth Trend (YOY)</h4>
+                                <span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-2 py-0.5 rounded">+2.4%</span>
+                            </div>
+                            <div class="h-32 flex items-end justify-between gap-1 mt-auto border-b border-surface-border pb-1 px-2 relative">
+                                <!-- Horizontal grid lines -->
+                                <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                                    <div class="w-full border-t border-surface-variant opacity-50"></div>
+                                    <div class="w-full border-t border-surface-variant opacity-50"></div>
+                                    <div class="w-full border-t border-surface-variant opacity-50"></div>
+                                    <div class="absolute w-full border-t-2 border-dashed border-accent-red/40" style="top: 30%;"><span class="absolute right-0 -top-4 text-[8px] font-bold text-accent-red uppercase">Target 3%</span></div></div>
+                                <!-- Bars -->
+                                <div class="w-1/6 bg-secondary-container rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 40%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2019</span></div>
+                                <div class="w-1/6 bg-accent-red opacity-50 rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 15%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2020</span></div>
+                                <div class="w-1/6 bg-secondary-container rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 65%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2021</span></div>
+                                <div class="w-1/6 bg-secondary-container rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 45%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2022</span></div>
+                                <div class="w-1/6 bg-secondary-container rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 35%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2023</span></div>
+                                <div class="w-1/6 bg-primary rounded-t animate-bar relative group bg-gradient-to-t from-primary/20 to-secondary-container" style="--target-height: 50%;"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] hidden group-hover:block bg-inverse-surface text-on-tertiary px-1 rounded">2024</span></div>
+                            </div>
+                            <div class="flex justify-between mt-1 px-2">
+                                <span class="text-[10px] text-outline">19</span>
+                                <span class="text-[10px] text-outline">24</span>
+                            </div>
+                        </div>
+                        <!-- Inflation Chart Area (Simulated Line) -->
+                        <div class="border border-surface-border rounded-lg p-md bg-surface">
+                            <div class="flex justify-between items-center mb-md">
+                                <h4 class="font-label-md text-label-md text-on-surface-variant">Core Inflation Rate</h4>
+                                <span class="font-label-sm text-label-sm text-accent-red bg-error-container px-2 py-0.5 rounded">3.1%</span>
+                            </div>
+                            <div class="h-24 relative w-full overflow-hidden">
+                                <svg class="w-full h-full stroke-accent-red fill-error-container opacity-50" preserveAspectRatio="none" viewBox="0 0 100 40">
+                                    <path d="M0,35 Q10,35 20,30 T40,25 T60,10 T80,15 T100,5 L100,40 L0,40 Z" stroke="none"></path>
+                                    <path d="M0,35 Q10,35 20,30 T40,25 T60,10 T80,15 T100,5" fill="none" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- System Infrastructure -->
+                <div class="flex flex-col gap-lg border-surface-border pl-lg">
+                    <div class="flex-1 flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-secondary">dns</span>
+                            System Infrastructure
+                        </h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Real-time status of critical regional nodes and data replication health.</p>
+                        <!-- Node Status Table -->
+                        <div class="border border-surface-border rounded-lg overflow-hidden bg-surface flex-1 flex flex-col">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                <tr class="bg-surface-light border-b border-surface-border">
+                                    <th class="p-sm font-label-md text-label-md text-outline font-semibold">Node ID</th>
+                                    <th class="p-sm font-label-md text-label-md text-outline font-semibold">Location</th>
+                                    <th class="p-sm font-label-md text-label-md text-outline font-semibold">Status</th>
+                                    <th class="p-sm font-label-md text-label-md text-outline font-semibold text-right">Latency</th>
+                                    <th class="p-sm font-label-md text-label-md text-outline font-semibold">Performance (24h)</th></tr>
+                                </thead>
+                                <tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-surface-variant">
+                                <tr class="hover:bg-surface-variant transition-colors">
+                                    <td class="p-sm font-mono text-xs">SEL-01A</td>
+                                    <td class="p-sm">Seoul, KR</td>
+                                    <td class="p-sm">
+                                        <div class="flex items-center gap-xs">
+                                            <div class="w-2 h-2 rounded-full bg-secondary"></div> Active
+                                        </div>
+                                    </td>
+                                    <td class="p-sm text-right font-mono text-xs">12ms</td>
+                                    <td class="p-sm w-24"><div class="h-6 w-full"><svg class="w-full h-full stroke-secondary" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,15 L10,12 L20,18 L30,10 L40,14 L50,8 L60,12 L70,5 L80,10 L90,15 L100,12" fill="none" stroke-width="1.5"></path></svg></div></td></tr>
+                                <tr class="hover:bg-surface-variant transition-colors">
+                                    <td class="p-sm font-mono text-xs">SEL-02B</td>
+                                    <td class="p-sm">Seoul, KR</td>
+                                    <td class="p-sm">
+                                        <div class="flex items-center gap-xs">
+                                            <div class="w-2 h-2 rounded-full bg-secondary"></div> Active
+                                        </div>
+                                    </td>
+                                    <td class="p-sm text-right font-mono text-xs">14ms</td>
+                                    <td class="p-sm w-24"><div class="h-6 w-full"><svg class="w-full h-full stroke-secondary" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,15 L10,12 L20,18 L30,10 L40,14 L50,8 L60,12 L70,5 L80,10 L90,15 L100,12" fill="none" stroke-width="1.5"></path></svg></div></td></tr>
+                                <tr class="hover:bg-surface-variant transition-colors bg-error-container/20">
+                                    <td class="p-sm font-mono text-xs">PUS-01A</td>
+                                    <td class="p-sm">Busan, KR</td>
+                                    <td class="p-sm">
+                                        <div class="flex items-center gap-xs text-accent-red">
+                                            <div class="w-2 h-2 rounded-full bg-accent-red animate-pulse"></div> Degraded
+                                        </div>
+                                    </td>
+                                    <td class="p-sm text-right font-mono text-xs text-accent-red">145ms</td>
+                                    <td class="p-sm w-24"><div class="h-6 w-full"><svg class="w-full h-full stroke-secondary" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,15 L10,12 L20,18 L30,10 L40,14 L50,8 L60,12 L70,5 L80,10 L90,15 L100,12" fill="none" stroke-width="1.5"></path></svg></div></td></tr>
+                                <tr class="hover:bg-surface-variant transition-colors">
+                                    <td class="p-sm font-mono text-xs">ICN-01X</td>
+                                    <td class="p-sm">Incheon, KR</td>
+                                    <td class="p-sm">
+                                        <div class="flex items-center gap-xs">
+                                            <div class="w-2 h-2 rounded-full bg-secondary-container"></div> Syncing
+                                        </div>
+                                    </td>
+                                    <td class="p-sm text-right font-mono text-xs">28ms</td>
+                                    <td class="p-sm w-24"><div class="h-6 w-full"><svg class="w-full h-full stroke-secondary" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,15 L10,12 L20,18 L30,10 L40,14 L50,8 L60,12 L70,5 L80,10 L90,15 L100,12" fill="none" stroke-width="1.5"></path></svg></div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="flex justify-end items-center gap-md p-md border-t border-surface-border bg-surface-light rounded-b-xl shrink-0">
+                <button class="px-4 py-2 border border-surface-border bg-surface text-primary font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-colors">
+                    View Full Report
+                </button>
+                <button class="px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-on-primary-fixed transition-colors flex items-center gap-xs active:scale-[0.98]">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    Generate Export
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Footer -->
+
+
+</body></html>

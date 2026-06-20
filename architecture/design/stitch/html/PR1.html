@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Country Diagnostic Report (PR1)</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "accent-red": "#E63946",
+                        "surface-bright": "#fbf9f9",
+                        "on-primary-fixed-variant": "#1c4489",
+                        "tertiary-fixed": "#ffdad8",
+                        "primary-fixed-dim": "#aec6ff",
+                        "inverse-surface": "#303031",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#005db7",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#92001c",
+                        "secondary-fixed": "#d6e3ff",
+                        "tertiary": "#4d000a",
+                        "inverse-primary": "#aec6ff",
+                        "primary-container": "#003478",
+                        "on-primary-container": "#7d9fe9",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#003268",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-border": "#DCDCDC",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed": "#410007",
+                        "surface-variant": "#e3e2e2",
+                        "on-tertiary-container": "#ff7576",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline": "#747782",
+                        "surface-light": "#F8F9FA",
+                        "text-secondary": "#555555",
+                        "on-primary-fixed": "#001a43",
+                        "surface-tint": "#395da2",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-surface-variant": "#434751",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c6d2",
+                        "text-disabled": "#BEBEBE",
+                        "secondary-container": "#599bfe",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-secondary": "#ffffff",
+                        "background": "#fbf9f9",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf9f9",
+                        "on-background": "#1b1c1c",
+                        "text-primary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "primary": "#00204e",
+                        "tertiary-container": "#750015",
+                        "on-surface": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .card-shadow { box-shadow: 0 4px 8px rgba(0, 32, 78, 0.12); }
+    </style>
+</head>
+<body class="bg-surface min-h-screen font-body-md text-text-primary antialiased">
+<!-- Main Content -->
+<div class="w-full flex flex-col relative bg-surface">
+    <header class="border-b border-surface-border px-margin-desktop py-lg shrink-0">
+        <div class="flex justify-between items-start gap-gutter max-w-7xl mx-auto">
+            <div class="flex gap-lg items-center">
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-surface-border shrink-0 bg-surface-container flex items-center justify-center">
+                    <img alt="Country Flag" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiYaux1GdSLvWQNME-USpDBx1sGR5A2Rhs0bD8oVOR7QJnrDnQQRQDhWqV90plqu1CeCamGIxfbZQT_656VC6ZA85CLWgTti4u5SJ-fBI_y9F-lGw_sppZ2D9u1tSxD0dcVDstCjBl4AA68oQOHIZcBEYiSv5utUOalQ6qN1qsXFrlF8rjkAQMRdl-8W2cSomtq5Mg8mXFX_Xq2nr_m_jpruo-gw_s8JXSLBHIPApPIVtrmqysrJZxdW9joTLwd0hm4GXDxICOqbjm"/>
+                </div>
+                <div>
+                    <div class="flex items-center gap-sm mb-xs">
+                        <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">South Korea</h1>
+                        <span class="bg-secondary-container/20 text-secondary px-2 py-1 rounded-sm font-label-sm text-label-sm uppercase tracking-wider">Republic of Korea</span>
+                    </div>
+                    <div class="flex items-center gap-md text-text-secondary font-body-sm text-body-sm">
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-[16px]">tag</span>
+                            <span class="">ID: <span class="font-semibold text-text-primary">KR-2024-Q3-DIAG</span></span>
+                        </div>
+                        <span class="w-[1px] h-4 bg-surface-border"></span>
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                            <span class="">Generated: <span class="text-text-primary">Oct 24, 2024</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 p-margin-desktop">
+        <div class="grid grid-cols-12 gap-gutter max-w-7xl mx-auto">
+            <div class="col-span-8 flex flex-col gap-xl">
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">Executive Summary</h2>
+                    </div>
+                    <div class="prose max-w-none font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        <p class="mb-sm">The South Korean market demonstrates robust resilience in Q3 2024, characterized by stabilized inflationary pressures and a strategic pivot towards high-tech manufacturing exports.</p>
+                        <p class="">However, demographic headwinds and localized real estate sector vulnerabilities present medium-term structural risks.</p>
+                    </div>
+                </section>
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">Key Performance Insights</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-md mb-lg">
+                        <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                            <div class="flex justify-between items-start mb-xs">
+                                <span class="text-label-sm text-text-secondary uppercase">Market Resilience</span>
+                                <span class="material-symbols-outlined text-emerald-800 text-[18px]">trending_up</span>
+                            </div>
+                            <div class="flex items-baseline gap-xs">
+                                <span class="text-headline-md text-primary">84.2</span>
+                                <span class="text-label-sm text-emerald-800">+2.4%</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                            <div class="flex justify-between items-start mb-xs">
+                                <span class="text-label-sm text-text-secondary uppercase">Regulatory Compliance</span>
+                                <span class="material-symbols-outlined text-text-secondary text-[18px]">trending_flat</span>
+                            </div>
+                            <div class="flex items-baseline gap-xs">
+                                <span class="text-headline-md text-primary">91.5</span>
+                                <span class="text-label-sm text-text-secondary">0.0%</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                            <div class="flex justify-between items-start mb-xs">
+                                <span class="text-label-sm text-text-secondary uppercase">Credit Risk Index</span>
+                                <span class="material-symbols-outlined text-accent-red text-[18px]">trending_down</span>
+                            </div>
+                            <div class="flex items-baseline gap-xs">
+                                <span class="text-headline-md text-primary">12.8</span>
+                                <span class="text-label-sm text-accent-red">-1.2%</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                            <div class="flex justify-between items-start mb-xs">
+                                <span class="text-label-sm text-text-secondary uppercase">Export Stability</span>
+                                <span class="material-symbols-outlined text-emerald-800 text-[18px]">trending_up</span>
+                            </div>
+                            <div class="flex items-baseline gap-xs">
+                                <span class="text-headline-md text-primary">76.4</span>
+                                <span class="text-label-sm text-emerald-800">+5.1%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container p-md rounded-lg border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
+                            <span class="font-semibold text-label-md text-primary uppercase">Strategic Recommendation</span>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant leading-relaxed">
+                            Leverage the current export momentum to offset domestic real estate cooling. Prioritize credit monitoring for mid-sized manufacturing firms during the Q4 transition period.
+                        </p>
+                    </div>
+                </section></div>
+            <div class="col-span-4 flex flex-col gap-xl">
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">Status Indicators</h2>
+                    </div>
+                    <div class="flex flex-col gap-md">
+                        <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                            <div class="flex items-center gap-sm">
+                                <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-secondary text-[18px]">database</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-text-primary">Data Integrity</span>
+                            </div>
+                            <div class="flex items-center gap-xs bg-emerald-100/50 text-emerald-800 px-2 py-1 rounded-full border border-emerald-200">
+                                <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                <span class="font-label-sm text-label-sm uppercase tracking-wide">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">radar</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">Risk Assessment</h2>
+                    </div>
+                    <div class="relative flex flex-col items-center">
+                        <!-- Radar Chart Visualization -->
+                        <div class="w-full aspect-square relative flex items-center justify-center mb-md">
+                            <svg class="w-full h-full overflow-visible" viewbox="0 0 200 200">
+                                <!-- Background Polygons -->
+                                <polygon fill="none" points="100,20 180,100 100,180 20,100" stroke="#DCDCDC" stroke-width="1"></polygon>
+                                <polygon fill="none" points="100,40 160,100 100,160 40,100" stroke="#DCDCDC" stroke-width="1"></polygon>
+                                <polygon fill="none" points="100,60 140,100 100,140 60,100" stroke="#DCDCDC" stroke-width="1"></polygon>
+                                <polygon fill="none" points="100,80 120,100 100,120 80,100" stroke="#DCDCDC" stroke-width="1"></polygon>
+                                <!-- Axes -->
+                                <line stroke="#DCDCDC" stroke-width="1" x1="100" x2="100" y1="20" y2="180"></line>
+                                <line stroke="#DCDCDC" stroke-width="1" x1="20" x2="180" y1="100" y2="100"></line>
+                                <!-- Data Polygon (Navy/Blue Palette) -->
+                                <polygon fill="rgba(0, 32, 78, 0.15)" points="100,45 165,100 100,155 55,100" stroke="#00204e" stroke-width="2"></polygon>
+                                <!-- Data Points -->
+                                <circle cx="100" cy="45" fill="#00204e" r="3"></circle>
+                                <circle cx="165" cy="100" fill="#00204e" r="3"></circle>
+                                <circle cx="100" cy="155" fill="#00204e" r="3"></circle>
+                                <circle cx="55" cy="100" fill="#00204e" r="3"></circle>
+                            </svg>
+                            <!-- Labels -->
+                            <span class="absolute top-0 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Market</span>
+                            <span class="absolute right-0 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Regulatory</span>
+                            <span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">System</span>
+                            <span class="absolute left-0 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Env.</span>
+                        </div>
+                        <!-- Score Indicators -->
+                        <div class="grid grid-cols-2 gap-sm w-full">
+                            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <span class="text-label-sm text-text-secondary uppercase">Market</span>
+                                <span class="text-headline-md text-primary">7.2</span>
+                            </div>
+                            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <span class="text-label-sm text-text-secondary uppercase">Regulatory</span>
+                                <span class="text-headline-md text-primary">8.1</span>
+                            </div>
+                            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <span class="text-label-sm text-text-secondary uppercase">Environmental</span>
+                                <span class="text-headline-md text-primary">6.9</span>
+                            </div>
+                            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <span class="text-label-sm text-text-secondary uppercase">System</span>
+                                <span class="text-headline-md text-primary">5.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </section></div>
+        </div>
+    </main>
+</div>
+</body></html>
