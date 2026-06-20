@@ -25,4 +25,4 @@ Thumbs.db
 app/backend/storage/
 
 # Research compilation artifacts
-data/*_Research_*.txt
+data/*.txt
