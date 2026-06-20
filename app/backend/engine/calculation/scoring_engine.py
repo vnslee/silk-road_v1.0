@@ -8,7 +8,11 @@
 import json, os, re, sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(BASE, "data")
+# engine/calculation → app/backend  (storage가 위치한 backend 루트)
+BACKEND = os.path.dirname(os.path.dirname(BASE))
+STORAGE = os.path.join(BACKEND, "storage")
+DATA = os.path.join(STORAGE, "data")
+REPORT = os.path.join(STORAGE, "report")
 
 def load(p):
     with open(p, encoding="utf-8") as f: return json.load(f)
@@ -17,10 +21,10 @@ def items_map(c): return {it["item"]: it for it in c["items"]}
 import glob
 def load_country(code):
     """국가 코드로 latest country 로드"""
-    return load(f"{DATA}/country/{code}/{code}_latest.json")
+    return load(f"{DATA}/research/country/{code}/{code}_latest.json")
 def find_baseline(region):
     """해당 region에서 is_baseline:true 인 국가의 latest 로드. 없으면 None"""
-    for latest in glob.glob(f"{DATA}/country/*/*_latest.json"):
+    for latest in glob.glob(f"{DATA}/research/country/*/*_latest.json"):
         c=load(latest)
         if c.get("region")==region and c.get("is_baseline"):
             return c
@@ -185,7 +189,7 @@ def due_diligence(country, active, th=3):
 def run(target_code, extra_items=None):
     internal=load(f"{DATA}/internal/internal_latest.json")
     set_fx(internal)
-    cpath=f"{DATA}/country/{target_code}/{target_code}_latest.json"
+    cpath=f"{DATA}/research/country/{target_code}/{target_code}_latest.json"
     if not os.path.exists(cpath):
         raise SystemExit(f"[안내] {target_code} country 데이터 없음 — 먼저 조사(리서치)가 필요합니다.")
     target=load_country(target_code)
@@ -232,9 +236,11 @@ def run(target_code, extra_items=None):
       },
       "due_diligence":due_diligence(target, active)
     }
-    out=f"{DATA}/report/rpt_{target_code}_2026-06-18T1500.json"
+    outdir=f"{REPORT}/country/{target_code}/data"
+    os.makedirs(outdir, exist_ok=True)
+    out=f"{outdir}/{target_code}_rpt_2026-06-18T1500.json"
     json.dump(rpt,open(out,"w",encoding="utf-8"),ensure_ascii=False,indent=2)
-    import shutil; shutil.copy(out,f"{DATA}/report/rpt_latest.json")
+    import shutil; shutil.copy(out,f"{outdir}/{target_code}_rpt_latest.json")
     print(f"대상 {target_code}({region}) ↔ 베이스라인 {bcode} | 활성 {rpt['active_groups']} {len(active)}개")
     print(f"매력도 {A} 난이도 {D} ({quadrant(A,D)}) | 유사도 {S} 감축 {int(disc*100)}% 구축비 {build}")
     return rpt

@@ -1,0 +1,200 @@
+{
+  "country": "United Kingdom",
+  "country_ko": "영국",
+  "code": "UK",
+  "region": "EU",
+  "is_baseline": true,
+  "currency": "GBP",
+  "schema_version": "1.0",
+  "data_year": 2025,
+  "fetched_at": "2026-06-18T14:32:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "신규취급 £55bn·잔액 £92bn의 성숙·대형 시장으로 신차 금융침투율 85%+, PCP 중심의 안정적 상품구조와 세계 수준의 CB·디지털 인프라를 보유. 다만 모터파이낸스 커미션 redress(업계 약 £11bn 추산, 소비자 환급 £7.5bn)가 2026~2027년 진행되며 자본·평판 리스크를 압박. 100% 외국인 소유·무외환통제·배당 원천징수 0%로 자본효율은 우수. 신규 진입보다 EU 시스템·자금조달·데이터 허브로서의 활용 가치가 큼.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 55000, "unit": "GBP_M", "direction": "up", "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {"year": 2021, "value": 46000},
+          {"year": 2022, "value": 48000},
+          {"year": 2023, "value": 50000},
+          {"year": 2024, "value": 52000},
+          {"year": 2025, "value": 55000}
+        ],
+        "forecast": [
+          {"year": 2026, "value": 58000},
+          {"year": 2027, "value": 61000},
+          {"year": 2028, "value": 64000},
+          {"year": 2029, "value": 67000},
+          {"year": 2030, "value": 70000}
+        ],
+        "cagr_hist": 4.6, "cagr_forecast": 4.9, "estimated": true
+      },
+      "tier": 2, "source": "FLA Motor Finance 통계 (회원사 신규취급, 신·중고차 £55bn)",
+      "insight": "사적 신차 등록의 85%+를 커버하는 대형 시장. 가치성장은 완만한 한 자릿수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "오토금융 성장률(CAGR)",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 4.9, "unit": "%", "direction": "up", "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 2, "source": "FLA 2025 가이던스, Mintel UK Car Finance Market Report 2025",
+      "insight": "신차 금융 신규취급 볼륨이 2021년 이래 처음으로 2025년 연간 플러스 전환. 성숙 시장 특성상 저성장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(신차)",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 85, "unit": "%", "direction": "up", "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1, "source": "FCA CP25/27 Technical Annex 2; FLA (사적 신차 약 88% 펀딩)",
+      "insight": "POS 모터파이낸스가 사적 신차의 80~88%. 침투율 이미 포화 — 헤드룸 제한적.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 9.5, "unit": "%", "direction": "up", "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1, "source": "FCA CP25/27 (PCP 프라임 약 5%, 신차 PCP/HP 8.9~12.9% 군집, 서브프라임 가중평균 33%)",
+      "insight": "프라임은 저금리(캡티브 보조), 서브프라임 APR 33%로 스프레드 큼. 금리상한 없어 가격 자유도 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 60, "unit": "%", "direction": "down", "axis": "difficulty",
+      "timeseries": null,
+      "tier": 1, "source": "FCA CP25/27 (캡티브가 신차 모터파이낸스 대부분 차지)",
+      "insight": "VWFS·Toyota FS·BMW 등 캡티브가 신차 지배, OEM 저금리 보조. 신차 세그먼트 진입난이도 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "1위사 점유율",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 18, "unit": "%", "direction": "down", "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3, "source": "Mordor Intelligence, FCA (Black Horse/VWFS/Santander Consumer 리더, 단일사 1/5 미만)",
+      "insight": "중간 집중도. 어느 단일사도 originations의 20% 미만 — 신규 진입 여지 존재.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "해당국 정성 요약",
+      "category": "business", "role": "context", "tier_group": "mvp",
+      "value": "성숙·대형 시장. PCP 중심, 캡티브 신차 지배, 은행/비은행 독립계 공존. FCA redress가 최대 변수.",
+      "context_type": "descriptive",
+      "tier": 1, "source": "FCA CP25/27, FLA",
+      "insight": "EU 시스템·자금조달 허브로 활용 + redress 후 run-off 포트폴리오 M&A 기회 주목.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "100% 허용", "gate_result": "PASS", "gate_scope": "country", "segment": null,
+      "tier": 1, "source": "FCA (인가는 국적 아닌 threshold conditions·fit&proper)",
+      "insight": "지분 제한 없음. 단독 진출 가능, JV 불필요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외환 송금 자유도",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "외환 통제 없음, 송금 자유", "gate_result": "PASS", "gate_scope": "country", "segment": null,
+      "tier": 1, "source": "PwC UK, Pinsent Masons",
+      "insight": "외환 통제 없고 배당 원천징수 0% — 본국 회수 자유. 자본효율 최상.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "소비자 모터파이낸스=FCA Full Permission 필수/취득가능, B2B=원칙 무규제",
+      "gate_result": "PASS", "gate_scope": "segment", "segment": "consumer_credit",
+      "tier": 1, "source": "FCA, SAF (Full vs Limited Permission)",
+      "insight": "소비자금융은 Full Permission(자본·SMCR·Consumer Duty) 필수, B2B는 원칙 무규제. 외국사 취득 가능.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "금리 상한 규제",
+      "category": "shared", "role": "score", "tier_group": "mvp",
+      "value": "일반 금리상한 없음 (payday만 별도 상한)", "unit": "regime", "direction": "up", "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1, "source": "FCA",
+      "insight": "모터파이낸스 APR 시장 결정 — 마진 자유도 높음. 상품 로직에 상한 분기 불필요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "최저자본금",
+      "category": "shared", "role": "score", "tier_group": "mvp",
+      "value": "활동별 산정(MIPRU/IPRU)", "unit": "GBP", "direction": "down", "axis": "difficulty",
+      "timeseries": null,
+      "tier": 1, "source": "FCA Handbook MIPRU",
+      "insight": "고정 최저자본 아닌 활동별 적정 자본자원 요구. 결제기관은 €20k~125k 별도.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "UK GDPR + DPA 2018, EU adequacy 유지, 강제 현지화 없음",
+      "gate_result": "PASS", "gate_scope": "operating_model", "segment": null,
+      "tier": 1, "source": "UK GDPR, Data Protection Act 2018",
+      "insight": "EU↔UK 데이터 이전 자유(adequacy). 공통 시스템·CB 연동에 유리, 아키텍처 제약 낮음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": "NETSOL(NFS Ascent), Solifi, Sopra Banking 등 글로벌 패키지", "unit": "match", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 2, "source": "NETSOL, Solifi",
+      "insight": "EU 권역 베이스라인. NETSOL 등 글로벌 벤더 생태계의 기준점.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "솔루션 유형",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": "외부 패키지(NETSOL/Solifi/Sopra)", "unit": "type", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 3, "source": "업계",
+      "insight": "패키지 중심. 베이스라인으로서 신규국 정합도 비교의 기준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": 5, "unit": "maturity_1to5", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 2, "source": "Experian, ACCIS (Experian/Equifax/TransUnion 3대 CRA)",
+      "insight": "3대 CRA + 오픈뱅킹 보완. 성숙도 최상. 단 보고는 법적 의무 아닌 상호주의 관행.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "디지털 채널 성숙도",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": 5, "unit": "maturity_1to5", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 3, "source": "Mordor Intelligence, Blue Motor Finance",
+      "insight": "승인 80%를 60초 내 자동처리. 딜러 POS가 originations 71% 유지하나 D2C 급성장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "라이선스 체제(세그먼트별)",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "소비자=FCA Full Permission(자본·SMCR·Consumer Duty), 딜러 중개=Limited Permission, B2B=원칙 무규제",
+      "gate_result": "PASS", "gate_scope": "segment", "segment": "consumer_credit",
+      "tier": 1, "source": "FCA, SAF",
+      "insight": "세그먼트별 인가 부담 차등. 소비자금융 컴플라이언스 공수 큼(SMCR·Consumer Duty).",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared", "role": "score", "tier_group": "mvp",
+      "value": 2, "unit": "ease_1to5", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 1, "source": "CCA 1974 s.99, Advice NI",
+      "insight": "HP/PCP는 1/3 초과 상환시 법원명령 필요(protected goods), 50% 상환시 VT 권리로 소비자 보호 강함 → 회수 난이도 높음. 리스(PCH)는 VT 없어 상대적 용이.",
+      "insight_ai_generated": true
+    }
+  ]
+}

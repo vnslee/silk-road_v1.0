@@ -1,0 +1,74 @@
+{
+  "version": "1.2",
+  "updated_at": "2026-06-01T00:00:00+09:00",
+
+  "country_assets": {
+    "UK":  { "solution": "NetSol",     "build_cost": 5000, "build_months": 18, "reuse_factor": 0.70 },
+    "USA": { "solution": "Salesforce", "build_cost": 6000, "build_months": 20, "reuse_factor": 0.50 },
+    "AU":  { "solution": "Self-built",  "build_cost": 4500, "build_months": 16, "reuse_factor": 1.00 }
+  },
+
+  "similarity_brackets": [
+    { "min": 80, "max": 100, "discount": 0.40 },
+    { "min": 70, "max": 79,  "discount": 0.30 },
+    { "min": 60, "max": 69,  "discount": 0.20 },
+    { "min": 50, "max": 59,  "discount": 0.10 },
+    { "min": 0,  "max": 49,  "discount": 0.00 }
+  ],
+
+  "maintenance_rate": 0.18,
+
+  "fx": {
+    "base": "EUR",
+    "as_of": "2026-06-01",
+    "rates": { "EUR": 1.0, "PLN": 0.23, "GBP": 1.17, "USD": 0.92 },
+    "note": "통화→base(EUR) 환산율. <CCY>_M 단위 금액 항목(시장규모 등) 정규화 전 EUR로 통일. 사람이 관리."
+  },
+
+  "weights": {
+    "business": {
+      "오토금융/리스 시장규모": 0.30,
+      "오토금융 성장률(CAGR)": 0.20,
+      "금융 이용률(신차)": 0.20,
+      "평균 금리/APR": 0.15,
+      "캡티브 강도(점유율)": 0.15,
+      "1위사 점유율": 0.15,
+      "신차 판매대수": 0.10,
+      "금융 이용률(중고차)": 0.10,
+      "구매 패턴(할부·리스 비중)": 0.10,
+      "법인세율": 0.10,
+      "이자소득 원천징수(비거주자)": 0.05,
+      "배당 원천징수(비거주자)": 0.05
+    },
+    "it": {
+      "솔루션 벤더": 0.40,
+      "신용정보(CB) 인프라": 0.20,
+      "디지털 채널 성숙도": 0.15,
+      "차량회수 절차 용이성": 0.10,
+      "솔루션 유형": 0.0,
+      "추심 규제": 0.05,
+      "법적 회수 소요기간": 0.05,
+      "충당금 규정": 0.05,
+      "연체 분류 기준": 0.05,
+      "국외이전 제한": 0.05,
+      "결제·정산 인프라": 0.05,
+      "디지털 딜러 성숙도": 0.05
+    }
+  },
+
+  "scoring_rules": {
+    "default_active": ["mvp"],
+    "always_excluded": []
+  },
+
+  "quick_win_rules": {
+    "weights": { "similarity": 0.40, "attractiveness": 0.35, "ease": 0.25 },
+    "thresholds": {
+      "quick_win_score": 55,
+      "min_similarity": 60,
+      "min_attractiveness": 40,
+      "max_difficulty": 65
+    },
+    "note": "퀵윈 = 게이트 통과 + 점수 임계 충족. ease = (100 - difficulty). 베이스라인 재사용률(유사도) 최우선 가중."
+  }
+}

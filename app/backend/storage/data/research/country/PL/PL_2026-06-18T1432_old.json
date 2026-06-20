@@ -1,0 +1,111 @@
+{
+  "country": "Poland",
+  "country_ko": "폴란드",
+  "region": "EU",
+  "is_baseline": false,
+  "currency": "PLN",
+  "schema_version": "1.0",
+  "data_year": 2025,
+  "fetched_at": "2026-06-18T14:32:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "할부 중심에서 리스 침투가 시작되는 변곡점 시장. EU 규제 정합성 높아 NetSol 베이스라인 재사용률 양호하나, 소비자신용 면허(KNF)·감사회 요건이 진입 부담. B2B 리스로 우선 진입 후 소비자신용 확장 전략 유효.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 4200, "unit": "USD_M", "direction": "up", "axis": "attractiveness",
+      "timeseries": {
+        "history":  [{"year":2021,"value":2800},{"year":2022,"value":3100},{"year":2023,"value":3500},{"year":2024,"value":3850},{"year":2025,"value":4200}],
+        "forecast": [{"year":2026,"value":4620},{"year":2027,"value":5080},{"year":2028,"value":5590},{"year":2029,"value":6150},{"year":2030,"value":6760}],
+        "cagr_hist": 10.7, "cagr_forecast": 10.0, "estimated": true
+      },
+      "tier": 2, "source": "폴란드 리스협회(ZPL) 2025 리포트",
+      "insight": "두 자릿수 성장 지속 전망. 단 캡티브 선점이 성장 과실 분배의 변수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 12.5, "unit": "%", "direction": "up", "axis": "attractiveness",
+      "timeseries": {
+        "history":  [{"year":2021,"value":9.0},{"year":2022,"value":10.5},{"year":2023,"value":13.0},{"year":2024,"value":12.8},{"year":2025,"value":12.5}],
+        "forecast": [{"year":2026,"value":12.0},{"year":2027,"value":11.5},{"year":2028,"value":11.0},{"year":2029,"value":10.8},{"year":2030,"value":10.5}],
+        "cagr_hist": 8.6, "cagr_forecast": -3.4, "estimated": true
+      },
+      "tier": 2, "source": "NBP 통계",
+      "insight": "금리 하향 추세지만 마진 여전히 매력적. 소비자신용 금리상한(15%) 내 운신 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business", "role": "score", "tier_group": "mvp",
+      "value": 45, "unit": "%", "direction": "down", "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3, "source": "업계 추정",
+      "insight": "캡티브 45%로 중간 수준. 독립계 진입 여지 있으나 VW·Toyota 파이낸스 선점 구간 존재.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "100% 허용", "gate_result": "PASS", "gate_scope": "country", "segment": null,
+      "tier": 1, "source": "폴란드 외국인투자법",
+      "insight": "지분 제한 없음. 단독 진출 가능, JV 불필요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "소비자신용=KNF 등록 필요/취득가능, B2B리스=무면허",
+      "gate_result": "PASS", "gate_scope": "segment", "segment": "consumer_credit",
+      "tier": 1, "source": "KNF 규정",
+      "insight": "B2B 리스는 무면허로 즉시 가능. 소비자신용은 KNF 등록+100만 PLN+감사회 — 단계적 진입 권장.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared", "role": "gate", "tier_group": "mvp",
+      "value": "EU GDPR 적용, 역내 이전 자유",
+      "gate_result": "PASS", "gate_scope": "operating_model", "segment": null,
+      "tier": 1, "source": "GDPR / 폴란드 개인정보보호법",
+      "insight": "EU 역내 데이터 이전 자유로워 본사(EU) 연동 모델 가능. 아키텍처 제약 낮음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": "NetSol 계열 다수 / 일부 자체", "unit": "match", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 2, "source": "시장 조사",
+      "insight": "EU 베이스라인(NetSol)과 동일 생태계 — 재사용률 높음. 유사도 점수 견인 핵심.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it", "role": "score", "tier_group": "mvp",
+      "value": 4, "unit": "maturity_1to5", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 1, "source": "BIK 공식",
+      "insight": "BIK 성숙도 높고 보고기관 의무 명확. 영국 CB 연동 패턴 재사용 가능.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared", "role": "score", "tier_group": "mvp",
+      "value": 3, "unit": "ease_1to5", "direction": "up", "axis": "similarity",
+      "timeseries": null,
+      "tier": 2, "source": "현지 법무 자문",
+      "insight": "리스는 소유권 기반 회수 용이, 대출은 komornik(집행관) 수개월~년. 상품별 회수 모듈 분기 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "브랜드 Top10",
+      "category": "business", "role": "context", "tier_group": "ext3_context",
+      "value": ["Toyota","VW","Skoda","Kia","Hyundai","BMW","Audi","Mercedes","Ford","Renault"],
+      "context_type": "descriptive",
+      "tier": 3, "source": "ACEA 등록 통계",
+      "insight": "독일·일본·한국 브랜드 혼재. 캡티브 강한 VW·Toyota 비중 주목.",
+      "insight_ai_generated": true
+    }
+  ]
+}

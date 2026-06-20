@@ -32,4 +32,4 @@ python3 generation/region_report_generation_engine.py <REGION>
 python3 rendering/region_report_rendering_engine.py <REGION>
 ```
 
-> 출력물: `report/region/<REGION>/<REGION>_rpt_<TS>.json` 및 `.html` (+ `_latest` 포인터)
+> 출력물: `report/region/<REGION>/data/<REGION>_rpt_<TS>.json` (generation) 및 `report/region/<REGION>/html/<REGION>_rpt_<TS>.html` (rendering)

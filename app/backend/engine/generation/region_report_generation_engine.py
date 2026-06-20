@@ -5,7 +5,7 @@
   권역 내 나머지 국가들을 일괄 스코어링(매력도·난이도·유사도) → 퀵윈 후보 산출.
 - 단일국 엔진(calculation/scoring_engine)의 검증된 스코어링 로직을 그대로 재사용.
 - 렌더링은 rendering/region_report_rendering_engine 에 위임.
-- 출력: report/region/<REGION>/<REGION>_rpt_<TS>.json (+ _latest 포인터)
+- 출력: report/region/<REGION>/data/<REGION>_rpt_<TS>.json (+ _latest 포인터)
 
 퀵윈(quick_win) 정의:
   "적은 노력으로 빠르게 성과" = 게이트 통과 + 베이스라인 재사용률(유사도) 높아
@@ -23,10 +23,12 @@ import scoring_engine as se
 import region_report_rendering_engine as rre
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(BASE)
-DATA = os.path.join(REPO, "data")
-REPORT = os.path.join(REPO, "report")
-# 단일국 엔진의 데이터 경로를 현재 레포 레이아웃(레포루트/data)으로 정렬
+# engine/generation → app/backend  (storage가 위치한 backend 루트)
+BACKEND = os.path.dirname(os.path.dirname(BASE))
+STORAGE = os.path.join(BACKEND, "storage")
+DATA = os.path.join(STORAGE, "data")
+REPORT = os.path.join(STORAGE, "report")
+# 단일국 엔진의 데이터 경로를 storage 레이아웃으로 정렬
 se.DATA = DATA
 
 TS = "2026-06-19T12:00:00+09:00"
@@ -36,7 +38,7 @@ TS_FILE = "2026-06-19T1200"
 def list_region_countries(region):
     """region 일치 + 베이스라인 아님 인 국가 latest 목록 (code 정렬)."""
     out = []
-    for p in sorted(glob.glob(f"{DATA}/country/*/*_latest.json")):
+    for p in sorted(glob.glob(f"{DATA}/research/country/*/*_latest.json")):
         c = se.load(p)
         if c.get("region") == region and not c.get("is_baseline"):
             out.append(c)
@@ -164,7 +166,7 @@ def run(region="EU", extra_items=None):
         "due_diligence_summary": dd_summary,
     }
 
-    outdir = os.path.join(REPORT, "region", region)
+    outdir = os.path.join(REPORT, "region", region, "data")
     os.makedirs(outdir, exist_ok=True)
     out = os.path.join(outdir, f"{region}_rpt_{TS_FILE}.json")
     with open(out, "w", encoding="utf-8") as f:

@@ -7,7 +7,8 @@
 - 탭 구성(스펙 PR2): 요약(Summary) · 시장(Market) · 규제(Regulation) ·
   상품(Product) · 시스템(System).
 - 데이터 주도(region-agnostic) — 어떤 권역 리포트든 동일 로직으로 렌더.
-- 출력: report/region/<REGION>/<REGION>_rpt_<TS>.html (+ _latest.html 포인터)
+- 입력: report/region/<REGION>/data/<REGION>_rpt_<TS>.json
+- 출력: report/region/<REGION>/html/<REGION>_rpt_<TS>.html
 
 입력 리포트 스키마: report/region/README.md, generation/region_report_generation_engine.py 참조.
 스코어링/계산은 일절 하지 않고 "표현"만 담당한다 (관심사 분리).
@@ -15,8 +16,10 @@
 import json, os, sys, glob, html, datetime
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(BASE)
-REPORT = os.path.join(REPO, "report")
+# engine/rendering → app/backend  (storage가 위치한 backend 루트)
+BACKEND = os.path.dirname(os.path.dirname(BASE))
+STORAGE = os.path.join(BACKEND, "storage")
+REPORT = os.path.join(STORAGE, "report")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 탭 매핑 — 항목(item)을 5개 탭 중 하나로 분류. 명시 매핑 + 휴리스틱 폴백.
@@ -951,13 +954,13 @@ def render_html(rpt):
 # 입출력
 # ─────────────────────────────────────────────────────────────────────────────
 def load_report(region, version=None):
-    outdir = os.path.join(REPORT, "region", region)
+    datadir = os.path.join(REPORT, "region", region, "data")
     if version:
-        path = os.path.join(outdir, f"{region}_rpt_{version}.json")
+        path = os.path.join(datadir, f"{region}_rpt_{version}.json")
     else:
-        path = os.path.join(outdir, f"{region}_rpt_latest.json")
+        path = os.path.join(datadir, f"{region}_rpt_latest.json")
     if not os.path.exists(path):
-        cand = sorted(glob.glob(os.path.join(outdir, f"{region}_rpt_*.json")))
+        cand = sorted(glob.glob(os.path.join(datadir, f"{region}_rpt_*.json")))
         if not cand:
             raise SystemExit(f"[안내] region '{region}' 리포트 JSON 없음 — 먼저 region_report_generation_engine.py 실행 필요.")
         path = cand[-1]
@@ -969,16 +972,17 @@ def render(region="EU", version=None):
     rpt, src = load_report(region, version)
     out_html = render_html(rpt)
 
-    outdir = os.path.join(REPORT, "region", region)
+    outdir = os.path.join(REPORT, "region", region, "html")
+    os.makedirs(outdir, exist_ok=True)
     rid = rpt.get("report_id", f"{region}_rpt")
     ts = rid.split("_rpt_")[-1] if "_rpt_" in rid else "latest"
     out = os.path.join(outdir, f"{region}_rpt_{ts}.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(out_html)
 
-    print(f"[{region}] 렌더 완료 — 입력 {os.path.relpath(src, REPO)}")
+    print(f"[{region}] 렌더 완료 — 입력 {os.path.relpath(src, STORAGE)}")
     print(f"  후보 {rpt.get('candidate_count','?')}개 · 퀵윈 {rpt.get('quick_wins',[])} · 탭 {len(TABS)}개")
-    print(f"→ {os.path.relpath(out, REPO)}")
+    print(f"→ {os.path.relpath(out, STORAGE)}")
     return out
 
 
