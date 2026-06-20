@@ -23,3 +23,6 @@ Thumbs.db
 # Claude Code & Temporary storage
 .claude/
 app/backend/storage/
+
+# Research compilation artifacts
+data/*_Research_*.txt
