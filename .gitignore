@@ -27,3 +27,7 @@ app/backend/storage/
 # Research compilation artifacts
 data/*.txt
 *_SYNTHESIS_REPORT_*.json
+*_RESEARCH_*.txt
+*_INDEX.txt
+*_SUMMARY.txt
+*_COMPLETION_STATUS.txt
