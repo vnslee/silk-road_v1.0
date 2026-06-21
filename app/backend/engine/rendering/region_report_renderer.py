@@ -864,6 +864,64 @@ class RegionReportRenderer:
                     f'</div>'
                 )
 
+            def entry_form_block(label: str, val: Any, flag: str) -> str:
+                """경쟁사 진출 형태 — '타입(회사·회사) + 타입(회사) + ... . 후기' 구조를
+                카테고리 헤더 + pill 형태로 분해해 가독성 향상."""
+                if not isinstance(val, str) or not val.strip():
+                    return ""
+                import re
+                # Split into category groups + trailing note
+                # Step 1: separate trailing sentence (after last '. ' that follows a closing paren)
+                trailing = ""
+                main = val.strip()
+                m = re.search(r"\)\s*\.\s*([^.]+)\.?\s*$", main)
+                if m:
+                    trailing = m.group(1).strip()
+                    main = main[:m.start() + 1]  # keep closing paren
+
+                # Step 2: split by ' + '
+                groups_html = []
+                for part in re.split(r"\s*\+\s*", main):
+                    part = part.strip().rstrip(".").strip()
+                    if not part:
+                        continue
+                    # type(companies) → header + companies
+                    g = re.match(r"^([^()]+?)\s*\(([^()]+)\)\s*$", part)
+                    if g:
+                        type_name = g.group(1).strip()
+                        companies = [c.strip() for c in re.split(r"[·,]", g.group(2)) if c.strip()]
+                        pills = "".join(
+                            f'<span class="inline-block px-2 py-[1px] bg-surface-container text-on-surface-variant rounded-full text-[11px] m-[2px]">{self.esc(c)}</span>'
+                            for c in companies
+                        )
+                        groups_html.append(
+                            f'<div class="mb-xs">'
+                            f'<div class="font-label-sm text-label-sm text-primary mb-[2px]">{self.esc(type_name)}</div>'
+                            f'<div class="flex flex-wrap -m-[2px]">{pills}</div>'
+                            f'</div>'
+                        )
+                    else:
+                        # 괄호 없는 항목은 그대로 텍스트로
+                        groups_html.append(
+                            f'<div class="text-body-sm text-on-surface-variant mb-xs">{self.esc(part)}</div>'
+                        )
+
+                trailing_html = (
+                    f'<div class="text-label-sm text-text-secondary mt-xs pt-xs border-t border-surface-border italic">{self.esc(trailing)}</div>'
+                    if trailing else ""
+                )
+
+                return (
+                    f'<div class="py-xs border-b border-surface-border min-w-0">'
+                    f'<div class="flex items-center gap-xs mb-xs">'
+                    f'<span class="font-label-sm text-label-sm text-text-secondary">{self.esc(label)}</span>'
+                    f'{self.badge(flag)}'
+                    f'</div>'
+                    f'{"".join(groups_html)}'
+                    f'{trailing_html}'
+                    f'</div>'
+                )
+
             news_block = ""
             if isinstance(news, dict) and news.get("headline"):
                 news_block = (
@@ -932,7 +990,7 @@ class RegionReportRenderer:
                     {line("신차 판매", (mb.get("신차_판매대수")), "EXT")}
                     {line("금융 이용", f"{mb.get('금융_이용률_신차')}%" if mb.get("금융_이용률_신차") is not None else None, "EXT")}
                     {line("EV 보급", f"{mb.get('EV_보급률')}%" if mb.get("EV_보급률") is not None else None, "EXT")}
-                    {line("경쟁사 진출", cb.get("경쟁사_진출_형태"), "EXT")}
+                    {entry_form_block("경쟁사 진출", cb.get("경쟁사_진출_형태"), "EXT")}
                 </div>
 
                 {news_block}
