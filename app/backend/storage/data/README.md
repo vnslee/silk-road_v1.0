@@ -6,7 +6,8 @@
 
 - `research/` - AI로 조사한 외부 데이터
   - `country/<CODE>/<CODE>_latest.json` - 국가별 조사 데이터 (예: `research/country/PL/PL_latest.json`)
+  - `region/<REGION>/<REGION>_latest.json` - 권역별 조사 데이터 (상세화면 P2 입력). ⚠️ 현재 스키마는 **잠정**이며 ROADMAP 2차(region 리서치 프롬프트·스키마)에서 정식화 예정 — `../detail/README.md` 참조
 - `internal/` - 사내 데이터
   - `internal_latest.json` - 스코어링 룰셋(가중치·FX·유사도 구간·quick_win_rules 등) 및 사내 자산 정보(country_assets)
 
-> 생성된 리포트 결과물은 `../report/`에 저장됩니다.
+> 생성된 결과물은 진단 보고서(PR1/PR2)는 `../report/`, 상세화면(P1/P2)은 `../detail/`에 저장됩니다.

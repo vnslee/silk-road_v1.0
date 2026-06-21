@@ -7,9 +7,9 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
 
 ## 현재 상태 요약 (착수 전 기준선)
 
-- **있음**: 엔진 코어(calculation 단일국 스코어링, generation/rendering은 **region 전용**), research country 데이터 6개국(BR·DE·ES·IN·PL·UK), internal 룰셋, 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
+- **있음**: 엔진 코어(calculation 단일국 스코어링, **보고서** generation/rendering은 **region 전용**), **상세화면(P1/P2) 렌더링 엔진은 country·region 양쪽 구현됨**(`rendering/{country,region}_detail_rendering_engine.py` → `storage/detail/`), research country 데이터 6개국(BR·DE·ES·IN·PL·UK), internal 룰셋, 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
 - **설치됨**: FastAPI, uvicorn, boto3, pydantic, Jinja2, requests, weasyprint(+pango/cairo)
-- **없음(구현 대상)**: 백엔드 API 레이어, **country 전용 generation/rendering 엔진**, region/country 리서치 실행 코드(Bedrock), 프론트엔드, requirements.txt, Dockerfile, CloudFormation 템플릿
+- **없음(구현 대상)**: 백엔드 API 레이어, **country 전용 보고서(PR1) generation/rendering 엔진**(상세화면 detail 엔진과는 별개), region/country 리서치 실행 코드(Bedrock), 프론트엔드, requirements.txt, Dockerfile, CloudFormation 템플릿
 - **예정**: region 리서치 프롬프트·스키마(`architecture/research/`에 country만 있음 → region 추가 예정)
 
 ## 공통 제약 (모든 덩어리에 적용)

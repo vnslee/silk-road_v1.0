@@ -107,20 +107,19 @@ def charts(data):
 
 
 def item_row(it):
-    """단일 항목 행 — 값 + 인사이트."""
+    """단일 항목 — 항목/값/인사이트를 각각 다른 줄로 세로 스택."""
     insight = it.get("insight") or ""
-    ins_html = (f'<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">{rre.esc(insight)}</p>'
+    ins_html = (f'<div class="font-body-sm text-body-sm text-on-surface-variant mt-xs break-words">{rre.esc(insight)}</div>'
                 if insight else "")
     return (
-        '<div class="py-sm border-b border-surface-border last:border-0">'
-        '<div class="flex items-baseline justify-between gap-md">'
-        f'<span class="font-body-md text-body-md text-on-surface">{rre.esc(it["item"])}</span>'
-        f'<span class="font-label-md text-label-md text-primary font-semibold whitespace-nowrap">{rre.esc(rre.fmt_value(it))}</span>'
-        '</div>'
+        '<div class="py-sm px-md border-b border-surface-border last:border-0 hover:bg-surface-variant/40 transition-colors">'
+        f'<div class="font-body-md text-body-md text-on-surface break-words">{rre.esc(it["item"])}</div>'
+        f'<div class="font-label-md text-label-md text-primary font-semibold mt-xs break-words">{rre.esc(rre.fmt_value(it))}</div>'
         f'{ins_html}</div>')
 
 
 def section(title, icon, items):
+    """전체폭 섹션 — 헤더 + 항목별 세로 스택(항목/값/인사이트 각 줄)."""
     if not items:
         return ""
     rows = "".join(item_row(it) for it in items)
@@ -128,7 +127,7 @@ def section(title, icon, items):
         '<div>'
         '<h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">'
         f'<span class="material-symbols-outlined text-secondary">{icon}</span>{rre.esc(title)}</h3>'
-        '<div class="border border-surface-border rounded-lg bg-surface px-md">'
+        '<div class="border border-surface-border rounded-lg bg-surface overflow-hidden">'
         f'{rows}</div></div>')
 
 
@@ -149,6 +148,28 @@ def detail_sections(data):
     out.append(section("핵심 규제", "gavel", regulation[:8]))
     out.append(section("특화요건 · 시스템", "dns", system[:8]))
     return "".join(s for s in out if s)
+
+
+def insight_panel(data):
+    """상단 우측 — 정성 종합 요약(overall_insight) 카드. 없으면 매력도 상위 지표 요약 폴백."""
+    text = (data.get("overall_insight") or "").strip()
+    if text:
+        body = f'<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">{rre.esc(text)}</p>'
+    else:
+        picked = [it for it in data.get("items", [])
+                  if it.get("axis") == "attractiveness" and it.get("role") == "score"][:5]
+        if not picked:
+            return ""
+        lis = "".join(
+            '<li class="flex items-baseline justify-between gap-md py-xs border-b border-surface-border last:border-0">'
+            f'<span class="font-body-sm text-body-sm text-on-surface">{rre.esc(it["item"])}</span>'
+            f'<span class="font-label-md text-label-md text-primary font-semibold whitespace-nowrap">{rre.esc(rre.fmt_value(it))}</span></li>'
+            for it in picked)
+        body = f'<ul class="flex flex-col">{lis}</ul>'
+    return (
+        '<h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">'
+        '<span class="material-symbols-outlined text-secondary">lightbulb</span>종합 요약</h3>'
+        + rre.card(body, extra="flex-1"))
 
 
 def flag_cell(data):
@@ -184,6 +205,7 @@ def render_html(data):
             .replace("{{REGION_LABEL}}", rre.esc(data.get("region", "")))
             .replace("{{GENERAL_CARDS}}", general_cards(data))
             .replace("{{CHARTS}}", charts(data))
+            .replace("{{INSIGHT_PANEL}}", insight_panel(data))
             .replace("{{DETAIL_SECTIONS}}", detail_sections(data))
             .replace("{{FOOTER_META}}", footer))
 

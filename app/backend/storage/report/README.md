@@ -1,6 +1,8 @@
 # Report
 
-엔진이 생성한 리포트 결과물을 저장하는 디렉토리입니다. 도메인(country/region) 아래에서 산출물 형식(`data/` JSON, `html/` HTML)으로 한 번 더 구분합니다.
+엔진이 생성한 **진단 보고서(PR1/PR2)** 결과물을 저장하는 디렉토리입니다. 도메인(country/region) 아래에서 산출물 형식(`data/` JSON, `html/` HTML)으로 한 번 더 구분합니다.
+
+> 상세화면(P1/P2) HTML은 별개 산출 라인으로 `../detail/`에 저장됩니다 (`../detail/README.md` 참조).
 
 ## 구조
 
