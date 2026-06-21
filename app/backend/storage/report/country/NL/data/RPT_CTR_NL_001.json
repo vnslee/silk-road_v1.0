@@ -1,0 +1,1567 @@
+{
+  "report_id": "RPT_CTR_NL_001",
+  "report_type": "type1_country",
+  "title": "네덜란드 진출 진단 보고서",
+  "target": {
+    "country": "NL",
+    "base_country": "GB"
+  },
+  "generated_at": "2026-06-21T19:30:24.189736",
+  "schema_version": "1.1",
+  "overall_insight": "EU 9위 자동차 시장이자 글로벌 리스 허브. 2025년 신차 등록 약 38만대(BOVAG/RAI Vereniging)로 규모는 중소이나 운용리스(operational lease) 침투율 EU 1위(법인 신차 70%+) 구조가 핵심이다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 AFM(금융시장청)+DNB(중앙은행) 이중 감독 하 Wft 인가(소비자신용=금융서비스법 Art. 2:60, 자본금 €730k+)와 강력한 사용자금리 상한(Wck 35a: 법정이자 + 12pp 절대 한도, 2025년 약 16~17%)가 진입 부담의 핵심이다. 반면 B2B 운용리스(operationele leasing)는 Wft 인가 면제(VRL/NVL 자율규제) 구조라 진입이 매우 유연하다. 비즈니스 매력도는 시장규모는 EU 중위권이나 리스 침투율·EV 보급률(2025 BEV 신규 등록 35%+, EU 톱) 최상위로 단위경제 양호. 캡티브(VW FS·Stellantis·Toyota)와 다국적 리스사(Ayvens/ALD·LeasePlan·Arval·Athlon) 양강 구조로 약 75% 점유 — 독립계 진입은 EV·중고·SME 플릿 틈새 공략 필요. IT 유사도는 매우 높음 — EU GDPR·SEPA·iDEAL(현지 결제 EU 톱)·BKR(신용정보)·DigiD(전자인증) 등 인프라 EU 최상위로 NetSol 베이스라인 재사용률 극대화. 매력도↔IT 불일치 지점은 차량회수 — 리스는 소유권 기반으로 매우 용이(평균 30~60일)하나 소비자대출은 deurwaarder(집행관) 절차 6~12개월. 다크호스는 BEV 시장 35%+로 잔가 리스크 EU 최대 노출 — 잔가 보증·세컨드 라이프 모델이 리스 손익 핵심 변수. 운용리스·플릿 우선 진입 후 Wft Art. 2:60 인가 기반 소비자금융으로 단계적 확장이 유효하며, 네덜란드는 EU 리스 본사 허브로 활용 가능(Holding 회사·조세 효율).",
+  "country_meta": {
+    "country": "Netherlands",
+    "country_ko": "네덜란드",
+    "region": "EU",
+    "currency": "EUR",
+    "data_year": 2025,
+    "fetched_at": "2026-06-21T18:00:00+09:00",
+    "fetched_by": "ai",
+    "entry_status": "미진출"
+  },
+  "data_quality": {
+    "completeness_pct": 100.0,
+    "total_items": 48,
+    "target_items": 48,
+    "timeseries_coverage": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 18,
+      "tier2": 15,
+      "tier3": 15,
+      "tier4": 0
+    },
+    "items_by_category": {
+      "business": [
+        {
+          "item": "오토금융/리스 시장규모",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "오토금융 성장률(CAGR)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(중고차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "평균 금리/APR",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신차 판매대수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "법인세율",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "이자소득 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "배당 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "EV 보급률",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "해당국 정성 요약",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "브랜드 Top10",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "금융사 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 리스트",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 진출 형태",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "평균 신차가격",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "외부 이슈 스캔",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        }
+      ],
+      "shared": [
+        {
+          "item": "외국인 지분 한도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "국가신용등급",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 취득 가능 여부(외국사)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "금리 상한 규제",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "최저자본금",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "법적 회수 소요기간",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "추심 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "충당금 규정",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "연체 분류 기준",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "의무보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "신용생명보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "보험 끼워팔기 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "AI 신용평가 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "규제기관 식별",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 1
+        }
+      ],
+      "it": [
+        {
+          "item": "솔루션 벤더",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "솔루션 유형",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신용정보(CB) 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "결제·정산 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "국외이전 제한",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        }
+      ]
+    },
+    "critical_gaps": [],
+    "readiness": {
+      "can_generate": true,
+      "tabs": {
+        "1-1": {
+          "name": "Similarity Scoring (vs Baseline)",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-2": {
+          "name": "System Decision Tree",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-3": {
+          "name": "Contract Volume & 10Y TCO",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-4": {
+          "name": "Market & Competition Background",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        }
+      }
+    }
+  },
+  "tabs": {
+    "tab_1_1_similarity": {
+      "overall_score": 90.3125,
+      "axes": {
+        "product": 93.75,
+        "regulatory": 83.92857142857143,
+        "system": 96.875,
+        "risk": 81.25
+      },
+      "items": [
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "axis": "product",
+          "weight": 0.15,
+          "dimensions": [
+            {
+              "dimension": "리스 취급 일치도",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "운용리스+금융리스 60%+ — EU 1위"
+            },
+            {
+              "dimension": "렌탈 취급 일치도",
+              "target_score": 5,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "단기렌탈 보통"
+            },
+            {
+              "dimension": "플릿 취급 일치도",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "법인 운용리스 70%+ — 글로벌 리스 본사"
+            },
+            {
+              "dimension": "상품별 비중 유사도",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "운용리스 압도 — GB와 비교 시 유리"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "axis": "regulatory",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "현지 저장 강제",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "강제 현지화 없음"
+            },
+            {
+              "dimension": "국외 이전 허용도",
+              "target_score": 5,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "EU 역내 자유"
+            },
+            {
+              "dimension": "동의·보관 규제",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "AP 표준 수준 감독"
+            },
+            {
+              "dimension": "GDPR 동등성",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "GDPR 동등(EU)"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "axis": "regulatory",
+          "weight": 0.25,
+          "dimensions": [
+            {
+              "dimension": "취득방식(등록 vs 인가)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Wft Art. 2:60 인가 + 운용리스 면제 — 단계 분기"
+            },
+            {
+              "dimension": "외국인 취득 가능",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "EU 자본자유, Wet Vifo 자동차금융 예외"
+            },
+            {
+              "dimension": "처리기간(개월)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "AFM/DNB 인가 9~12개월"
+            },
+            {
+              "dimension": "최저자본금 수준",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "자본 €730k — EU 중하위 부담"
+            },
+            {
+              "dimension": "감독 강도",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Twin Peaks(AFM+DNB) 이중 감독"
+            }
+          ],
+          "item_similarity": 80.0
+        },
+        {
+          "item": "솔루션 유형",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "배포형태(패키지/SI/SaaS)",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "EU 패키지(Sofico 본사) + 자체 코어"
+            },
+            {
+              "dimension": "커스터마이징 자유도",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "현지 본사 벤더로 커스텀 자유도 양호"
+            },
+            {
+              "dimension": "벤더 종속도",
+              "target_score": 3,
+              "base_score": 3,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "글로벌 벤더 의존 GB와 유사"
+            },
+            {
+              "dimension": "멀티테넌시 여부",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "표준 멀티테넌시"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "온라인 신청 연동",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "iDEAL 온라인 결제 70%+ — EU 톱"
+            },
+            {
+              "dimension": "비대면 계약 가능",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "DigiD 전자인증 보편"
+            },
+            {
+              "dimension": "API 개방도",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "PSD2·Open Banking 발달, Tikkie 보편"
+            },
+            {
+              "dimension": "페이퍼리스 수준",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "완전 디지털 온보딩 표준"
+            }
+          ],
+          "item_similarity": 100.0
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "axis": "risk",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "사법절차 필요",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "deurwaarder+kort geding 효율적"
+            },
+            {
+              "dimension": "회수 소요기간(일)",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "평균 6~12개월 — EU 평균~우월"
+            },
+            {
+              "dimension": "자력구제 허용",
+              "target_score": 2,
+              "base_score": 4,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "자력구제 제한"
+            },
+            {
+              "dimension": "회수율",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "회수율 EU 상위"
+            }
+          ],
+          "item_similarity": 81.25
+        }
+      ],
+      "method": "dimension_based",
+      "scale": "1~5 per dimension → gap 0=100, gap 4=0",
+      "evidence_items": [
+        {
+          "item": "솔루션 유형",
+          "category": "it",
+          "role": "score",
+          "value": "글로벌 패키지 + 은행계 자체 코어(ABN AMRO·Rabobank·ING) + 다국적 리스사 자체 시스템 혼재",
+          "unit": "type",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계",
+          "insight": "대형 은행계(ABN AMRO·Rabobank·ING)·다국적 리스사(Ayvens·LeasePlan)는 자체 코어, 캡티브·중소 리스사는 글로벌 패키지 사용. EU 표준 아키텍처와 정합.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 5,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "iDEAL(현지 결제 EU 1위·온라인 결제 70%+)·DigiD(전자인증)·Tikkie(BLIK 유사)·전자서명 보편화",
+          "insight": "iDEAL(온라인 결제 70%+ 점유, EU 최성공 PSP)·DigiD(국가 전자인증)·전자서명·Tikkie 보편화로 디지털 계약 성숙도 EU 1위. 완전 디지털 온보딩 표준.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 5,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계 (Marktplaats·AutoTrack·Bynco·Carwow NL·OEM 직판)",
+          "insight": "Marktplaats(eBay NL)·AutoTrack·Bynco·Carwow 등 온라인 딜러금융·OEM 직판 채널 매우 발달. 디지털 리테일 성숙도 EU 톱 — 임베디드 금융 연동 기회 풍부.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "category": "shared",
+          "role": "gate",
+          "value": "소비자 여신=Wft Art. 2:60 인가(B.V.+자본금 €730k+AFM/DNB 감독), B2B 운용리스=Wft 인가 면제(일반 B.V., VRL/NVL 자율규제)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Wft Art. 2:60+2:90, AFM 가이드 (kredietaanbieder 인가)",
+          "insight": "세그먼트별 규제 강도 매우 큼. 소비자 여신은 AFM/DNB 이중 감독으로 거버넌스 공수 큼(자본금 €730k+적합성·통제 심사 9~12개월), 운용리스는 일반 B.V.(B.V. 최저자본 €0.01)로 즉시 진입 가능 — 단계적 진입 전략 권장.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "category": "shared",
+          "role": "gate",
+          "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "operating_model",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "EU GDPR, Uitvoeringswet AVG(GDPR 이행법), Autoriteit Persoonsgegevens(AP, 개인정보보호청)",
+          "insight": "EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음. AP는 EU 중상위 적극성 — 동의·DPIA 절차 표준 준수면 충분.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "category": "shared",
+          "role": "score",
+          "value": 4,
+          "unit": "ease_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "네덜란드 민사소송법(Rv), 업계 (리스/렌팅 소유권 기반 회수 EU 최단)",
+          "insight": "리스·운용리스는 금융사 소유권 보유로 회수 매우 용이(평균 30~60일, EU 최단). 소비자 대출 담보회수는 deurwaarder(집행관)+kort geding(즉시소송)으로 6~12개월 — EU 평균 수준. 상품별 회수 모듈 분기 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_2_decision": {
+      "decision": "baseline_system_expansion",
+      "similarity_score": 90.3125,
+      "recommendation": "권역 내 확산: GB 시스템(NetSol) 현지화",
+      "base_country": "GB",
+      "base_system": "NetSol",
+      "region_system_exists": true,
+      "hq_baseline_cost": 8000,
+      "hq_baseline_months": 24,
+      "hq_baseline_currency": "EUR",
+      "items": [
+        {
+          "item": "금리 상한 규제",
+          "category": "shared",
+          "role": "gate",
+          "value": "Wck 35a: 법정이자(wettelijke rente, 2025 약 5%) + 12pp 절대 한도 = 약 17% APR. Besluit kredietvergoeding 규정",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "FLAG",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Wck(소비자신용법) Art. 35a, Besluit kredietvergoeding (소비자신용 보수 결정령)",
+          "insight": "Wck 35a로 법정이자(2025 5%)+12pp=약 17% 사용자금리 상한. 자동차대출 APR 8%대로 여유 충분하나 분기 법정이자 변동 분기 모니터링 필요. B2B 리스는 적용 제외. 초과 시 계약 무효(nietigheid).",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "category": "shared",
+          "role": "gate",
+          "value": "외환 통제 없음 (배당 15%·이자 0%, EU 지침·조세조약 면제 가능)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "country",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "PwC Netherlands Withholding Taxes, EU 모자회사·이자로열티 지침",
+          "insight": "송금 자유, 외환 통제 없음. 이자 0% + 배당 EU 지침 0%로 본국 회수 매우 효율 — EU에서 가장 우호적인 송금 환경. Holding 허브로 활용 시 글로벌 자본 배치 효율 극대화.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "의무보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "자동차 의무책임보험(WAM-verzekering) 강제, Wet aansprakelijkheidsverzekering motorrijtuigen(WAM) 1963 / EU 지침 2009/103 적용",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "WAM 1963, Waarborgfonds Motorverkeer(보장기금), EU 자동차보험 지침",
+          "insight": "WAM 의무보험은 EU 표준과 동일(보장기금 Waarborgfonds). 베이스라인 보험연동 로직 재사용 가능 — 특화개발 부담 낮음.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "신용생명보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "끼워팔기 강제 금지, 별도 동의·대안 제시 의무 (Wft Art. 4:25a + AFM Beleidsregel productontwikkeling)",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "Wft Art. 4:25a, AFM Beleidsregel productontwikkeling (상품개발 규정)",
+          "insight": "신용생명보험 강제판매(번들) 제한 + AFM 상품개발 거버넌스 의무 — 동의·대안 제공 의무로 상품 설계 시 옵션화 필요. EU 일반 수준 + AFM 추가 가이드.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_3_tco": {
+      "build_cost": 2500.0,
+      "build_months": 9.0,
+      "annual_subscription": 20748.0,
+      "annual_maintenance": 500,
+      "annual_recurring": 21248.0,
+      "operations_10y": 50000,
+      "system_cost_10y": 214980.0,
+      "total_tco_10y": 264980.0,
+      "currency": "EUR",
+      "similarity_score": 90.3125,
+      "similarity_multiplier": 0.5,
+      "similarity_band": "90~100",
+      "discount_applied": 0.4,
+      "build_breakdown": {
+        "formula": "구축비용/기간 = 베이스라인(B) 값 × 유사도 승수",
+        "inputs": {
+          "베이스라인 국가": "GB",
+          "베이스라인 솔루션": "NetSol",
+          "B 구축비용": 5000,
+          "B 구축기간(개월)": 18,
+          "종합 유사도": 90.3,
+          "승수 구간": "90~100",
+          "적용 승수": 0.5
+        },
+        "outputs": {
+          "신규국 구축비용": 2500.0,
+          "신규국 구축기간(개월)": 9.0
+        }
+      },
+      "expected_contracts": 3420,
+      "expected_contracts_breakdown": {
+        "value": 3420,
+        "formula": "신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율",
+        "inputs": {
+          "신차 판매대수": 380000,
+          "신차 판매대수(원본값)": 380000.0,
+          "신차 판매대수(단위)": "units",
+          "금융 이용률(신차)_%": 75.0,
+          "구매 패턴(할부·리스 비중)_%": 60.0,
+          "우리사 예상 점유율": 0.02
+        }
+      },
+      "subscription_details": {
+        "existing_volume": 80,
+        "new_volume": 3420,
+        "total_volume": 3500,
+        "unit_price": 5.928,
+        "currency": "EUR",
+        "annual_fee": 20748.0,
+        "note": "All volume repriced at new tier rate"
+      },
+      "subscription_tiers": [
+        {
+          "min_volume": 0,
+          "max_volume": 2000,
+          "price_per_unit": 9.88,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 2001,
+          "max_volume": 4000,
+          "price_per_unit": 5.928,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 4001,
+          "max_volume": 7500,
+          "price_per_unit": 5.434,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 7501,
+          "max_volume": 10000,
+          "price_per_unit": 4.94,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 10001,
+          "max_volume": 20000,
+          "price_per_unit": 4.323,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 20001,
+          "max_volume": 80000,
+          "price_per_unit": 4.073,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 80001,
+          "max_volume": 999999,
+          "price_per_unit": 0.865,
+          "currency": "EUR"
+        }
+      ],
+      "existing_total_volume": 80,
+      "items": [
+        {
+          "item": "신차 판매대수",
+          "category": "business",
+          "role": "score",
+          "value": 380000,
+          "unit": "units",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 322000
+              },
+              {
+                "year": 2022,
+                "value": 308000
+              },
+              {
+                "year": 2023,
+                "value": 369000
+              },
+              {
+                "year": 2024,
+                "value": 380000
+              },
+              {
+                "year": 2025,
+                "value": 380000
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 390000
+              },
+              {
+                "year": 2027,
+                "value": 400000
+              },
+              {
+                "year": 2028,
+                "value": 410000
+              },
+              {
+                "year": 2029,
+                "value": 415000
+              },
+              {
+                "year": 2030,
+                "value": 420000
+              }
+            ],
+            "cagr_hist": 4.2,
+            "cagr_forecast": 2.0,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "BOVAG/RAI Vereniging 2025 (신차 등록 약 38만대, ±0%; 법인 등록 55%+·운용리스 약 30%)",
+          "insight": "2025년 약 38만대 보합(2024 수준 유지). 법인 등록 55%+로 운용리스 견인 — EU 9위 규모로 시장 규모는 작으나 효율성·EV 침투 EU 최상위.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "category": "business",
+          "role": "score",
+          "value": 75,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 68
+              },
+              {
+                "year": 2022,
+                "value": 70
+              },
+              {
+                "year": 2023,
+                "value": 72
+              },
+              {
+                "year": 2024,
+                "value": 74
+              },
+              {
+                "year": 2025,
+                "value": 75
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 76
+              },
+              {
+                "year": 2027,
+                "value": 77
+              },
+              {
+                "year": 2028,
+                "value": 78
+              },
+              {
+                "year": 2029,
+                "value": 79
+              },
+              {
+                "year": 2030,
+                "value": 80
+              }
+            ],
+            "cagr_hist": 2.5,
+            "cagr_forecast": 1.3,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "VNA 2025 (법인 신차의 70%+ 운용리스), BOVAG/RAI Mobiliteitsmonitor",
+          "insight": "신차 등록의 75%가 금융 경유 — 법인 신차의 70%+가 운용리스(EU 최상위). 개인 부문은 PCP/할부 30%대로 상대적 낮음. 법인·플릿 중심 진입 자명.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "category": "business",
+          "role": "score",
+          "value": 60,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "VNA Branchecijfers 2025 (운용리스 차량 80만대·신규 등록 점유 약 30%; 금융리스/PCP 약 20%·할부 약 10%)",
+          "insight": "신차의 60%가 리스 경유 — 운용리스 30%(법인 압도적)+금융리스/PCP 20%+할부 10%. 운용리스 비중 EU 1위 — 진입 시 운용리스 우선 자명.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "category": "business",
+          "role": "score",
+          "value": 30,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "VNA 2025 (Ayvens/ALD·LeasePlan·Arval·Athlon 다국적 리스 약 45%; OEM 캡티브 VW FS·Stellantis·Toyota·BMW·MB 약 30%)",
+          "insight": "네덜란드는 다국적 리스사 주도 — Ayvens/ALD·LeasePlan(현지 본사)·Arval·Athlon(Daimler Mobility) 4사 약 45%. OEM 캡티브 30%, 은행계·독립계 25%. 캡티브 강도 EU 평균 — 독립계 진입은 SME 플릿·EV·중고 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "평균 신차가격",
+          "category": "business",
+          "role": "context",
+          "value": "약 €42,000 (turismos 평균 거래가, EV·SUV 비중 높아 EU 평균 상회)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "RAI Vereniging 2025 평균 거래가 추정, Autoweek 분석",
+          "insight": "평균 신차 거래가 €42k로 EU 평균 상회(EV·프리미엄·BPM 등록세 영향). EV·SUV 비중 상승으로 우상향. 건수×평균가 기반 금융 자산규모 큰 편 — 단위경제 우수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_4_market": {
+      "items": [
+        {
+          "item": "금융사 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Ayvens (구 ALD+LeasePlan, SocGen+BNP)",
+              "market_share": "약 25%"
+            },
+            {
+              "rank": 2,
+              "name": "Athlon (Mercedes-Benz Mobility)",
+              "market_share": "약 10%"
+            },
+            {
+              "rank": 3,
+              "name": "Arval (BNP Paribas)",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 4,
+              "name": "Volkswagen Financial Services",
+              "market_share": "약 7%"
+            },
+            {
+              "rank": 5,
+              "name": "Alphabet (BMW)",
+              "market_share": "약 5%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "VNA 2025 / Ayvens·Athlon·Arval 공시 (운용리스 기준 톱5)",
+          "insight": "Ayvens 단독 1위 25%(ALD+LeasePlan 합병 효과), Athlon 2위(Daimler Mobility), Arval 3위 — 다국적 리스사 톱3가 약 43%. 캡티브(VW·BMW·MB) 톱5 진입. 신규 진입은 EV·SME·중고 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "category": "business",
+          "role": "score",
+          "value": 15,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "VNA 2025 / Ayvens·LeasePlan 공시 (Ayvens/ALD-LeasePlan 합병 후 1위 약 25%; 운용리스 기준)",
+          "insight": "Ayvens(舊 ALD)+LeasePlan 합병(2023, 모회사 BNP Paribas+SocGen)으로 단독 1위 약 25% 등극. 톱5 합산 약 70% 다국적 집중 — 신규 진입은 EV·SME·중고 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "category": "business",
+          "role": "context",
+          "value": "신차 자동차대출 APR 약 6~10% (프로모 0~3% 캡티브 한정), 운용리스 월 임대료 €350~700 (잔가·기간·BEV 의존), 소비자신용 평균 DNB 통계 약 7.5%",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "DNB 소비자신용 통계 2025, OEM 캡티브 프로모 공시, VNA 운용리스 가격",
+          "insight": "표준 차량대출 APR 6~10%, 캡티브는 0~3% 프로모로 점유. Wck 35a(약 17%) 상한 내 여유 충분. 운용리스 BEV는 ICE 대비 월 €50~100 비싸나 bijtelling(법인 부가소득세) 17% 우대로 실효 비용 우위 — EV 가격경쟁 핵심.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Volkswagen",
+              "market_share": "10.2%"
+            },
+            {
+              "rank": 2,
+              "name": "Kia",
+              "market_share": "8.6%"
+            },
+            {
+              "rank": 3,
+              "name": "Toyota",
+              "market_share": "7.8%"
+            },
+            {
+              "rank": 4,
+              "name": "Volvo",
+              "market_share": "6.5%"
+            },
+            {
+              "rank": 5,
+              "name": "Tesla",
+              "market_share": "6.0%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "RAI Vereniging/BOVAG 2025 신차 등록 (VW 38,760 / Kia 32,680 / Toyota 29,640 / Volvo 24,700 / Tesla 22,800 추정)",
+          "insight": "VW 1위 10.2%, Kia 2위 8.6%로 한국 브랜드 EU 최상위 점유. Tesla 톱5(EV 침투 영향). 한국 OEM 강세로 한국계 캡티브·딜러금융 진입 매력도 매우 큼.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV 보급률",
+          "category": "business",
+          "role": "score",
+          "value": 35,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 20.0
+              },
+              {
+                "year": 2022,
+                "value": 23.5
+              },
+              {
+                "year": 2023,
+                "value": 30.8
+              },
+              {
+                "year": 2024,
+                "value": 33.0
+              },
+              {
+                "year": 2025,
+                "value": 35.0
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 40.0
+              },
+              {
+                "year": 2027,
+                "value": 46.0
+              },
+              {
+                "year": 2028,
+                "value": 52.0
+              },
+              {
+                "year": 2029,
+                "value": 58.0
+              },
+              {
+                "year": 2030,
+                "value": 65.0
+              }
+            ],
+            "cagr_hist": 15.0,
+            "cagr_forecast": 13.2,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "RVO(네덜란드 사업청)/RAI Vereniging 2025 (BEV+PHEV 점유 35%, BEV 단독 약 30%), SEPP·MIA/Vamil 세제 우대",
+          "insight": "2025년 EV 점유 35%(BEV 단독 30%) — EU 톱(노르웨이·스웨덴 제외 1위). MIA/Vamil 세제 우대·SEPP 보조금·법인세 BEV 0% 추가요금(bijtelling 17%·ICE 22%) 견인. 운용리스 신규 60%+가 BEV — 잔가 모델에 EV 별도 곡선 필수, 리스 손익 핵심 변수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "category": "business",
+          "role": "score",
+          "value": 50,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 60
+              },
+              {
+                "year": 2022,
+                "value": 57
+              },
+              {
+                "year": 2023,
+                "value": 55
+              },
+              {
+                "year": 2024,
+                "value": 52
+              },
+              {
+                "year": 2025,
+                "value": 50
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 48
+              },
+              {
+                "year": 2027,
+                "value": 46
+              },
+              {
+                "year": 2028,
+                "value": 44
+              },
+              {
+                "year": 2029,
+                "value": 43
+              },
+              {
+                "year": 2030,
+                "value": 42
+              }
+            ],
+            "cagr_hist": -4.4,
+            "cagr_forecast": -3.4,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "Cox Automotive/Manheim Netherlands 잔가 추정(3년 EV), VNA EV 잔가 보고",
+          "insight": "EV 3년 잔가 50%로 EU 최저 수준(높은 BEV 침투로 중고 공급 과잉) — ICE 대비 리스 손익 압박 EU 최대. 운용리스 BEV 60%+ 비중으로 노출 큼. 잔가 보증·바이백 조건·세컨드 라이프(B2B 중고 리스) 모델 필수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ],
+      "competitors": {
+        "item": "경쟁사 리스트",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Ayvens (ALD+LeasePlan)",
+          "Athlon (Mercedes-Benz Mobility)",
+          "Arval (BNP Paribas)",
+          "Volkswagen Financial Services",
+          "Alphabet (BMW)",
+          "Toyota Financial Services NL",
+          "Stellantis Financial Services",
+          "Hyundai Capital Netherlands",
+          "Driver Lease (현지 중견)",
+          "Justlease",
+          "MisterGreen (EV 전문)",
+          "Bynco (디지털 리테일)",
+          "DirectLease"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "VNA 회원사 명단, AFM 등록부",
+        "insight": "다국적 리스사+OEM 캡티브+현지 중견(Driver Lease·Justlease)+EV 전문(MisterGreen)·디지털(Bynco) 혼재. 한국 Hyundai Capital이 현지 진출 — 한국계 신규 진입 시 현대캐피탈과 시너지/협력 가능. Kia 점유 2위이나 캡티브 미진출 → 진입 기회.",
+        "insight_ai_generated": true
+      },
+      "competitor_entry_form": {
+        "item": "경쟁사 진출 형태",
+        "category": "business",
+        "role": "context",
+        "value": "다국적 리스사 자회사(Ayvens·Athlon·Arval·Alphabet·LeasePlan) + OEM 캡티브(VW FS·Toyota·Stellantis·Hyundai Capital) + Wft 인가 EFC + EV 전문(MisterGreen)·디지털(Bynco) 신생. 운용리스는 B.V. 즉시 가능, 소비자금융은 Wft 인가 필요",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "VNA, AFM 등록부, KvK 상공회의소",
+        "insight": "B2B 운용리스는 B.V. 즉시 진입, 소비자금융은 Wft 인가. Kia 점유 EU 톱이나 KCFS(Kia Capital) 미진출 — 한국 OEM 캡티브 신규 진출 매력도 EU 내 최상위.",
+        "insight_ai_generated": true
+      },
+      "brand_top10": {
+        "item": "브랜드 Top10",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Volkswagen",
+          "Kia",
+          "Toyota",
+          "Volvo",
+          "Tesla",
+          "BMW",
+          "Peugeot",
+          "Hyundai",
+          "Renault",
+          "Mercedes-Benz"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 2,
+        "source": "RAI Vereniging/BOVAG 2025 신차 등록 통계 (VW 1위·Kia·Toyota·Volvo·Tesla 상위)",
+        "insight": "VW 1위, 한국 브랜드(Kia 2위·Hyundai 8위 합산 톱3급) 강세. Tesla·Volvo 등 EV 비중 큰 브랜드 톱5 진입 — EV 시장 특성 반영. MG·BYD 중국 브랜드 급부상.",
+        "insight_ai_generated": true
+      },
+      "news": {
+        "item": "외부 이슈 스캔",
+        "category": "business",
+        "role": "context",
+        "value": [
+          {
+            "news_category": "auto_market",
+            "headline": "네덜란드 2025년 신차 등록 38만대 보합, BEV 점유 30%+로 EU 톱 유지",
+            "so_what": "시장 규모는 정체이나 EV 침투율로 단위경제 우수 — BEV 운용리스 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우.",
+            "publisher": "Automotive News Europe",
+            "pub_date": "2026-01-25",
+            "url": "https://europe.autonews.com/..."
+          },
+          {
+            "news_category": "auto_finance",
+            "headline": "Ayvens(舊 ALD+LeasePlan), 합병 후 네덜란드 운용리스 1위 25% 점유 확정",
+            "so_what": "Ayvens 압도적 1위 — 신규 진입은 직접경쟁 회피, EV·SME·중고 틈새 또는 한국 OEM 캡티브 형태 권장.",
+            "publisher": "S&P Global Mobility",
+            "pub_date": "2026-02-12",
+            "url": "https://www.spglobal.com/mobility/..."
+          },
+          {
+            "news_category": "auto_market",
+            "headline": "네덜란드 bijtelling(법인 부가소득세) BEV 17% 우대 2026년까지 연장 확정",
+            "so_what": "BEV 운용리스 수요 견인 지속 — 그러나 우대 일몰(2027~) 위험으로 장기 잔가 모델 보수적 설계 필요.",
+            "publisher": "Just Auto",
+            "pub_date": "2026-03-08",
+            "url": "https://www.just-auto.com/..."
+          },
+          {
+            "news_category": "credit_abs",
+            "headline": "네덜란드 auto loan ABS 딜린퀀시 0.5%대 EU 최저 유지",
+            "so_what": "연체 매우 안정 — 충당금 부담 EU 최저. 진입 초기 신용정책 보수화 불필요, 가격경쟁력 확보 가능.",
+            "publisher": "Moody's",
+            "pub_date": "2026-04-18",
+            "url": "https://www.moodys.com/..."
+          },
+          {
+            "news_category": "geopolitical",
+            "headline": "네덜란드 Wet Vifo 외국인 투자 사전심사 확대, 자동차금융은 적용 제외",
+            "so_what": "자동차금융은 Wet Vifo 적용 외 — 자유로운 진입 환경. 단 IT/데이터 인프라 인수 시 사전심사 변수.",
+            "publisher": "Reuters",
+            "pub_date": "2026-05-15",
+            "url": "https://www.reuters.com/..."
+          },
+          {
+            "news_category": "finance",
+            "headline": "네덜란드 AAA 국가신용 유지, 이자 원천세 0% 정책 EU 자본 허브 강화",
+            "so_what": "EU Holding/자본 허브 매력 지속 — 한국 본사 자본배치·차입 구조 최적화 가능.",
+            "publisher": "Financial Times",
+            "pub_date": "2025-12-15",
+            "url": "https://www.ft.com/..."
+          }
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "news",
+        "timeseries": null,
+        "tier": 3,
+        "source": "화이트리스트(Automotive News Europe·S&P Global Mobility·Just Auto·Moody's·Reuters·Financial Times)",
+        "insight": "EV 환경(BEV 30%+·bijtelling 우대)·낮은 연체율·AAA·이자 원천세 0%로 진입 우호적, 단 Ayvens 단독 1위와 EV 잔가 압박이 양대 제약. 한국 OEM 캡티브 진입 매력도 EU 최상위.",
+        "insight_ai_generated": true
+      },
+      "regulators": {
+        "item": "규제기관 식별",
+        "category": "shared",
+        "role": "context",
+        "value": "AFM(금융시장청, Wft Art. 2:60 인가·시장행위) / DNB(중앙은행, 건전성·결제) / ACM(소비자·경쟁) / AP(개인정보·AI) / Belastingdienst(국세청) / Kifid(금융분쟁조정원)",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 1,
+        "source": "AFM, DNB, ACM, AP 공식",
+        "insight": "Twin Peaks 모델(AFM=시장행위, DNB=건전성)로 이중 감독. 운용리스는 자율규제(VNA), 소비자금융은 AFM/DNB·세무는 Belastingdienst·분쟁은 Kifid로 책임 분산. 단일 창구 부재이나 절차 표준화 — 컴플라이언스 거버넌스 명확.",
+        "insight_ai_generated": false
+      },
+      "country_summary": {
+        "item": "해당국 정성 요약",
+        "category": "business",
+        "role": "context",
+        "value": "EU 9위 자동차 시장(2025 신차 38만대, ±0%) — 규모 중위지만 운용리스 침투·EV 보급은 EU 1위. 다국적 리스사 주도(Ayvens/ALD·LeasePlan·Arval·Athlon 약 45%)+OEM 캡티브(VW·Stellantis·Toyota 30%)+은행계·독립계(25%) 구조. 소비자금융은 Wft 인가(€730k)·Wck 35a 사용자금리, B2B 운용리스는 인가 면제. EU GDPR·SEPA·iDEAL·BKR·DigiD로 IT 재사용성 최상위. AAA 국가신용, 이자 원천세 0% — EU Holding 허브로 활용 가능.",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "VNA, BOVAG/RAI, DNB, AFM, Mordor Intelligence",
+        "insight": "운용리스·EV로 즉시 진입(Wft 면제) → EV 잔가 모델 정교화 → Wft 인가 기반 소비자금융 단계 확장. Holding 허브 활용 시 글로벌 자본 효율 극대화.",
+        "insight_ai_generated": true
+      }
+    }
+  }
+}

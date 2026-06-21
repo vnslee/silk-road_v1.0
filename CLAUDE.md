@@ -9,8 +9,10 @@
 - `app/backend/engine/` — Python 엔진 파이프라인 (calculation → generation → rendering)
   - `calculation/scoring_engine.py` — 단일국 스코어링 (매력도·난이도·유사도)
   - `generation/region_report_generation_engine.py` — 권역 퀵윈 스코어링 → 리포트 JSON 생성
-  - `rendering/region_report_rendering_engine.py` — 권역 리포트 JSON → HTML 보고서 렌더링
-  - ⚠️ generation/rendering은 현재 **권역(region) 전용**. **국가(country) 전용 generation/rendering 엔진이 추가될 예정** — 추가 시 region 엔진과 동일한 구조·경로 규칙을 따른다.
+  - `rendering/region_report_rendering_engine.py` — 권역 리포트 JSON → HTML **보고서**(PR2) 렌더링
+  - `rendering/country_detail_rendering_engine.py` — 국가 리서치 JSON → HTML **상세화면**(P1) 렌더링
+  - `rendering/region_detail_rendering_engine.py` — 권역 리서치 JSON → HTML **상세화면**(P2) 렌더링
+  - ⚠️ **보고서(report)** generation/rendering은 현재 **권역(region) 전용** — 국가(country) 전용 보고서(PR1) generation/rendering 엔진은 추가될 예정(추가 시 region 엔진과 동일 구조·경로 규칙). 반면 **상세화면(detail) 렌더링은 country(P1)·region(P2) 양쪽 구현됨**. 상세화면(P1/P2, `detail/` 출력)과 진단 보고서(PR1/PR2, `report/` 출력)는 별개 산출 라인이다.
 - `app/backend/storage/` — 데이터 (입력/출력 분리)
 - `app/frontend/` — 클라이언트 (지도 UI + 챗봇)
 - `architecture/` — 설계 명세
@@ -21,8 +23,8 @@
 
 - 엔진은 자기 위치 기준으로 `app/backend/storage`를 찾아 경로를 해석한다 (각 엔진 상단의 `STORAGE` 변수).
 - **입력**: `storage/data/research/country/<CODE>/<CODE>_latest.json` (AI 조사), `storage/data/internal/internal_latest.json` (사내 룰셋). 권역 데이터가 추가되면 `storage/data/research/region/...` 형태를 따른다.
-- **출력**: 리포트 JSON은 `storage/report/<country|region>/<ID>/data/`, HTML은 `.../html/` 에 둔다. JSON과 HTML을 같은 폴더에 섞지 않는다.
-- rendering 엔진은 `data/`에서 JSON을 읽어 `html/`에 HTML을 쓴다.
+- **출력**: 진단 보고서(PR1/PR2) JSON은 `storage/report/<country|region>/<ID>/data/`, HTML은 `.../html/` 에 둔다. 상세화면(P1/P2) HTML은 `storage/detail/<country|region>/<ID>/html/` 에 둔다. JSON과 HTML을 같은 폴더에 섞지 않는다.
+- **보고서** rendering 엔진은 `report/.../data/`에서 JSON을 읽어 같은 도메인 `report/.../html/`에 HTML을 쓴다. **상세화면** rendering 엔진은 `data/research/...`(리서치 원본)를 읽어 `detail/.../html/`에 HTML을 쓴다.
 
 ## 실행
 
@@ -35,6 +37,12 @@ python3 app/backend/engine/generation/region_report_generation_engine.py EU
 
 # 권역 렌더링만 단독 실행 (리포트 JSON이 이미 있을 때)
 python3 app/backend/engine/rendering/region_report_rendering_engine.py EU
+
+# 국가 상세화면(P1) 렌더 — 리서치 데이터(data/research/country/<CODE>) → detail/country/<CODE>/html
+python3 app/backend/engine/rendering/country_detail_rendering_engine.py ES
+
+# 권역 상세화면(P2) 렌더 — 리서치 데이터(data/research/region/<REGION>) → detail/region/<REGION>/html
+python3 app/backend/engine/rendering/region_detail_rendering_engine.py EU
 ```
 
 ## 컨벤션 / 게이트
@@ -42,7 +50,8 @@ python3 app/backend/engine/rendering/region_report_rendering_engine.py EU
 - Python 파일 편집 후 `python3 -m py_compile <file>`로 구문 확인.
 - 엔진 간 import는 `generation`이 형제 폴더(`calculation`, `rendering`)를 `sys.path`에 추가하는 패턴을 따른다. 새 크로스 폴더 import 시 같은 방식 사용.
 - 새 엔진/문서를 추가할 때는 **기존 region 구현의 구조·네이밍·경로 규칙을 그대로 따른다**(country↔region 대칭 유지).
-- rendering 엔진은 `rendering/templates/region_report_template.html`을 읽어 `{{PLACEHOLDER}}`를 치환한다. 계산은 하지 않고 표현만 담당(관심사 분리).
+- rendering 엔진은 `rendering/templates/`의 HTML 템플릿을 읽어 `{{PLACEHOLDER}}`를 치환한다 — 보고서는 `region_report_template.html`, 상세화면은 `country_detail_template.html`(P1)·`region_detail_template.html`(P2). 계산은 하지 않고 표현만 담당(관심사 분리).
+- 상세화면(detail) 엔진은 같은 `rendering/` 폴더의 `region_report_rendering_engine`을 `sys.path`에 추가해 `import ... as rre`로 포맷·차트 헬퍼(`esc`·`fmt_value`·`line_chart`·`bar`·`score_color`·`card` 등)를 재사용한다(중복 작성 금지).
 - 색상·디자인 토큰은 `architecture/design/stitch/DESIGN.md`(Kinetic Enterprise 팔레트)를 따른다.
 - **프론트(UI) 구현 시 우선순위**: ① `DESIGN.md`·stitch mockup·`web_design_spec.md`가 **디자인 source of truth**(임의 변경 금지). ② `frontend-design` 스킬 = 구현 충실도·품질 게이트(반응형·키보드 포커스·`prefers-reduced-motion`·CSS specificity). ③ `ui-ux-pro-max` 스킬 = 접근성·차트 등 **검증·보강 보조**(디자인 교체·신규 팔레트 제안 금지). 상충 시 ①이 항상 우선.
 

@@ -1,8 +1,13 @@
-# 오토파이낸스 추천 엔진 — 데이터 스키마 (v1.1)
+# 오토파이낸스 추천 엔진 — 데이터 스키마 (v1.2)
 
 > 원칙: **데이터는 국가당 1개 JSON, 뷰는 화면단 필터.**
 > 각 item에 `category`(biz/it/shared) + `role`(gate/score/context) + `tier` 태그.
 > 화면은 이 태그로 필터·렌더 분기. 데이터 물리 분리 없음.
+>
+> **v1.2 변경점 (2026-06-21)**
+> - 탭1-1 유사도 입력용 필드 추가: `similarity_axis`, `similarity_weight`, `score_dimensions`. (지정 6개 item에 한정)
+> - `score_dimensions`는 디멘전 단위 target_score/base_score(1~5 정수)+note. 엔진이 격차→0~100 유사도로 환산.
+> - schema_version 1.1 → 1.2.
 >
 > **v1.1 변경점**
 > - `tier_group` 필드 **삭제**. (MVP/ext 4단 분류 폐기 → 노출 제어는 화면 config가 항목명으로 관리)
@@ -59,7 +64,7 @@ internal/                      자사 자산·계산 파라미터. 국가 무관
   "is_baseline": false,            // 이 국가가 자사 베이스라인인지 (모든 국가 공통 필드)
   "currency": "PLN",
 
-  "schema_version": "1.1",         // 스키마 구조 버전
+  "schema_version": "1.2",         // 스키마 구조 버전
   "data_year": 2025,               // 데이터가 가리키는 연도
   "fetched_at": "2026-06-18T14:32:00+09:00",  // 조사 버튼 누른 시각 (국가 전체 공유)
   "fetched_by": "ai",              // ai | consultant_reviewed
@@ -108,6 +113,33 @@ internal/                      자사 자산·계산 파라미터. 국가 무관
 | `direction` | enum | `up`(클수록 좋음) \| `down`(작을수록 좋음) |
 | `axis` | enum | `attractiveness`(매력도 X) \| `difficulty`(난이도 Y) \| `similarity`(IT 유사도) |
 | `timeseries` | object\|null | 수치+추세 항목만. 아니면 null |
+| `similarity_axis` | enum?(아래 6개 한정) | `system` \| `product` \| `regulatory` \| `risk` — 탭1-1 종합점수 산출 시 그룹화 키 |
+| `similarity_weight` | number?(0~1) | 탭1-1 종합점수 가중치 (6개 합=1.0 기준) |
+| `score_dimensions` | object?(아래 6개 한정) | 디멘전 단위 채점. key=디멘전명, value={target_score, base_score, note} |
+
+#### score_dimensions 디멘전 채점 (탭1-1 입력 — 6개 item 전용)
+
+아래 6개 item에 한해 `score_dimensions`를 함께 출력. 각 디멘전은 1~5 정수 척도.
+엔진은 |target - base| 격차로 디멘전 유사도(gap 0 → 100, gap 4 → 0)를 계산하고, 디멘전 평균 → 항목 점수, 항목 가중평균 → 종합 유사도로 환산한다.
+
+| item | similarity_axis | similarity_weight | 디멘전 |
+|---|---|---|---|
+| 솔루션 유형 | system | 0.20 | 배포형태(패키지/SI/SaaS) · 커스터마이징 자유도 · 벤더 종속도 · 멀티테넌시 여부 |
+| 디지털 채널 성숙도 | system | 0.20 | 온라인 신청 연동 · 비대면 계약 가능 · API 개방도 · 페이퍼리스 수준 |
+| 구매 패턴(할부·리스 비중) | product | 0.15 | 리스 취급 일치도 · 렌탈 취급 일치도 · 플릿 취급 일치도 · 상품별 비중 유사도 |
+| 라이선스 체제(세그먼트별) | regulatory | 0.25 | 취득방식(등록 vs 인가) · 외국인 취득 가능 · 처리기간(개월) · 최저자본금 수준 · 감독 강도 |
+| 데이터 현지화 의무 | regulatory | 0.10 | 현지 저장 강제 · 국외 이전 허용도 · 동의·보관 규제 · GDPR 동등성 |
+| 차량회수 절차 용이성 | risk | 0.10 | 사법절차 필요 · 회수 소요기간(일) · 자력구제 허용 · 회수율 |
+
+```json
+"score_dimensions": {
+  "배포형태(패키지/SI/SaaS)": { "target_score": 4, "base_score": 4, "note": "양국 모두 패키지+자체 코어 혼재" },
+  "커스터마이징 자유도":       { "target_score": 4, "base_score": 5, "note": "B국 NetSol 자유도 우위" }
+}
+```
+
+> 위 6개 외 item에는 `score_dimensions`를 두지 않는다. (탭1-1 산식 외부에서 쓰지 않음)
+> `base_score`는 권역 베이스라인 국가({REGION}의 is_baseline) 실측 기준으로 일관되게 부여. 같은 권역 내 국가 간에는 동일한 base_score를 사용.
 
 `timeseries` 객체 (수치형만):
 ```json

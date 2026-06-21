@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(python app/backend/engine/generation/country_report_engine.py app/backend/storage/data/research/country/ES/ES_latest.json app/backend/storage/data/internal/internal_latest.json app/backend/storage/report)",
+      "Bash(open *)"
+    ]
+  }
+}

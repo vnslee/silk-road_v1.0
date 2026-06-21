@@ -1,0 +1,1109 @@
+{
+  "country": "United Kingdom",
+  "country_ko": "영국",
+  "code": "GB",
+  "region": "EU",
+  "is_baseline": true,
+  "currency": "GBP",
+  "schema_version": "1.1",
+  "data_year": 2025,
+  "fetched_at": "2026-06-21T15:30:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "유럽 최대급 자동차금융 시장이자 자사 NetSol 구축 실적을 보유한 권역 베이스라인 기준국. 2025년 신차 등록 약 196만대(SMMT)로 EU 주요시장 대비 큰 규모이며, 신차 사적 구매의 80%+가 금융(주로 PCP)으로 조달되는 세계 최고 수준의 금융 침투율이 특징이다. FLA 기준 소비자 자동차금융 신규 실행액이 연 £390억 규모로 시장 깊이가 깊다. 비용·난이도 드라이버는 규제 강도다 — FCA(금융행위감독청) 인가가 소비자신용의 핵심 관문이며, 2024~2025년 자동차 DCA(딜러 재량 수수료) 미스셀링 사태가 업계 전반의 보상·컴플라이언스 부담을 키운 핵심 리스크 플래그다(대법원 2025.8 판결로 일부 완화됐으나 FCA 보상 스킴 진행 중). 비즈니스 매력도(대형 시장·고침투율·성숙 PCP 생태계)는 최상위권이나, Brexit로 GDPR이 UK GDPR로 분기되고 EU 데이터 적정성 결정에 의존하는 점, DCA 사태 후 규제 불확실성이 매력도를 일부 상쇄한다. IT 유사도는 베이스라인 자체이므로 만점 기준 — NetSol 코어·성숙한 CB(Experian/Equifax/TransUnion)·Open Banking 등 디지털 인프라가 권역 비교의 기준선이 된다. 다크호스는 EV 전환 속도(2025 ZEV Mandate 28%, 신차의 약 1/5이 BEV)와 그에 따른 잔가 리스크로, 리스·PCP 손익의 핵심 변수다. 본 데이터는 타 EU 후보국의 유사도·비용 산정 기준선으로 사용된다.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business",
+      "role": "score",
+      "value": 39000,
+      "unit": "GBP_M",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 33000
+          },
+          {
+            "year": 2022,
+            "value": 34500
+          },
+          {
+            "year": 2023,
+            "value": 36000
+          },
+          {
+            "year": 2024,
+            "value": 37800
+          },
+          {
+            "year": 2025,
+            "value": 39000
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 40500
+          },
+          {
+            "year": 2027,
+            "value": 42000
+          },
+          {
+            "year": 2028,
+            "value": 43600
+          },
+          {
+            "year": 2029,
+            "value": 45200
+          },
+          {
+            "year": 2030,
+            "value": 46900
+          }
+        ],
+        "cagr_hist": 4.3,
+        "cagr_forecast": 3.8,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "FLA(Finance & Leasing Association) 2025: 소비자 자동차금융 신규 실행액 연 약 £39bn(신차+중고)",
+      "insight": "유럽 최대급 자동차금융 시장. FLA 회원사가 신차 금융의 대부분을 커버해 통계 신뢰도 높음. 시장 깊이가 깊어 베이스라인 모수로 적합.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "오토금융 성장률(CAGR)",
+      "category": "business",
+      "role": "score",
+      "value": 4.3,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 3.0
+          },
+          {
+            "year": 2022,
+            "value": 4.5
+          },
+          {
+            "year": 2023,
+            "value": 4.3
+          },
+          {
+            "year": 2024,
+            "value": 5.0
+          },
+          {
+            "year": 2025,
+            "value": 3.2
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 3.8
+          },
+          {
+            "year": 2027,
+            "value": 3.7
+          },
+          {
+            "year": 2028,
+            "value": 3.8
+          },
+          {
+            "year": 2029,
+            "value": 3.7
+          },
+          {
+            "year": 2030,
+            "value": 3.8
+          }
+        ],
+        "cagr_hist": 4.3,
+        "cagr_forecast": 3.8,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "FLA 추이 / Mordor Intelligence (성숙 시장 한 자릿수 중반 성장)",
+      "insight": "성숙 시장으로 한 자릿수 중반 안정 성장. 고침투 시장이라 신규 성장은 EV 전환·중고 금융이 견인.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(신차)",
+      "category": "business",
+      "role": "score",
+      "value": 82,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 80
+          },
+          {
+            "year": 2022,
+            "value": 81
+          },
+          {
+            "year": 2023,
+            "value": 82
+          },
+          {
+            "year": 2024,
+            "value": 82
+          },
+          {
+            "year": 2025,
+            "value": 82
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 82
+          },
+          {
+            "year": 2027,
+            "value": 82
+          },
+          {
+            "year": 2028,
+            "value": 83
+          },
+          {
+            "year": 2029,
+            "value": 83
+          },
+          {
+            "year": 2030,
+            "value": 83
+          }
+        ],
+        "cagr_hist": 0.6,
+        "cagr_forecast": 0.2,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "FLA / SMMT (신차 사적 구매의 80%+가 금융 조달, 주로 PCP)",
+      "insight": "신차 사적 구매의 80%+가 금융 조달, 세계 최고 수준 침투율. PCP가 지배적 — 잔가 기반 상품 설계가 핵심.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(중고차)",
+      "category": "business",
+      "role": "score",
+      "value": 55,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 3,
+      "source": "FLA 중고차 금융 통계 (신규 실행액 신차 상회, 중고 침투율 약 50%대)",
+      "insight": "중고차 금융 신규 실행액이 신차를 상회하는 시장. 중고 PCP·HP 성숙으로 침투율 높음 — 중고 금융이 성장 동력.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business",
+      "role": "score",
+      "value": 9.0,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 6.5
+          },
+          {
+            "year": 2022,
+            "value": 7.5
+          },
+          {
+            "year": 2023,
+            "value": 9.5
+          },
+          {
+            "year": 2024,
+            "value": 9.2
+          },
+          {
+            "year": 2025,
+            "value": 9.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 8.5
+          },
+          {
+            "year": 2027,
+            "value": 8.2
+          },
+          {
+            "year": 2028,
+            "value": 8.0
+          },
+          {
+            "year": 2029,
+            "value": 8.0
+          },
+          {
+            "year": 2030,
+            "value": 8.0
+          }
+        ],
+        "cagr_hist": 8.5,
+        "cagr_forecast": -2.6,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "Bank of England 기준금리 4.75%(2025말, 연중 인하)+자동차대출 APR 마진 / FCA",
+      "insight": "BoE 기준금리 인하(2025말 약 4.75%)로 조달비용 하향 안정. 차량대출 표준 APR 8~10%대. DCA 사태 후 수수료 투명화로 가격 구조 변화 중.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신차 판매대수",
+      "category": "business",
+      "role": "score",
+      "value": 1962000,
+      "unit": "units",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 1647000
+          },
+          {
+            "year": 2022,
+            "value": 1614000
+          },
+          {
+            "year": 2023,
+            "value": 1903000
+          },
+          {
+            "year": 2024,
+            "value": 1953000
+          },
+          {
+            "year": 2025,
+            "value": 1962000
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 2000000
+          },
+          {
+            "year": 2027,
+            "value": 2030000
+          },
+          {
+            "year": 2028,
+            "value": 2060000
+          },
+          {
+            "year": 2029,
+            "value": 2090000
+          },
+          {
+            "year": 2030,
+            "value": 2120000
+          }
+        ],
+        "cagr_hist": 4.5,
+        "cagr_forecast": 1.6,
+        "estimated": true
+      },
+      "tier": 1,
+      "source": "SMMT 2025 신차 등록 통계 (약 196만대, 팬데믹 후 회복 지속)",
+      "insight": "2025년 약 196만대로 EU 주요시장 대비 큰 규모. 플릿·비즈니스 채널이 견조. 건수 산식의 베이스라인 모수.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "구매 패턴(할부·리스 비중)",
+      "category": "business",
+      "role": "score",
+      "value": 80,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 2,
+      "source": "FLA / SMMT (PCP가 신차 금융의 다수, HP·PCH(개인리스) 성장)",
+      "insight": "PCP(개인계약구매)가 신차 금융의 지배적 형태, PCH(개인리스)·HP가 보조. 잔가·반납 옵션 기반 상품 설계가 시장 표준 — 베이스라인 상품 모듈.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business",
+      "role": "score",
+      "value": 45,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 추정 (OEM 캡티브 VWFS·BMW FS·Ford Credit 등 신차 PCP 다수 점유)",
+      "insight": "OEM 캡티브(VWFS·BMW FS·Stellantis FS·Ford Credit)가 신차 PCP 시장의 약 45%로 강력. 독립계는 중고·니어프라임·플릿에서 경쟁.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 점유율(Top 5)",
+      "category": "business",
+      "role": "score",
+      "value": 18,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 추정 (Black Horse(Lloyds)·VWFS·Santander Consumer UK 등 상위)",
+      "insight": "1위 추정 약 18%(Black Horse 등). 캡티브+은행계로 상위 집중되나 중고·니어프라임 틈새는 분산 — 신규 진입 여지 존재.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "법인세율",
+      "category": "business",
+      "role": "score",
+      "value": 25,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "HMRC: 표준 법인세율 25%(2023.4~, 이익 £250k 초과), 소기업 19%(£50k 이하), 중간 한계구간",
+      "insight": "표준 법인세 25%(이익 £250k 초과), 소기업 19%. EU 평균 대비 다소 높으나 안정적. 진입 초기 소규모는 19% 적용 여지.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "이자소득 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 20,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "HMRC: 비거주자 이자 원천징수 기본 20%, 조세조약으로 0~10% 감면 가능",
+      "insight": "비거주자 이자 기본 20%, 한·영 조세조약으로 감면 가능. Brexit로 EU 이자·로열티 지침은 미적용 — 조약 의존.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "배당 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 0,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "HMRC: 영국은 배당 원천징수 없음(0%)",
+      "insight": "배당 원천징수 0% — 이익 회수 효율 최상. 본사 송금 장애 없음, 베이스라인으로 유리한 조건.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared",
+      "role": "gate",
+      "value": "100% 허용 (금융업은 FCA/PRA 인가 필요, NSI Act 안보심사 대상 가능)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "UK 회사법, National Security and Investment Act 2021, FCA",
+      "insight": "외국인 100% 소유 가능. 금융업은 FCA 인가가 관문, 일부 안보민감 분야는 NSI Act 심사 — 자동차금융은 통상 해당 없음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외환·배당 송금 자유도",
+      "category": "shared",
+      "role": "gate",
+      "value": "외환 통제 없음, 배당 원천징수 0%, 이자 20%(조약 감면)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "HMRC, Bank of England (외환자유)",
+      "insight": "외환 자유·배당 WHT 0%로 본국 회수 장애 없음. 송금 자유도 최상 — 베이스라인 기준.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared",
+      "role": "gate",
+      "value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+      "gate_result": "PASS",
+      "gate_scope": "operating_model",
+      "segment": null,
+      "tier": 1,
+      "source": "UK GDPR, Data Protection Act 2018, EU-UK 적정성 결정(2021, 2025 연장)",
+      "insight": "강제 현지화 없음. UK GDPR로 EU와 분기됐으나 적정성 결정으로 역내 이전 가능. 적정성 갱신 여부가 장기 리스크.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "국가신용등급",
+      "category": "shared",
+      "role": "gate",
+      "value": "AA (S&P, 안정적) / Aa3 (Moody's) / AA- (Fitch)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "S&P·Moody's·Fitch 국가신용등급 (2025)",
+      "insight": "AA급 투자등급 안정권. 송금·자본회수 리스크 매우 낮아 킬스위치 통과 — 베이스라인 기준.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared",
+      "role": "gate",
+      "value": "소비자 자동차금융=FCA 인가(소비자신용 permission) 필요/취득가능, B2B 리스=상대적 유연",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "FCA Handbook(CONC), Financial Services and Markets Act 2000",
+      "insight": "소비자신용은 FCA 인가(consumer credit permission) 필수, 외국사 취득 가능하나 절차·소요시간 존재. B2B 리스는 인가 부담 경감 — 세그먼트별 진입 전략.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 체제(세그먼트별)",
+      "category": "shared",
+      "role": "gate",
+      "value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "FCA CONC, Senior Managers & Certification Regime",
+      "insight": "소비자신용은 FCA full permission+SM&CR(임원책임제)로 거버넌스 공수 큼, B2B는 경감. Consumer Duty(2023~)로 소비자보호 의무 강화 — 컴플라이언스 부담 고려.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "금리 상한 규제",
+      "category": "shared",
+      "role": "gate",
+      "value": "일반 자동차금융 금리상한 없음(고비용단기신용 HCSTC만 별도 캡). FCA Consumer Duty·공정가격 규율",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "FCA Handbook(CONC), HCSTC price cap(payday만 해당)",
+      "insight": "자동차금융에 직접 금리상한 없음(EU와 차별점) — 가격 자유도 높음. 단 Consumer Duty의 '공정가치(fair value)' 의무로 사실상 가격 적정성 입증 필요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "최저자본금",
+      "category": "shared",
+      "role": "score",
+      "value": "소비자신용 한정 사업은 법정 최저자본 별도 없음(FCA 적정성·재무건전성 심사). 일반 Ltd 최저자본 자유",
+      "unit": "GBP",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 2,
+      "source": "FCA threshold conditions, Companies Act 2006",
+      "insight": "EU EFC(€5M)와 달리 소비자신용은 고정 최저자본 요건 없이 FCA 재무건전성 심사로 대체 — 진입 자본 부담 상대적 낮음. 단 PRA 규제 예금취급은 별도.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it",
+      "role": "score",
+      "value": "NetSol(베이스라인 코어) + Alfa Systems·Sopra Banking 등 글로벌 벤더",
+      "unit": "match",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "자사 구축 실적(NetSol) + 시장 조사 (Alfa Systems 영국 본사, Sopra)",
+      "insight": "자사 NetSol 베이스라인 구축국 — 유사도 비교의 기준선(100%). Alfa Systems(영국 발) 등 글로벌 리스 코어 생태계 본거지.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 유형",
+      "category": "it",
+      "role": "score",
+      "value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+      "unit": "type",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "업계 (Alfa Systems 클라우드 전환, NetSol Transcend)",
+      "insight": "베이스라인 패키지 유형 — 비교 기준. 클라우드/SaaS 전환이 가장 앞선 시장으로 아키텍처 현대화 레퍼런스.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "디지털 채널 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "업계 (Open Banking·온라인 신청·전자서명 보편, 디지털 딜러 선도)",
+      "insight": "Open Banking 세계 선도, 완전 디지털 신청·전자계약 보편화. 디지털 채널 성숙도 최상 — 베이스라인 기준(5).",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Experian·Equifax·TransUnion(3대 CB 본거지), Open Banking 데이터",
+      "insight": "Experian 본사 등 3대 글로벌 CB 인프라 최성숙 + Open Banking 소득검증. CB 인프라 세계 최고 수준 — 베이스라인 기준(5).",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "결제·정산 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Faster Payments, BACS Direct Debit, Open Banking 결제",
+      "insight": "Faster Payments 즉시이체·Direct Debit·Open Banking 결제 보편. 결제·정산 인프라 세계 최상위 — 수금 자동화 기준선.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "디지털 딜러 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "업계 (Auto Trader·Cazoo·온라인 풀스택 판매, OEM 직판)",
+      "insight": "Auto Trader 등 온라인 마켓플레이스·디지털 풀스택 판매 선도. 임베디드 자동차금융 가장 발달 — 디지털 딜러 기준선(5).",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "국외이전 제한",
+      "category": "it",
+      "role": "score",
+      "value": 2,
+      "unit": "restriction_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "UK GDPR, EU-UK 적정성 결정, IDTA(국제이전협정)",
+      "insight": "UK GDPR로 EU 대비 절차 분기(IDTA/UK Addendum). 적정성 결정으로 EU 이전 가능하나 제3국은 별도 — 강제 현지화 없음, 제약 낮음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "ease_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Consumer Credit Act 1974(HP/PCP 회수 규정), FCA CONC",
+      "insight": "HP/PCP는 소유권 기반 회수 가능. 1/3 미만 납입 시 자력회수, 1/3 이상은 법원 명령(return order) 필요 — 절차 명확해 상대적 용이. 베이스라인 회수 모듈 기준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "법적 회수 소요기간",
+      "category": "shared",
+      "role": "score",
+      "value": 120,
+      "unit": "days",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 추정 (County Court return order 절차 기준)",
+      "insight": "법원 명령 필요 시 약 3~4개월. HP 소유권 기반이라 EU 일부국 대비 단기. 1/3 룰로 회수 경로가 명확 — 회수 리스크 관리 용이.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "추심 규제",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "constraint_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "FCA CONC 7(추심), Consumer Duty",
+      "insight": "FCA CONC 7이 추심·연체관리 엄격 규율(곤경고객 forbearance 의무). Consumer Duty로 보호 강화 — EU 대비 다소 엄격. 베이스라인 컴플라이언스 기준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "충당금 규정",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "IFRS 9 ECL, FCA/PRA 건전성 규제",
+      "insight": "IFRS 9 ECL 적용으로 충당금 체계 최성숙. DCA 보상 충당까지 회계처리 경험 — 베이스라인 충당금 엔진 기준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "연체 분류 기준",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "IFRS 9, FCA arrears 규정",
+      "insight": "IFRS 9 stage 분류+FCA 연체관리 표준화. NPL 엔진 베이스라인 기준 — 타국 비교 기준선.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "의무보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "자동차 의무책임보험 강제(Road Traffic Act 1988)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Road Traffic Act 1988 (제3자 책임보험 의무)",
+      "insight": "차량 책임보험 의무는 표준. 베이스라인 보험연동 로직 기준 — 특화개발 기준선.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "신용생명보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "PPI 미스셀링 사태 후 강력 규제, 별도 동의·적합성 의무 (FCA ICOBS)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "FCA ICOBS, PPI 사후규제 (CMC·보상 경험)",
+      "insight": "PPI(지급보호보험) 미스셀링 대규모 보상 후 신용보험 판매 매우 엄격. 끼워팔기·적합성 입증 의무 — 베이스라인 컴플라이언스 기준(보수적).",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "보험 끼워팔기 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "강제 끼워팔기 금지, FCA ICOBS·Consumer Duty 적용",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "FCA ICOBS, Consumer Duty(fair value)",
+      "insight": "FCA가 보험 끼워팔기 엄격 규율, GAP 보험은 2024 판매 일시중단·재설계 사례. Consumer Duty 공정가치 입증 의무 — EU IDD보다 엄격한 기준선.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "AI 신용평가 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "분야별 원칙기반 규제(EU AI Act 미적용), FCA·ICO 가이드, 자동화 의사결정 UK GDPR 22조",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "UK pro-innovation AI 규제 백서, ICO·FCA AI 가이드, UK GDPR Art.22",
+      "insight": "EU AI Act 미적용 — UK는 분야별 원칙기반 접근(별도 AI법 없음). FCA·ICO 가이드와 UK GDPR 자동화 규정 적용. EU 대비 규제 부담 낮으나 가이드 변동성 존재.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "EV 보급률",
+      "category": "business",
+      "role": "score",
+      "value": 20,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 11.6
+          },
+          {
+            "year": 2022,
+            "value": 16.6
+          },
+          {
+            "year": 2023,
+            "value": 16.5
+          },
+          {
+            "year": 2024,
+            "value": 19.6
+          },
+          {
+            "year": 2025,
+            "value": 20.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 24.0
+          },
+          {
+            "year": 2027,
+            "value": 28.0
+          },
+          {
+            "year": 2028,
+            "value": 33.0
+          },
+          {
+            "year": 2029,
+            "value": 38.0
+          },
+          {
+            "year": 2030,
+            "value": 45.0
+          }
+        ],
+        "cagr_hist": 14.6,
+        "cagr_forecast": 17.6,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "SMMT 2025 (BEV 신차 점유 약 20%), ZEV Mandate 2025 목표 28%",
+      "insight": "신차 BEV 점유 약 20%, ZEV Mandate(2025 28%→2030 80%) 규제가 전환 가속. 메이커 디스카운트로 BEV 보급 견인 — 잔가 모델에 EV 별도 곡선 필수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "EV·ICE 잔존가치 리스크",
+      "category": "business",
+      "role": "score",
+      "value": 50,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 60
+          },
+          {
+            "year": 2022,
+            "value": 58
+          },
+          {
+            "year": 2023,
+            "value": 52
+          },
+          {
+            "year": 2024,
+            "value": 49
+          },
+          {
+            "year": 2025,
+            "value": 50
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 50
+          },
+          {
+            "year": 2027,
+            "value": 51
+          },
+          {
+            "year": 2028,
+            "value": 51
+          },
+          {
+            "year": 2029,
+            "value": 52
+          },
+          {
+            "year": 2030,
+            "value": 52
+          }
+        ],
+        "cagr_hist": -4.4,
+        "cagr_forecast": 1.0,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "Cap HPI / Auto Trader 잔가 추정 (3년 BEV 잔가, 2023~24 급락 후 안정화)",
+      "insight": "BEV 3년 잔가 2023~24 급락(중고 EV 공급 과잉) 후 2025 안정화 조짐. PCP 잔가 보증(GFV)에 직접 영향 — 베이스라인 잔가 리스크 기준, EV 보수적 설계 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "해당국 정성 요약",
+      "category": "business",
+      "role": "context",
+      "value": "유럽 최대급 자동차금융 시장이자 자사 NetSol 구축 베이스라인. 2025 신차 약 196만대(SMMT), 신차 사적구매 80%+ 금융(PCP 지배적). FLA 기준 소비자 자동차금융 연 약 £39bn. FCA 규제·DCA 미스셀링 사태가 컴플라이언스 핵심 변수. Open Banking·3대 CB로 IT 인프라 세계 최고.",
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "FLA, SMMT, FCA, 자사 구축실적",
+      "insight": "권역 베이스라인 — 타 EU 후보국 유사도·비용 산정 기준선. PCP 중심 성숙 시장의 레퍼런스.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "브랜드 Top10",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Ford",
+        "Volkswagen",
+        "Kia",
+        "Audi",
+        "BMW",
+        "Nissan",
+        "Toyota",
+        "Hyundai",
+        "Vauxhall",
+        "Mercedes-Benz"
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "SMMT 2025 신차 등록 통계 (브랜드별 순위)",
+      "insight": "Ford·VW·Kia 상위, 독일·일본·한국 브랜드 혼재. Tesla·BYD 등 EV 브랜드 부상. 다브랜드 딜러금융 제휴 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "OEM 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Ford",
+          "market_share": "약 9%"
+        },
+        {
+          "rank": 2,
+          "name": "Volkswagen",
+          "market_share": "약 8%"
+        },
+        {
+          "rank": 3,
+          "name": "Kia",
+          "market_share": "약 7%"
+        },
+        {
+          "rank": 4,
+          "name": "Audi",
+          "market_share": "약 6%"
+        },
+        {
+          "rank": 5,
+          "name": "BMW",
+          "market_share": "약 6%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "SMMT 2025 브랜드별 신차 등록 (Ford·VW·Kia 상위권)",
+      "insight": "Ford·VW·Kia가 상위, 캡티브 강한 VW·BMW·Ford 비중 주목. 중국 EV 브랜드(BYD·MG) 급성장 — 캡티브 미보유 브랜드 제휴 여지.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Black Horse (Lloyds Banking Group)",
+          "market_share": "약 18%"
+        },
+        {
+          "rank": 2,
+          "name": "Volkswagen Financial Services UK",
+          "market_share": "약 13%"
+        },
+        {
+          "rank": 3,
+          "name": "Santander Consumer (UK)",
+          "market_share": "약 10%"
+        },
+        {
+          "rank": 4,
+          "name": "BMW Financial Services",
+          "market_share": "약 8%"
+        },
+        {
+          "rank": 5,
+          "name": "Ford Credit / FCE Bank",
+          "market_share": "약 7%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "업계 추정 (은행계 Black Horse·Santander + OEM 캡티브 VWFS·BMW·Ford)",
+      "insight": "은행계(Black Horse·Santander)와 OEM 캡티브(VWFS·BMW·Ford) 혼재. DCA 사태로 상위사 보상 부담 — 신규 진입은 중고·니어프라임 틈새 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 리스트",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Black Horse (Lloyds)",
+        "Volkswagen Financial Services",
+        "Santander Consumer UK",
+        "BMW Financial Services",
+        "Ford Credit",
+        "Stellantis Financial Services",
+        "Toyota Financial Services",
+        "MotoNovo Finance",
+        "Close Brothers Motor Finance",
+        "Mercedes-Benz Financial"
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "업계 (은행계·OEM 캡티브·독립계 주요 플레이어)",
+      "insight": "은행계+OEM 캡티브가 신차 지배, 독립계(MotoNovo·Close Brothers)는 중고 강세. 베이스라인 시장의 경쟁 구도 — 타국 비교 참조.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 진출 형태",
+      "category": "business",
+      "role": "context",
+      "value": "은행계 자회사(Black Horse/Lloyds·Santander) + OEM 캡티브(VWFS·BMW·Ford·Stellantis FS) + 독립계 전문여신사(MotoNovo·Close Brothers). 리스는 LeasePlan/Ayvens·Arval 등 다국적",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "업계 (FLA 회원사 구성)",
+      "insight": "신차는 은행계+캡티브, 중고는 독립계, 플릿/리스는 다국적 리스사. 진입 형태 선택지 다양 — 베이스라인 시장 구조 참조.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 금리 범위",
+      "category": "business",
+      "role": "context",
+      "value": "신차 PCP APR 약 5~10%(캡티브 프로모 0~6%), 중고/니어프라임 10~20%대",
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "FCA / 업계 (PCP 표준 APR + 캡티브 서브벤션 프로모)",
+      "insight": "신차 PCP 5~10%, 캡티브는 서브벤션 프로모로 0~6%. 중고·니어프라임은 두 자릿수. 금리상한 없어 가격 자유도 높으나 Consumer Duty 공정가치 입증 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 신차가격",
+      "category": "business",
+      "role": "context",
+      "value": "약 £35,000~40,000 (신차 평균 거래가, EV 비중 상승으로 상향)",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "업계 추정 (SMMT/딜러 평균 거래가)",
+      "insight": "평균 신차 £35k~40k대, EV 비중 상승으로 우상향. 건수×평균가 기반 금융 자산규모 산정 모수 — 베이스라인 기준가.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "규제기관 식별",
+      "category": "shared",
+      "role": "context",
+      "value": "FCA(금융행위감독청, 소비자신용 인가·감독) / PRA(건전성, 예금취급) / Bank of England(통화) / ICO(개인정보) / FOS(금융옴부즈만, DCA 분쟁) / CMA(경쟁)",
+      "context_type": "descriptive",
+      "tier": 1,
+      "source": "FCA, PRA, ICO, FOS 공식",
+      "insight": "FCA가 소비자신용 핵심 규제. DCA 분쟁은 FOS·법원 경유, 데이터는 ICO. 다기관 거버넌스 대응 필요 — 베이스라인 규제 지형.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외부 이슈 스캔",
+      "category": "business",
+      "role": "context",
+      "context_type": "news",
+      "value": [
+        {
+          "news_category": "auto_finance",
+          "headline": "영국 대법원, 자동차 딜러 수수료(DCA) 책임 일부 제한 판결…FCA 보상 스킴은 진행",
+          "so_what": "DCA 미스셀링 보상 규모 불확실성 일부 완화됐으나 FCA 산업 보상 스킴 진행 중. 신규 진입사도 수수료 투명성·Consumer Duty 준수 필수 — 컴플라이언스 비용 반영.",
+          "publisher": "Auto Finance News",
+          "pub_date": "2025-08-05",
+          "url": "https://www.autofinancenews.net/..."
+        },
+        {
+          "news_category": "auto_market",
+          "headline": "영국 2025 신차 등록 약 196만대, BEV 점유 ZEV Mandate 압박 속 약 20%",
+          "so_what": "EV 전환 가속으로 PCP 잔가(GFV) 리스크 노출 확대. 신차 금융 기반은 견조하나 EV 잔가 보수적 설계 필요.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-01-08",
+          "url": "https://europe.autonews.com/..."
+        },
+        {
+          "news_category": "auto_finance",
+          "headline": "FCA Consumer Duty 시행 후 자동차금융 공정가치·취약고객 보호 의무 강화",
+          "so_what": "상품 가격·수수료 구조에 공정가치 입증 의무. GAP 보험 등 부수상품 재설계 필요 — 상품 거버넌스 공수 증가.",
+          "publisher": "American Banker",
+          "pub_date": "2026-02-12",
+          "url": "https://www.americanbanker.com/..."
+        },
+        {
+          "news_category": "credit_abs",
+          "headline": "영국 auto loan/lease ABS 신용성과 견조, 잔가 노출은 모니터링 대상",
+          "so_what": "딜린퀀시 안정적이나 BEV 잔가가 ABS 리스크 요인. 충당금·잔가 가정 보수적 유지 권장.",
+          "publisher": "S&P",
+          "pub_date": "2026-03-20",
+          "url": "https://www.spglobal.com/ratings/..."
+        },
+        {
+          "news_category": "finance",
+          "headline": "BoE 2025년 기준금리 점진 인하로 4%대 진입, 소비자신용 환경 완화",
+          "so_what": "조달비용 하향으로 자동차금융 마진·수요 우호적. 금리 리스크 낮아지나 DCA 보상 부담이 상쇄 요인.",
+          "publisher": "Financial Times",
+          "pub_date": "2025-12-19",
+          "url": "https://www.ft.com/..."
+        },
+        {
+          "news_category": "geopolitical",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        }
+      ],
+      "tier": 3,
+      "source": "화이트리스트(Auto Finance News·Automotive News Europe·American Banker·S&P·Financial Times)",
+      "insight": "DCA 미스셀링 보상과 Consumer Duty가 컴플라이언스의 양대 변수, EV 잔가가 손익 변수. 금리 완화·시장 규모는 우호적. geopolitical 카테고리는 영국 직접 관련 화이트리스트 이슈 미확보 — 실사 보강.",
+      "insight_ai_generated": true
+    }
+  ]
+}
