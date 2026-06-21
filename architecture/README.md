@@ -6,3 +6,4 @@
 
 - `design/` - 설계 문서 (화면 디자인·UX 명세)
 - `research/` - AI 리서치 명세 (국가 데이터 생성용 프롬프트·스키마)
+- `guardrail/` - 챗봇 답변 가드레일 명세 (Bedrock Guardrails 채택 계획·정책 정의)
