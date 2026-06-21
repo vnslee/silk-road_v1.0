@@ -17,10 +17,15 @@ import validate_data as V
 
 
 # ── 정상 픽스처 PASS ──────────────────────────────────────────────────────
-def test_real_data_passes():
-    """존재하는 country 전부 + internal 이 PASS 여야 한다."""
-    ok, report = V.run()
-    assert ok, f"실데이터 검증 실패:\n{report}"
+def test_real_country_data_passes():
+    """존재하는 country 데이터 전부가 v1.1 스키마 검증 PASS 여야 한다.
+
+    (internal 검증은 원격 구조로 변경됨 — research Agent 는 country 검증만 사용.)
+    """
+    for code in sorted(V.discover_country_codes()):
+        data = json.loads((V.COUNTRY_DIR / code / f"{code}_latest.json").read_text(encoding="utf-8"))
+        errs = V.validate_country(data, label=code)
+        assert not errs, f"{code} 검증 실패: {errs[:5]}"
 
 
 def _load_es():
@@ -58,16 +63,6 @@ def test_news_publisher_off_whitelist_fails():
     errs = V.validate_country(data, label="ES_tampered_news")
     assert any("화이트리스트" in e for e in errs), errs
 
-
-# ── 오염 (a) category_weights 합 ≠ 100 ────────────────────────────────────
-def test_category_weights_not_100_fails():
-    data = _load_internal()
-    cw = data["weights"]["category_weights"]
-    # 한 카테고리 값을 +10 해서 합을 110 으로
-    first_key = next(iter(cw))
-    cw[first_key] += 10
-    errs = V.validate_internal(data, label="internal_tampered")
-    assert any("category_weights 합" in e for e in errs), errs
 
 
 # ── 추가: gate FAIL + tier≥3 금지 규칙 ────────────────────────────────────

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스페인 오토파이낸스 진출 비용·TCO 보고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Kinetic Enterprise tokens (DESIGN.md — source of truth, do not invent new) ── */
+:root{
+  --surface:#fbf9f9; --surface-low:#f5f3f3; --surface-lowest:#ffffff;
+  --surface-container:#efeded; --surface-light:#F8F9FA; --surface-border:#DCDCDC;
+  --on-surface:#1b1c1c; --on-surface-variant:#434751;
+  --text-primary:#000000; --text-secondary:#555555; --text-disabled:#BEBEBE;
+  --primary:#00204e; --primary-container:#003478; --on-primary:#ffffff;
+  --on-primary-container:#7d9fe9; --secondary:#005db7; --secondary-container:#599bfe;
+  --primary-fixed:#d8e2ff; --primary-fixed-dim:#aec6ff; --surface-tint:#395da2;
+  --accent-red:#E63946; --error:#ba1a1a;
+  /* source_flag → 신뢰도 색 (render_req §2) */
+  --flag-ext:#747782; --flag-int:#005db7; --flag-calc:#137333;
+  --flag-ai:#6b3fa0; --flag-news:#b45309;
+  /* spacing (4px base) */
+  --xs:4px; --sm:8px; --md:16px; --lg:24px; --xl:32px;
+  /* elevation */
+  --card-shadow:0 4px 8px rgba(0,32,78,.06);
+  --radius:8px; --radius-lg:12px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  background:var(--surface); color:var(--on-surface);
+  font-size:16px; line-height:24px; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0; color:var(--primary); letter-spacing:-0.01em;}
+p{margin:0;}
+
+/* ── Shell ── */
+.report{max-width:1120px; margin:0 auto; background:var(--surface);}
+.masthead{
+  background:var(--primary);
+  color:var(--on-primary); padding:var(--xl) var(--lg);
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:var(--lg); flex-wrap:wrap;
+  border-bottom:3px solid var(--secondary);
+}
+.masthead .badge-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:var(--radius);
+  background:var(--primary-container); color:var(--on-primary-container);
+  font-weight:800; font-size:18px; flex-shrink:0;
+}
+.masthead-id{display:flex; gap:var(--sm); align-items:center;
+  font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--primary-fixed-dim); margin-bottom:var(--xs);}
+.masthead-id .dot{width:3px; height:3px; border-radius:50%; background:var(--primary-fixed-dim);}
+.masthead h1{color:var(--on-primary); font-size:32px; line-height:40px; font-weight:800;}
+.masthead .sub{color:var(--primary-fixed); font-size:14px; margin-top:var(--xs);}
+.masthead-actions{display:flex; gap:var(--sm); flex-shrink:0;}
+.btn{display:inline-flex; align-items:center; gap:var(--xs);
+  padding:var(--sm) var(--md); border-radius:var(--radius);
+  font-size:12px; font-weight:600; letter-spacing:0.03em; text-decoration:none;
+  border:1px solid var(--primary-fixed-dim); color:var(--primary-fixed);
+  background:transparent;}
+.btn-solid{background:var(--secondary); border-color:var(--secondary); color:#fff;}
+
+/* ── Tab nav ── */
+.tabnav{display:flex; gap:var(--xl); padding:0 var(--lg);
+  background:var(--surface-lowest); border-bottom:1px solid var(--surface-border);
+  overflow-x:auto;}
+.tabnav a{padding:var(--md) 0; font-size:12px; font-weight:600; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--text-secondary); text-decoration:none;
+  border-bottom:2px solid transparent; white-space:nowrap;}
+.tabnav a.active{color:var(--primary); border-bottom-color:var(--primary);}
+
+/* ── Sections / cards ── */
+.tabpanel{padding:var(--lg); display:flex; flex-direction:column; gap:var(--xl);}
+.tab-head{display:flex; align-items:baseline; gap:var(--sm);
+  padding-bottom:var(--sm); border-bottom:1px solid var(--surface-border);}
+.tab-head .num{font-size:11px; font-weight:700; letter-spacing:0.1em;
+  color:var(--secondary); font-variant-numeric:tabular-nums;}
+.tab-head h2{font-size:24px; line-height:32px; font-weight:700;}
+.grid{display:grid; gap:var(--md);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{background:var(--surface-lowest); border:1px solid var(--surface-border);
+  border-radius:var(--radius); padding:var(--lg); box-shadow:var(--card-shadow);
+  break-inside:avoid;}
+.card-label{display:flex; align-items:center; gap:var(--xs);
+  font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+  color:var(--text-secondary); margin-bottom:var(--sm);}
+.kpi-value{font-size:24px; line-height:32px; font-weight:700; color:var(--primary);
+  font-variant-numeric:tabular-nums;}
+.kpi-value.placeholder{font-size:16px; color:var(--text-disabled); font-weight:500;}
+.muted{color:var(--on-surface-variant); font-size:14px; line-height:20px; margin-top:var(--xs);}
+
+/* ── source_flag badge (signature: data provenance is always visible) ── */
+.flag{display:inline-flex; align-items:center; gap:4px; padding:2px 8px;
+  border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:0.04em;
+  line-height:14px; vertical-align:middle;}
+.flag::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor;}
+.flag-EXT{color:var(--flag-ext);  background:rgba(116,119,130,.12);}
+.flag-INT{color:var(--flag-int);  background:rgba(0,93,183,.12);}
+.flag-CALC{color:var(--flag-calc);background:rgba(19,115,51,.12);}
+.flag-AI{color:var(--flag-ai);    background:rgba(107,63,160,.14);}
+.flag-NEWS{color:var(--flag-news);background:rgba(180,83,9,.14);}
+.block-head{display:flex; align-items:center; justify-content:space-between;
+  gap:var(--sm); margin-bottom:var(--sm);}
+.block-head h3{font-size:16px; font-weight:600; color:var(--primary);}
+
+/* ── ranking / horizontal bars ── */
+.rank-row{display:flex; align-items:center; gap:var(--sm); padding:6px 0;
+  border-bottom:1px solid var(--surface-light);}
+.rank-row .name{flex:0 0 38%; font-size:14px; color:var(--on-surface);}
+.rank-row .track{flex:1; height:8px; background:var(--surface-border);
+  border-radius:9999px; overflow:hidden;}
+.rank-row .fill{height:100%; background:linear-gradient(90deg,var(--primary),var(--secondary));
+  border-radius:9999px;}
+.rank-row .val{flex:0 0 56px; text-align:right; font-size:13px; font-weight:600;
+  color:var(--primary); font-variant-numeric:tabular-nums;}
+
+/* ── status matrix (신호등) ── */
+table.matrix{width:100%; border-collapse:collapse; font-size:13px;}
+table.matrix th,table.matrix td{padding:var(--sm); text-align:left;
+  border-bottom:1px solid var(--surface-border);}
+table.matrix th{font-size:11px; font-weight:600; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--text-secondary);}
+.dot-pass{color:var(--flag-calc); font-weight:700;}
+.dot-fail{color:var(--error); font-weight:700;}
+.dot-flag{color:var(--flag-news); font-weight:700;}
+tr.row-failed{background:var(--surface-container); color:var(--text-disabled);}
+
+/* ── pill chip (qualitative / decision) ── */
+.chip{display:inline-block; padding:4px 12px; border-radius:9999px;
+  background:var(--primary-fixed); color:var(--on-surface);
+  font-size:13px; font-weight:600;}
+
+/* ── timeseries inline svg ── */
+.spark{width:100%; height:auto; display:block;}
+
+/* ── news cards ── */
+.news{display:flex; flex-direction:column; gap:var(--sm);}
+.news-item{padding:var(--sm) 0; border-bottom:1px solid var(--surface-light);}
+.news-item .headline{font-size:14px; font-weight:600; color:var(--on-surface);}
+.news-item .sowhat{font-size:13px; color:var(--on-surface-variant); margin-top:2px;}
+.news-item .src{font-size:11px; color:var(--text-secondary); margin-top:2px;}
+
+/* ── footer ── */
+.report-foot{padding:var(--md) var(--lg); border-top:1px solid var(--surface-border);
+  font-size:11px; color:var(--text-secondary); background:var(--surface-lowest);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sm);}
+
+/* ── responsive ── */
+@media (max-width:768px){
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .masthead{flex-direction:column; align-items:flex-start;}
+  .masthead h1{font-size:24px; line-height:32px;}
+}
+/* ── print / PDF (weasyprint, no JS) ── */
+@page{size:A4; margin:14mm 12mm;}
+@media print{
+  body{background:#fff;}
+  .masthead-actions{display:none;}
+  .tabnav{display:none;}
+  .tabpanel{padding:0 0 var(--lg);}
+  .card{box-shadow:none;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important;}}
+</style>
+</head>
+<body>
+<div class="report">
+  <header class="masthead">
+    <div style="display:flex; gap:var(--md); align-items:flex-start;">
+      <span class="badge-mark">ES</span>
+      <div>
+        <div class="masthead-id"><span>보고서 ID: RPT_CTR_ES_001</span><span class="dot"></span><span>룰셋 v1.3</span></div>
+        <h1>스페인 오토파이낸스 진출 비용·TCO 보고서</h1>
+        <p class="sub">기준국 UK 대비 진출 비용·TCO 진단</p>
+      </div>
+    </div>
+    <div class="masthead-actions"><span class="btn">PDF 다운로드</span><span class="btn btn-solid">메일 발송</span></div>
+  </header>
+  <nav class="tabnav"><a href="#tab-1-0" class="active">요약</a><a href="#tab-1-1">유사도</a><a href="#tab-1-2">결정트리</a><a href="#tab-1-3">TCO</a><a href="#tab-1-4">시장·경쟁 배경</a></nav>
+  <main><section class="tabpanel" id="tab-1-0"><div class="tab-head"><span class="num">1-0</span><h2>요약</h2></div><div class="grid"><div class="card"><div class="block-head"><h3>종합 유사도</h3><span class="flag flag-CALC">계산값</span></div><div class="kpi-value placeholder">— 조사 필요</div></div><div class="card"><div class="block-head"><h3>시스템 결정</h3><span class="flag flag-CALC">계산값</span></div><p class="muted">조사 필요</p></div><div class="card"><div class="block-head"><h3>AI 종합 인사이트</h3><span class="flag flag-AI">AI 인사이트</span></div><p class="muted">EU 5위권 자동차 시장. 2025년 신차(turismos) 등록 1,148,650대(+12.9%, ANFAC)로 강한 회복세를 보였고, 렌팅(운용리스)이 신규 등록의 25.6%(281,593대, AER)를 차지하며 법인·플릿 수요가 성장을 견인한다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 EFC(여신전문금융기관) 인가(최저자본 €5M·전액 현금납입, RD 309/2020·Banco de España 감독)와 2026년 발효 예정 신소비자신용법(한시 22% TAE 상한 + 영구적으로 BdE 분기 평균금리+금액별 마진)이라는 이중 규제가 진입 부담의 핵심이다. 반면 B2B 리스·렌팅은 인가 부담이 경감되어 진입이 유연하다. 비즈니스 매력도(EU 5위 시장규모, 렌팅 고성장)는 상위권이나, 캡티브가 아닌 은행계 주도(Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%) 구조는 독립계 진입 여지를 남긴다. IT 유사도는 높다 — EU GDPR·SEPA·Bizum·성숙한 CB 인프라(CIRBE/ASNEF/Experian)로 NetSol 베이스라인 재사용률이 양호하다. 매력도↔IT 불일치 지점은 차량회수 — 리스·렌팅은 소유권 기반으로 용이하나 소비자대출 담보회수는 사법 적체로 6~12개월이 걸려 상품 믹스가 회수 리스크를 좌우한다. 다크호스는 렌팅 시장의 EV 비중(신규의 51.3%)으로, 잔가 리스크 관리가 리스 손익의 핵심 변수다. 렌팅·플릿 우선 진입 후 EFC 인가 기반 소비자금융으로 단계적 확장하는 전략이 유효하다.</p></div><div class="card"><div class="block-head"><h3>외부 이슈 스캔</h3><span class="flag flag-NEWS">외부이슈</span></div><div class="news"><div class="news-item"><div class="headline">스페인 2025년 신차 등록 114.9만대로 +12.9%, EU 주요시장 회복 견인</div><div class="sowhat">시장 회복으로 금융 침투 기반 견조 — 진입 타이밍 우호적. 단 렌팅·플릿 비중 상승이 소비자 리테일 성장과 분리됨에 유의.</div><div class="src">Automotive News Europe 2026-01-15</div></div><div class="news-item"><div class="headline">스페인 신소비자신용법 22% TAE 금리상한 도입 추진(EU 지침 2023/2225 이행)</div><div class="sowhat">소비자금융 APR 로직에 동적 금리상한 분기 필수. 고마진 서브프라임 상품 설계 제약 — B2B/렌팅 우선 전략의 근거 강화.</div><div class="src">S&amp;P Global Mobility 2026-01-20</div></div><div class="news-item"><div class="headline">스페인 렌팅 신규등록의 51.3%가 전기차, 전동화가 플릿에서 가속</div><div class="sowhat">렌팅 진입 시 EV 잔가·충전 인프라 리스크 노출 큼. 잔가 보증·바이백 조건 보수적 설계 필요.</div><div class="src">Just Auto 2026-03-10</div></div><div class="news-item"><div class="headline">스페인 auto loan ABS 신용성과 안정적, 딜린퀀시 EU 평균 수준 유지</div><div class="sowhat">연체 안정 신호 — 충당금·심사기준 EU 표준 적용 가능. 진입 초기 신용정책 과도한 보수화 불필요.</div><div class="src">Moody&#x27;s 2026-04-05</div></div><div class="news-item"><div class="headline">조사 필요</div><div class="sowhat">조사 필요</div><div class="src"> </div></div><div class="news-item"><div class="headline">ECB 2025년 예치금리 2.00%로 완화 사이클 마무리, 유로존 금리 안정</div><div class="sowhat">조달금리 하향 안정 — 자동차금융 마진·신차 수요에 우호적. 금리 환경 리스크 낮음.</div><div class="src">Financial Times 2025-12-18</div></div></div><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: 화이트리스트(Automotive News Europe·S&amp;P Global Mobility·Just Auto·Moody&#x27;s·Financial Times) · Tier 3</p></div></div></section><section class="tabpanel" id="tab-1-1"><div class="tab-head"><span class="num">1-1</span><h2>유사도</h2></div><div class="grid"><div class="card"><div class="block-head"><h3>종합 유사도</h3><span class="flag flag-EXT">외부조사</span></div><div class="kpi-value placeholder">— baseline 데이터 없음 — 조사 필요</div></div></div></section><section class="tabpanel" id="tab-1-2"><div class="tab-head"><span class="num">1-2</span><h2>결정트리</h2></div><div class="grid"><div class="card"><div class="block-head"><h3>시스템 결정</h3><span class="flag flag-CALC">계산값</span></div><div class="muted"><strong>branch</strong>: 조사 필요</div><div class="muted"><strong>detail</strong>: 유사도 미산출(baseline 없음)</div></div></div></section><section class="tabpanel" id="tab-1-3"><div class="tab-head"><span class="num">1-3</span><h2>TCO</h2></div><div class="grid"><div class="card"><div class="block-head"><h3>10년 TCO</h3><span class="flag flag-EXT">외부조사</span></div><div class="kpi-value placeholder">— 유사도 미산출 — 조사 필요</div></div></div></section><section class="tabpanel" id="tab-1-4"><div class="tab-head"><span class="num">1-4</span><h2>시장·경쟁 배경</h2></div><div class="grid"><div class="card"><div class="block-head"><h3>오토금융/리스 시장규모</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 96.0 L54.2 92.8 L84.4 83.4 L114.7 73.9 L144.9 64.4" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 64.4 L175.1 56.8 L205.3 49.3 L235.6 41.1 L265.8 32.8 L296.0 24.0" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="92.8" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="83.4" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="73.9" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="64.4" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="56.8" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="49.3" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="41.1" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="32.8" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="24.0" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 8.5%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: El Economista 2024(승용차 금융 시장 연 &gt;€15,000M) + AER Informe Anual 2026(렌팅 매출 €9,512M, +8.44%); ASNEF는 2018년부터 오토 단독 통계 비공개 · Tier 3</p></div><div class="card"><div class="block-head"><h3>오토금융 성장률(CAGR)</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 94.0 L54.2 96.0 L84.4 24.0 L114.7 34.8 L144.9 43.7" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 43.7 L175.1 67.4 L205.3 71.3 L235.6 70.4 L265.8 74.3 L296.0 73.3" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="94.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="24.0" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="34.8" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="43.7" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="67.4" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="71.3" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="70.4" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="74.3" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="73.3" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 8.5%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: 6Wresearch / Mordor Intelligence (법인·렌팅 CAGR 15%대, 소매 포함 시 한 자릿수 후반) · Tier 3</p></div><div class="card"><div class="block-head"><h3>금융 이용률(신차)</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 96.0 L54.2 88.8 L84.4 81.6 L114.7 74.4 L144.9 60.0" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 60.0 L175.1 52.8 L205.3 45.6 L235.6 38.4 L265.8 31.2 L296.0 24.0" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="88.8" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="81.6" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="74.4" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="60.0" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="52.8" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="45.6" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="38.4" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="31.2" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="24.0" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 2.2%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: OCU/El Economista(신차 구매 약 60% 금융, 프로모 세그먼트 70%+), Observatorio Cetelem 2025(금융=현금 각 48%), AER(렌팅 25.7%) · Tier 3</p></div><div class="card"><div class="block-head"><h3>평균 금리/APR</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 96.0 L54.2 87.5 L84.4 24.0 L114.7 28.2 L144.9 45.2" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 45.2 L175.1 62.1 L205.3 70.6 L235.6 74.8 L265.8 79.1 L296.0 79.1" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="87.5" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="24.0" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="28.2" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="45.2" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="62.1" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="70.6" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="74.8" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="79.1" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="79.1" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 4.1%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: Banco de España 소비자신용 통계 2025(TEDR 약 7%, TAE는 상회) / ECB 예치금리 2.00%(2025말) · Tier 2</p></div><div class="card"><div class="block-head"><h3>신차 판매대수</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 89.6 L54.2 96.0 L84.4 77.1 L114.7 67.6 L144.9 49.3" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 49.3 L175.1 42.1 L205.3 36.5 L235.6 32.4 L265.8 28.2 L296.0 24.0" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="89.6" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="77.1" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="67.6" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="49.3" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="42.1" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="36.5" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="32.4" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="28.2" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="24.0" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 7.5%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: ANFAC 2025 (turismos 1,148,650대, +12.9%; 사적채널 539,642 +18.1%·렌팅 25.6%) · Tier 2</p></div><div class="card"><div class="block-head"><h3>EV 보급률</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 96.0 L54.2 94.4 L84.4 92.4 L114.7 92.0 L144.9 77.7" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 77.7 L175.1 68.7 L205.3 59.8 L235.6 48.6 L265.8 37.4 L296.0 24.0" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="96.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="94.4" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="92.4" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="92.0" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="77.7" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="68.7" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="59.8" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="48.6" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="37.4" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="24.0" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR 33.3%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: ANFAC/AEDIVE 2025(전기차 등록 급증, BEV+PHEV 점유 두 자릿수 진입), MOVES III 보조금 · Tier 3</p></div><div class="card"><div class="block-head"><h3>EV·ICE 잔존가치 리스크</h3><span class="flag flag-EXT">외부조사</span></div><svg class="spark" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="시계열 추이"><path d="M24.0 24.0 L54.2 34.3 L84.4 44.6 L114.7 54.9 L144.9 60.0" fill="none" stroke="var(--primary)" stroke-width="2"/><path d="M144.9 60.0 L175.1 70.3 L205.3 75.4 L235.6 85.7 L265.8 90.9 L296.0 96.0" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/><circle cx="24.0" cy="24.0" r="2.5" fill="var(--primary)"/><circle cx="54.2" cy="34.3" r="2.5" fill="var(--primary)"/><circle cx="84.4" cy="44.6" r="2.5" fill="var(--primary)"/><circle cx="114.7" cy="54.9" r="2.5" fill="var(--primary)"/><circle cx="144.9" cy="60.0" r="2.5" fill="var(--primary)"/><circle cx="175.1" cy="70.3" r="2.5" fill="var(--primary)"/><circle cx="205.3" cy="75.4" r="2.5" fill="var(--primary)"/><circle cx="235.6" cy="85.7" r="2.5" fill="var(--primary)"/><circle cx="265.8" cy="90.9" r="2.5" fill="var(--primary)"/><circle cx="296.0" cy="96.0" r="2.5" fill="var(--primary)"/></svg><p class="muted">2021–2030 · 추정 · CAGR -2.9%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: Cox Automotive/Manheim 잔가 추정(3년 EV 기준), 유럽 중고 EV 가격 약세 · Tier 3</p></div><div class="card"><div class="block-head"><h3>해당국 정성 요약</h3><span class="flag flag-EXT">외부조사</span></div><p class="muted">EU 5위권 자동차 시장(2025 신차 114.9만대, +12.9%). 은행계 소비자금융(Santander Consumer·CA Auto Bank·Cetelem 약 60%)+OEM 캡티브 혼재, 렌팅(운용리스) 고성장(점유 25.6%, EV 51%). 소비자금융은 EFC 인가(€5M)·2026 금리상한법 적용, B2B 리스·렌팅은 유연. EU GDPR·SEPA·성숙 CB로 IT 재사용성 높음.</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: ANFAC, AER, Mordor Intelligence, 업계 · Tier 3</p></div><div class="card"><div class="block-head"><h3>브랜드 Top10</h3><span class="flag flag-EXT">외부조사</span></div><div class="rank-row"><span class="name">Toyota</span></div><div class="rank-row"><span class="name">Renault</span></div><div class="rank-row"><span class="name">Volkswagen</span></div><div class="rank-row"><span class="name">Hyundai</span></div><div class="rank-row"><span class="name">SEAT</span></div><div class="rank-row"><span class="name">Dacia</span></div><div class="rank-row"><span class="name">Kia</span></div><div class="rank-row"><span class="name">Peugeot</span></div><div class="rank-row"><span class="name">Mercedes-Benz</span></div><div class="rank-row"><span class="name">BMW</span></div><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: ANFAC 2025 신차 등록 통계 (Toyota 96,290·Renault 83,308·VW 76,545) · Tier 2</p></div><div class="card"><div class="block-head"><h3>OEM 순위(Top 5)</h3><span class="flag flag-EXT">외부조사</span></div><div class="rank-row"><span class="name">Toyota</span></div><div class="rank-row"><span class="name">Renault</span></div><div class="rank-row"><span class="name">Volkswagen</span></div><div class="rank-row"><span class="name">Hyundai</span></div><div class="rank-row"><span class="name">SEAT</span></div><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: ANFAC 2025 신차 등록 (Toyota 96,290 / Renault 83,308 / VW 76,545 / Hyundai 68,568 / SEAT 66,142 / Dacia 65,788) · Tier 2</p></div><div class="card"><div class="block-head"><h3>금융사 순위(Top 5)</h3><span class="flag flag-EXT">외부조사</span></div><div class="rank-row"><span class="name">Santander Consumer Finance</span></div><div class="rank-row"><span class="name">CA Auto Bank (구 FCA Bank)</span></div><div class="rank-row"><span class="name">Cetelem (BNP Paribas PF)</span></div><div class="rank-row"><span class="name">Volkswagen Financial Services</span></div><div class="rank-row"><span class="name">Toyota Kreditbank / Toyota España Financiación</span></div><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: El Economista 2024 / 업계 추정 (상위 3사 은행계 약 60%) · Tier 3</p></div><div class="card"><div class="block-head"><h3>경쟁사 리스트</h3><span class="flag flag-EXT">외부조사</span></div><div class="rank-row"><span class="name">Santander Consumer Finance</span></div><div class="rank-row"><span class="name">CA Auto Bank</span></div><div class="rank-row"><span class="name">Cetelem (BNP Paribas)</span></div><div class="rank-row"><span class="name">Volkswagen Financial Services</span></div><div class="rank-row"><span class="name">Toyota Kreditbank</span></div><div class="rank-row"><span class="name">Mercedes-Benz Financial</span></div><div class="rank-row"><span class="name">BMW Bank</span></div><div class="rank-row"><span class="name">Sabadell Consumer Finance</span></div><div class="rank-row"><span class="name">CaixaBank Consumer</span></div><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: 업계 (해외 진출 금융사 및 현지 주요 플레이어) · Tier 3</p></div><div class="card"><div class="block-head"><h3>경쟁사 진출 형태</h3><span class="flag flag-EXT">외부조사</span></div><p class="muted">은행계 자회사(Santander Consumer·Cetelem·CA Auto Bank) + OEM 캡티브(VW FS·Toyota·BMW·MB) + 일부 EFC 인가 전문 여신사. 렌팅은 ALD/Arval/Alphabet 등 다국적 플릿 리스사 주도</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: 업계 (AER 회원사, OEM 캡티브 현황) · Tier 3</p></div><div class="card"><div class="block-head"><h3>경쟁사 금리 범위</h3><span class="flag flag-EXT">외부조사</span></div><p class="muted">신차 자동차대출 TAE 약 6~10% (프로모 0~3% 캡티브 한정), 소비자신용 평균 TEDR 약 7%</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: Banco de España 소비자신용 통계 2025, OEM 캡티브 프로모 공시 · Tier 2</p></div><div class="card"><div class="block-head"><h3>평균 신차가격</h3><span class="flag flag-EXT">외부조사</span></div><p class="muted">약 €30,000~32,000 (turismos 평균 거래가, 전동화로 상승 추세)</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: 업계 추정 (ANFAC/딜러 평균 거래가), EV 비중 상승으로 평균가 상향 · Tier 3</p></div><div class="card"><div class="block-head"><h3>규제기관 식별</h3><span class="flag flag-EXT">외부조사</span></div><p class="muted">Banco de España(EFC 인가·건전성 감독) / MINECO 경제부(인가권) / CNMV(증권) / DGSFP(보험·렌팅) / AEPD(개인정보) / AESIA(AI)</p><p class="src" style="font-size:11px;color:var(--text-secondary);margin-top:8px;">출처: Banco de España, MINECO, DGSFP, AEPD 공식 · Tier 1</p></div></div></section></main>
+  <footer class="report-foot"><span>스페인 오토파이낸스 진출 비용·TCO 보고서</span><span>출처 신뢰도: 외부조사·내부자료·계산값·AI·외부이슈 — 각 수치 옆 뱃지 참조</span></footer>
+</div>
+</body>
+</html>

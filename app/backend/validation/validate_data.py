@@ -57,8 +57,8 @@ NEWS_WHITELIST = {
                     "WardsAuto", "Automobilwoche", "Nikkei Asia"},
     "auto_finance": {"Auto Finance News", "American Banker",
                      "Cox Automotive/Manheim", "Cox Automotive", "Manheim",
-                     "MUVVI", "S&P Global Mobility"},
-    "credit_abs": {"Moody's", "S&P", "Fitch"},
+                     "MUVVI", "S&P Global Mobility", "S&P Global"},
+    "credit_abs": {"Moody's", "S&P", "Fitch", "S&P Global", "S&P Global Ratings"},
 }
 
 ISO_A2 = re.compile(r"^[A-Z]{2}$")

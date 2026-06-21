@@ -31,30 +31,21 @@ def test_get_ruleset():
     r = client.get(f"{API}/ruleset")
     assert r.status_code == 200
     d = r.json()
-    assert set(d["category_weights"]) == {"market", "finance", "regulation", "system"}
-    assert d["category_labels"]["market"] == "시장"
+    assert "biz_attractiveness" in d and "it_readiness" in d
+    assert "w_biz" in d["report_blend"] and "w_it" in d["report_blend"]
 
 
-def test_put_weights_ok():
-    new = {"market": 30, "finance": 30, "regulation": 20, "system": 20}
-    r = client.put(f"{API}/ruleset/weights", json={"category_weights": new})
+def test_put_blend_ok():
+    r = client.put(f"{API}/ruleset/blend", json={"w_biz": 0.7, "w_it": 0.3})
     assert r.status_code == 200
-    # 실제 파일에 반영됐는지
     saved = json.loads(storage.INTERNAL_LATEST.read_text(encoding="utf-8"))
-    assert saved["weights"]["category_weights"] == new
+    assert saved["values"]["report_blend"] == {"w_biz": 0.7, "w_it": 0.3}
 
 
-def test_put_weights_sum_not_100_rejected():
-    bad = {"market": 50, "finance": 30, "regulation": 20, "system": 20}  # 합 120
-    r = client.put(f"{API}/ruleset/weights", json={"category_weights": bad})
+def test_put_blend_sum_not_1_rejected():
+    r = client.put(f"{API}/ruleset/blend", json={"w_biz": 0.7, "w_it": 0.5})  # 합 1.2
     assert r.status_code == 400
-    assert "합" in r.json()["detail"]
-
-
-def test_put_weights_bad_keys_rejected():
-    bad = {"market": 50, "finance": 50}  # 키 누락
-    r = client.put(f"{API}/ruleset/weights", json={"category_weights": bad})
-    assert r.status_code == 400
+    assert "1.0" in r.json()["detail"]
 
 
 if __name__ == "__main__":

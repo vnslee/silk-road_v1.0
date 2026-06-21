@@ -58,40 +58,48 @@ def load_country(code):
     return _read_json(path)
 
 
-def list_countries():
-    """국가 목록 — research 보유국 + 권역 멤버(데이터 없어도 '예정')를 합친다.
+# 권역 한/영 명칭 (원격 internal 에 없어 코드 상수로 보강)
+REGION_NAMES = {
+    "EU": ("유럽", "Europe"),
+    "NA": ("북미", "North America"),
+    "NORTH_AMERICA": ("북미", "North America"),
+    "SA": ("남미", "South America"),
+    "SOUTH_AMERICA": ("남미", "South America"),
+    "APAC": ("아시아·태평양", "Asia-Pacific"),
+}
+# 진출 상태 정규화: 원격 country_status("운영중"/"준비중"/"미진출")
+ENTERED_STATUS = {"운영중", "준비중"}
 
-    각 항목: code, country_ko/en(있으면), region, has_data, is_entered, is_baseline.
-    is_entered = internal.country_assets 보유 여부(진출 상태, M1 지도용).
+
+def list_countries():
+    """국가 목록 — research 보유국 + 권역 소속국(데이터 없어도 '예정')을 합친다.
+
+    원격 internal 구조 사용: country_to_region(소속), region_baselines(기준국),
+    country_status(진출상태). is_entered = 운영중/준비중.
     """
     internal = load_internal()
-    assets = internal.get("country_assets", {})
-    regions = internal.get("regions", {})
-
-    # 멤버 → 권역 역인덱스
-    member_region = {}
-    for rid, meta in regions.items():
-        for m in meta.get("members", []):
-            member_region.setdefault(m, rid)
+    c2r = internal.get("country_to_region", {})
+    baselines = set(internal.get("region_baselines", {}).values())
+    status = internal.get("country_status", {})
 
     have = country_codes_with_data()
-    codes = set(have) | set(member_region) | set(assets)
+    codes = set(have) | set(c2r) | set(status)
 
     out = []
     for code in sorted(codes):
         entry = {
             "code": code,
-            "region": member_region.get(code),
+            "region": c2r.get(code),
             "has_data": code in have,
-            "is_entered": code in assets,   # 진출국 여부 (채운 점)
-            "is_baseline": False,
+            "is_entered": status.get(code) in ENTERED_STATUS,
+            "is_baseline": code in baselines,
+            "status": status.get(code),
             "country_ko": None, "country_en": None,
         }
         if code in have:
             d = load_country(code)
             entry["country_ko"] = d.get("country_ko")
             entry["country_en"] = d.get("country")
-            entry["is_baseline"] = bool(d.get("is_baseline"))
             entry["region"] = d.get("region", entry["region"])
         out.append(entry)
     return out
@@ -99,17 +107,26 @@ def list_countries():
 
 # ── region ──────────────────────────────────────────────────────────────--
 def list_regions():
-    """권역 목록 — internal.regions 카탈로그 + 멤버 보유 현황."""
+    """권역 목록 — region_baselines + country_to_region 역인덱스로 구성."""
     internal = load_internal()
     have = country_codes_with_data()
+    baselines = internal.get("region_baselines", {})
+    c2r = internal.get("country_to_region", {})
+
+    # 권역 → 멤버 역인덱스
+    members_by_region = {}
+    for code, rid in c2r.items():
+        members_by_region.setdefault(rid, []).append(code)
+
     out = []
-    for rid, meta in internal.get("regions", {}).items():
-        members = meta.get("members", [])
+    for rid in sorted(set(baselines) | set(members_by_region)):
+        members = sorted(members_by_region.get(rid, []))
+        ko, en = REGION_NAMES.get(rid, (rid, rid))
         out.append({
             "region": rid,
-            "name_ko": meta.get("name_ko"),
-            "name_en": meta.get("name_en"),
-            "baseline": meta.get("baseline"),
+            "name_ko": ko,
+            "name_en": en,
+            "baseline": baselines.get(rid),
             "members": members,
             "members_with_data": [m for m in members if m in have],
         })

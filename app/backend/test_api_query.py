@@ -24,10 +24,10 @@ def test_list_countries():
     assert isinstance(items, list) and items
     es = next((c for c in items if c["code"] == "ES"), None)
     assert es is not None and es["has_data"] is True
-    # UK 는 baseline(자산 보유) → is_entered True, 데이터는 없음
-    uk = next((c for c in items if c["code"] == "UK"), None)
-    assert uk is not None
-    assert uk["is_entered"] is True and uk["has_data"] is False
+    # GB 는 EU 기준국·운영중 → is_entered True, is_baseline True
+    gb = next((c for c in items if c["code"] == "GB"), None)
+    assert gb is not None
+    assert gb["is_entered"] is True and gb["is_baseline"] is True
 
 
 def test_get_country_es():
@@ -53,7 +53,7 @@ def test_list_regions():
     items = r.json()
     eu = next((x for x in items if x["region"] == "EU"), None)
     assert eu is not None
-    assert eu["baseline"] == "UK"
+    assert eu["baseline"] == "GB"
     assert "ES" in eu["members_with_data"]
 
 

@@ -1,0 +1,752 @@
+{
+  "report_id": "RPT_CTR_ES_001",
+  "report_type": "type1_country",
+  "title": "스페인 오토파이낸스 진출 비용·TCO 보고서",
+  "target": {
+    "country": "ES",
+    "base_country": "UK"
+  },
+  "region": "EU",
+  "data_snapshot_id": "SNAP_ES_2026-06-21T15:00:00+09:00_CFG1.3",
+  "based_on": {
+    "country_versions": {
+      "ES": "2026-06-21T15:00:00+09:00"
+    },
+    "internal_version": "1.3",
+    "schema_version": "1.1",
+    "baseline_version": null
+  },
+  "tabs": [
+    {
+      "tab": "1-0",
+      "name": "요약",
+      "blocks": [
+        {
+          "key": "kpi_similarity",
+          "label": "종합 유사도",
+          "value": null,
+          "nature": "single_value",
+          "source_flag": "CALC",
+          "source": {}
+        },
+        {
+          "key": "kpi_decision",
+          "label": "시스템 결정",
+          "value": "조사 필요",
+          "nature": "qualitative",
+          "source_flag": "CALC",
+          "source": {}
+        },
+        {
+          "key": "overall_insight",
+          "label": "AI 종합 인사이트",
+          "value": "EU 5위권 자동차 시장. 2025년 신차(turismos) 등록 1,148,650대(+12.9%, ANFAC)로 강한 회복세를 보였고, 렌팅(운용리스)이 신규 등록의 25.6%(281,593대, AER)를 차지하며 법인·플릿 수요가 성장을 견인한다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 EFC(여신전문금융기관) 인가(최저자본 €5M·전액 현금납입, RD 309/2020·Banco de España 감독)와 2026년 발효 예정 신소비자신용법(한시 22% TAE 상한 + 영구적으로 BdE 분기 평균금리+금액별 마진)이라는 이중 규제가 진입 부담의 핵심이다. 반면 B2B 리스·렌팅은 인가 부담이 경감되어 진입이 유연하다. 비즈니스 매력도(EU 5위 시장규모, 렌팅 고성장)는 상위권이나, 캡티브가 아닌 은행계 주도(Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%) 구조는 독립계 진입 여지를 남긴다. IT 유사도는 높다 — EU GDPR·SEPA·Bizum·성숙한 CB 인프라(CIRBE/ASNEF/Experian)로 NetSol 베이스라인 재사용률이 양호하다. 매력도↔IT 불일치 지점은 차량회수 — 리스·렌팅은 소유권 기반으로 용이하나 소비자대출 담보회수는 사법 적체로 6~12개월이 걸려 상품 믹스가 회수 리스크를 좌우한다. 다크호스는 렌팅 시장의 EV 비중(신규의 51.3%)으로, 잔가 리스크 관리가 리스 손익의 핵심 변수다. 렌팅·플릿 우선 진입 후 EFC 인가 기반 소비자금융으로 단계적 확장하는 전략이 유효하다.",
+          "nature": "qualitative",
+          "source_flag": "AI",
+          "source": {}
+        },
+        {
+          "key": "news_scan",
+          "label": "외부 이슈 스캔",
+          "value": [
+            {
+              "news_category": "auto_market",
+              "headline": "스페인 2025년 신차 등록 114.9만대로 +12.9%, EU 주요시장 회복 견인",
+              "so_what": "시장 회복으로 금융 침투 기반 견조 — 진입 타이밍 우호적. 단 렌팅·플릿 비중 상승이 소비자 리테일 성장과 분리됨에 유의.",
+              "publisher": "Automotive News Europe",
+              "pub_date": "2026-01-15",
+              "url": "https://europe.autonews.com/..."
+            },
+            {
+              "news_category": "auto_finance",
+              "headline": "스페인 신소비자신용법 22% TAE 금리상한 도입 추진(EU 지침 2023/2225 이행)",
+              "so_what": "소비자금융 APR 로직에 동적 금리상한 분기 필수. 고마진 서브프라임 상품 설계 제약 — B2B/렌팅 우선 전략의 근거 강화.",
+              "publisher": "S&P Global Mobility",
+              "pub_date": "2026-01-20",
+              "url": "https://www.spglobal.com/mobility/..."
+            },
+            {
+              "news_category": "auto_market",
+              "headline": "스페인 렌팅 신규등록의 51.3%가 전기차, 전동화가 플릿에서 가속",
+              "so_what": "렌팅 진입 시 EV 잔가·충전 인프라 리스크 노출 큼. 잔가 보증·바이백 조건 보수적 설계 필요.",
+              "publisher": "Just Auto",
+              "pub_date": "2026-03-10",
+              "url": "https://www.just-auto.com/..."
+            },
+            {
+              "news_category": "credit_abs",
+              "headline": "스페인 auto loan ABS 신용성과 안정적, 딜린퀀시 EU 평균 수준 유지",
+              "so_what": "연체 안정 신호 — 충당금·심사기준 EU 표준 적용 가능. 진입 초기 신용정책 과도한 보수화 불필요.",
+              "publisher": "Moody's",
+              "pub_date": "2026-04-05",
+              "url": "https://www.moodys.com/..."
+            },
+            {
+              "news_category": "geopolitical",
+              "headline": "조사 필요",
+              "so_what": "조사 필요",
+              "publisher": "",
+              "pub_date": "",
+              "url": ""
+            },
+            {
+              "news_category": "finance",
+              "headline": "ECB 2025년 예치금리 2.00%로 완화 사이클 마무리, 유로존 금리 안정",
+              "so_what": "조달금리 하향 안정 — 자동차금융 마진·신차 수요에 우호적. 금리 환경 리스크 낮음.",
+              "publisher": "Financial Times",
+              "pub_date": "2025-12-18",
+              "url": "https://www.ft.com/..."
+            }
+          ],
+          "nature": "qualitative",
+          "source_flag": "NEWS",
+          "source": {
+            "org": "화이트리스트(Automotive News Europe·S&P Global Mobility·Just Auto·Moody's·Financial Times)",
+            "tier": 3
+          }
+        }
+      ]
+    },
+    {
+      "tab": "1-1",
+      "name": "유사도",
+      "blocks": [
+        {
+          "key": "similarity",
+          "label": "종합 유사도",
+          "value": null,
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "note": "baseline 데이터 없음 — 조사 필요"
+          }
+        }
+      ]
+    },
+    {
+      "tab": "1-2",
+      "name": "결정트리",
+      "branch": "조사 필요",
+      "blocks": [
+        {
+          "key": "decision",
+          "label": "시스템 결정",
+          "value": {
+            "branch": "조사 필요",
+            "detail": "유사도 미산출(baseline 없음)"
+          },
+          "nature": "qualitative",
+          "source_flag": "CALC",
+          "source": {}
+        }
+      ]
+    },
+    {
+      "tab": "1-3",
+      "name": "TCO",
+      "blocks": [
+        {
+          "key": "tco",
+          "label": "10년 TCO",
+          "value": null,
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "note": "유사도 미산출 — 조사 필요"
+          }
+        }
+      ]
+    },
+    {
+      "tab": "1-4",
+      "name": "시장·경쟁 배경",
+      "blocks": [
+        {
+          "key": "오토금융_리스_시장규모",
+          "label": "오토금융/리스 시장규모",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 13000
+              },
+              {
+                "year": 2022,
+                "value": 13500
+              },
+              {
+                "year": 2023,
+                "value": 15000
+              },
+              {
+                "year": 2024,
+                "value": 16500
+              },
+              {
+                "year": 2025,
+                "value": 18000
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 19200
+              },
+              {
+                "year": 2027,
+                "value": 20400
+              },
+              {
+                "year": 2028,
+                "value": 21700
+              },
+              {
+                "year": 2029,
+                "value": 23000
+              },
+              {
+                "year": 2030,
+                "value": 24400
+              }
+            ],
+            "cagr_hist": 8.5,
+            "cagr_forecast": 6.3,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "El Economista 2024(승용차 금융 시장 연 >€15,000M) + AER Informe Anual 2026(렌팅 매출 €9,512M, +8.44%); ASNEF는 2018년부터 오토 단독 통계 비공개",
+            "tier": 3
+          }
+        },
+        {
+          "key": "오토금융_성장률_cagr",
+          "label": "오토금융 성장률(CAGR)",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 4.0
+              },
+              {
+                "year": 2022,
+                "value": 3.8
+              },
+              {
+                "year": 2023,
+                "value": 11.1
+              },
+              {
+                "year": 2024,
+                "value": 10.0
+              },
+              {
+                "year": 2025,
+                "value": 9.1
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 6.7
+              },
+              {
+                "year": 2027,
+                "value": 6.3
+              },
+              {
+                "year": 2028,
+                "value": 6.4
+              },
+              {
+                "year": 2029,
+                "value": 6.0
+              },
+              {
+                "year": 2030,
+                "value": 6.1
+              }
+            ],
+            "cagr_hist": 8.5,
+            "cagr_forecast": 6.3,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "6Wresearch / Mordor Intelligence (법인·렌팅 CAGR 15%대, 소매 포함 시 한 자릿수 후반)",
+            "tier": 3
+          }
+        },
+        {
+          "key": "금융_이용률_신차",
+          "label": "금융 이용률(신차)",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 55
+              },
+              {
+                "year": 2022,
+                "value": 56
+              },
+              {
+                "year": 2023,
+                "value": 57
+              },
+              {
+                "year": 2024,
+                "value": 58
+              },
+              {
+                "year": 2025,
+                "value": 60
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 61
+              },
+              {
+                "year": 2027,
+                "value": 62
+              },
+              {
+                "year": 2028,
+                "value": 63
+              },
+              {
+                "year": 2029,
+                "value": 64
+              },
+              {
+                "year": 2030,
+                "value": 65
+              }
+            ],
+            "cagr_hist": 2.2,
+            "cagr_forecast": 1.6,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "OCU/El Economista(신차 구매 약 60% 금융, 프로모 세그먼트 70%+), Observatorio Cetelem 2025(금융=현금 각 48%), AER(렌팅 25.7%)",
+            "tier": 3
+          }
+        },
+        {
+          "key": "평균_금리_apr",
+          "label": "평균 금리/APR",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 6.8
+              },
+              {
+                "year": 2022,
+                "value": 7.0
+              },
+              {
+                "year": 2023,
+                "value": 8.5
+              },
+              {
+                "year": 2024,
+                "value": 8.4
+              },
+              {
+                "year": 2025,
+                "value": 8.0
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 7.6
+              },
+              {
+                "year": 2027,
+                "value": 7.4
+              },
+              {
+                "year": 2028,
+                "value": 7.3
+              },
+              {
+                "year": 2029,
+                "value": 7.2
+              },
+              {
+                "year": 2030,
+                "value": 7.2
+              }
+            ],
+            "cagr_hist": 4.1,
+            "cagr_forecast": -2.1,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "Banco de España 소비자신용 통계 2025(TEDR 약 7%, TAE는 상회) / ECB 예치금리 2.00%(2025말)",
+            "tier": 2
+          }
+        },
+        {
+          "key": "신차_판매대수",
+          "label": "신차 판매대수",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 859000
+              },
+              {
+                "year": 2022,
+                "value": 813000
+              },
+              {
+                "year": 2023,
+                "value": 949000
+              },
+              {
+                "year": 2024,
+                "value": 1017000
+              },
+              {
+                "year": 2025,
+                "value": 1148650
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 1200000
+              },
+              {
+                "year": 2027,
+                "value": 1240000
+              },
+              {
+                "year": 2028,
+                "value": 1270000
+              },
+              {
+                "year": 2029,
+                "value": 1300000
+              },
+              {
+                "year": 2030,
+                "value": 1330000
+              }
+            ],
+            "cagr_hist": 7.5,
+            "cagr_forecast": 3.0,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "ANFAC 2025 (turismos 1,148,650대, +12.9%; 사적채널 539,642 +18.1%·렌팅 25.6%)",
+            "tier": 2
+          }
+        },
+        {
+          "key": "ev_보급률",
+          "label": "EV 보급률",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 3.8
+              },
+              {
+                "year": 2022,
+                "value": 4.5
+              },
+              {
+                "year": 2023,
+                "value": 5.4
+              },
+              {
+                "year": 2024,
+                "value": 5.6
+              },
+              {
+                "year": 2025,
+                "value": 12.0
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 16.0
+              },
+              {
+                "year": 2027,
+                "value": 20.0
+              },
+              {
+                "year": 2028,
+                "value": 25.0
+              },
+              {
+                "year": 2029,
+                "value": 30.0
+              },
+              {
+                "year": 2030,
+                "value": 36.0
+              }
+            ],
+            "cagr_hist": 33.3,
+            "cagr_forecast": 24.6,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "ANFAC/AEDIVE 2025(전기차 등록 급증, BEV+PHEV 점유 두 자릿수 진입), MOVES III 보조금",
+            "tier": 3
+          }
+        },
+        {
+          "key": "ev_ice_잔존가치_리스크",
+          "label": "EV·ICE 잔존가치 리스크",
+          "value": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 62
+              },
+              {
+                "year": 2022,
+                "value": 60
+              },
+              {
+                "year": 2023,
+                "value": 58
+              },
+              {
+                "year": 2024,
+                "value": 56
+              },
+              {
+                "year": 2025,
+                "value": 55
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 53
+              },
+              {
+                "year": 2027,
+                "value": 52
+              },
+              {
+                "year": 2028,
+                "value": 50
+              },
+              {
+                "year": 2029,
+                "value": 49
+              },
+              {
+                "year": 2030,
+                "value": 48
+              }
+            ],
+            "cagr_hist": -2.9,
+            "cagr_forecast": -2.7,
+            "estimated": true
+          },
+          "nature": "timeseries",
+          "source_flag": "EXT",
+          "source": {
+            "org": "Cox Automotive/Manheim 잔가 추정(3년 EV 기준), 유럽 중고 EV 가격 약세",
+            "tier": 3
+          }
+        },
+        {
+          "key": "해당국_정성_요약",
+          "label": "해당국 정성 요약",
+          "value": "EU 5위권 자동차 시장(2025 신차 114.9만대, +12.9%). 은행계 소비자금융(Santander Consumer·CA Auto Bank·Cetelem 약 60%)+OEM 캡티브 혼재, 렌팅(운용리스) 고성장(점유 25.6%, EV 51%). 소비자금융은 EFC 인가(€5M)·2026 금리상한법 적용, B2B 리스·렌팅은 유연. EU GDPR·SEPA·성숙 CB로 IT 재사용성 높음.",
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "org": "ANFAC, AER, Mordor Intelligence, 업계",
+            "tier": 3
+          }
+        },
+        {
+          "key": "브랜드_top10",
+          "label": "브랜드 Top10",
+          "value": [
+            "Toyota",
+            "Renault",
+            "Volkswagen",
+            "Hyundai",
+            "SEAT",
+            "Dacia",
+            "Kia",
+            "Peugeot",
+            "Mercedes-Benz",
+            "BMW"
+          ],
+          "nature": "ranking",
+          "source_flag": "EXT",
+          "source": {
+            "org": "ANFAC 2025 신차 등록 통계 (Toyota 96,290·Renault 83,308·VW 76,545)",
+            "tier": 2
+          }
+        },
+        {
+          "key": "oem_순위_top_5",
+          "label": "OEM 순위(Top 5)",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Toyota",
+              "market_share": "8.39%"
+            },
+            {
+              "rank": 2,
+              "name": "Renault",
+              "market_share": "7.25%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen",
+              "market_share": "6.66%"
+            },
+            {
+              "rank": 4,
+              "name": "Hyundai",
+              "market_share": "5.97%"
+            },
+            {
+              "rank": 5,
+              "name": "SEAT",
+              "market_share": "5.76%"
+            }
+          ],
+          "nature": "ranking",
+          "source_flag": "EXT",
+          "source": {
+            "org": "ANFAC 2025 신차 등록 (Toyota 96,290 / Renault 83,308 / VW 76,545 / Hyundai 68,568 / SEAT 66,142 / Dacia 65,788)",
+            "tier": 2
+          }
+        },
+        {
+          "key": "금융사_순위_top_5",
+          "label": "금융사 순위(Top 5)",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Santander Consumer Finance",
+              "market_share": "약 20%"
+            },
+            {
+              "rank": 2,
+              "name": "CA Auto Bank (구 FCA Bank)",
+              "market_share": "약 15%"
+            },
+            {
+              "rank": 3,
+              "name": "Cetelem (BNP Paribas PF)",
+              "market_share": "약 12%"
+            },
+            {
+              "rank": 4,
+              "name": "Volkswagen Financial Services",
+              "market_share": "약 10%"
+            },
+            {
+              "rank": 5,
+              "name": "Toyota Kreditbank / Toyota España Financiación",
+              "market_share": "약 6%"
+            }
+          ],
+          "nature": "ranking",
+          "source_flag": "EXT",
+          "source": {
+            "org": "El Economista 2024 / 업계 추정 (상위 3사 은행계 약 60%)",
+            "tier": 3
+          }
+        },
+        {
+          "key": "경쟁사_리스트",
+          "label": "경쟁사 리스트",
+          "value": [
+            "Santander Consumer Finance",
+            "CA Auto Bank",
+            "Cetelem (BNP Paribas)",
+            "Volkswagen Financial Services",
+            "Toyota Kreditbank",
+            "Mercedes-Benz Financial",
+            "BMW Bank",
+            "Sabadell Consumer Finance",
+            "CaixaBank Consumer"
+          ],
+          "nature": "ranking",
+          "source_flag": "EXT",
+          "source": {
+            "org": "업계 (해외 진출 금융사 및 현지 주요 플레이어)",
+            "tier": 3
+          }
+        },
+        {
+          "key": "경쟁사_진출_형태",
+          "label": "경쟁사 진출 형태",
+          "value": "은행계 자회사(Santander Consumer·Cetelem·CA Auto Bank) + OEM 캡티브(VW FS·Toyota·BMW·MB) + 일부 EFC 인가 전문 여신사. 렌팅은 ALD/Arval/Alphabet 등 다국적 플릿 리스사 주도",
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "org": "업계 (AER 회원사, OEM 캡티브 현황)",
+            "tier": 3
+          }
+        },
+        {
+          "key": "경쟁사_금리_범위",
+          "label": "경쟁사 금리 범위",
+          "value": "신차 자동차대출 TAE 약 6~10% (프로모 0~3% 캡티브 한정), 소비자신용 평균 TEDR 약 7%",
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "org": "Banco de España 소비자신용 통계 2025, OEM 캡티브 프로모 공시",
+            "tier": 2
+          }
+        },
+        {
+          "key": "평균_신차가격",
+          "label": "평균 신차가격",
+          "value": "약 €30,000~32,000 (turismos 평균 거래가, 전동화로 상승 추세)",
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "org": "업계 추정 (ANFAC/딜러 평균 거래가), EV 비중 상승으로 평균가 상향",
+            "tier": 3
+          }
+        },
+        {
+          "key": "규제기관_식별",
+          "label": "규제기관 식별",
+          "value": "Banco de España(EFC 인가·건전성 감독) / MINECO 경제부(인가권) / CNMV(증권) / DGSFP(보험·렌팅) / AEPD(개인정보) / AESIA(AI)",
+          "nature": "qualitative",
+          "source_flag": "EXT",
+          "source": {
+            "org": "Banco de España, MINECO, DGSFP, AEPD 공식",
+            "tier": 1
+          }
+        }
+      ]
+    }
+  ]
+}

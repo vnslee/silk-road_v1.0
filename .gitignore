@@ -34,3 +34,8 @@ data/*.txt
 
 # Generated report output
 storage/report/
+
+# Frontend / Python 빌드물
+node_modules/
+dist/
+.venv/

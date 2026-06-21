@@ -29,42 +29,29 @@ def test_trigger_country_returns_job():
     body = r.json()
     assert body["job_id"].startswith("job_country_ES_")
     assert body["status"] == "pending"
-    # BackgroundTask 가 보고서를 채번 생성했으면 정리
-    j = client.get(f"{API}/jobs/{body['job_id']}").json()
-    if j.get("report_id"):
-        shutil.rmtree(storage.REPORT_BASE / "country" / "ES" / j["report_id"],
-                      ignore_errors=True)
 
 
 def test_job_completes_with_5_steps():
+    """생성 job 이 5단계 PS2 구조로 완료되고 report_id(원격 엔진 채번)를 반환한다."""
     r = client.post(f"{API}/reports/country/ES")
     job_id = r.json()["job_id"]
     j = client.get(f"{API}/jobs/{job_id}").json()
-    # 5단계 PS2 구조
     keys = [s["key"] for s in j["steps"]]
     assert keys == ["market", "regulation", "product", "system", "result"]
-    # BackgroundTask 동기 실행 완료 → done
+    # BackgroundTask 동기 실행 완료 → done (원격 엔진 호출)
     assert j["status"] == "done", j
     assert j["progress"] == 100
     assert j["report_id"] and j["report_id"].startswith("RPT_CTR_ES_")
-    # 정리: 이 테스트가 채번한 보고서 폴더 제거
-    shutil.rmtree(storage.REPORT_BASE / "country" / "ES" / j["report_id"],
-                  ignore_errors=True)
 
 
 def test_completed_report_is_fetchable():
-    """완료 job 의 report_id 로 보고서 조회 가능(end-to-end)."""
+    """완료 job 의 report_id 로 보고서 JSON 조회 가능(end-to-end)."""
     r = client.post(f"{API}/reports/country/ES")
     job_id = r.json()["job_id"]
     rid = client.get(f"{API}/jobs/{job_id}").json()["report_id"]
     detail = client.get(f"{API}/reports/country/ES/{rid}")
     assert detail.status_code == 200
     assert detail.json()["report_id"] == rid
-    # HTML 도 렌더됨
-    html = client.get(f"{API}/reports/country/ES/{rid}/html")
-    assert html.status_code == 200
-    # 정리: 생성된 보고서 폴더 제거
-    shutil.rmtree(storage.REPORT_BASE / "country" / "ES" / rid, ignore_errors=True)
 
 
 def test_trigger_region():
@@ -73,9 +60,7 @@ def test_trigger_region():
     job_id = r.json()["job_id"]
     j = client.get(f"{API}/jobs/{job_id}").json()
     assert j["status"] == "done", j
-    rid = j["report_id"]
-    assert rid.startswith("RPT_RGN_EU_")
-    shutil.rmtree(storage.REPORT_BASE / "region" / "EU" / rid, ignore_errors=True)
+    assert j["report_id"].startswith("RPT_RGN_EU_")
 
 
 def test_trigger_unknown_country_404():

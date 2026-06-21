@@ -30,6 +30,6 @@ export const api = {
   research: (country, code, region) =>
     req('/chat/research', { method: 'POST', body: JSON.stringify({ country, code, region }) }),
   ruleset: () => req('/ruleset'),
-  saveWeights: (category_weights) =>
-    req('/ruleset/weights', { method: 'PUT', body: JSON.stringify({ category_weights }) }),
+  saveBlend: (w_biz, w_it) =>
+    req('/ruleset/blend', { method: 'PUT', body: JSON.stringify({ w_biz, w_it }) }),
 }
