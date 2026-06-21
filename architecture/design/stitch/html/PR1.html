@@ -143,6 +143,18 @@
                     </div>
                 </div>
             </div>
+            <!-- 우측 상단 action group: PR2와 대칭 (PDF 다운로드 + 메일 발송) -->
+            <div class="flex items-center gap-sm shrink-0">
+                <button class="flex items-center gap-sm px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+                    PDF Download
+                </button>
+                <!-- mailto: 메일 클라이언트(Outlook 등) 작성 창을 제목·본문 채워 연다. 수신자(to)는 비움. 첨부 불가 → 본문에 보고서 링크 + 첨부 안내 포함. -->
+                <a href="mailto:?subject=%5BSilk%20Road%5D%20South%20Korea%20%EC%A7%84%EC%B6%9C%20%EC%A7%84%EB%8B%A8%20%EB%B3%B4%EA%B3%A0%EC%84%9C&body=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD(South%20Korea)%20%EC%A7%84%EB%8B%A8%20%EB%B3%B4%EA%B3%A0%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4.%0A%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%A7%81%ED%81%AC%3A%20%5B%EB%A7%81%ED%81%AC%5D%0APDF%EA%B0%80%20%ED%95%84%EC%9A%94%ED%95%98%EC%8B%9C%EB%A9%B4%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%ED%9B%84%20%EC%B2%A8%EB%B6%80%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." class="flex items-center gap-sm px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:scale-[0.98] transition-transform shadow-sm no-underline">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="forward_to_inbox">forward_to_inbox</span>
+                    메일 발송
+                </a>
+            </div>
         </div>
     </header>
     <main class="flex-1 p-margin-desktop">

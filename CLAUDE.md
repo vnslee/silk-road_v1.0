@@ -44,6 +44,7 @@ python3 app/backend/engine/rendering/region_report_rendering_engine.py EU
 - 새 엔진/문서를 추가할 때는 **기존 region 구현의 구조·네이밍·경로 규칙을 그대로 따른다**(country↔region 대칭 유지).
 - rendering 엔진은 `rendering/templates/region_report_template.html`을 읽어 `{{PLACEHOLDER}}`를 치환한다. 계산은 하지 않고 표현만 담당(관심사 분리).
 - 색상·디자인 토큰은 `architecture/design/stitch/DESIGN.md`(Kinetic Enterprise 팔레트)를 따른다.
+- **프론트(UI) 구현 시 우선순위**: ① `DESIGN.md`·stitch mockup·`web_design_spec.md`가 **디자인 source of truth**(임의 변경 금지). ② `frontend-design` 스킬 = 구현 충실도·품질 게이트(반응형·키보드 포커스·`prefers-reduced-motion`·CSS specificity). ③ `ui-ux-pro-max` 스킬 = 접근성·차트 등 **검증·보강 보조**(디자인 교체·신규 팔레트 제안 금지). 상충 시 ①이 항상 우선.
 
 ## 데이터 계약
 
