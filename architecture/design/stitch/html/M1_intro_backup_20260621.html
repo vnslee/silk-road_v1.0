@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyundai Capital — Global Expansion Diagnostics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:"Hanken Grotesk",system-ui,sans-serif}
+:root{--hc-blue:#2F79D9;--primary:#00204e;--surface:#F8F9FA;--border:#DCDCDC;--text-sec:#777777}
+#globe-canvas{position:fixed;inset:0;z-index:0;display:block}
+
+#intro-overlay{
+  position:fixed;inset:0;z-index:20;pointer-events:none;
+  background:
+    radial-gradient(ellipse 130% 55% at 50% 110%, rgba(0,10,40,.7) 0%, transparent 55%),
+    radial-gradient(ellipse 80%  35% at 50% -5%,  rgba(0,0,0,.5)   0%, transparent 50%);
+}
+.intro-brand{
+  position:absolute;top:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  opacity:0;transition:opacity 1.3s ease;white-space:nowrap;
+}
+.intro-brand.visible{opacity:1}
+.brand-sub{font-size:10px;font-weight:600;letter-spacing:.55em;text-transform:uppercase;color:rgba(255,255,255,.38)}
+.brand-main{font-size:clamp(20px,2.6vw,32px);font-weight:800;color:#fff;letter-spacing:.02em}
+.brand-main em{color:#5ce4ff;font-style:normal;text-shadow:0 0 28px rgba(92,228,255,.55)}
+
+.intro-bar{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  width:min(160px,38vw);height:1px;background:rgba(255,255,255,.12);border-radius:1px;overflow:hidden;
+  opacity:0;transition:opacity .6s;
+}
+.intro-bar.visible{opacity:1}
+.intro-bar-fill{height:100%;width:0%;background:var(--hc-blue);border-radius:1px;transition:width .1s linear}
+#intro-overlay.fadeout{opacity:0;transition:opacity 1s ease}
+
+#app{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .9s ease}
+#app.visible{opacity:1;pointer-events:auto}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:20}
+.brand{font-weight:800;font-size:17px;color:var(--primary);letter-spacing:.5px}
+.hdr-title{display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.hdr-title b{font-size:20px;font-weight:700;color:var(--primary)}
+.hdr-title span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-sec)}
+.hdr-actions{display:flex;gap:18px;color:var(--primary)}
+.hdr-actions button{background:none;border:none;color:inherit;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600;font-family:inherit}
+.material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;display:inline-block;-webkit-font-smoothing:antialiased}
+.map-stage{position:relative;flex:1;overflow:hidden;background:radial-gradient(1200px 760px at 62% 18%,#f5f3f3,#fbf9f9 48%,#fff)}
+#flat-map{position:absolute;inset:0;width:100%;height:100%;z-index:5;opacity:0;pointer-events:none}
+
+@keyframes markerDrop{0%{opacity:0;transform:translateY(-16px) scale(.4)}65%{opacity:1;transform:translateY(3px) scale(1.12)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes mkpulse{0%{r:7px;opacity:.55}100%{r:22px;opacity:0}}
+@keyframes labelFade{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.mk{opacity:0}
+.mk .pulse{fill:none;stroke:#2F79D9;stroke-width:1.8px;animation:mkpulse 2.4s ease-out infinite}
+.mk-label{font-size:11px;font-weight:700;fill:#00204e;stroke:rgba(255,255,255,.95);stroke-width:3.5px;paint-order:stroke;pointer-events:none;opacity:0}
+.country-land{fill:#003478;stroke:rgba(0,32,78,.4);stroke-width:.4px;vector-effect:non-scaling-stroke;transition:fill .25s}
+.country-land.region-active{fill:#00204e}
+.country-land:hover{fill:#2F79D9;cursor:pointer}
+.graticule{fill:none;stroke:rgba(47,121,217,.15);stroke-width:.5px}
+.arc{fill:none;stroke-linecap:round}
+.arc.base{stroke:#2F79D9;stroke-width:1.6px}
+.arc.cand{stroke:rgba(47,121,217,.38);stroke-width:1px;stroke-dasharray:3,5}
+.overlay{transition:opacity .6s}.overlay.hidden{opacity:0;pointer-events:none}
+.legend{position:absolute;top:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:0 4px 12px rgba(0,32,78,.08);padding:16px;width:220px;z-index:10}
+.legend h3{margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-sec)}
+.legend .row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+.dot{width:12px;height:12px;border-radius:50%}.dot.active{background:var(--hc-blue)}.dot.planned{border:2px dashed var(--primary);background:transparent}
+.fab{position:absolute;bottom:24px;left:24px;width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;z-index:10;box-shadow:0 12px 24px rgba(0,32,78,.2);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.fab:hover{transform:scale(1.06)}.fab .material-symbols-outlined{font-size:28px}
+.popup{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 40px rgba(0,32,78,.18);padding:20px 24px;width:min(440px,86vw);z-index:11;text-align:center}
+.popup h2{margin:0 0 6px;font-size:18px;color:var(--primary)}.popup p{margin:0;font-size:14px;color:var(--text-sec);line-height:1.5}
+.popup .close{position:absolute;top:10px;right:12px;border:none;background:none;cursor:pointer;color:var(--text-sec)}
+.hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--text-sec);background:rgba(255,255,255,.7);padding:6px 14px;border-radius:999px;z-index:9;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="globe-canvas"></canvas>
+
+<div id="intro-overlay">
+  <div class="intro-brand" id="introBrand">
+    <div class="brand-sub">Hyundai Capital · Internal Analytics</div>
+    <div class="brand-main">Global Expansion <em>Diagnostics</em></div>
+  </div>
+  <div class="intro-bar" id="introBar"><div class="intro-bar-fill" id="introFill"></div></div>
+</div>
+
+<div id="app">
+  <header>
+    <div class="brand">HYUNDAI CAPITAL</div>
+    <div class="hdr-title"><b>Global Expansion Diagnostics</b><span>Auto Finance · Market Intelligence</span></div>
+    <div class="hdr-actions">
+      <button><span class="material-symbols-outlined">language</span>EN</button>
+      <button><span class="material-symbols-outlined">settings</span></button>
+    </div>
+  </header>
+  <div class="map-stage" id="stage">
+    <svg id="flat-map"></svg>
+    <div class="overlay hidden" id="overlay">
+      <div class="legend">
+        <h3>Market Overview</h3>
+        <div class="row"><span class="dot active"></span>진출국 (Active Markets)</div>
+        <div class="row"><span class="dot planned"></span>후보국 (Planned Expansion)</div>
+      </div>
+      <button class="fab" aria-label="Open Assistant"><span class="material-symbols-outlined">smart_toy</span></button>
+      <div class="popup" id="popup">
+        <button class="close" id="popupClose"><span class="material-symbols-outlined">close</span></button>
+        <h2>안녕하세요</h2>
+        <p>글로벌 오토파이낸스 진출 진단을 시작할 수 있어요.<br>지도의 국가·권역을 선택하거나 무엇이 궁금한지 물어보세요.</p>
+      </div>
+      <div class="hint">더블클릭으로 인트로 재생</div>
+    </div>
+  </div>
+</div>
+
+<script>
+var CATALOG = {countries:[
+  {code:"UK",country_ko:"영국",  capital:[-0.1276,51.5074], is_baseline:true, region:"EU"},
+  {code:"DE",country_ko:"독일",  capital:[13.405, 52.52],   is_baseline:false,region:"EU"},
+  {code:"ES",country_ko:"스페인",capital:[-3.7038,40.4168], is_baseline:false,region:"EU"},
+  {code:"PL",country_ko:"폴란드",capital:[21.0122,52.2297], is_baseline:false,region:"EU"},
+  {code:"BR",country_ko:"브라질",capital:[-47.8825,-15.794],is_baseline:false,region:"LATAM"},
+  {code:"IN",country_ko:"인도",  capital:[77.209,28.614],   is_baseline:false,region:"APAC"},
+]};
+var HQ = {name:"SEOUL HQ", lonlat:[126.978,37.5665]};
+var ISO_NUM = {UK:826,GB:826,DE:276,ES:724,PL:616,BR:76,IN:356,KR:410};
+var TOPO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+// ─── Three.js ───
+var canvas = document.getElementById("globe-canvas");
+var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x00000a, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+
+var scene = new THREE.Scene();
+
+// ─── 카메라 ───
+// 레퍼런스: 지평선이 화면 상단 30% 위치, 지구 좌우가 화면 밖으로 넘침
+// FOV=60, cam_z=2.2, R=2.0, earthGroup.y=-1.35
+// 검증: dist=sqrt(1.35²+2.2²)=2.58, cam-to-surface=0.58 ✓
+//       half_fov_v=30°, top_y=2.2*tan(30°)=1.27, arc_y=1.27-1.35=-0.08 → 화면 30% ✓
+//       half_fov_h(16:9)=48°, α=asin(2.0/2.58)=51° > 48° → overflow ✓
+var W0 = window.innerWidth, H0 = window.innerHeight;
+var camera = new THREE.PerspectiveCamera(60, W0/H0, 0.1, 200);
+camera.position.set(0, 0, 2.2);
+camera.lookAt(0, 0, 0);
+
+// ─── 별 ───
+(function(){
+  var n = 2500, pos = new Float32Array(n*3);
+  for(var i = 0; i < n*3; i++) pos[i] = (Math.random()-0.5)*180;
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  scene.add(new THREE.Points(geo, new THREE.PointsMaterial({
+    color:0xffffff, size:0.18, sizeAttenuation:true, transparent:true, opacity:0.7
+  })));
+})();
+
+// 레퍼런스: 태양이 정면 위에서 → 호 상단이 흰빛, 양옆 teal, 하단 야간(도시불빛)
+var SUN_DIR = new THREE.Vector3(0, 1.2, 1.0).normalize();
+scene.add(new THREE.AmbientLight(0x060c1a, 0.4));
+var sunLight = new THREE.DirectionalLight(0xffffff, 4.5);
+sunLight.position.copy(SUN_DIR).multiplyScalar(8);
+scene.add(sunLight);
+
+// ─── 지구 그룹 ───
+var earthGroup = new THREE.Group();
+earthGroup.position.set(0, -1.35, 0);
+scene.add(earthGroup);
+
+var R = 2.0;
+
+// ── 공통 버텍스 셰이더 ──
+var SIDE_VERT = [
+  "varying vec3 vNorm;",      // view-space normal (rim 계산용)
+  "varying vec3 vWNorm;",     // world-space normal (태양 방향용)
+  "void main(){",
+  "  vNorm  = normalize(normalMatrix * normal);",
+  "  vWNorm = normalize(mat3(modelMatrix) * normal);",
+  "  gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);",
+  "}"
+].join("\n");
+
+// ── 대기권: 얇고 밝은 teal→흰색 rim ──
+var atmMat = new THREE.ShaderMaterial({
+  uniforms: { uSun: {value: SUN_DIR} },
+  vertexShader: SIDE_VERT,
+  fragmentShader: [
+    "uniform vec3 uSun;",
+    "varying vec3 vNorm; varying vec3 vWNorm;",
+    "void main(){",
+    "  float rim = pow(clamp(1.0-abs(dot(vNorm,vec3(0,0,1))),0.0,1.0), 4.5);",
+    "  float s   = smoothstep(0.0,1.0,dot(normalize(vWNorm),normalize(uSun)));",
+    // 레퍼런스: 전체적으로 밝은 teal-cyan, 상단 흰빛
+    "  vec3  col = mix(vec3(0.05,0.35,0.75), vec3(0.80,0.97,1.0), s);",
+    "  gl_FragColor = vec4(col,1.0)*rim*4.5;",
+    "}"
+  ].join("\n"),
+  blending: THREE.AdditiveBlending, side: THREE.BackSide,
+  transparent:true, depthWrite:false
+});
+earthGroup.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.028, 96, 96), atmMat));
+
+// ── 외곽 halo (넓고 흐린 파란빛) ──
+var haloMat = new THREE.ShaderMaterial({
+  uniforms: { uSun: {value: SUN_DIR} },
+  vertexShader: SIDE_VERT,
+  fragmentShader: [
+    "uniform vec3 uSun;",
+    "varying vec3 vNorm; varying vec3 vWNorm;",
+    "void main(){",
+    "  float rim = pow(clamp(1.0-abs(dot(vNorm,vec3(0,0,1))),0.0,1.0), 4.0)*0.4;",
+    "  float s   = smoothstep(-0.4,1.0,dot(normalize(vWNorm),normalize(uSun)));",
+    "  vec3  col = mix(vec3(0.02,0.07,0.30), vec3(0.06,0.26,0.72), s*0.7);",
+    "  gl_FragColor = vec4(col,1.0)*rim;",
+    "}"
+  ].join("\n"),
+  blending: THREE.AdditiveBlending, side: THREE.BackSide,
+  transparent:true, depthWrite:false
+});
+earthGroup.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.18, 64, 64), haloMat));
+
+// ── 지구 메쉬 — MeshPhongMaterial (Three.js 내장, 깔끔한 렌더링) ──
+var earthMat = new THREE.MeshPhongMaterial({
+  shininess: 18,
+  specular: new THREE.Color(0x224466),
+});
+var earthMesh = new THREE.Mesh(new THREE.SphereGeometry(R, 128, 128), earthMat);
+earthGroup.add(earthMesh);
+
+// ── 텍스처 로드 — 모두 완료 전까지 캔버스 숨김(번쩍임 방지) ──
+canvas.style.opacity = "0";
+canvas.style.transition = "opacity 1.2s ease";
+
+var loader = new THREE.TextureLoader();
+var MAX_ANISO = renderer.capabilities.getMaxAnisotropy();
+var texTotal = 4, texDone = 0;
+function onTexLoaded(){
+  texDone++;
+  if(texDone >= texTotal){
+    // 모든 텍스처 로드 완료 후 부드럽게 표시
+    setTimeout(function(){ canvas.style.opacity = "1"; }, 100);
+  }
+}
+function loadTex(local, cdn, cb){
+  function ok(t){
+    t.anisotropy = MAX_ANISO;
+    t.minFilter = THREE.LinearMipmapLinearFilter;
+    t.magFilter = THREE.LinearFilter;
+    t.needsUpdate = true;
+    cb(t);
+    onTexLoaded();
+  }
+  loader.load(local, ok, undefined, function(){ loader.load(cdn, ok, undefined, function(){ onTexLoaded(); }); });
+}
+loadTex("earth_day.jpg",   "https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg", function(t){ earthMat.map=t; earthMat.needsUpdate=true; });
+loadTex("earth_night.jpg", "https://threejs.org/examples/textures/planets/earth_lights_2048.png",                   function(t){ earthMat.emissiveMap=t; earthMat.emissive=new THREE.Color(0x444444); earthMat.needsUpdate=true; });
+loadTex("earth_spec.jpg",  "https://threejs.org/examples/textures/planets/earth_specular_2048.jpg",                 function(t){ earthMat.specularMap=t; earthMat.needsUpdate=true; });
+loadTex("earth_clouds.jpg", "https://threejs.org/examples/textures/planets/earth_clouds_1024.png",                   function(t){
+  var cm = new THREE.Mesh(
+    new THREE.SphereGeometry(R*1.01, 64, 64),
+    new THREE.MeshPhongMaterial({map:t, transparent:true, opacity:0.55, depthWrite:false, blending:THREE.AdditiveBlending, color:0xaaddff})
+  );
+  earthGroup.add(cm);
+  window._cloud = cm;
+});
+
+function easeOut3(t){ return 1-(1-t)*(1-t)*(1-t); }
+
+// ── 렌더 루프 ──
+var autoRotate = true, lastT = 0;
+renderer.setAnimationLoop(function(t){
+  var dt = Math.min((t-lastT)/1000, 0.05); lastT=t;
+  if(autoRotate){ earthGroup.rotation.y += dt*0.05; }
+  if(window._cloud){ window._cloud.rotation.y += dt*0.003; }
+  renderer.render(scene, camera);
+});
+
+// ─── 인트로 타이밍 ───
+setTimeout(function(){
+  document.getElementById("introBrand").classList.add("visible");
+  document.getElementById("introBar").classList.add("visible");
+}, 350);
+
+(function(){
+  var TOTAL=5000, t0=performance.now();
+  (function f(){
+    var p=Math.min((performance.now()-t0)/TOTAL,1);
+    document.getElementById("introFill").style.width=(p*100)+"%";
+    if(p<1) requestAnimationFrame(f);
+  })();
+})();
+
+setTimeout(transitionToFlat, 3500);
+setTimeout(showMainUI, 5000);
+
+// ─── D3 평면지도 ───
+var LAND=[], flatReady=false, FW=window.innerWidth, FH=window.innerHeight-56, proj, pathFn;
+
+d3.json(TOPO_URL).then(function(topo){
+  var stage = document.getElementById("stage");
+  FW = stage.clientWidth || FW;
+  FH = stage.clientHeight || FH;
+  proj = d3.geoNaturalEarth1().scale(FW/5.4).translate([FW/2, FH*.46]).precision(.4);
+  pathFn = d3.geoPath(proj);
+  LAND = topojson.feature(topo, topo.objects.countries).features;
+  flatReady = true;
+});
+
+function transitionToFlat(){
+  if(!flatReady){ setTimeout(transitionToFlat, 200); return; }
+  buildFlatSVG();
+
+  // 지구 페이드아웃
+  var dur=1800, t0=performance.now();
+  (function fade(){
+    var p = easeOut3(Math.min((performance.now()-t0)/dur, 1));
+    earthGroup.traverse(function(obj){
+      if(obj.isMesh && obj.material){
+        obj.material.transparent = true;
+        obj.material.opacity = Math.max(0, 1-p);
+      }
+    });
+    if(p<1) requestAnimationFrame(fade);
+    else{
+      autoRotate = false;
+      canvas.style.transition = "opacity .8s";
+      canvas.style.opacity = "0";
+    }
+  })();
+
+  document.body.style.transition = "background 1.5s ease";
+  document.body.style.background = "radial-gradient(1200px 760px at 62% 18%,#f5f3f3,#fbf9f9 48%,#fff)";
+
+  setTimeout(function(){
+    var fm = document.getElementById("flat-map");
+    fm.style.transition = "opacity 1.2s ease";
+    fm.style.opacity = "1";
+    fm.style.pointerEvents = "auto";
+    animateMarkers();
+  }, 700);
+}
+
+function buildFlatSVG(){
+  var svg = d3.select("#flat-map").attr("viewBox","0 0 "+FW+" "+FH);
+  svg.selectAll("*").remove();
+  var defs = svg.append("defs");
+  var og = defs.append("radialGradient").attr("id","fo").attr("cx","38%").attr("cy","32%").attr("r","78%");
+  [["0%","#fff"],["32%","#eef3ff"],["62%","#c2d8fb"],["86%","#7aa6ec"],["100%","#2F79D9"]]
+    .forEach(function(s){ og.append("stop").attr("offset",s[0]).attr("stop-color",s[1]); });
+  var mf = defs.append("filter").attr("id","mg").attr("x","-60%").attr("y","-60%").attr("width","220%").attr("height","220%");
+  mf.append("feGaussianBlur").attr("stdDeviation","3").attr("result","b");
+  var fmm = mf.append("feMerge");
+  fmm.append("feMergeNode").attr("in","b");
+  fmm.append("feMergeNode").attr("in","SourceGraphic");
+
+  svg.append("rect").attr("width",FW).attr("height",FH).attr("fill","url(#fo)");
+  svg.append("path").attr("class","graticule").attr("d", pathFn(d3.geoGraticule10()));
+
+  var ai = new Set(CATALOG.countries.filter(function(d){return d.is_baseline;}).map(function(d){return ISO_NUM[d.code];}));
+  svg.append("g").selectAll("path").data(LAND).enter().append("path")
+    .attr("class","country-land").classed("region-active",function(d){return ai.has(d.id);}).attr("d",pathFn);
+
+  var ag = svg.append("g").attr("id","arc-layer");
+  CATALOG.countries.forEach(function(d){
+    var lp = ag.append("path")
+      .attr("class","arc "+(d.is_baseline?"base":"cand"))
+      .attr("d", pathFn({type:"LineString",coordinates:[HQ.lonlat,d.capital]}))
+      .attr("id","arc-"+d.code).style("opacity",0);
+    var nd = lp.node(), len = nd ? nd.getTotalLength() : 300;
+    lp.style("stroke-dasharray",len).style("stroke-dashoffset",len);
+  });
+
+  var mg = svg.append("g").attr("id","marker-layer");
+  var all = CATALOG.countries.map(function(d){ return Object.assign({},d,{xy:proj(d.capital)}); });
+  all.push({code:"HQ",country_ko:HQ.name,capital:HQ.lonlat,is_hq:true,xy:proj(HQ.lonlat)});
+  all.forEach(function(d){
+    if(!d.xy) return;
+    var g = mg.append("g").attr("class","mk").attr("id","mk-"+d.code)
+      .attr("transform","translate("+d.xy[0]+","+d.xy[1]+")");
+    if(d.is_hq||d.is_baseline) g.append("circle").attr("class","pulse");
+    g.append("circle").attr("r",12).attr("fill","none").attr("stroke","#2F79D9").attr("stroke-opacity",.3).attr("filter","url(#mg)");
+    g.append("circle").attr("r",d.is_hq?7:6)
+      .attr("fill",(d.is_hq||d.is_baseline)?"#2F79D9":"#fff")
+      .attr("stroke","#2F79D9").attr("stroke-width",(d.is_hq||d.is_baseline)?0:1.5);
+    g.append("text").attr("class","mk-label").attr("x",0).attr("y",-15).attr("text-anchor","middle")
+      .text(d.is_hq?"SEOUL HQ":d.country_ko);
+  });
+}
+
+function animateMarkers(){
+  var order = ["HQ"].concat(CATALOG.countries.map(function(d){return d.code;}));
+  order.forEach(function(code, i){
+    var delay = 150 + i*230;
+    setTimeout(function(){
+      var mk = document.getElementById("mk-"+code);
+      if(!mk) return;
+      mk.style.animation = "markerDrop .55s cubic-bezier(.34,1.56,.64,1) forwards";
+      setTimeout(function(){
+        var lb = mk.querySelector(".mk-label");
+        if(lb) lb.style.animation = "labelFade .4s ease forwards";
+      }, 300);
+    }, delay);
+    if(code !== "HQ"){
+      setTimeout(function(){
+        var a = document.getElementById("arc-"+code);
+        if(!a) return;
+        a.style.opacity = "1";
+        a.style.transition = "stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)";
+        a.style.strokeDashoffset = "0";
+      }, delay+100);
+    }
+  });
+}
+
+function showMainUI(){
+  document.getElementById("intro-overlay").classList.add("fadeout");
+  setTimeout(function(){
+    document.getElementById("intro-overlay").style.display = "none";
+    document.getElementById("app").classList.add("visible");
+    d3.select("#overlay").classed("hidden", false);
+  }, 900);
+}
+
+document.getElementById("popupClose").onclick = function(){ document.getElementById("popup").style.display="none"; };
+document.querySelector(".fab").onclick = function(){
+  var p = document.getElementById("popup");
+  p.style.display = p.style.display==="none" ? "block" : "none";
+};
+window.addEventListener("resize", function(){
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>

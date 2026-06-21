@@ -1,0 +1,70 @@
+/* M1 지구본/평면지도 스타일 — mockup(M1_intro.html)에서 이식. Kinetic 팔레트. */
+.map-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(1200px 760px at 62% 18%, #f5f3f3 0%, #fbf9f9 48%, #fff 100%);
+}
+#globe-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+#flat-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 인트로 오버레이 */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  pointer-events: none;
+  padding: 0 8vw 10vh;
+  background: linear-gradient(to top, rgba(2,6,18,.8) 0%, rgba(2,6,18,.3) 28%, transparent 60%);
+}
+.intro-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  opacity: 0; transform: translateY(22px); transition: opacity 1.3s ease, transform 1.3s ease; }
+.intro-logo.visible { opacity: 1; transform: translateY(0); }
+.logo-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .5em; text-transform: uppercase; color: rgba(255,255,255,.42); }
+.logo-title { font-size: clamp(34px,5vw,64px); font-weight: 800; color: #fff; letter-spacing: -.02em; line-height: 1; text-shadow: 0 2px 40px rgba(0,0,0,.5); }
+.logo-title em { color: #60cdff; font-style: normal; text-shadow: 0 0 50px rgba(96,205,255,.5); }
+.logo-tagline { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 6px; }
+
+/* 마커·아크 */
+@keyframes markerDrop {
+  0% { opacity: 0; transform: translateY(-16px) scale(.4); }
+  65% { opacity: 1; transform: translateY(3px) scale(1.12); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes mkpulse { 0% { r: 7px; opacity: .55; } 100% { r: 22px; opacity: 0; } }
+@keyframes labelFade { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+.mk { opacity: 0; }
+.mk .pulse { fill: none; stroke: #2F79D9; stroke-width: 1.8px; animation: mkpulse 2.4s ease-out infinite; }
+.mk-label { font-size: 11px; font-weight: 700; fill: #00204e; stroke: rgba(255,255,255,.95); stroke-width: 3.5px; paint-order: stroke; pointer-events: none; opacity: 0; }
+.country-land { fill: #003478; stroke: rgba(0,32,78,.4); stroke-width: .4px; vector-effect: non-scaling-stroke; transition: fill .25s; }
+.country-land.region-active { fill: #00204e; }
+.country-land:hover { fill: #2F79D9; cursor: pointer; }
+.graticule { fill: none; stroke: rgba(47,121,217,.15); stroke-width: .5px; }
+.arc { fill: none; stroke-linecap: round; }
+.arc.base { stroke: #2F79D9; stroke-width: 1.6px; }
+.arc.cand { stroke: rgba(47,121,217,.38); stroke-width: 1px; stroke-dasharray: 3,5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mk, .mk-label { opacity: 1 !important; animation: none !important; }
+  .intro-logo { opacity: 1 !important; transform: none !important; }
+}

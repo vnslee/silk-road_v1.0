@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Kinetic Enterprise tokens (DESIGN.md — source of truth, do not invent new) ── */
+:root{
+  --surface:#fbf9f9; --surface-low:#f5f3f3; --surface-lowest:#ffffff;
+  --surface-container:#efeded; --surface-light:#F8F9FA; --surface-border:#DCDCDC;
+  --on-surface:#1b1c1c; --on-surface-variant:#434751;
+  --text-primary:#000000; --text-secondary:#555555; --text-disabled:#BEBEBE;
+  --primary:#00204e; --primary-container:#003478; --on-primary:#ffffff;
+  --on-primary-container:#7d9fe9; --secondary:#005db7; --secondary-container:#599bfe;
+  --primary-fixed:#d8e2ff; --primary-fixed-dim:#aec6ff; --surface-tint:#395da2;
+  --accent-red:#E63946; --error:#ba1a1a;
+  /* source_flag → 신뢰도 색 (render_req §2) */
+  --flag-ext:#747782; --flag-int:#005db7; --flag-calc:#137333;
+  --flag-ai:#6b3fa0; --flag-news:#b45309;
+  /* spacing (4px base) */
+  --xs:4px; --sm:8px; --md:16px; --lg:24px; --xl:32px;
+  /* elevation */
+  --card-shadow:0 4px 8px rgba(0,32,78,.06);
+  --radius:8px; --radius-lg:12px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  background:var(--surface); color:var(--on-surface);
+  font-size:16px; line-height:24px; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0; color:var(--primary); letter-spacing:-0.01em;}
+p{margin:0;}
+
+/* ── Shell ── */
+.report{max-width:1120px; margin:0 auto; background:var(--surface);}
+.masthead{
+  background:var(--primary);
+  color:var(--on-primary); padding:var(--xl) var(--lg);
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:var(--lg); flex-wrap:wrap;
+  border-bottom:3px solid var(--secondary);
+}
+.masthead .badge-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:var(--radius);
+  background:var(--primary-container); color:var(--on-primary-container);
+  font-weight:800; font-size:18px; flex-shrink:0;
+}
+.masthead-id{display:flex; gap:var(--sm); align-items:center;
+  font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--primary-fixed-dim); margin-bottom:var(--xs);}
+.masthead-id .dot{width:3px; height:3px; border-radius:50%; background:var(--primary-fixed-dim);}
+.masthead h1{color:var(--on-primary); font-size:32px; line-height:40px; font-weight:800;}
+.masthead .sub{color:var(--primary-fixed); font-size:14px; margin-top:var(--xs);}
+.masthead-actions{display:flex; gap:var(--sm); flex-shrink:0;}
+.btn{display:inline-flex; align-items:center; gap:var(--xs);
+  padding:var(--sm) var(--md); border-radius:var(--radius);
+  font-size:12px; font-weight:600; letter-spacing:0.03em; text-decoration:none;
+  border:1px solid var(--primary-fixed-dim); color:var(--primary-fixed);
+  background:transparent;}
+.btn-solid{background:var(--secondary); border-color:var(--secondary); color:#fff;}
+
+/* ── Tab nav ── */
+.tabnav{display:flex; gap:var(--xl); padding:0 var(--lg);
+  background:var(--surface-lowest); border-bottom:1px solid var(--surface-border);
+  overflow-x:auto;}
+.tabnav a{padding:var(--md) 0; font-size:12px; font-weight:600; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--text-secondary); text-decoration:none;
+  border-bottom:2px solid transparent; white-space:nowrap;}
+.tabnav a.active{color:var(--primary); border-bottom-color:var(--primary);}
+
+/* ── Sections / cards ── */
+.tabpanel{padding:var(--lg); display:flex; flex-direction:column; gap:var(--xl);}
+.tab-head{display:flex; align-items:baseline; gap:var(--sm);
+  padding-bottom:var(--sm); border-bottom:1px solid var(--surface-border);}
+.tab-head .num{font-size:11px; font-weight:700; letter-spacing:0.1em;
+  color:var(--secondary); font-variant-numeric:tabular-nums;}
+.tab-head h2{font-size:24px; line-height:32px; font-weight:700;}
+.grid{display:grid; gap:var(--md);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{background:var(--surface-lowest); border:1px solid var(--surface-border);
+  border-radius:var(--radius); padding:var(--lg); box-shadow:var(--card-shadow);
+  break-inside:avoid;}
+.card-label{display:flex; align-items:center; gap:var(--xs);
+  font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+  color:var(--text-secondary); margin-bottom:var(--sm);}
+.kpi-value{font-size:24px; line-height:32px; font-weight:700; color:var(--primary);
+  font-variant-numeric:tabular-nums;}
+.kpi-value.placeholder{font-size:16px; color:var(--text-disabled); font-weight:500;}
+.muted{color:var(--on-surface-variant); font-size:14px; line-height:20px; margin-top:var(--xs);}
+
+/* ── source_flag badge (signature: data provenance is always visible) ── */
+.flag{display:inline-flex; align-items:center; gap:4px; padding:2px 8px;
+  border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:0.04em;
+  line-height:14px; vertical-align:middle;}
+.flag::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor;}
+.flag-EXT{color:var(--flag-ext);  background:rgba(116,119,130,.12);}
+.flag-INT{color:var(--flag-int);  background:rgba(0,93,183,.12);}
+.flag-CALC{color:var(--flag-calc);background:rgba(19,115,51,.12);}
+.flag-AI{color:var(--flag-ai);    background:rgba(107,63,160,.14);}
+.flag-NEWS{color:var(--flag-news);background:rgba(180,83,9,.14);}
+.block-head{display:flex; align-items:center; justify-content:space-between;
+  gap:var(--sm); margin-bottom:var(--sm);}
+.block-head h3{font-size:16px; font-weight:600; color:var(--primary);}
+
+/* ── ranking / horizontal bars ── */
+.rank-row{display:flex; align-items:center; gap:var(--sm); padding:6px 0;
+  border-bottom:1px solid var(--surface-light);}
+.rank-row .name{flex:0 0 38%; font-size:14px; color:var(--on-surface);}
+.rank-row .track{flex:1; height:8px; background:var(--surface-border);
+  border-radius:9999px; overflow:hidden;}
+.rank-row .fill{height:100%; background:linear-gradient(90deg,var(--primary),var(--secondary));
+  border-radius:9999px;}
+.rank-row .val{flex:0 0 56px; text-align:right; font-size:13px; font-weight:600;
+  color:var(--primary); font-variant-numeric:tabular-nums;}
+
+/* ── status matrix (신호등) ── */
+table.matrix{width:100%; border-collapse:collapse; font-size:13px;}
+table.matrix th,table.matrix td{padding:var(--sm); text-align:left;
+  border-bottom:1px solid var(--surface-border);}
+table.matrix th{font-size:11px; font-weight:600; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--text-secondary);}
+.dot-pass{color:var(--flag-calc); font-weight:700;}
+.dot-fail{color:var(--error); font-weight:700;}
+.dot-flag{color:var(--flag-news); font-weight:700;}
+tr.row-failed{background:var(--surface-container); color:var(--text-disabled);}
+
+/* ── pill chip (qualitative / decision) ── */
+.chip{display:inline-block; padding:4px 12px; border-radius:9999px;
+  background:var(--primary-fixed); color:var(--on-surface);
+  font-size:13px; font-weight:600;}
+
+/* ── timeseries inline svg ── */
+.spark{width:100%; height:auto; display:block;}
+
+/* ── news cards ── */
+.news{display:flex; flex-direction:column; gap:var(--sm);}
+.news-item{padding:var(--sm) 0; border-bottom:1px solid var(--surface-light);}
+.news-item .headline{font-size:14px; font-weight:600; color:var(--on-surface);}
+.news-item .sowhat{font-size:13px; color:var(--on-surface-variant); margin-top:2px;}
+.news-item .src{font-size:11px; color:var(--text-secondary); margin-top:2px;}
+
+/* ── footer ── */
+.report-foot{padding:var(--md) var(--lg); border-top:1px solid var(--surface-border);
+  font-size:11px; color:var(--text-secondary); background:var(--surface-lowest);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sm);}
+
+/* ── responsive ── */
+@media (max-width:768px){
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .masthead{flex-direction:column; align-items:flex-start;}
+  .masthead h1{font-size:24px; line-height:32px;}
+}
+/* ── print / PDF (weasyprint, no JS) ── */
+@page{size:A4; margin:14mm 12mm;}
+@media print{
+  body{background:#fff;}
+  .masthead-actions{display:none;}
+  .tabnav{display:none;}
+  .tabpanel{padding:0 0 var(--lg);}
+  .card{box-shadow:none;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important;}}
+</style>
+</head>
+<body>
+<div class="report">
+  <header class="masthead">
+    <div style="display:flex; gap:var(--md); align-items:flex-start;">
+      <span class="badge-mark">{{MARK}}</span>
+      <div>
+        <div class="masthead-id">{{META}}</div>
+        <h1>{{TITLE}}</h1>
+        <p class="sub">{{SUBTITLE}}</p>
+      </div>
+    </div>
+    <div class="masthead-actions">{{ACTIONS}}</div>
+  </header>
+  <nav class="tabnav">{{TABNAV}}</nav>
+  <main>{{CONTENT}}</main>
+  <footer class="report-foot">{{FOOTER}}</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Hyundai Capital Diagnostic — Global Expansion</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+
+<!-- D3 + TopoJSON (per intro_spec §2) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+<style>
+  :root{
+    /* Kinetic Enterprise palette (DESIGN.md) */
+    --primary-container:#003478; --primary:#00204e; --secondary:#005db7;
+    /* 현대캐피탈 공식 CI (about.hyundaicapital.com/au/cintd) */
+    --hc-blue:#2F79D9;            /* Hyundai Capital Blue — 시그니처, Pantone 660C */
+    --surface-light:#F8F9FA; --surface:#fbf9f9; --surface-border:#DCDCDC;
+    --on-surface:#1b1c1c; --text-secondary:#777777; --outline-variant:#c4c6d2;
+    --primary-fixed-dim:#aec6ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--on-surface);overflow:hidden}
+  .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;display:inline-block;-webkit-font-smoothing:antialiased}
+
+  /* ── App chrome ── */
+  .app{display:flex;flex-direction:column;height:100vh;width:100vw}
+  header{display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;background:#fff;border-bottom:1px solid var(--surface-border);z-index:20}
+  .brand{font-weight:800;font-size:20px;color:var(--primary);letter-spacing:.5px}
+  .title{display:flex;flex-direction:column;align-items:center;line-height:1.15}
+  .title b{font-size:22px;font-weight:700;color:var(--primary)}
+  .title span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary)}
+  .actions{display:flex;gap:18px;color:var(--primary)}
+  .actions button{background:none;border:none;color:inherit;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600}
+
+  /* ── Map stage (intro_spec §7) ── */
+  .map-stage{position:relative;flex:1;overflow:hidden;
+    background:radial-gradient(1200px 760px at 68% 18%, #f5f3f3 0%, #fbf9f9 48%, #ffffff 100%)}
+  #starfield,#map{position:absolute;inset:0;width:100%;height:100%}
+  #starfield{z-index:1}
+  #map{z-index:2;opacity:0;transition:opacity .4s}
+
+  @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.5}}
+  .star{fill:#c4c6d2;animation:twinkle 4.5s ease-in-out infinite}
+
+  .country-land{fill:#003478;stroke:rgba(0,32,78,.45);stroke-width:.4px;
+    vector-effect:non-scaling-stroke;transition:fill .25s}
+  .country-land.region-active{fill:#00204e;stroke:rgba(0,16,40,.55)}
+  .country-land.land-hover{fill:#2F79D9;cursor:pointer}
+
+  .graticule{fill:none;stroke:rgba(47,121,217,.18);stroke-width:.5px}
+  .ocean-outline{fill:none;stroke:rgba(47,121,217,.35);stroke-width:1px}
+  .arc{fill:none}
+  .arc.base{stroke:rgba(47,121,217,.65);stroke-width:1.5px}
+  .arc.cand{stroke:rgba(47,121,217,.32);stroke-width:1px;stroke-dasharray:3,4}
+
+  .mk-label{font-size:11px;font-weight:700;fill:#00204e;
+    stroke:rgba(255,255,255,.95);stroke-width:3.5px;paint-order:stroke;pointer-events:none}
+  /* 진출국 마커: 시그니처 블루 펄스 링 */
+  @keyframes mkpulse{0%{r:6px;opacity:.6}100%{r:18px;opacity:0}}
+  .mk .pulse{fill:none;stroke:#2F79D9;stroke-width:2px;animation:mkpulse 2.2s ease-out infinite}
+
+  /* ── Overlay UI (fades in after intro) ── */
+  .overlay{transition:opacity .6s}
+  .overlay.hidden{opacity:0;pointer-events:none}
+
+  .legend{position:absolute;top:24px;right:24px;background:var(--surface);
+    border:1px solid var(--surface-border);border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,32,78,.08);padding:16px;width:220px;z-index:10}
+  .legend h3{margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+  .legend .row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.active{background:var(--hc-blue)}
+  .dot.planned{border:2px dashed var(--primary-container);background:transparent}
+
+  .fab{position:absolute;bottom:24px;left:24px;width:56px;height:56px;border-radius:50%;
+    background:var(--primary);color:#fff;border:none;cursor:pointer;z-index:10;
+    box-shadow:0 12px 24px rgba(0,32,78,.2);display:flex;align-items:center;justify-content:center;
+    transition:transform .2s}
+  .fab:hover{transform:scale(1.06)}
+  .fab .material-symbols-outlined{font-size:28px}
+
+  /* first popup (chatbot greeting) */
+  .popup{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);
+    background:#fff;border:1px solid var(--surface-border);border-radius:16px;
+    box-shadow:0 18px 40px rgba(0,32,78,.18);padding:20px 24px;width:min(440px,86vw);z-index:11;text-align:center}
+  .popup h2{margin:0 0 6px;font-size:18px;color:var(--primary)}
+  .popup p{margin:0;font-size:14px;color:var(--text-secondary);line-height:1.5}
+  .popup .close{position:absolute;top:10px;right:12px;border:none;background:none;cursor:pointer;color:var(--text-secondary)}
+
+  .hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+    font-size:12px;color:var(--text-secondary);background:rgba(255,255,255,.7);
+    padding:6px 14px;border-radius:999px;z-index:9}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">HYUNDAI CAPITAL</div>
+    <div class="title"><b>Global Expansion Status</b><span>Global Diagnostics</span></div>
+    <div class="actions">
+      <button><span class="material-symbols-outlined">language</span>EN</button>
+      <button><span class="material-symbols-outlined">settings</span></button>
+    </div>
+  </header>
+
+  <div class="map-stage" id="stage">
+    <svg id="starfield"></svg>
+    <svg id="map"></svg>
+
+    <!-- overlay UI: hidden until intro completes -->
+    <div class="overlay hidden" id="overlay">
+      <div class="legend">
+        <h3>Market Overview</h3>
+        <div class="row"><span class="dot active"></span>진출국 (Active Markets)</div>
+        <div class="row"><span class="dot planned"></span>후보국 (Planned Expansion)</div>
+      </div>
+      <button class="fab" aria-label="Open Assistant"><span class="material-symbols-outlined">smart_toy</span></button>
+      <div class="popup" id="popup">
+        <button class="close" id="popupClose"><span class="material-symbols-outlined">close</span></button>
+        <h2>안녕하세요 👋</h2>
+        <p>글로벌 오토파이낸스 진출 진단을 시작할 수 있어요.<br>지도의 국가·권역을 선택하거나 무엇이 궁금한지 물어보세요.</p>
+      </div>
+      <div class="hint">드래그로 회전 · 휠로 확대 · 더블클릭으로 인트로 재생</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+//  데이터 계약 (intro_spec §8)  — capital = [경도, 위도]
+// ============================================================================
+const CATALOG = {
+  countries: [
+    { code:"UK", country_ko:"영국",   capital:[-0.1276, 51.5074], is_baseline:true,  region:"EU" },
+    { code:"DE", country_ko:"독일",   capital:[13.405,  52.52],   is_baseline:false, region:"EU" },
+    { code:"ES", country_ko:"스페인", capital:[-3.7038, 40.4168], is_baseline:false, region:"EU" },
+    { code:"PL", country_ko:"폴란드", capital:[21.0122, 52.2297], is_baseline:false, region:"EU" },
+    { code:"BR", country_ko:"브라질", capital:[-47.8825,-15.7942], is_baseline:false, region:"LATAM" },
+    { code:"IN", country_ko:"인도",   capital:[77.2090, 28.6139], is_baseline:false, region:"APAC" }
+  ]
+};
+const HQ = { name:"SEOUL HQ", lonlat:[126.9780, 37.5665] };
+// ISO A2 → world-atlas numeric id (하이라이트용, §8)
+const ISO_NUM = { UK:826, GB:826, DE:276, ES:724, PL:616, BR:76, IN:356, KR:410 };
+
+const TOPO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+// ============================================================================
+//  MAP 모듈 (intro_spec §3~§10)
+// ============================================================================
+const M = window.__MAP__ = {
+  ready:false, introDone:false, mode:"globe", morphT:0, autorotate:true, scale:1
+};
+
+const stage = document.getElementById("stage");
+let W = stage.clientWidth, H = stage.clientHeight;
+
+// ── 투영 모핑 (§3): orthographic ↔ naturalEarth1 raw 선형보간 ──
+function interpolatedRaw(t){
+  const a = d3.geoOrthographicRaw, b = d3.geoNaturalEarth1Raw;
+  return (lambda, phi) => {
+    const pa = a(lambda, phi), pb = b(lambda, phi);
+    return [pa[0]*(1-t)+pb[0]*t, pa[1]*(1-t)+pb[1]*t];
+  };
+}
+M.mutate = d3.geoProjectionMutator(t => interpolatedRaw(t));
+M.proj = M.mutate(0);
+M.proj.rotate([0,-12,0]).precision(0.4);
+const path = d3.geoPath(M.proj);
+
+// ── 스케일 연속 보간 (§3-2) ──
+function baseScale(){
+  const globe = Math.min(W,H)*0.42;   // 구체
+  const flat  = W/5.4;                // 평면
+  return globe + (flat-globe)*M.morphT;
+}
+M.fit = function(){
+  M.proj.scale(baseScale()*M.scale)
+        .translate([W/2, M.mode==="flat" ? H*0.46 : H/2]);
+};
+M.applyClip = function(){ M.morphT<0.5 ? M.proj.clipAngle(90) : M.proj.clipAngle(null); };
+// ⚠️ 핵심: morphT만 바꾸는 게 아니라 mutate(t)로 raw 투영을 실제로 갱신해야 펼쳐진다.
+// (mutator는 같은 proj 객체의 rotate/scale/translate를 보존한 채 모양만 바꾼다 — §3)
+M.setMorph = function(t){ M.morphT=t; M.mutate(t); M.applyClip(); M.fit(); };
+
+// ── 마커 가시성 (§3-3) ──
+function isVisible(lonlat){
+  if (M.morphT>0.6) return true;
+  const r = M.proj.rotate(), c = [-r[0], -r[1]];
+  return d3.geoDistance(lonlat, c) < Math.PI/2 - 0.02;
+}
+
+// ── SVG 레이어 (§4) ──
+const svg = d3.select("#map").attr("viewBox", `0 0 ${W} ${H}`);
+M.svg = svg;
+const defs = svg.append("defs");
+// ocean gradient — 좌상단에서 빛이 드는 구체 음영 (offset 중심을 위로 당겨 입체감)
+const og = defs.append("radialGradient").attr("id","oceanGrad").attr("cx","38%").attr("cy","32%").attr("r","78%");
+og.append("stop").attr("offset","0%").attr("stop-color","#ffffff");      // 하이라이트
+og.append("stop").attr("offset","32%").attr("stop-color","#eef3ff");
+og.append("stop").attr("offset","62%").attr("stop-color","#c2d8fb");
+og.append("stop").attr("offset","86%").attr("stop-color","#7aa6ec");
+og.append("stop").attr("offset","100%").attr("stop-color","#2F79D9");    // 가장자리 = 시그니처 블루
+// 구 가장자리 어둠(테두리 음영) — 림 섀도
+const rim = defs.append("radialGradient").attr("id","rimShade").attr("cx","50%").attr("cy","50%").attr("r","50%");
+rim.append("stop").attr("offset","72%").attr("stop-color","rgba(0,20,60,0)");
+rim.append("stop").attr("offset","94%").attr("stop-color","rgba(0,20,60,.12)");
+rim.append("stop").attr("offset","100%").attr("stop-color","rgba(0,20,60,.34)");
+// 빛 하이라이트(스페큘러) — 좌상단 광택
+const spec = defs.append("radialGradient").attr("id","specGrad").attr("cx","36%").attr("cy","28%").attr("r","40%");
+spec.append("stop").attr("offset","0%").attr("stop-color","rgba(255,255,255,.85)");
+spec.append("stop").attr("offset","100%").attr("stop-color","rgba(255,255,255,0)");
+// atmosphere glow — 더 넓고 진한 후광
+const ag = defs.append("radialGradient").attr("id","atmGlow").attr("cx","50%").attr("cy","50%");
+ag.append("stop").attr("offset","74%").attr("stop-color","rgba(47,121,217,0)");
+ag.append("stop").attr("offset","88%").attr("stop-color","rgba(47,121,217,.20)");
+ag.append("stop").attr("offset","95%").attr("stop-color","rgba(47,121,217,.45)");
+ag.append("stop").attr("offset","100%").attr("stop-color","rgba(47,121,217,0)");
+// marker glow filter
+const f = defs.append("filter").attr("id","mkGlow").attr("x","-50%").attr("y","-50%").attr("width","200%").attr("height","200%");
+f.append("feGaussianBlur").attr("stdDeviation","2.5").attr("result","b");
+const fm = f.append("feMerge"); fm.append("feMergeNode").attr("in","b"); fm.append("feMergeNode").attr("in","SourceGraphic");
+
+const atm      = svg.append("circle").attr("class","atm").attr("fill","url(#atmGlow)");
+const ocean    = svg.append("path").attr("class","ocean").attr("fill","url(#oceanGrad)").attr("stroke","rgba(47,121,217,.40)");
+const gratLayer= svg.append("path").attr("class","graticule");
+const mapLayer = svg.append("g").attr("class","map-layer");
+// 구체 음영 오버레이(육지 위, 마커 아래) — 평면에선 페이드아웃
+const rimLayer = svg.append("circle").attr("class","rim").attr("fill","url(#rimShade)").style("pointer-events","none");
+const specLayer= svg.append("circle").attr("class","spec").attr("fill","url(#specGrad)").style("pointer-events","none");
+const arcLayer = svg.append("g").attr("class","arc-layer");
+const mkLayer  = svg.append("g").attr("class","marker-layer");
+
+const graticule = d3.geoGraticule10();
+const sphere = {type:"Sphere"};
+let LAND = [];
+
+// ── 별 배경 (§4) ──
+function makeStars(){
+  const sf = d3.select("#starfield").attr("viewBox",`0 0 ${W} ${H}`);
+  sf.selectAll("*").remove();
+  const n = Math.round((W*H)/9000);
+  const rnd = mulberry32(20260620); // 결정적 별 배치
+  for(let i=0;i<n;i++){
+    sf.append("circle").attr("class","star")
+      .attr("cx", rnd()*W).attr("cy", rnd()*H)
+      .attr("r", 0.4 + rnd()*1.1)
+      .style("animation-delay", (rnd()*4.5)+"s");
+  }
+}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};}
+
+// ── 한 프레임 그리기 (§4) ──
+M.render = function(){
+  const r = M.proj.rotate();
+  const c = M.proj.scale(), tr = M.proj.translate();
+
+  const sphereOpacity = Math.max(0, 1 - M.morphT*1.6);
+  atm.attr("cx",tr[0]).attr("cy",tr[1]).attr("r",c*1.02)
+     .attr("opacity", sphereOpacity);
+  ocean.attr("d", path(sphere));
+  gratLayer.attr("d", path(graticule));
+  // 구체 음영(림+스페큘러)은 구체 반경에 맞춰 배치, 펼쳐지면 사라짐
+  rimLayer.attr("cx",tr[0]).attr("cy",tr[1]).attr("r",c).attr("opacity",sphereOpacity);
+  specLayer.attr("cx",tr[0]).attr("cy",tr[1]).attr("r",c).attr("opacity",sphereOpacity);
+
+  // 육지
+  const lands = mapLayer.selectAll("path.country-land").data(LAND, d=>d.id);
+  lands.enter().append("path").attr("class","country-land")
+       .merge(lands).attr("d", path)
+       .classed("region-active", d => activeIds.has(d.id));
+  lands.exit().remove();
+
+  // 아크 (서울 HQ ↔ 각국)
+  const arcs = arcLayer.selectAll("path.arc").data(CATALOG.countries, d=>d.code);
+  arcs.enter().append("path")
+      .merge(arcs)
+      .attr("class", d => "arc " + (d.is_baseline?"base":"cand"))
+      .attr("d", d => {
+        if(!isVisible(d.capital) && !isVisible(HQ.lonlat) && M.morphT<0.6) return null;
+        return path({type:"LineString", coordinates:[HQ.lonlat, d.capital]});
+      });
+  arcs.exit().remove();
+
+  // 마커 (capital → proj, 매 프레임 재투영)
+  drawMarkers();
+};
+
+function drawMarkers(){
+  const pts = CATALOG.countries.map(d=>({...d, vis:isVisible(d.capital), xy:M.proj(d.capital)}))
+                .concat([{code:"HQ", country_ko:HQ.name, capital:HQ.lonlat, is_hq:true,
+                          vis:isVisible(HQ.lonlat), xy:M.proj(HQ.lonlat)}]);
+  const g = mkLayer.selectAll("g.mk").data(pts, d=>d.code);
+  const en = g.enter().append("g").attr("class","mk");
+  en.append("circle").attr("class","pulse");
+  en.append("circle").attr("class","halo");
+  en.append("circle").attr("class","core");
+  en.append("text").attr("class","mk-label");
+  const all = en.merge(g);
+  all.attr("transform", d=> d.xy ? `translate(${d.xy[0]},${d.xy[1]})` : null)
+     .style("display", d => d.vis ? null : "none");
+  // 펄스 링: HQ + 진출국에만 (브랜드 블루 맥동)
+  all.select(".pulse").style("display", d => (d.is_hq||d.is_baseline) ? null : "none");
+  all.select(".halo").attr("r",11).attr("fill","none")
+     .attr("stroke","#2F79D9").attr("stroke-opacity",.55).attr("filter","url(#mkGlow)");
+  all.select(".core")
+     .attr("r", d=>d.is_hq?7:6)
+     .attr("fill", d=> (d.is_hq||d.is_baseline) ? "#2F79D9" : "#ffffff")
+     .attr("stroke", d=> (d.is_hq||d.is_baseline) ? "none" : "#2F79D9")
+     .attr("stroke-width",1.5);
+  all.select(".mk-label").attr("x",0).attr("y",-13).attr("text-anchor","middle")
+     .text(d=> d.is_hq ? "SEOUL HQ" : d.country_ko)
+     .style("display", d => (d.is_hq || M.morphT>0.4) ? null : "none");
+  g.exit().remove();
+}
+
+let activeIds = new Set();
+function recomputeActive(){
+  activeIds = new Set(CATALOG.countries.filter(d=>d.is_baseline).map(d=>ISO_NUM[d.code]));
+}
+
+// ── 인트로 시퀀스 (§5) ──
+M.runIntro = function(onDone){
+  M.mode="globe"; M.scale=1; M.setMorph(0);   // setMorph가 mutate(0)로 투영을 구체로 되돌림(재생 시 필수)
+  M.proj.rotate([0,-12,0]); M.render();
+  d3.select("#map").style("opacity",1);
+  if(M.spinTimer) M.spinTimer.stop();
+
+  const SPIN=1600, MORPH=2000, ease=d3.easeCubicInOut;
+  const r0=[0,-12,0];
+  let called=false, lonAtStop=null;   // 자전이 멈춘 순간의 경도를 고정
+  M.spinTimer = d3.timer(t=>{
+    if(t<SPIN){
+      M.proj.rotate([r0[0]+t*0.02, -12, 0]); M.render();
+    } else {
+      const k=Math.min((t-SPIN)/MORPH,1), e=ease(k);
+      M.mode = (e>0.5)?"flat":"globe";
+      if(lonAtStop===null) lonAtStop = M.proj.rotate()[0];   // 멈춘 자리 그대로
+      // 경도는 멈춘 각도 유지(역방향 회전 없음), 위도만 살짝 펴서 정면 프레이밍
+      M.proj.rotate([lonAtStop, r0[1] + (-8 - r0[1])*e, 0]);
+      M.setMorph(e); M.render();
+      if(k>=1 && !called){
+        called=true; M.spinTimer.stop();
+        M.mode="flat"; M.introDone=true; M.autorotate=false; M.setMorph(1); M.render();
+        onDone && onDone();
+      }
+    }
+  });
+};
+
+// ── 인터랙션 (§6) ──
+function attachInteractions(){
+  let v0,r0;
+  d3.select("#map").call(d3.drag()
+    .on("start",(ev)=>{ v0=[ev.x,ev.y]; r0=M.proj.rotate(); })
+    .on("drag",(ev)=>{
+      const k=0.25/Math.max(M.scale,1);
+      M.proj.rotate([r0[0]+(ev.x-v0[0])*k, r0[1]-(ev.y-v0[1])*k, r0[2]]);
+      M.render();
+    }))
+   .on("wheel",(ev)=>{
+      ev.preventDefault();
+      M.scale = Math.max(1, Math.min(6, M.scale * (ev.deltaY<0?1.12:0.89)));
+      M.fit(); M.render();
+   }, {passive:false})
+   .on("dblclick",()=>{ d3.select("#overlay").classed("hidden",true); M.runIntro(showUI); });
+}
+
+// ── 부트 (§5 boot) ──
+M.init = async function(){
+  const topo = await d3.json(TOPO_URL);
+  LAND = topojson.feature(topo, topo.objects.countries).features;
+  recomputeActive();
+  M.ready=true;
+};
+
+function showUI(){
+  d3.select("#overlay").classed("hidden", false);
+  d3.select("#popup").style("display","block");
+}
+
+function resize(){
+  W=stage.clientWidth; H=stage.clientHeight;
+  svg.attr("viewBox",`0 0 ${W} ${H}`);
+  d3.select("#starfield").attr("viewBox",`0 0 ${W} ${H}`);
+  makeStars(); M.fit(); M.render();
+}
+window.addEventListener("resize", resize);
+
+// popup close + fab reopen
+document.getElementById("popupClose").onclick = ()=> document.getElementById("popup").style.display="none";
+document.querySelector(".fab").onclick = ()=>{
+  const p=document.getElementById("popup");
+  p.style.display = (p.style.display==="none") ? "block" : "none";
+};
+
+// go
+(async function(){
+  makeStars();
+  await M.init();
+  attachInteractions();
+  if(location.hash){ // 딥링크 → 인트로 생략
+    M.mode="flat"; M.introDone=true; M.autorotate=false; M.setMorph(1);
+    d3.select("#map").style("opacity",1); M.render(); showUI();
+  } else {
+    M.runIntro(showUI);
+  }
+})();
+</script>
+</body>
+</html>

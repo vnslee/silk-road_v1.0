@@ -9,6 +9,9 @@
 > - `tier`(출처 신뢰도 1~4)는 **유지** — 모든 조사 항목 필수. (※ 노출용 tier_group과 다른 축)
 > - AI 교차 인사이트 블록 → 별도 item 아님. `overall_insight`로 흡수. 항목별 `insight`는 유지.
 > - NEWS 외부 이슈 스캔 신규 item. 출처는 화이트리스트로 강제. credit_abs=tier2 / 그 외 언론=tier3.
+> - `schema_version`은 **"1.1"** (country_research_schema.md 와 일치). 이전 본문의 "1.0" 표기는 1.1 로 정정.
+>
+> **i18n (다국어) 주석:** 텍스트 필드(`insight`·`overall_insight`·qualitative `value`·NEWS `headline`/`so_what`)는 **단일 string** 으로 생성한다(현재 한국어). 한/영 전체 번역은 `insight_en` 류 **additive 확장 지점**이며 v1.1 구조를 깨지 않는다 — 번역 시점·방식(생성 시 이중언어 vs 런타임)은 보고서 생성(U3/U4)·리서치(U12) 단계 결정사항이고, 스키마는 지금 잠그지 않는다.
 
 ---
 
@@ -109,8 +112,9 @@
 6. gate 항목은 gate_result(PASS/FAIL/FLAG)·gate_scope(country/segment/operating_model) 판정.
    ★ 단, 출처 tier가 3 이하면 FAIL 금지 → FLAG(실사 보류)로.
 7. 세그먼트 의존 항목(라이선스·금리상한·회수)은 세그먼트별 차이를 value/insight에 명시.
-8. score 항목 중 등급형(CB인프라·디지털성숙도·회수용이성 등)은 1~5 정수,
-   unit에 "maturity_1to5" / "ease_1to5" 등 명시. direction·axis 지정.
+8. ★ 모든 score 항목에 direction(up|down)·axis(attractiveness|difficulty|similarity) 필수.
+   등급형(CB인프라·디지털성숙도·회수용이성 등)은 1~5 정수, unit에 "maturity_1to5" /
+   "ease_1to5" 등 명시. (direction=클수록 좋으면 up, 작을수록 좋으면 down)
 9. 순위·리스트 항목(금융사 순위·OEM 순위·경쟁사 리스트 등)은 반드시 배열 형식으로 출력:
    value = [
      {"rank": 1, "name": "회사명", "market_share": "점유율"} 또는 {"rank": 1, "name": "브랜드명"}
@@ -153,10 +157,20 @@
 
 [출력 형식]
 country_schema.md 의 country JSON 구조를 그대로 따른다.
-최상위: country, region, is_baseline(기본 false), currency,
-schema_version="1.0", data_year, fetched_by="ai".
-(fetched_at은 시스템이 주입하므로 비워둬도 됨)
+최상위(전부 필수): country(영문국가명), country_ko(한국어국가명), code(ISO alpha-2 대문자),
+region, is_baseline(기본 false), currency, schema_version="1.1", data_year,
+fetched_by="ai", overall_insight.
+(fetched_at·code 는 시스템이 주입·보정하므로 비워둬도 됨, 단 country_ko 는 반드시 채울 것)
 items 배열에 위 모든 항목 + 외부 이슈 스캔(NEWS)을 객체로.
+
+★ item 공통 필수 필드: item, category(business|it|shared), role(gate|score|context),
+  tier(1~4 정수), source, insight, insight_ai_generated(bool).
+★ role 별 추가 필수 필드:
+  - score : value, unit, direction(up|down), axis(attractiveness|difficulty|similarity),
+            timeseries(시계열 대상이면 객체, 아니면 null). ★ direction·axis 는 모든 score 에 필수.
+  - gate  : value(서술), gate_result(PASS|FAIL|FLAG), gate_scope(country|segment|operating_model),
+            segment(해당 없으면 null).
+  - context: value, context_type(descriptive|segmenting|news).
 ★ tier_group·required/optional 등 노출·필수성 메타는 출력하지 말 것
   (시스템이 항목명으로 관리).
 순수 JSON만 출력. 코드펜스·설명 금지.

@@ -20,8 +20,16 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Claude Code & Temporary storage
-app/backend/storage/
+# Media (디자인 참고 영상·이미지 등 — 용량 큰 바이너리)
+*.mov
+*.mp4
+*.png
+*.jpg
+*.jpeg
+
+# Storage: 입력 데이터(storage/data/)는 추적, 생성 산출물(storage/report/)은 무시.
+# (CLAUDE.md 의 data/report 분리 원칙)
+app/backend/storage/report/
 
 # Research compilation artifacts
 data/*.txt
@@ -34,6 +42,5 @@ data/*.txt
 *_FINTECH_*.md
 *_DEEP_MARKET_RESEARCH_*.md
 *_market_research_report*.json
-
-# Generated report output
-storage/report/
+node_modules
+dist/

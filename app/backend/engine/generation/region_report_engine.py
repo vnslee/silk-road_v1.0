@@ -1,364 +1,256 @@
 #!/usr/bin/env python3
 """
-Region Report Engine: Region-Based Ranking and Comparative Analysis
+Region Report Engine (U4) — 유형2 권역 퀵윈 보고서 JSON 생성.
 
-Converts region research data (aggregating multiple countries) into region-level reports
-with tabs for market ranking, attractiveness scoring, competitive positioning,
-and strategic recommendations.
+권역 멤버 country.json 들을 모아 U2 스코어링(매력도·난이도·유사도·퀵윈)으로
+순위를 내고, render_req 데이터 블록 계약(nature·source_flag)을 충족하는
+탭 2-0~2-3 + 상위 3개국 프로파일 카드를 만든다. 계산은 U2 에 위임.
+
+peer set = 권역 멤버 중 데이터 존재 + 킬스위치 통과국(매력도/난이도 정규화 기준).
+baseline = regions[RGN].baseline (유사도 비교 기준).
+
+출력 경로 (A3): storage/report/region/<RGN>/<ID>/data/<RGN>_rpt_<ID>.json
+  (U3 country 와 대칭: <ID>/data/ 하위)
+
+엔진 컨벤션: calculation 형제 폴더 import. country_report_engine 의 block 빌더 재사용.
 """
 
 import json
-from datetime import datetime
+import sys
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+
+STORAGE = Path(__file__).resolve().parent.parent.parent / "storage"
+COUNTRY_DIR = STORAGE / "data" / "research" / "country"
+INTERNAL_LATEST = STORAGE / "data" / "internal" / "internal_latest.json"
+REPORT_BASE = STORAGE / "report" / "region"
+
+_CALC = Path(__file__).resolve().parent.parent / "calculation"
+if str(_CALC) not in sys.path:
+    sys.path.insert(0, str(_CALC))
+import scoring_engine as SC  # noqa: E402
+
+# block 빌더·nature 상수는 country 엔진과 공유(중복 정의 방지)
+from country_report_engine import block, NATURE, _src  # noqa: E402,F401
+import report_id as RID  # noqa: E402
 
 
-class RegionReportEngine:
-    """Generate region-level (ranking and comparative) reports from regional research data."""
+def _band10(score):
+    """10점 구간 표기(과잉정밀 방지, render_req 원칙). 예: 82.2 → '80점대'."""
+    if score is None:
+        return None
+    return f"{int(score // 10) * 10}점대"
 
-    TYPE2_TABS = {
-        "2-0": {
-            "name": "Kill Switch Filter",
-            "required_fields": ["외국인 지분 한도", "외환·배당 송금 자유도", "데이터 현지화 의무",
-                              "국가신용등급"],
-            "data_characteristics": ["status_matrix"]
-        },
-        "2-1": {
-            "name": "Business Attractiveness",
-            "required_fields": ["오토금융/리스 시장규모", "오토금융 성장률(CAGR)", "금융 이용률(신차)",
-                              "캡티브 강도(점유율)", "디지털 채널 성숙도"],
-            "data_characteristics": ["ranking", "composition", "timeseries"]
-        },
-        "2-2": {
-            "name": "IT/Speed-to-Market Similarity",
-            "required_fields": ["솔루션 유형", "디지털 채널 성숙도",
-                              "라이선스 체제(세그먼트별)", "데이터 현지화 의무", "신용정보(CB) 인프라"],
-            "data_characteristics": ["score_multiaxis", "ranking"]
-        },
-        "2-3": {
-            "name": "Market Background",
-            "required_fields": ["OEM 순위(Top 5)", "브랜드 Top10", "구매 패턴(할부·리스 비중)",
-                              "경쟁사 리스트"],
-            "data_characteristics": ["ranking", "composition", "qualitative"]
-        }
+
+# ── 후보국 로드 + 스코어링 ────────────────────────────────────────────────
+def _load_members(region, internal):
+    """권역 멤버 중 데이터가 존재하는 국가들의 (code, data) 리스트 + baseline items."""
+    meta = internal.get("regions", {}).get(region, {})
+    members = meta.get("members", [])
+    baseline_code = meta.get("baseline")
+    loaded = []
+    for code in members:
+        path = COUNTRY_DIR / code / f"{code}_latest.json"
+        if path.exists():
+            with open(path, encoding="utf-8") as f:
+                loaded.append((code, json.load(f)))
+    baseline_items = None
+    for code, d in loaded:
+        if code == baseline_code:
+            baseline_items = d["items"]
+    return loaded, baseline_code, baseline_items
+
+
+def _score_candidates(loaded, baseline_items, internal):
+    """각 후보국 스코어링. peer set = 게이트 통과국. (rows, gate_rows) 반환."""
+    # 1단계: 게이트 평가 → 통과국만 peer set
+    gate_rows = []
+    passed = []
+    for code, d in loaded:
+        g = SC.evaluate_gates(d["items"])
+        gate_rows.append({"code": code, "country_ko": d.get("country_ko", code),
+                          "passed": g["passed"], "fail_items": g["fail_items"],
+                          "flag_items": g["flag_items"], "counts": g["counts"]})
+        if g["passed"]:
+            passed.append((code, d))
+
+    peer_items = [d["items"] for _, d in passed]
+
+    # 2단계: 통과국 매력도/난이도/유사도/퀵윈
+    rows = []
+    for code, d in passed:
+        items = d["items"]
+        att = SC.attractiveness_score(items, peer_items, internal)["score"]
+        dif = SC.difficulty_score(items, peer_items, internal)["score"]
+        if baseline_items is not None:
+            sim = SC.similarity_score(items, baseline_items, internal)["score"]
+        else:
+            sim = None
+        qw = None
+        if sim is not None and att is not None and dif is not None:
+            qw = SC.quick_win_score(sim, att, dif, internal)
+        rows.append({
+            "code": code, "country_ko": d.get("country_ko", code),
+            "attractiveness": att, "difficulty": dif, "similarity": sim,
+            "quick_win_score": qw["score"] if qw else None,
+            "quick_win_band": _band10(qw["score"]) if qw else None,
+            "qualified": qw["qualified"] if qw else None,
+        })
+
+    # 퀵윈 점수 내림차순 순위(None 은 뒤로)
+    rows.sort(key=lambda r: (r["quick_win_score"] is not None,
+                             r["quick_win_score"] or 0), reverse=True)
+    for i, r in enumerate(rows, 1):
+        r["rank"] = i
+    return rows, gate_rows
+
+
+# ── 탭 빌더 ───────────────────────────────────────────────────────────────
+def build_tab_2_0(gate_rows):
+    """킬스위치 매트릭스(국가×게이트 통과/탈락)."""
+    return {"tab": "2-0", "name": "킬스위치", "blocks": [
+        block("kill_switch", "킬스위치 통과/탈락", gate_rows, "status_matrix", "EXT")
+    ]}
+
+
+def build_tab_2_1(rows):
+    """매력도 순위(ranking)."""
+    ranking = [{"code": r["code"], "country_ko": r["country_ko"],
+                "attractiveness": r["attractiveness"]} for r in rows]
+    return {"tab": "2-1", "name": "매력도", "blocks": [
+        block("attractiveness_ranking", "비즈니스 매력도 순위", ranking, "ranking", "CALC")
+    ]}
+
+
+def build_tab_2_2(rows):
+    """IT유사도 히트맵·퀵윈 순위·산점도 좌표 + 상위 3개국 카드."""
+    heatmap = [{"code": r["code"], "similarity": r["similarity"],
+                "difficulty": r["difficulty"]} for r in rows]
+    quickwin = [{"code": r["code"], "country_ko": r["country_ko"], "rank": r["rank"],
+                 "quick_win_score": r["quick_win_score"],
+                 "quick_win_band": r["quick_win_band"], "qualified": r["qualified"]}
+                for r in rows]
+    scatter = [{"code": r["code"], "x_attractiveness": r["attractiveness"],
+                "y_similarity": r["similarity"]} for r in rows]
+    top3 = _profile_cards(rows[:3])
+    return {"tab": "2-2", "name": "IT유사도/순위", "blocks": [
+        block("it_similarity_heatmap", "IT유사도 히트맵", heatmap, "score_multiaxis", "CALC"),
+        block("quick_win_ranking", "퀵윈 순위", quickwin, "ranking", "CALC"),
+        block("scatter", "매력도×IT유사도 좌표", scatter, "score_multiaxis", "CALC"),
+        block("top3_profiles", "상위 3개국 프로파일", top3, "qualitative", "CALC"),
+    ]}
+
+
+def build_tab_2_summary(loaded, rows):
+    """1~3위 KPI + AI 인사이트(권역) + NEWS 카드."""
+    top = rows[:3]
+    kpi = block("quick_win_top3", "퀵윈 상위 3개국",
+                [{"rank": r["rank"], "code": r["code"], "country_ko": r["country_ko"],
+                  "band": r["quick_win_band"]} for r in top], "ranking", "CALC")
+    # NEWS: 멤버국들의 news item 취합
+    news_items = []
+    for code, d in loaded:
+        for it in d["items"]:
+            if it.get("context_type") == "news" and isinstance(it.get("value"), list):
+                news_items.append({"code": code, "issues": it["value"]})
+    blocks = [kpi,
+              block("region_insight", "권역 AI 인사이트", _region_insight(rows),
+                    "qualitative", "AI"),
+              block("news_scan", "권역 외부 이슈", news_items, "qualitative", "NEWS")]
+    return {"tab": "2-요약", "name": "요약", "blocks": blocks}
+
+
+def build_tab_2_3(loaded):
+    """시장 배경: 멤버국 context 항목(브랜드·OEM·구매유형) 취합."""
+    blocks = []
+    for code, d in loaded:
+        for it in d["items"]:
+            if it.get("role") == "context" and it.get("context_type") != "news":
+                val = it.get("value")
+                nature = "ranking" if isinstance(val, list) else "qualitative"
+                blocks.append(block(f"{code}_{_slug(it['item'])}",
+                                    f"[{code}] {it['item']}", val, nature,
+                                    "EXT", _src(it)))
+    return {"tab": "2-3", "name": "시장 배경", "blocks": blocks}
+
+
+# ── 헬퍼 ──────────────────────────────────────────────────────────────────
+def _slug(name):
+    return "".join(c if c.isalnum() else "_" for c in name).strip("_").lower()
+
+
+def _profile_cards(rows):
+    return [{"rank": r["rank"], "code": r["code"], "country_ko": r["country_ko"],
+             "quick_win_band": r["quick_win_band"],
+             "attractiveness": r["attractiveness"], "similarity": r["similarity"],
+             "qualified": r["qualified"]} for r in rows]
+
+
+def _region_insight(rows):
+    if not rows:
+        return "후보국 데이터 없음 — 조사 필요."
+    qualified = [r for r in rows if r.get("qualified")]
+    if not qualified:
+        top = rows[0]
+        return (f"퀵윈 임계 충족국 없음. 최상위 후보: {top['country_ko']}({top['code']}) "
+                f"— baseline 데이터/추가 후보 조사 필요.")
+    names = ", ".join(f"{r['country_ko']}({r['code']})" for r in qualified[:3])
+    return f"{len(qualified)}개 후보가 퀵윈 임계 충족. 우선 진입 후보: {names}."
+
+
+# ── 조립 ──────────────────────────────────────────────────────────────────
+def generate_region_report(region, internal, *, report_id):
+    """권역 멤버 country 데이터 → 유형2 보고서 JSON(탭 2-0~2-3 + 요약)."""
+    loaded, baseline_code, baseline_items = _load_members(region, internal)
+    rows, gate_rows = _score_candidates(loaded, baseline_items, internal)
+
+    meta = internal.get("regions", {}).get(region, {})
+    return {
+        "report_id": report_id,
+        "report_type": "type2_region",
+        "title": f"{meta.get('name_ko', region)}({meta.get('name_en', region)}) "
+                 f"권역 Quick-Win 분석 보고서",
+        "target": {"region": region,
+                   "evaluated_countries": [c for c, _ in loaded],
+                   "baseline": baseline_code},
+        "data_snapshot_id": f"SNAP_{region}_CFG{internal.get('version', '?')}",
+        "based_on": RID.build_based_on(
+            [c for c, _ in loaded], internal,
+            schema_version=loaded[0][1].get("schema_version") if loaded else None,
+            baseline_code=baseline_code),
+        "candidate_count": len(loaded),
+        "tabs": [
+            build_tab_2_summary(loaded, rows),
+            build_tab_2_0(gate_rows),
+            build_tab_2_1(rows),
+            build_tab_2_2(rows),
+            build_tab_2_3(loaded),
+        ],
     }
 
-    def __init__(self, region_data_path: str, output_base_path: str = "storage/report"):
-        """Initialize region report engine with region data.
 
-        Args:
-            region_data_path: Path to region JSON file (containing multiple countries)
-            output_base_path: Base output directory for reports
-        """
-        self.region_data_path = region_data_path
-        self.output_base = output_base_path
-        self.region_data: Optional[Dict] = None
-        self.report_type = "TYPE2"
-
-    def load_region_data(self) -> bool:
-        """Load region research JSON file."""
-        try:
-            with open(self.region_data_path, 'r', encoding='utf-8') as f:
-                self.region_data = json.load(f)
-            return True
-        except Exception as e:
-            print(f"Error loading region data: {e}")
-            return False
-
-    def analyze_region_structure(self) -> Dict[str, Any]:
-        """Analyze region data structure and identify gaps across countries."""
-        if not self.region_data:
-            return {"error": "No region data loaded"}
-
-        analysis = {
-            "region": self.region_data.get("region", "N/A"),
-            "code": self.region_data.get("code", "N/A"),
-            "schema_version": self.region_data.get("schema_version", "N/A"),
-            "countries": [],
-            "total_countries": 0,
-            "items_by_category": {},
-            "data_quality": {}
-        }
-
-        # Get list of countries in region
-        countries = self.region_data.get("countries", [])
-        analysis["total_countries"] = len(countries)
-        analysis["countries"] = [c.get("code") for c in countries]
-
-        # Aggregate items across all countries
-        all_items = []
-        for country in countries:
-            all_items.extend(country.get("items", []))
-
-        # Categorize items
-        for item in all_items:
-            category = item.get("category", "unknown")
-            if category not in analysis["items_by_category"]:
-                analysis["items_by_category"][category] = []
-            analysis["items_by_category"][category].append({
-                "item": item.get("item", ""),
-                "country": item.get("country", ""),
-                "role": item.get("role", ""),
-                "has_timeseries": "timeseries" in item,
-                "source_tier": item.get("tier", "N/A")
-            })
-
-        # Analyze quality across region
-        analysis["data_quality"] = self._assess_region_data_quality(countries)
-
-        return analysis
-
-    def _assess_region_data_quality(self, countries: List[Dict]) -> Dict[str, Any]:
-        """Assess data quality across all countries in region."""
-        quality = {
-            "countries_coverage": len(countries),
-            "timeseries_coverage_avg": 0,
-            "source_tiers": {"tier1": 0, "tier2": 0, "tier3": 0, "tier4": 0},
-            "data_sources": set(),
-            "gaps_by_tab": {},
-            "country_completeness": {}
-        }
-
-        all_items = []
-        for country in countries:
-            country_code = country.get("code", "N/A")
-            items = country.get("items", [])
-            all_items.extend(items)
-
-            # Track completeness per country
-            quality["country_completeness"][country_code] = {
-                "total_items": len(items),
-                "target_items": 48,
-                "completeness": (len(items) / 48 * 100) if len(items) <= 48 else (48 / len(items) * 100)
-            }
-
-        # Aggregate statistics
-        if all_items:
-            total_items = len(all_items)
-            timeseries_count = sum(1 for item in all_items if "timeseries" in item)
-            quality["timeseries_coverage_avg"] = (timeseries_count / total_items) * 100
-
-            for item in all_items:
-                tier = item.get("tier", 0)
-                tier_key = f"tier{tier}"
-                if tier_key in quality["source_tiers"]:
-                    quality["source_tiers"][tier_key] += 1
-
-                source = item.get("source", "unknown")
-                quality["data_sources"].add(source)
-
-            # Identify gaps by tab across all countries
-            quality["gaps_by_tab"] = self._identify_region_gaps(countries)
-
-        quality["data_sources"] = list(quality["data_sources"])
-        return quality
-
-    def _identify_region_gaps(self, countries: List[Dict]) -> Dict[str, List[str]]:
-        """Identify gaps at region level."""
-        gaps = {}
-
-        for tab_id, tab_spec in self.TYPE2_TABS.items():
-            # Check if any country has all required fields for this tab
-            all_items = {}
-            for country in countries:
-                for item in country.get("items", []):
-                    all_items[item.get("item", "")] = item
-
-            missing = []
-            for required_field in tab_spec.get("required_fields", []):
-                if required_field not in all_items:
-                    missing.append(required_field)
-
-            if missing:
-                gaps[f"Type2-Tab-{tab_id}"] = missing
-
-        return gaps
-
-    def generate_gap_report(self) -> Dict[str, Any]:
-        """Generate comprehensive gap analysis report for Type 2."""
-        self.load_region_data()
-        analysis = self.analyze_region_structure()
-
-        report = {
-            "report_type": "gap_analysis",
-            "analysis_type": "TYPE2",
-            "region": analysis["region"],
-            "region_code": analysis["code"],
-            "generated_at": datetime.now().isoformat(),
-            "schema_version": analysis["schema_version"],
-
-            "summary": {
-                "total_countries": analysis["total_countries"],
-                "countries": analysis["countries"],
-                "avg_completeness_pct": sum(
-                    c["completeness"] for c in analysis["data_quality"]["country_completeness"].values()
-                ) / len(analysis["data_quality"]["country_completeness"]) if analysis["data_quality"]["country_completeness"] else 0
-            },
-
-            "by_category": analysis["items_by_category"],
-            "data_quality": analysis["data_quality"],
-            "critical_gaps": self._identify_critical_gaps(analysis),
-            "type2_readiness": self._assess_type2_readiness(analysis)
-        }
-
-        return report
-
-    def _identify_critical_gaps(self, analysis: Dict) -> List[Dict[str, Any]]:
-        """Identify critical data gaps blocking region analysis."""
-        critical = []
-        gaps_by_tab = analysis["data_quality"].get("gaps_by_tab", {})
-
-        for tab, missing_fields in gaps_by_tab.items():
-            if len(missing_fields) > 0:
-                critical.append({
-                    "tab": tab,
-                    "missing_fields": missing_fields,
-                    "count": len(missing_fields),
-                    "severity": "HIGH" if len(missing_fields) > 3 else "MEDIUM"
-                })
-
-        return critical
-
-    def _assess_type2_readiness(self, analysis: Dict) -> Dict[str, Any]:
-        """Assess readiness to generate Type 2 region ranking report."""
-        readiness = {
-            "can_generate": True,
-            "tabs": {}
-        }
-
-        gaps_by_tab = analysis["data_quality"].get("gaps_by_tab", {})
-
-        for tab_id in self.TYPE2_TABS.keys():
-            tab_key = f"Type2-Tab-{tab_id}"
-            missing = gaps_by_tab.get(tab_key, [])
-
-            readiness["tabs"][tab_id] = {
-                "name": self.TYPE2_TABS[tab_id]["name"],
-                "ready": len(missing) == 0,
-                "missing_count": len(missing),
-                "missing_fields": missing
-            }
-
-            if len(missing) > 0:
-                readiness["can_generate"] = False
-
-        return readiness
-
-    def save_gap_report(self, gap_report: Dict[str, Any]) -> str:
-        """Save gap analysis report to file with RPT_RGN_{code}_nnn.json naming."""
-        region_code = gap_report["region_code"]
-        output_dir = Path(self.output_base) / "analysis" / region_code
-        output_dir.mkdir(parents=True, exist_ok=True)
-
-        # Find next sequence number
-        existing_files = list(output_dir.glob(f"RPT_RGN_{region_code}_*.json"))
-        next_num = 1
-        if existing_files:
-            max_num = max(
-                int(f.stem.split("_")[-1])
-                for f in existing_files
-                if f.stem.split("_")[-1].isdigit()
-            )
-            next_num = max_num + 1
-
-        output_file = output_dir / f"RPT_RGN_{region_code}_{next_num:03d}.json"
-
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(gap_report, f, ensure_ascii=False, indent=2)
-
-        return str(output_file)
-
-    def generate_readable_gap_report(self, gap_report: Dict[str, Any]) -> str:
-        """Generate human-readable gap analysis report."""
-        lines = [
-            f"\n{'='*70}",
-            f"REGION GAP ANALYSIS: {gap_report['region']} ({gap_report['region_code']})",
-            f"{'='*70}",
-            f"Generated: {gap_report['generated_at']}",
-            f"Schema Version: {gap_report['schema_version']}",
-            ""
-        ]
-
-        summary = gap_report["summary"]
-        lines.append("SUMMARY")
-        lines.append(f"  Countries Analyzed: {summary['total_countries']}")
-        lines.append(f"  Countries: {', '.join(summary['countries'])}")
-        lines.append(f"  Average Completeness: {summary['avg_completeness_pct']:.1f}%")
-        lines.append("")
-
-        lines.append("ITEMS BY CATEGORY:")
-        for category, items in gap_report["by_category"].items():
-            lines.append(f"  {category}: {len(items)} items")
-            for item in items[:3]:
-                lines.append(f"    - {item['item']} ({item.get('country', 'N/A')}, tier: {item.get('source_tier')})")
-            if len(items) > 3:
-                lines.append(f"    ... and {len(items)-3} more")
-        lines.append("")
-
-        lines.append("DATA QUALITY METRICS:")
-        quality = gap_report["data_quality"]
-        lines.append(f"  Average Timeseries Coverage: {quality.get('timeseries_coverage_avg', 0):.1f}%")
-        lines.append(f"  Source Tiers: {quality.get('source_tiers', {})}")
-        lines.append("")
-
-        lines.append("COUNTRY COMPLETENESS:")
-        for country, comp in quality.get("country_completeness", {}).items():
-            lines.append(f"  {country}: {comp['total_items']}/{comp['target_items']} ({comp['completeness']:.1f}%)")
-        lines.append("")
-
-        lines.append("CRITICAL GAPS:")
-        critical = gap_report["critical_gaps"]
-        if critical:
-            for gap in critical:
-                lines.append(f"  [{gap['severity']}] {gap['tab']}")
-                lines.append(f"    Missing {gap['count']} fields: {', '.join(gap['missing_fields'][:3])}")
-                if gap['count'] > 3:
-                    lines.append(f"    ... and {gap['count']-3} more")
-        else:
-            lines.append("  None - all required fields present across region!")
-        lines.append("")
-
-        lines.append("REGION REPORT (RANKING & COMPARATIVE) READINESS:")
-        type2 = gap_report["type2_readiness"]
-        lines.append(f"  Can Generate: {'YES ✓' if type2['can_generate'] else 'NO ✗'}")
-        for tab_id, status in type2["tabs"].items():
-            ready_icon = "✓" if status["ready"] else "✗"
-            lines.append(f"  Tab 2-{tab_id}: {ready_icon} {status['name']}")
-            if not status["ready"]:
-                lines.append(f"           Missing: {', '.join(status['missing_fields'][:2])}")
-        lines.append("")
-
-        lines.append(f"{'='*70}\n")
-
-        return "\n".join(lines)
+def save_report(report, region, report_id):
+    out_dir = REPORT_BASE / region / report_id / "data"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"{report_id}.json"
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+    return path
 
 
-def main():
-    """CLI entry point for region report generation."""
-    import sys
-
-    if len(sys.argv) < 2:
-        print("Usage: python region_report_engine.py <region_data_json> [output_base_path]")
-        print("Example: python region_report_engine.py data/region/EU_region.json")
-        sys.exit(1)
-
-    region_data_path = sys.argv[1]
-    output_base = sys.argv[2] if len(sys.argv) > 2 else "storage/report"
-
-    engine = RegionReportEngine(region_data_path, output_base)
-
-    if not engine.load_region_data():
-        sys.exit(1)
-
-    gap_report = engine.generate_gap_report()
-    readable = engine.generate_readable_gap_report(gap_report)
-    print(readable)
-
-    json_path = engine.save_gap_report(gap_report)
-    print(f"📁 Region gap analysis JSON saved: {json_path}")
-
-    return 0 if gap_report.get("type2_readiness", {}).get("can_generate") else 1
+def load_internal():
+    with open(INTERNAL_LATEST, encoding="utf-8") as f:
+        return json.load(f)
 
 
 if __name__ == "__main__":
-    main()
+    region = sys.argv[1] if len(sys.argv) > 1 else None
+    if not region:
+        print("usage: region_report_engine.py <REGION> [REPORT_ID]")
+        sys.exit(1)
+    internal = load_internal()
+    rid = sys.argv[2] if len(sys.argv) > 2 else RID.next_report_id("region", region)
+    report = generate_region_report(region, internal, report_id=rid)
+    path = save_report(report, region, rid)
+    print(f"생성: {path} (후보 {report['candidate_count']}개국)")
+    for t in report["tabs"]:
+        print(f"  {t['tab']} {t['name']}: {len(t['blocks'])} blocks")
