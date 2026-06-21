@@ -39,8 +39,8 @@ class CountryReportEngine:
         },
         "1-4": {
             "name": "Market & Competition Background",
-            "required_fields": ["금융사 순위", "1위사 점유율", "경쟁사 금리 범위",
-                              "OEM 순위", "EV 보급률", "EV·ICE 잔존가치 리스크"],
+            "required_fields": ["금융사 순위(Top 5)", "금융사 점유율(Top 5)", "경쟁사 금리 범위",
+                              "OEM 순위(Top 5)", "EV 보급률", "EV·ICE 잔존가치 리스크"],
             "data_characteristics": ["ranking", "timeseries", "qualitative"]
         }
     }

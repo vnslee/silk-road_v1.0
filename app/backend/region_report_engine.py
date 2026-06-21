@@ -37,7 +37,7 @@ class RegionReportEngine:
         },
         "2-3": {
             "name": "Market Background",
-            "required_fields": ["OEM 순위", "브랜드 Top10", "구매 패턴(할부·리스 비중)",
+            "required_fields": ["OEM 순위(Top 5)", "브랜드 Top10", "구매 패턴(할부·리스 비중)",
                               "경쟁사 리스트"],
             "data_characteristics": ["ranking", "composition", "qualitative"]
         }
