@@ -20,27 +20,27 @@ class CountryReportEngine:
         "1-1": {
             "name": "Similarity Scoring (vs Baseline)",
             "required_fields": [
-                "솔루션_유형", "디지털채널성숙도", "상품판매현황",
-                "라이선스종류", "데이터현지화", "차량회수절차"
+                "솔루션 유형", "디지털 채널 성숙도", "디지털 딜러 성숙도",
+                "라이선스 체제(세그먼트별)", "데이터 현지화 의무", "차량회수 절차 용이성"
             ],
             "data_characteristics": ["score_multiaxis", "single_value"]
         },
         "1-2": {
             "name": "System Decision Tree",
-            "required_fields": ["특화요건_상품판매", "특화요건_개인정보보호",
-                              "특화요건_의무보험", "특화요건_신용생명보험"],
+            "required_fields": ["금리 상한 규제", "외환·배당 송금 자유도",
+                              "의무보험 규제", "신용생명보험 규제"],
             "data_characteristics": ["qualitative", "status_matrix"]
         },
         "1-3": {
             "name": "Contract Volume & 10Y TCO",
-            "required_fields": ["신차판매대수", "금융침투율", "구매패턴",
-                              "경쟁사점유율", "평균신차가격"],
+            "required_fields": ["신차 판매대수", "금융 이용률(신차)", "구매 패턴(할부·리스 비중)",
+                              "캡티브 강도(점유율)", "평균 신차가격"],
             "data_characteristics": ["single_value", "composition", "timeseries"]
         },
         "1-4": {
             "name": "Market & Competition Background",
-            "required_fields": ["금융사순위", "캡티브강도", "경쟁사금리범위",
-                              "OEM순위", "EV보급률", "잔존가치리스크"],
+            "required_fields": ["금융사 순위", "1위사 점유율", "경쟁사 금리 범위",
+                              "OEM 순위", "EV 보급률", "EV·ICE 잔존가치 리스크"],
             "data_characteristics": ["ranking", "timeseries", "qualitative"]
         }
     }

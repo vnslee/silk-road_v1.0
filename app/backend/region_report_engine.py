@@ -19,26 +19,26 @@ class RegionReportEngine:
     TYPE2_TABS = {
         "2-0": {
             "name": "Kill Switch Filter",
-            "required_fields": ["외국인지분한도", "외환송금", "데이터현지화",
+            "required_fields": ["외국인 지분 한도", "외환·배당 송금 자유도", "데이터 현지화 의무",
                               "국가신용등급"],
             "data_characteristics": ["status_matrix"]
         },
         "2-1": {
             "name": "Business Attractiveness",
-            "required_fields": ["GDP성장률", "자동차판매CAGR", "금융침투율",
-                              "경쟁강도", "디지털성숙도"],
+            "required_fields": ["오토금융/리스 시장규모", "오토금융 성장률(CAGR)", "금융 이용률(신차)",
+                              "캡티브 강도(점유율)", "디지털 채널 성숙도"],
             "data_characteristics": ["ranking", "composition", "timeseries"]
         },
         "2-2": {
             "name": "IT/Speed-to-Market Similarity",
-            "required_fields": ["솔루션유형", "디지털채널성숙도",
-                              "라이선스종류", "데이터현지화", "상품판매현황"],
+            "required_fields": ["솔루션 유형", "디지털 채널 성숙도",
+                              "라이선스 체제(세그먼트별)", "데이터 현지화 의무", "신용정보(CB) 인프라"],
             "data_characteristics": ["score_multiaxis", "ranking"]
         },
         "2-3": {
             "name": "Market Background",
-            "required_fields": ["OEM순위", "브랜드Top10", "구매유형",
-                              "화이트스페이스"],
+            "required_fields": ["OEM 순위", "브랜드 Top10", "구매 패턴(할부·리스 비중)",
+                              "경쟁사 리스트"],
             "data_characteristics": ["ranking", "composition", "qualitative"]
         }
     }
