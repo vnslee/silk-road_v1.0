@@ -145,6 +145,21 @@ class RegionReportEngine:
             return None
         return amount * rate
 
+    def _tier_multiplier(self, tier: Any) -> float:
+        """Return weight multiplier for a source tier (1.0 for missing/invalid).
+
+        Config: internal_data.tier_weights = {tier1: 1.0, tier2: 0.85, tier3: 0.7, tier4: 0.5}
+        Tier1=1.0 is fixed convention; Tier2~4 are admin-editable.
+        """
+        if not self.internal_data:
+            return 1.0
+        tier_weights = self.internal_data.get("tier_weights") or {}
+        try:
+            t = int(tier)
+        except (TypeError, ValueError):
+            return 1.0
+        return float(tier_weights.get(f"tier{t}", 1.0))
+
     # ------------------------------------------------------------------
     # Gap analysis (legacy — preserved)
     # ------------------------------------------------------------------
@@ -345,6 +360,18 @@ class RegionReportEngine:
             out[country.get("code")] = row
         return out
 
+    def _collect_attractiveness_tiers(self) -> Dict[str, Dict[str, Optional[int]]]:
+        """{country_code: {weight_key: tier_or_None}} — 산식 가중에 사용."""
+        out: Dict[str, Dict[str, Optional[int]]] = {}
+        for country in self.region_data.get("countries", []):
+            idx = self._country_items_index(country)
+            row: Dict[str, Optional[int]] = {}
+            for w_key, spec in self.ATTRACTIVENESS_ITEM_MAP.items():
+                item = idx.get(spec["item"])
+                row[w_key] = item.get("tier") if item else None
+            out[country.get("code")] = row
+        return out
+
     def _normalize_axis(self, values: Dict[str, Optional[float]], reverse: bool) -> Dict[str, Optional[float]]:
         """Normalize per-country values to 0–100 across region; reverse=True flips."""
         nums = [v for v in values.values() if v is not None]
@@ -367,9 +394,14 @@ class RegionReportEngine:
         return out
 
     def compute_attractiveness(self) -> Dict[str, Any]:
-        """Tab 2-1: normalize each item, weighted average → 0–100 score per country."""
+        """Tab 2-1: normalize each item, weighted average → 0–100 score per country.
+
+        Effective weight = item_weight × tier_multiplier(item.tier).
+        Tier 멀티플라이어는 internal_data.tier_weights에서 읽음 (Tier1=1.0 고정).
+        """
         weights = (self.internal_data.get("values", {}) or {}).get("biz_attractiveness", {})
         raw = self._collect_attractiveness_values()
+        tiers = self._collect_attractiveness_tiers()
 
         # Per-axis normalization
         axes: Dict[str, Dict[str, Optional[float]]] = {}
@@ -388,17 +420,23 @@ class RegionReportEngine:
                     continue
                 spec = self.ATTRACTIVENESS_ITEM_MAP[w_key]
                 norm = axes[w_key].get(code)
+                tier = tiers[code].get(w_key)
+                tier_mult = self._tier_multiplier(tier)
+                eff_weight = weight * tier_mult
                 contributions[w_key] = {
                     "raw_value": raw[code].get(w_key),
                     "normalized": norm,
                     "weight": weight,
+                    "tier": tier,
+                    "tier_multiplier": tier_mult,
+                    "effective_weight": round(eff_weight, 4),
                     "reverse": spec["reverse"],
                     "source_item": spec["item"],
-                    "contribution": round(norm * weight, 2) if norm is not None else None,
+                    "contribution": round(norm * eff_weight, 2) if norm is not None else None,
                 }
                 if norm is not None:
-                    weighted_sum += norm * weight
-                    weight_total += weight
+                    weighted_sum += norm * eff_weight
+                    weight_total += eff_weight
             score = round(weighted_sum / weight_total, 1) if weight_total > 0 else None
             countries_out.append({
                 "country": code,
@@ -418,11 +456,12 @@ class RegionReportEngine:
             "nature": "ranking",
             "source_flag": "CALC",
             "weights": weights,
+            "tier_weights": self.internal_data.get("tier_weights") or {},
             "axes": axes,
             "countries": countries_out,
             "ranking": [{"rank": c["rank"], "country": c["country"], "score": c["attractiveness_score"]}
                         for c in ranked],
-            "method": "min-max normalize per axis (reverse for high=bad) → weighted average per config.values.biz_attractiveness",
+            "method": "min-max normalize per axis → effective weight = item_weight × tier_multiplier → weighted average. config: values.biz_attractiveness × tier_weights.",
         }
 
     # ------------------------------------------------------------------
@@ -535,21 +574,29 @@ class RegionReportEngine:
                 if axis_key not in self.IT_SIMILARITY_ITEM_MAP:
                     continue
                 source_item = self.IT_SIMILARITY_ITEM_MAP[axis_key]["item"]
+                target_item = idx.get(source_item)
                 raw_score = self._it_axis_similarity(
-                    axis_key, base_idx.get(source_item), idx.get(source_item)
+                    axis_key, base_idx.get(source_item), target_item
                 )
                 bucket = self._bucket_10(raw_score)
+                # Tier 가중: 대상국 데이터의 신뢰도 — 기준국은 비교 잣대라 대상국 tier 사용
+                tier = (target_item or {}).get("tier")
+                tier_mult = self._tier_multiplier(tier)
+                eff_weight = weight * tier_mult
                 axes[axis_key] = {
                     "source_item": source_item,
                     "weight": weight,
-                    "target_value": (idx.get(source_item) or {}).get("value"),
+                    "tier": tier,
+                    "tier_multiplier": tier_mult,
+                    "effective_weight": round(eff_weight, 4),
+                    "target_value": (target_item or {}).get("value"),
                     "baseline_value": (base_idx.get(source_item) or {}).get("value"),
                     "score_raw": raw_score,
                     "score_band": bucket,
                 }
                 if raw_score is not None:
-                    weighted_sum += raw_score * weight
-                    weight_total += weight
+                    weighted_sum += raw_score * eff_weight
+                    weight_total += eff_weight
             it_score_raw = (weighted_sum / weight_total) if weight_total > 0 else None
             per_country.append({
                 "country": code,
@@ -573,13 +620,14 @@ class RegionReportEngine:
             "source_flag": "CALC",
             "baseline_country": base_code,
             "weights": weights,
+            "tier_weights": self.internal_data.get("tier_weights") or {},
             "countries": per_country,
             "ranking": [{"rank": c["rank"], "country": c["country"],
                          "score_band": c["it_similarity_band"]}
                         for c in ranked],
             "method": ("축별 raw = 수치(100−|Δ|×20) / 범주(텍스트 Jaccard 30+J×65) / gate(동일=90·한쪽 PASS=50) "
-                       "→ 가중평균 raw → 10점 구간 반올림."),
-            "note": "10점 구간 표기. 소수점·1점 단위 비교 금지(spec). 동률 발생 시 raw로 타이브레이크.",
+                       "→ effective weight = item_weight × tier_multiplier → 가중평균 raw → 10점 구간 반올림."),
+            "note": "10점 구간 표기. 소수점·1점 단위 비교 금지(spec). 동률 시 raw로 타이브레이크. Tier 가중은 대상국 데이터 신뢰도 기준.",
         }
 
     # ------------------------------------------------------------------

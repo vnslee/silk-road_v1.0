@@ -505,6 +505,9 @@ class RegionReportRenderer:
                 raw = info.get("raw_value")
                 norm = info.get("normalized")
                 wt = info.get("weight")
+                tier = info.get("tier")
+                tier_mult = info.get("tier_multiplier")
+                eff_w = info.get("effective_weight")
                 contribution = info.get("contribution")
                 src_item = info.get("source_item")
                 reverse = info.get("reverse")
@@ -512,6 +515,11 @@ class RegionReportRenderer:
                     '<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#FCE8E6;color:#C5221F">高=惡 역점수</span>'
                     if reverse else
                     '<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#E6F4EA;color:#137333">高=好 정점수</span>'
+                )
+                tier_pill = (
+                    f'<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#EEEEEE;color:#434751">Tier {tier} ×{tier_mult}</span>'
+                    if tier is not None else
+                    '<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#FCE8E6;color:#C5221F">Tier 미상 ×1.0</span>'
                 )
                 norm_bar = ""
                 if norm is not None:
@@ -527,6 +535,7 @@ class RegionReportRenderer:
                             <div class="flex items-center gap-xs flex-wrap">
                                 <span class="font-label-md text-label-md text-primary">{self.esc(k)}</span>
                                 {dir_pill}
+                                {tier_pill}
                                 {self.badge("EXT")}
                             </div>
                             <div class="text-label-sm text-text-secondary mt-xs">조사항목: {self.esc(src_item)}</div>
@@ -536,7 +545,7 @@ class RegionReportRenderer:
                             <div class="font-semibold text-primary">{self.esc(contribution) if contribution is not None else "—"}</div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-3 gap-sm text-body-sm">
+                    <div class="grid grid-cols-4 gap-sm text-body-sm">
                         <div>
                             <div class="text-label-sm text-text-secondary">조사값</div>
                             <div class="text-primary font-medium">{self.esc(raw) if raw is not None else "—"}</div>
@@ -547,8 +556,12 @@ class RegionReportRenderer:
                             {norm_bar}
                         </div>
                         <div>
-                            <div class="text-label-sm text-text-secondary">가중치 × 정규화 = 기여</div>
-                            <div class="text-primary font-medium">{self.esc(wt)} × {self.esc(norm) if norm is not None else "—"} = {self.esc(contribution) if contribution is not None else "—"}</div>
+                            <div class="text-label-sm text-text-secondary">유효 가중치</div>
+                            <div class="text-primary font-medium">{self.esc(wt)} × {self.esc(tier_mult)} = <strong>{self.esc(eff_w) if eff_w is not None else "—"}</strong></div>
+                        </div>
+                        <div>
+                            <div class="text-label-sm text-text-secondary">기여 = 정규화 × 유효가중치</div>
+                            <div class="text-primary font-medium">{self.esc(norm) if norm is not None else "—"} × {self.esc(eff_w) if eff_w is not None else "—"} = <strong>{self.esc(contribution) if contribution is not None else "—"}</strong></div>
                         </div>
                     </div>
                 </div>''')
@@ -566,7 +579,8 @@ class RegionReportRenderer:
                 </summary>
                 <div class="px-md pb-md pt-xs">
                     <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant">
-                        <strong>산식:</strong> 매력도 = Σ(항목 정규화점수 × 가중치) ÷ Σ(가중치).
+                        <strong>산식:</strong> 매력도 = Σ(정규화 × 유효가중치) ÷ Σ(유효가중치).
+                        <strong>유효가중치 = 항목 가중치 × Tier 멀티플라이어</strong> (Tier1=1.0 고정, Tier2~4는 config 조정 가능).
                         정규화는 권역 내 min~max 기준. 역점수 항목은 100 − 정규화값 적용(경쟁강도).
                     </div>
                     {axes_block}
@@ -1015,6 +1029,9 @@ class RegionReportRenderer:
             for axis_key, axis_info in (c.get("axes") or {}).items():
                 src_item = axis_info.get("source_item")
                 wt = axis_info.get("weight")
+                tier = axis_info.get("tier")
+                tier_mult = axis_info.get("tier_multiplier")
+                eff_w = axis_info.get("effective_weight")
                 band = axis_info.get("score_band")
                 raw = axis_info.get("score_raw")
                 bv = axis_info.get("baseline_value")
@@ -1028,21 +1045,26 @@ class RegionReportRenderer:
                 elif bv is None or tv is None:
                     derive = "베이스 또는 대상 값 없음 → 점수 N/A"
                 else:
-                    # categorical (Jaccard) or gate
                     derive = f"텍스트 토큰 Jaccard 유사도 기반 → 30 + 유사도×65 = {raw if raw is not None else '—'} (또는 gate 동일=90 / 한쪽 PASS=50)"
+                tier_pill = (
+                    f'<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#EEEEEE;color:#434751">Tier {tier} ×{tier_mult}</span>'
+                    if tier is not None else
+                    '<span class="px-[6px] py-[1px] rounded text-[10px] font-semibold" style="background:#FCE8E6;color:#C5221F">Tier 미상 ×1.0</span>'
+                )
                 axis_rows.append(f'''
                 <div class="border-b border-surface-border last:border-b-0 py-sm">
                     <div class="flex items-start justify-between gap-sm mb-xs">
                         <div class="flex-1">
                             <div class="flex items-center gap-xs flex-wrap">
                                 <span class="font-label-md text-label-md text-primary">{self.esc(axis_key)}</span>
-                                <span class="text-label-sm text-text-secondary">조사항목: {self.esc(src_item)}</span>
+                                {tier_pill}
                                 {self.badge("EXT")}
                             </div>
+                            <div class="text-label-sm text-text-secondary mt-xs">조사항목: {self.esc(src_item)}</div>
                         </div>
                         <div class="text-right shrink-0">
-                            <div class="text-label-sm text-text-secondary">가중치</div>
-                            <div class="font-semibold text-primary">{self.esc(wt)}</div>
+                            <div class="text-label-sm text-text-secondary">유효 가중치</div>
+                            <div class="font-semibold text-primary">{self.esc(wt)} × {self.esc(tier_mult)} = <strong>{self.esc(eff_w) if eff_w is not None else "—"}</strong></div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-sm text-body-sm">
@@ -1078,7 +1100,9 @@ class RegionReportRenderer:
                     <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant">
                         <strong>산식:</strong> 축별 raw 점수 = (수치 1~5) 100−|Δ|×20 /
                         (범주·라이선스/솔루션) 텍스트 토큰 Jaccard 유사도 30+J×65 (완전 일치=100) /
-                        (gate) 동일=90·한쪽 PASS=50·기타=30. 종합 = Σ(가중치×raw)/Σ(가중치) → 10점 구간 반올림.
+                        (gate) 동일=90·한쪽 PASS=50·기타=30.
+                        <strong>유효가중치 = 항목 가중치 × Tier 멀티플라이어</strong>(대상국 데이터 신뢰도 기준, Tier1=1.0 고정).
+                        종합 = Σ(raw × 유효가중치) ÷ Σ(유효가중치) → 10점 구간 반올림.
                     </div>
                     {axes_block}
                 </div>
@@ -1364,7 +1388,8 @@ class RegionReportRenderer:
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>{self.esc(title)}</title>
+    <!-- 브라우저 인쇄 시 PDF 기본 파일명에 이 title이 사용됨 -->
+    <title>{self.esc(report_id)} — {self.esc(title)}</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -1421,6 +1446,49 @@ class RegionReportRenderer:
         .tab-content.active {{ display: block; }}
         .tab-button.active {{ background-color: #00204e; color: white; }}
         .material-symbols-outlined {{ font-variation-settings: 'FILL' 0, 'wght' 500; }}
+
+        /* ───────── Print / PDF export ───────── */
+        @media print {{
+            @page {{ size: A4 landscape; margin: 10mm 12mm 12mm 12mm; }}
+            html, body {{
+                background: #ffffff !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }}
+            /* Hide UI chrome */
+            .no-print, .tab-button, header button, footer button {{ display: none !important; }}
+            .sticky {{ position: static !important; }}
+            /* Show all tab content stacked */
+            .tab-content {{ display: block !important; break-before: page; }}
+            .tab-content:first-of-type {{ break-before: auto; }}
+            /* Add tab title before each panel */
+            .tab-content[id="tab-summary"]::before        {{ content: "요약"; }}
+            .tab-content[id="tab-killswitch"]::before     {{ content: "킬스위치"; }}
+            .tab-content[id="tab-attractiveness"]::before {{ content: "매력도"; }}
+            .tab-content[id="tab-it"]::before             {{ content: "IT 유사도 / 퀵윈"; }}
+            .tab-content[id="tab-market"]::before         {{ content: "시장 배경"; }}
+            .tab-content::before {{
+                display: block;
+                font-size: 18px;
+                font-weight: 700;
+                color: #00204e;
+                border-bottom: 2px solid #00204e;
+                padding-bottom: 6px;
+                margin-bottom: 16px;
+            }}
+            /* Force-open all accordions */
+            details {{ break-inside: avoid; }}
+            details > summary {{ list-style: none; }}
+            details > summary::-webkit-details-marker {{ display: none; }}
+            details > summary .material-symbols-outlined {{ display: none; }}
+            /* Cards: avoid breaking awkwardly */
+            section > div, .grid > div {{ break-inside: avoid; }}
+            /* Shrink shadows for cleaner print */
+            * {{ box-shadow: none !important; }}
+            /* Drop hover transitions */
+            * {{ transition: none !important; }}
+        }}
     </style>
 </head>
 <body class="bg-surface min-h-screen font-body-md text-text-primary antialiased">
@@ -1446,10 +1514,10 @@ class RegionReportRenderer:
                 </div>
             </div>
             <div class="flex items-center gap-sm shrink-0">
-                <button class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                <button onclick="exportPDF()" class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
                     <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>PDF
                 </button>
-                <button class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm">
+                <button onclick="openShareModal()" class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm hover:scale-[0.98] transition-transform">
                     <span class="material-symbols-outlined text-[18px]">share</span>Share
                 </button>
             </div>
@@ -1472,6 +1540,37 @@ class RegionReportRenderer:
         </div>
     </footer>
 </div>
+
+<!-- Share Modal — QR 코드 + URL 복사 -->
+<div id="share-modal" class="no-print hidden fixed inset-0 z-[60] items-center justify-center" style="background: rgba(0, 32, 78, 0.4); backdrop-filter: blur(6px);" onclick="closeShareModal(event)">
+    <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_24px_rgba(0,32,78,0.16)] max-w-md w-full mx-md flex flex-col" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between px-lg py-md border-b border-surface-border">
+            <div>
+                <h3 class="font-headline-md text-headline-md text-primary m-0">보고서 공유</h3>
+                <p class="font-body-sm text-body-sm text-text-secondary mt-xs m-0">QR 스캔 또는 URL 복사로 공유</p>
+            </div>
+            <button onclick="closeShareModal()" class="text-on-surface-variant hover:text-primary p-xs rounded-full hover:bg-surface-container">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="px-lg py-lg flex flex-col items-center gap-md">
+            <div class="bg-white border-2 border-surface-border rounded-lg p-sm">
+                <img id="share-qr" src="" alt="QR Code" class="w-56 h-56" />
+            </div>
+            <div class="w-full">
+                <div class="text-label-sm text-text-secondary uppercase tracking-wider mb-xs">현재 페이지 URL</div>
+                <div class="flex items-stretch gap-xs">
+                    <input id="share-url" type="text" readonly class="flex-1 min-w-0 px-sm py-xs bg-surface-light border border-surface-border rounded text-body-sm text-on-surface-variant font-mono truncate" />
+                    <button onclick="copyShareUrl()" class="px-sm py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:scale-[0.98] transition-transform flex items-center gap-xs shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        <span id="share-copy-label">복사</span>
+                    </button>
+                </div>
+            </div>
+            <p class="text-label-sm text-text-secondary text-center">스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.</p>
+        </div>
+    </div>
+</div>
 <script>
     document.querySelectorAll('.tab-button').forEach(btn => {{
         btn.addEventListener('click', () => {{
@@ -1482,6 +1581,84 @@ class RegionReportRenderer:
             btn.classList.add('active');
         }});
     }});
+
+    // PDF 저장 — 모든 탭/아코디언을 펼치고 인쇄 대화상자 호출, 인쇄 후 원복
+    function exportPDF() {{
+        const tabs = document.querySelectorAll('.tab-content');
+        const tabBtns = document.querySelectorAll('.tab-button');
+        const details = document.querySelectorAll('details');
+
+        // 1) 현재 상태 저장
+        const tabState = Array.from(tabs).map(t => t.classList.contains('active'));
+        const detailState = Array.from(details).map(d => d.open);
+
+        // 2) 모두 펼침 (print CSS가 display:block 강제하지만, JS도 details.open 강제)
+        details.forEach(d => d.open = true);
+
+        // 3) 인쇄 (PDF 저장은 사용자가 대화상자에서 선택)
+        const restore = () => {{
+            details.forEach((d, i) => d.open = detailState[i]);
+            // 활성 탭 복원
+            tabs.forEach((t, i) => t.classList.toggle('active', tabState[i]));
+            window.removeEventListener('afterprint', restore);
+        }};
+        window.addEventListener('afterprint', restore);
+        // Safari/Firefox에서 afterprint 미발생할 때 폴백
+        setTimeout(restore, 60000);
+
+        window.print();
+    }}
+
+    // 키보드 단축키: Cmd/Ctrl+P → 동일 동작
+    window.addEventListener('keydown', (e) => {{
+        if ((e.metaKey || e.ctrlKey) && e.key === 'p') {{
+            e.preventDefault();
+            exportPDF();
+        }}
+        if (e.key === 'Escape') closeShareModal();
+    }});
+
+    // 공유 모달 — QR 코드 + URL 복사
+    function openShareModal() {{
+        const url = window.location.href;
+        const input = document.getElementById('share-url');
+        const img = document.getElementById('share-qr');
+        input.value = url;
+        // 공개 무료 QR API — 외부 호출 가능한 환경에서만 이미지 표시.
+        // file:// 로컬 파일에서도 https 외부 이미지는 일반적으로 로드됨.
+        img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&data=' + encodeURIComponent(url);
+        img.onerror = () => {{
+            img.alt = 'QR 코드를 불러올 수 없습니다 (오프라인 환경). URL을 직접 복사해서 공유하세요.';
+            img.style.display = 'none';
+        }};
+        const modal = document.getElementById('share-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }}
+
+    function closeShareModal(e) {{
+        if (e && e.target && e.target.closest('#share-modal > div')) return;  // 내부 클릭 무시
+        const modal = document.getElementById('share-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }}
+
+    async function copyShareUrl() {{
+        const url = document.getElementById('share-url').value;
+        const label = document.getElementById('share-copy-label');
+        try {{
+            await navigator.clipboard.writeText(url);
+            label.textContent = '복사됨';
+            setTimeout(() => {{ label.textContent = '복사'; }}, 1500);
+        }} catch (err) {{
+            // Fallback: select & legacy execCommand
+            const input = document.getElementById('share-url');
+            input.select();
+            try {{ document.execCommand('copy'); label.textContent = '복사됨'; }}
+            catch {{ label.textContent = '실패'; }}
+            setTimeout(() => {{ label.textContent = '복사'; }}, 1500);
+        }}
+    }}
 </script>
 </body>
 </html>'''
