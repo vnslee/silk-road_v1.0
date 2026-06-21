@@ -462,6 +462,26 @@ class CountryReportEngine:
             "hq_baseline_currency": hq_baseline.get("currency", "EUR")
         }
 
+    def calculate_similarity_multiplier(self, similarity_score: float) -> Dict[str, Any]:
+        """명세서 산식 1 — 종합 유사도 → TCO 적용 승수%.
+
+        90~100 → 50%, 80~90 → 60%, 70~80 → 70%, 60~70 → 80%, 50~60 → 90%, 그 외 → 100%.
+        승수는 'B 구축비용/기간'에 곱해 신규국 구축 비용·기간을 산출하는 값.
+        """
+        if similarity_score >= 90:
+            mult, band = 0.50, "90~100"
+        elif similarity_score >= 80:
+            mult, band = 0.60, "80~90"
+        elif similarity_score >= 70:
+            mult, band = 0.70, "70~80"
+        elif similarity_score >= 60:
+            mult, band = 0.80, "60~70"
+        elif similarity_score >= 50:
+            mult, band = 0.90, "50~60"
+        else:
+            mult, band = 1.00, "50 미만"
+        return {"multiplier": mult, "band": band}
+
     def calculate_similarity_discount(self, similarity_score: float) -> float:
         """Map similarity score to discount percentage.
 
@@ -482,23 +502,77 @@ class CountryReportEngine:
 
         return 0.0
 
-    def calculate_expected_contracts(self, target_country_data: Dict) -> int:
+    def calculate_expected_contracts(self, target_country_data: Dict) -> Dict[str, Any]:
         """Calculate expected contract volume for target country.
 
-        Args:
-            target_country_data: Country data with market info
+        명세서 산식 2:
+            A 예상건수 = A 판매대수 × A 금융이용률 × (할부+리스 비중) × 우리사 예상 점유율
 
         Returns:
-            Expected annual contract count
+            Dict with computed value + 입력 추적 (산식 재현용).
         """
-        # TODO: Extract from country_data items:
-        # - 신차 판매대수
-        # - 금융 이용률(신차)
-        # - 구매 패턴(할부·리스 비중)
-        # - 우리사 예상 점유율 (from internal?)
+        if not self.internal_data:
+            self.load_internal_data()
 
-        # Placeholder calculation
-        return 120
+        items_by_name = {it.get("item"): it for it in target_country_data.get("items", []) or []}
+
+        def _to_float(v, default=None):
+            try:
+                return float(v)
+            except (TypeError, ValueError):
+                return default
+
+        def _read_value(name, default=None):
+            it = items_by_name.get(name)
+            if not it:
+                return default
+            return _to_float(it.get("value"), default)
+
+        # 신차 판매대수 (단위는 country_data에서 unit으로 표시, 보통 units_K 또는 절대수)
+        sales_item = items_by_name.get("신차 판매대수")
+        sales_value = _to_float((sales_item or {}).get("value"), 0) or 0
+        sales_unit = (sales_item or {}).get("unit", "")
+        # 단위 정규화: units_K → ×1000, units_M → ×1,000,000, 그 외(units/대 등)는 그대로
+        unit_multiplier = 1
+        if sales_unit in ("units_K", "K", "thousand"):
+            unit_multiplier = 1_000
+        elif sales_unit in ("units_M", "M", "million"):
+            unit_multiplier = 1_000_000
+        # 절대수가 큰 경우(>= 10만)에는 이미 절대수로 들어왔다고 간주
+        if sales_value >= 100_000 and unit_multiplier > 1:
+            unit_multiplier = 1
+        total_sales = sales_value * unit_multiplier
+
+        # 금융 이용률(신차) — % 값
+        penetration_pct = _read_value("금융 이용률(신차)", 0) or 0
+        penetration = penetration_pct / 100.0
+
+        # 구매 패턴(할부·리스 비중) — % 값
+        installment_lease_pct = _read_value("구매 패턴(할부·리스 비중)", 0) or 0
+        installment_lease = installment_lease_pct / 100.0
+
+        # 우리사 예상 점유율 — internal.json
+        expected_share = self.internal_data.get("expected_market_share", 0.02) or 0
+        try:
+            expected_share = float(expected_share)
+        except (TypeError, ValueError):
+            expected_share = 0.02
+
+        expected_contracts = total_sales * penetration * installment_lease * expected_share
+        expected_contracts_int = int(round(expected_contracts))
+
+        return {
+            "value": expected_contracts_int,
+            "formula": "신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율",
+            "inputs": {
+                "신차 판매대수": int(total_sales) if total_sales else 0,
+                "신차 판매대수(원본값)": sales_value,
+                "신차 판매대수(단위)": sales_unit,
+                "금융 이용률(신차)_%": penetration_pct,
+                "구매 패턴(할부·리스 비중)_%": installment_lease_pct,
+                "우리사 예상 점유율": expected_share,
+            },
+        }
 
     def calculate_subscription_fee(self, new_volume: int) -> Dict[str, Any]:
         """Calculate subscription fee with volume-based tiering.
@@ -555,8 +629,11 @@ class CountryReportEngine:
         if not self.internal_data:
             self.load_internal_data()
 
-        # Get similarity and discount
+        # Get similarity and multiplier (명세서 산식 1)
         similarity = self.calculate_similarity_score(target_country, base_country)
+        mult_info = self.calculate_similarity_multiplier(similarity["overall_score"])
+        multiplier = mult_info["multiplier"]
+        # 'discount'는 internal.similarity_brackets(레거시) 정보 — JSON 트레이스용으로만 유지
         discount = self.calculate_similarity_discount(similarity["overall_score"])
 
         # Get base country build info
@@ -564,15 +641,32 @@ class CountryReportEngine:
         base_cost = base_info.get("build_cost", 5000)
         base_months = base_info.get("build_months", 18)
 
-        # Calculate build cost with discount
-        build_cost = base_cost * discount
-        build_months = base_months * discount
+        # 명세서 산식 4:
+        #   구축비   = B 구축비용 × 유사도승수
+        #   구축기간 = B 구축기간 × 유사도승수
+        build_cost = base_cost * multiplier
+        build_months = base_months * multiplier
 
-        # Localization/customization cost (placeholder - should be based on gap analysis)
-        customization_cost = base_cost * 0.15
+        build_breakdown = {
+            "formula": "구축비용/기간 = 베이스라인(B) 값 × 유사도 승수",
+            "inputs": {
+                "베이스라인 국가": base_country,
+                "베이스라인 솔루션": base_info.get("solution"),
+                "B 구축비용": base_cost,
+                "B 구축기간(개월)": base_months,
+                "종합 유사도": round(similarity["overall_score"], 1),
+                "승수 구간": mult_info["band"],
+                "적용 승수": multiplier,
+            },
+            "outputs": {
+                "신규국 구축비용": build_cost,
+                "신규국 구축기간(개월)": build_months,
+            },
+        }
 
         # Calculate subscription
-        expected_volume = self.calculate_expected_contracts(self.country_data or {})
+        expected = self.calculate_expected_contracts(self.country_data or {})
+        expected_volume = expected.get("value", 0) if isinstance(expected, dict) else int(expected or 0)
         subscription = self.calculate_subscription_fee(expected_volume)
         annual_subscription = subscription["annual_fee"]
 
@@ -582,23 +676,28 @@ class CountryReportEngine:
         # Operations
         operations_10y = self.internal_data.get("operational_cost_10y", {}).get("amount", 50000)
 
-        # Total TCO
-        system_cost = build_cost + customization_cost + (annual_subscription * 10) + (maintenance_annual * 10)
+        # Total TCO (명세 산식 4)
+        annual_recurring = annual_subscription + maintenance_annual
+        system_cost = build_cost + (annual_recurring * 10)
         total_tco = system_cost + operations_10y
 
         return {
             "build_cost": build_cost,
             "build_months": build_months,
-            "customization_cost": customization_cost,
             "annual_subscription": annual_subscription,
             "annual_maintenance": maintenance_annual,
+            "annual_recurring": annual_recurring,
             "operations_10y": operations_10y,
             "system_cost_10y": system_cost,
             "total_tco_10y": total_tco,
             "currency": "EUR",
             "similarity_score": similarity["overall_score"],
+            "similarity_multiplier": multiplier,
+            "similarity_band": mult_info["band"],
             "discount_applied": discount,
+            "build_breakdown": build_breakdown,
             "expected_contracts": expected_volume,
+            "expected_contracts_breakdown": expected if isinstance(expected, dict) else None,
             "subscription_details": subscription,
             "subscription_tiers": self.internal_data.get("subscription_tiers", []),
             "existing_total_volume": self.internal_data.get("existing_total_volume", 0),
@@ -700,7 +799,7 @@ class CountryReportEngine:
         report = {
             "report_id": f"RPT_CTR_{target_country}_001",
             "report_type": "type1_country",
-            "title": f"{self.country_data.get('country', target_country)} Auto Finance Entry Cost & TCO Report",
+            "title": f"{self.country_data.get('country_ko') or self.country_data.get('country', target_country)} 진출 진단 보고서",
             "target": {
                 "country": target_country,
                 "base_country": base_country
@@ -717,6 +816,7 @@ class CountryReportEngine:
                 "data_year": self.country_data.get("data_year"),
                 "fetched_at": self.country_data.get("fetched_at"),
                 "fetched_by": self.country_data.get("fetched_by"),
+                "entry_status": (self.internal_data or {}).get("country_status", {}).get(target_country, "미진출"),
             },
 
             "data_quality": {

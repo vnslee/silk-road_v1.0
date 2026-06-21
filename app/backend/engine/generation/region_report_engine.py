@@ -58,16 +58,18 @@ class RegionReportEngine:
         "GDP 성장률": {"item": "오토금융 성장률(CAGR)", "reverse": False},  # GDP 미수집 → CAGR 대체
         "자동차 판매대수": {"item": "신차 판매대수", "reverse": False},
         "시장규모(CAGR)": {"item": "오토금융/리스 시장규모", "reverse": False},
-        "금융 침투율": {"item": "금융 이용률(신차)", "reverse": False},
+        "금융 이용률": {"item": "금융 이용률(신차)", "reverse": False},
         "금융이용유형": {"item": "구매 패턴(할부·리스 비중)", "reverse": False},
         "경쟁강도": {"item": "캡티브 강도(점유율)", "reverse": True},  # 高=惡(역점수)
     }
 
     # config.values.it_readiness 키 → 실제 조사항목 매핑
+    # 주의: "라이선스 종류"는 EU 내에서도 FCA/EFC/KNF/TUB/Wft 등 체계가 다르므로
+    #       gate_result(PASS/FAIL)가 아닌 실제 텍스트 내용을 categorical로 비교해야 변별력 확보
     IT_SIMILARITY_ITEM_MAP = {
         "솔루션 유형": {"item": "솔루션 유형", "type": "categorical"},
         "디지털 채널 성숙도": {"item": "디지털 채널 성숙도", "type": "numeric_1to5"},
-        "라이선스 종류": {"item": "라이선스 체제(세그먼트별)", "type": "gate"},
+        "라이선스 종류": {"item": "라이선스 체제(세그먼트별)", "type": "categorical"},
         "데이터현지화": {"item": "데이터 현지화 의무", "type": "gate"},
         "차량회수 절차": {"item": "차량회수 절차 용이성", "type": "numeric_1to5"},
     }
@@ -492,18 +494,20 @@ class RegionReportEngine:
             if not bv or not tv:
                 return None
             if bv == tv:
-                return 90.0
-            # 토큰 교집합 비율 → 거친 밴드
-            b_tokens = set(t for t in bv.replace(",", " ").split() if t)
-            t_tokens = set(t for t in tv.replace(",", " ").split() if t)
-            if not b_tokens or not t_tokens:
+                return 100.0
+            # Jaccard 유사도 (CJK 안전: 단어/한자 단위 + 영문 구두점 정규화)
+            import re
+            def tokens(s: str) -> set:
+                # 구두점·괄호·세그먼트 구분자 정규화 후 토큰화
+                s = re.sub(r"[,()·/+\-]+", " ", s)
+                raw = [t for t in s.split() if len(t) > 1]
+                return set(raw)
+            b_t, t_t = tokens(bv), tokens(tv)
+            if not b_t or not t_t:
                 return 50.0
-            overlap = len(b_tokens & t_tokens) / max(len(b_tokens | t_tokens), 1)
-            if overlap >= 0.5:
-                return 80.0
-            if overlap >= 0.25:
-                return 60.0
-            return 40.0
+            jaccard = len(b_t & t_t) / len(b_t | t_t)
+            # 0~1 → 30~95 매핑 (완전 동일=100은 위에서 처리)
+            return round(30.0 + jaccard * 65.0, 1)
 
         return None
 
@@ -558,7 +562,8 @@ class RegionReportEngine:
 
         ranked = sorted(
             [c for c in per_country if c["it_similarity_band"] is not None],
-            key=lambda c: c["it_similarity_band"], reverse=True
+            key=lambda c: (c["it_similarity_band"] or 0, c["it_similarity_raw"] or 0),
+            reverse=True,
         )
         for rank, c in enumerate(ranked, start=1):
             c["rank"] = rank
@@ -572,8 +577,9 @@ class RegionReportEngine:
             "ranking": [{"rank": c["rank"], "country": c["country"],
                          "score_band": c["it_similarity_band"]}
                         for c in ranked],
-            "method": "band similarity (numeric/gate/categorical) vs baseline → weighted average per config.values.it_readiness → 10-point bucket",
-            "note": "10점 구간 표기. 소수점·1점 단위 비교 금지(spec).",
+            "method": ("축별 raw = 수치(100−|Δ|×20) / 범주(텍스트 Jaccard 30+J×65) / gate(동일=90·한쪽 PASS=50) "
+                       "→ 가중평균 raw → 10점 구간 반올림."),
+            "note": "10점 구간 표기. 소수점·1점 단위 비교 금지(spec). 동률 발생 시 raw로 타이브레이크.",
         }
 
     # ------------------------------------------------------------------
@@ -648,7 +654,12 @@ class RegionReportEngine:
             })
 
         eligible = [r for r in rows if not r["excluded"] and r["quickwin_band"] is not None]
-        ranked = sorted(eligible, key=lambda r: r["quickwin_band"], reverse=True)
+        # band 동률 시 raw 값으로 타이브레이크 (실제 점수 정밀도 보존)
+        ranked = sorted(
+            eligible,
+            key=lambda r: (r["quickwin_band"] or 0, r["quickwin_raw"] or 0),
+            reverse=True,
+        )
         for rank, r in enumerate(ranked, start=1):
             r["rank"] = rank
 

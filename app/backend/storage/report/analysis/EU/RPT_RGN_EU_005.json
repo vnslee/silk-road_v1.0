@@ -1,0 +1,57 @@
+{
+  "report_type": "gap_analysis",
+  "analysis_type": "TYPE2",
+  "region": "Europe",
+  "region_code": "EU",
+  "generated_at": "2026-06-21T12:54:15.241158",
+  "schema_version": "0.1-provisional",
+  "summary": {
+    "total_countries": 0,
+    "countries": [],
+    "avg_completeness_pct": 0
+  },
+  "by_category": {},
+  "data_quality": {
+    "countries_coverage": 0,
+    "timeseries_coverage_avg": 0,
+    "source_tiers": {
+      "tier1": 0,
+      "tier2": 0,
+      "tier3": 0,
+      "tier4": 0
+    },
+    "data_sources": [],
+    "gaps_by_tab": {},
+    "country_completeness": {}
+  },
+  "critical_gaps": [],
+  "type2_readiness": {
+    "can_generate": true,
+    "tabs": {
+      "2-0": {
+        "name": "Kill Switch Filter",
+        "ready": true,
+        "missing_count": 0,
+        "missing_fields": []
+      },
+      "2-1": {
+        "name": "Business Attractiveness",
+        "ready": true,
+        "missing_count": 0,
+        "missing_fields": []
+      },
+      "2-2": {
+        "name": "IT/Speed-to-Market Similarity",
+        "ready": true,
+        "missing_count": 0,
+        "missing_fields": []
+      },
+      "2-3": {
+        "name": "Market Background",
+        "ready": true,
+        "missing_count": 0,
+        "missing_fields": []
+      }
+    }
+  }
+}

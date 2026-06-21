@@ -1,0 +1,1274 @@
+{
+  "report_id": "RPT_CTR_AT_001",
+  "report_type": "type1_country",
+  "title": "Austria Auto Finance Entry Cost & TCO Report",
+  "target": {
+    "country": "AT",
+    "base_country": "GB"
+  },
+  "generated_at": "2026-06-21T11:59:46.905299",
+  "schema_version": "1.1",
+  "overall_insight": "EU 12위 자동차 시장이자 독일·체코·헝가리 CEE 권역의 자연스러운 거점. 2025년 신차 등록 약 24만대(Statistik Austria)로 규모는 작으나 운용리스(operatives Leasing) 비중 EU 톱급(법인 신차 60%+), 캡티브 강도 EU 최강(VW FS·Porsche Bank 단독으로 자동차금융 50%+)인 구조가 핵심이다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 FMA(금융시장청)+OeNB(중앙은행) 이중 감독 하 BWG(은행법) §1 Z2 등록 또는 Zahlungsdienstleister 인가(자본금 €5M)와 강력한 사용자금리 상한(VKrG §6: OeNB 분기 평균 + 2배·12pp 절대, 2025 약 19% APR)이 진입 부담의 핵심이다. 반면 B2B 운용리스(VÖL 회원)는 BWG 인가 면제로 진입 매우 유연. 비즈니스 매력도는 시장규모는 EU 중하위이나 단위경제 우수(평균 신차가 €36k·BEV 25%+)·국가신용 AA+. 캡티브 압도(Porsche Bank가 그룹 합산 약 50%, 독일 VW FS 모회사)와 다국적 리스사(Ayvens·Arval·Sixt Leasing) 양강 구조로 약 80% 점유 — 독립계 단독 진입은 거의 비매력. 한국 OEM이 진입한다면 캡티브(KCFS) 형태로 신규 진입 가능성. IT 유사도는 매우 높음 — EU GDPR·SEPA·EPS Überweisung(현지 결제)·KSV1870/CRIF(신용정보)·Handy-Signatur/ID Austria(전자인증) 등 인프라 EU 최상위. 매력도↔IT 불일치 지점은 작은 시장규모 — 단독 진입은 ROI 회수 어려움. 다크호스는 CEE 권역 본부 활용(Wien Hub) — Erste Group이 CEE 전역 운영하는 모델 적용 가능. 운용리스·플릿 우선 진입(VÖL) → CEE 권역(HU/CZ/SK/SI/HR) 본부 활용 전략이 유효.",
+  "country_meta": {
+    "country": "Austria",
+    "country_ko": "오스트리아",
+    "region": "EU",
+    "currency": "EUR",
+    "data_year": 2025,
+    "fetched_at": "2026-06-21T19:30:00+09:00",
+    "fetched_by": "ai"
+  },
+  "data_quality": {
+    "completeness_pct": 100.0,
+    "total_items": 48,
+    "target_items": 48,
+    "timeseries_coverage": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 18,
+      "tier2": 14,
+      "tier3": 16,
+      "tier4": 0
+    },
+    "items_by_category": {
+      "business": [
+        {
+          "item": "오토금융/리스 시장규모",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "오토금융 성장률(CAGR)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(중고차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "평균 금리/APR",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신차 판매대수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "법인세율",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "이자소득 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "배당 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "EV 보급률",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "해당국 정성 요약",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "브랜드 Top10",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "금융사 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 리스트",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 진출 형태",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "평균 신차가격",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "외부 이슈 스캔",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        }
+      ],
+      "shared": [
+        {
+          "item": "외국인 지분 한도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "국가신용등급",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 취득 가능 여부(외국사)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "금리 상한 규제",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "최저자본금",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "법적 회수 소요기간",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "추심 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "충당금 규정",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "연체 분류 기준",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "의무보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "신용생명보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "보험 끼워팔기 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "AI 신용평가 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "규제기관 식별",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 1
+        }
+      ],
+      "it": [
+        {
+          "item": "솔루션 벤더",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "솔루션 유형",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신용정보(CB) 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "결제·정산 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "국외이전 제한",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        }
+      ]
+    },
+    "critical_gaps": [],
+    "readiness": {
+      "can_generate": true,
+      "tabs": {
+        "1-1": {
+          "name": "Similarity Scoring (vs Baseline)",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-2": {
+          "name": "System Decision Tree",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-3": {
+          "name": "Contract Volume & 10Y TCO",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-4": {
+          "name": "Market & Competition Background",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        }
+      }
+    }
+  },
+  "tabs": {
+    "tab_1_1_similarity": {
+      "overall_score": 75.0,
+      "axes": {
+        "solution_type": 80.0,
+        "digital_maturity": 70.0,
+        "product_mix": 75.0,
+        "regulatory": 73.0
+      },
+      "method": "dimension_based",
+      "note": "Detailed dimension scoring to be implemented",
+      "items": [
+        {
+          "item": "솔루션 유형",
+          "category": "it",
+          "role": "score",
+          "value": "글로벌 패키지 + 은행계 자체 코어(Erste·RBI·Bank Austria) + 캡티브(Porsche Bank) 자체 코어 혼재",
+          "unit": "type",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계",
+          "insight": "대형 은행계(Erste Group·RBI·Bank Austria·BAWAG)·Porsche Bank는 자체 코어, 중소 리스사는 글로벌 패키지. EU 표준 + DACH 통합 아키텍처와 정합.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 5,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "EPS Überweisung(현지 결제), ID Austria(전자인증 통합, 구 Handy-Signatur), Bluecode(P2P 결제) 보편화",
+          "insight": "ID Austria(전자인증 통합, 100% 시민 대상)·EPS Überweisung·Bluecode·SEPA 보편화로 디지털 계약 성숙도 EU 상위. 완전 디지털 온보딩 표준.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 4,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계 (AutoScout24 Austria·willhaben.at·Carplus·OEM 직판)",
+          "insight": "AutoScout24·willhaben·Carplus 등 온라인 딜러금융·OEM 직판 채널 발달. 디지털 리테일 성숙 — 임베디드 금융 연동 기회.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "category": "shared",
+          "role": "gate",
+          "value": "소비자 여신=BWG §1 Z2 등록(AG+자본금 €5M+FMA/OeNB 감독), B2B 운용리스=BWG 인가 면제(GmbH+VÖL 자율규제)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "BWG §1 Z2+§5, FMA 가이드, VÖL Selbstregulierung",
+          "insight": "세그먼트별 규제 강도 큼. 소비자 여신 자본 €5M(ES와 동급, NL/DK €1M보다 큼)·이중 감독으로 거버넌스 공수 큼. 운용리스는 GmbH(€35k 자본)로 진입 부담 경량 — 단계적 전략.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "category": "shared",
+          "role": "gate",
+          "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "operating_model",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "EU GDPR, Datenschutzgesetz(DSG), DSB(Datenschutzbehörde)",
+          "insight": "EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음. DSB 표준 수준 — 동의·DPIA 준수면 충분.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "category": "shared",
+          "role": "score",
+          "value": 4,
+          "unit": "ease_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "오스트리아 민사소송법(ZPO), 업계 (Exekutionsordnung 효율적)",
+          "insight": "리스·운용리스는 금융사 소유권 보유로 회수 매우 용이(평균 30~60일). 소비자 대출 담보회수는 Gerichtsvollzieher 절차로 평균 6~12개월(EU 평균) — 회수 환경 EU 상위.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_2_decision": {
+      "decision": "baseline_system_expansion",
+      "similarity_score": 75.0,
+      "recommendation": "권역 내 확산: GB 시스템(NetSol) 현지화",
+      "base_country": "GB",
+      "base_system": "NetSol",
+      "region_system_exists": true,
+      "hq_baseline_cost": 8000,
+      "hq_baseline_months": 24,
+      "hq_baseline_currency": "EUR",
+      "items": [
+        {
+          "item": "금리 상한 규제",
+          "category": "shared",
+          "role": "gate",
+          "value": "VKrG §6 사용자금리(Wucher): OeNB 분기 평균 SUKZ × 2 + 12pp 절대 한도 (2025Q4 자동차대출 SUKZ 약 7%→상한 약 26%). ABGB §879 등 사용자금지 별도",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "FLAG",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "VKrG(소비자신용법) §6, ABGB(민법) §879, OeNB 분기 SUKZ 고시",
+          "insight": "VKrG §6 사용자금리 상한 — OeNB 분기마다 자동차대출 평균 SUKZ × 2 + 12pp 고시(2025Q4 약 26%). 자동차대출 평균 7.5%로 여유 충분. B2B 리스는 적용 제외. 초과 시 ABGB §879 무효 + 형사처벌.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "category": "shared",
+          "role": "gate",
+          "value": "외환 통제 없음 (배당 27.5%·이자 0%(법인), EU 지침·조세조약 면제 가능)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "country",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "PwC Austria Withholding Taxes, EU 모자회사·이자로열티 지침",
+          "insight": "송금 자유. 이자 0%+배당 EU 지침 0%로 EU 내 회수 환경 매우 우호. AA+ 신용도로 자본회수 리스크 통제 가능.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "의무보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "자동차 의무책임보험(Kfz-Haftpflichtversicherung) 강제, KHVG 1994 / EU 지침 2009/103 적용",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "KHVG 1994 (자동차책임보험법), FMA 보험감독, EU 자동차보험 지침",
+          "insight": "차량 책임보험 의무는 EU 표준과 동일(FMA 보험감독·Garantiefonds 보장기금). 베이스라인 보험연동 로직 재사용 가능 — 특화개발 부담 낮음.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "신용생명보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "끼워팔기 강제 금지, 별도 동의·대안 제시 의무 (VKrG §6+§9 + FMA Empfehlung)",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "VKrG(소비자신용법) §6+§9, FMA Empfehlung",
+          "insight": "신용생명보험 강제판매(번들) 제한 + FMA 권고로 동의·대안 제공 의무. 상품 설계 시 옵션화 필요 — EU 일반 수준.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_3_tco": {
+      "build_cost": 1500.0,
+      "build_months": 5.3999999999999995,
+      "customization_cost": 750.0,
+      "annual_subscription": 180.0,
+      "annual_maintenance": 500,
+      "operations_10y": 50000,
+      "system_cost_10y": 9050.0,
+      "total_tco_10y": 59050.0,
+      "currency": "EUR",
+      "similarity_score": 75.0,
+      "discount_applied": 0.3,
+      "expected_contracts": 120,
+      "subscription_details": {
+        "existing_volume": 80,
+        "new_volume": 120,
+        "total_volume": 200,
+        "unit_price": 0.9,
+        "currency": "EUR",
+        "annual_fee": 180.0,
+        "note": "All volume repriced at new tier rate"
+      },
+      "subscription_tiers": [
+        {
+          "min_volume": 0,
+          "max_volume": 100,
+          "price_per_unit": 1.0,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 101,
+          "max_volume": 200,
+          "price_per_unit": 0.9,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 201,
+          "max_volume": 500,
+          "price_per_unit": 0.8,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 501,
+          "max_volume": 1000,
+          "price_per_unit": 0.7,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 1001,
+          "max_volume": 999999,
+          "price_per_unit": 0.6,
+          "currency": "EUR"
+        }
+      ],
+      "existing_total_volume": 80,
+      "items": [
+        {
+          "item": "신차 판매대수",
+          "category": "business",
+          "role": "score",
+          "value": 240000,
+          "unit": "units",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 239000
+              },
+              {
+                "year": 2022,
+                "value": 215000
+              },
+              {
+                "year": 2023,
+                "value": 240000
+              },
+              {
+                "year": 2024,
+                "value": 235000
+              },
+              {
+                "year": 2025,
+                "value": 240000
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 245000
+              },
+              {
+                "year": 2027,
+                "value": 250000
+              },
+              {
+                "year": 2028,
+                "value": 252000
+              },
+              {
+                "year": 2029,
+                "value": 255000
+              },
+              {
+                "year": 2030,
+                "value": 258000
+              }
+            ],
+            "cagr_hist": 0.1,
+            "cagr_forecast": 1.5,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "Statistik Austria 2025 / WKO Fahrzeug-Statistik (신차 등록 약 24만대 보합)",
+          "insight": "2025년 24만대 보합(2019년 33만에서 위축) — 코로나 후 회복 정체, 인구·면허 정체 영향. 법인 등록 55%+로 운용리스 견인. EU 12위 규모로 단독 진입 매력 작음.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "category": "business",
+          "role": "score",
+          "value": 72,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 65
+              },
+              {
+                "year": 2022,
+                "value": 67
+              },
+              {
+                "year": 2023,
+                "value": 69
+              },
+              {
+                "year": 2024,
+                "value": 70
+              },
+              {
+                "year": 2025,
+                "value": 72
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 73
+              },
+              {
+                "year": 2027,
+                "value": 74
+              },
+              {
+                "year": 2028,
+                "value": 75
+              },
+              {
+                "year": 2029,
+                "value": 76
+              },
+              {
+                "year": 2030,
+                "value": 77
+              }
+            ],
+            "cagr_hist": 2.6,
+            "cagr_forecast": 1.4,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "VÖL 2025 / WKO (법인 신차의 60%+ 운용리스), Porsche Bank 자료",
+          "insight": "신차 등록의 72%가 금융 경유 — 법인 신차의 60%+가 운용리스. 개인 부문은 할부 30%대로 유럽 평균. 캡티브가 압도적 지배.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "category": "business",
+          "role": "score",
+          "value": 62,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "VÖL Branchenbericht 2025 (운용리스 신규 등록 점유 약 30%·금융리스 약 15%·할부 약 17%)",
+          "insight": "신차의 62%가 리스 경유 — 운용리스(법인) 30% + 금융리스 15% + 할부 17%. 운용리스 비중 EU 톱급 — 진입 시 운용리스 우선 자명.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "category": "business",
+          "role": "score",
+          "value": 55,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "VÖL 2025 / Porsche Bank 공시 (Porsche Bank+Porsche Leasing 약 35%, VW FS·BMW·MB·Toyota 합산 추가 20%)",
+          "insight": "오스트리아는 캡티브 압도 — Porsche Bank(Porsche Holding Salzburg, VW그룹 유럽 최대 OEM 디스트리뷰터) 단독 35%+, OEM 캡티브 합산 55%로 EU 최강. 은행계(Erste·RBI) 약 15%, 다국적 리스사(Ayvens·Arval) 약 20%. 독립계 진입 거의 비매력.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "평균 신차가격",
+          "category": "business",
+          "role": "context",
+          "value": "약 €36,000 (turismos 평균 거래가, NoVA 등록세+EV·SUV 비중으로 EU 평균 상회)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "Statistik Austria 2025 평균 거래가 추정, AutoBild Austria",
+          "insight": "평균 신차 거래가 €36k로 EU 평균 상회(NoVA 등록세 + EV·프리미엄 비중). EV·SUV 비중 상승으로 우상향. 단위 금융 자산 가치 높음.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_4_market": {
+      "items": [
+        {
+          "item": "금융사 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Porsche Bank (VW그룹)",
+              "market_share": "약 35%"
+            },
+            {
+              "rank": 2,
+              "name": "Ayvens (구 ALD+LeasePlan)",
+              "market_share": "약 12%"
+            },
+            {
+              "rank": 3,
+              "name": "Raiffeisen-Leasing",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 4,
+              "name": "BAWAG P.S.K. Leasing",
+              "market_share": "약 6%"
+            },
+            {
+              "rank": 5,
+              "name": "Erste Group/s Leasing",
+              "market_share": "약 5%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "VÖL 2025 / Porsche Bank·Ayvens·Raiffeisen 공시",
+          "insight": "Porsche Bank 단독 1위 35%(EU 단일 1위 최고). 다국적 리스(Ayvens) 2위, 오스트리아 은행계(Raiffeisen·BAWAG·Erste) 톱5 진입. 톱5 합산 약 66% — 신규 진입은 캡티브 형태로만 가능.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "category": "business",
+          "role": "score",
+          "value": 35,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "VÖL 2025 / Porsche Bank·Erste 공시 (Porsche Bank 단독 1위 약 35%)",
+          "insight": "Porsche Bank 단독 1위 약 35%(EU 단일 1위 점유율 최고). 톱5 합산 약 75% 캡티브·다국적 집중 — 신규 진입은 EV·중고·SME 틈새도 매우 어려움. 한국 OEM 캡티브로만 진입 가능성.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "category": "business",
+          "role": "context",
+          "value": "신차 자동차대출 APR 약 5~9% (프로모 0~3% Porsche Bank 압도), 운용리스 월 임대료 €350~700, 소비자신용 평균 OeNB 통계 약 7%",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "OeNB 소비자신용 통계 2025, Porsche Bank/VW FS 프로모 공시",
+          "insight": "표준 차량대출 APR 5~9%, Porsche Bank 0~3% 프로모로 시장 압도. VKrG §6(약 26%) 상한 내 여유 충분. 캡티브 프로모와의 가격경쟁이 사실상 불가능 — 차별화 필수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Volkswagen",
+              "market_share": "12.5%"
+            },
+            {
+              "rank": 2,
+              "name": "Skoda",
+              "market_share": "10.0%"
+            },
+            {
+              "rank": 3,
+              "name": "BMW",
+              "market_share": "8.5%"
+            },
+            {
+              "rank": 4,
+              "name": "Seat/Cupra",
+              "market_share": "7.0%"
+            },
+            {
+              "rank": 5,
+              "name": "Audi",
+              "market_share": "6.5%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "Statistik Austria 2025 신차 등록 (VW 30,000 / Skoda 24,000 / BMW 20,400 / Seat 16,800 / Audi 15,600 추정)",
+          "insight": "VW 1위 12.5%, VW그룹(VW·Skoda·Seat·Audi) 합산 36% — Porsche Bank 캡티브 점유 35%+의 직접 근거. 독일 OEM 그룹 압도, 한국 OEM은 톱10권으로 진입 시 캡티브 전략 필요.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV 보급률",
+          "category": "business",
+          "role": "score",
+          "value": 25,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 13.9
+              },
+              {
+                "year": 2022,
+                "value": 15.2
+              },
+              {
+                "year": 2023,
+                "value": 17.5
+              },
+              {
+                "year": 2024,
+                "value": 21.0
+              },
+              {
+                "year": 2025,
+                "value": 25.0
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 30.0
+              },
+              {
+                "year": 2027,
+                "value": 35.0
+              },
+              {
+                "year": 2028,
+                "value": 41.0
+              },
+              {
+                "year": 2029,
+                "value": 47.0
+              },
+              {
+                "year": 2030,
+                "value": 54.0
+              }
+            ],
+            "cagr_hist": 15.8,
+            "cagr_forecast": 16.7,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "Statistik Austria/BEÖ(전기차연맹) 2025 (BEV+PHEV 점유 약 25%, BEV 단독 약 20%), E-Mobilitätsoffensive 보조금",
+          "insight": "2025년 EV 점유 25%(BEV 단독 20%)로 EU 톱10권. 연방 보조금 E-Mobilitätsoffensive(BEV €5,000)·법인세 BEV 우대(NoVA 면제·Sachbezug 0%) 견인. 운용리스 신규 50%+ EV — 잔가 모델에 EV 별도 곡선 필수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "category": "business",
+          "role": "score",
+          "value": 53,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 60
+              },
+              {
+                "year": 2022,
+                "value": 58
+              },
+              {
+                "year": 2023,
+                "value": 56
+              },
+              {
+                "year": 2024,
+                "value": 54
+              },
+              {
+                "year": 2025,
+                "value": 53
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 51
+              },
+              {
+                "year": 2027,
+                "value": 50
+              },
+              {
+                "year": 2028,
+                "value": 48
+              },
+              {
+                "year": 2029,
+                "value": 47
+              },
+              {
+                "year": 2030,
+                "value": 46
+              }
+            ],
+            "cagr_hist": -3.1,
+            "cagr_forecast": -2.8,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "Cox Automotive/Manheim DACH 잔가 추정(3년 EV), Eurotax Austria",
+          "insight": "EV 3년 잔가 53%로 DE와 동급 — ICE 대비 리스 손익 압박. 운용리스 EV 50%+ 비중으로 노출 큼. 잔가 보증·바이백 보수적 설계 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ],
+      "competitors": {
+        "item": "경쟁사 리스트",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Porsche Bank (VW그룹)",
+          "Ayvens Austria (ALD+LeasePlan)",
+          "Raiffeisen-Leasing",
+          "BAWAG P.S.K. Leasing",
+          "Erste Group/s Leasing",
+          "BMW Austria Leasing",
+          "Mercedes-Benz Financial Services Austria",
+          "Toyota Financial Services Austria",
+          "Stellantis Financial Services Austria",
+          "Arval Austria (BNP Paribas)",
+          "Alphabet Austria (BMW)",
+          "Sixt Leasing Austria",
+          "UniCredit Bank Austria/Bank Austria Leasing"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "VÖL 회원사 명단, FMA 등록부",
+        "insight": "Porsche Bank+VW FS 압도, 다국적 리스(Ayvens·Arval·Alphabet)+오스트리아 은행계(Raiffeisen·BAWAG·Erste·Bank Austria) 혼재. 한국계 미진출 — Hyundai/Kia 캡티브 신규 진입 매력적이나 점유율 낮아 RoI 회수 의문.",
+        "insight_ai_generated": true
+      },
+      "competitor_entry_form": {
+        "item": "경쟁사 진출 형태",
+        "category": "business",
+        "role": "context",
+        "value": "OEM 캡티브(Porsche Bank·VW FS·BMW·MB·Toyota·Stellantis) + 오스트리아 은행계(Raiffeisen·BAWAG·Erste·Bank Austria) + 다국적 리스사(Ayvens·Arval·Alphabet·Sixt). 운용리스는 GmbH 즉시 가능, 소비자금융은 FMA 인가 필요",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "VÖL, FMA 등록부",
+        "insight": "B2B 운용리스는 GmbH(€35k/€10k) 즉시 진입, 소비자금융은 FMA 인가 €5M. 단독 진입보다 CEE 본부(Wien Hub) 또는 DACH 통합(DE+AT+CH) 진입이 효율적. 한국 OEM(현대·기아) 점유 낮아 캡티브 단독 진입도 RoI 의문.",
+        "insight_ai_generated": true
+      },
+      "brand_top10": {
+        "item": "브랜드 Top10",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Volkswagen",
+          "Skoda",
+          "BMW",
+          "Seat/Cupra",
+          "Audi",
+          "Toyota",
+          "Hyundai",
+          "Mercedes-Benz",
+          "Kia",
+          "Renault"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 2,
+        "source": "Statistik Austria 2025 신차 등록 통계 (VW 1위·VW그룹 합산 35%+)",
+        "insight": "VW 1위, VW그룹(VW·Skoda·Seat·Audi) 합산 약 35% — Porsche Bank 캡티브 강세 근거. 한국 브랜드(Hyundai 7위·Kia 9위) 합산 톱5급. BMW·MB 프리미엄 강세.",
+        "insight_ai_generated": true
+      },
+      "news": {
+        "item": "외부 이슈 스캔",
+        "category": "business",
+        "role": "context",
+        "value": [
+          {
+            "news_category": "auto_market",
+            "headline": "오스트리아 2025년 신차 등록 24만대 보합, BEV 점유 20% 돌파",
+            "so_what": "시장 규모는 정체이나 BEV 침투 가속 — EV 운용리스 진입 매력. 단 시장 작아 단독 진입보다 CEE/DACH 통합 권장.",
+            "publisher": "Automotive News Europe",
+            "pub_date": "2026-01-26",
+            "url": "https://europe.autonews.com/..."
+          },
+          {
+            "news_category": "auto_finance",
+            "headline": "Porsche Bank 오스트리아 자동차금융 1위 35% 점유 유지, EU 단일 1위 최고",
+            "so_what": "캡티브 압도 구조로 독립계 신규 진입 거의 비매력. 한국 OEM(KCFS) 캡티브로만 진입 매력 — Hyundai/Kia 점유 톱10권 감안 시 RoI 의문.",
+            "publisher": "S&P Global Mobility",
+            "pub_date": "2026-02-22",
+            "url": "https://www.spglobal.com/mobility/..."
+          },
+          {
+            "news_category": "auto_market",
+            "headline": "오스트리아 BEV Sachbezug 0% 우대 2026까지 연장, 법인 EV 수요 견인",
+            "so_what": "BEV 법인 부가소득세 0% 우대 — 운용리스 BEV 수요 견인 지속. 그러나 일몰(2027~) 리스크로 장기 잔가 모델 보수적 설계 필요.",
+            "publisher": "Just Auto",
+            "pub_date": "2026-03-12",
+            "url": "https://www.just-auto.com/..."
+          },
+          {
+            "news_category": "credit_abs",
+            "headline": "오스트리아 auto loan/lease ABS 딜린퀀시 0.6%대 안정, EU 평균 하회",
+            "so_what": "연체 안정 신호 — 충당금 부담 EU 평균 이하. 진입 초기 신용정책 보수화 불필요.",
+            "publisher": "Moody's",
+            "pub_date": "2026-04-12",
+            "url": "https://www.moodys.com/..."
+          },
+          {
+            "news_category": "geopolitical",
+            "headline": "오스트리아 EU/CEE 권역 본부 매력 강화, Erste Group CEE 9개국 확장",
+            "so_what": "Wien CEE 허브 활용 매력 — 한 번의 진입으로 HU/CZ/SK/SI/HR 등 CEE 권역 커버 가능. AT 단독보다 CEE 통합 진입의 가치 큼.",
+            "publisher": "Reuters",
+            "pub_date": "2026-05-18",
+            "url": "https://www.reuters.com/..."
+          },
+          {
+            "news_category": "finance",
+            "headline": "오스트리아 AA+ 신용 유지, OeNB 기준금리 ECB 연동·이자 원천세 0% 정책",
+            "so_what": "조달환경 EU 최우호 — 한국 본사 자본배치 + EU/CEE Holding 허브 활용 매력. 외환 리스크 없음(EUR 사용).",
+            "publisher": "Financial Times",
+            "pub_date": "2025-12-08",
+            "url": "https://www.ft.com/..."
+          }
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "news",
+        "timeseries": null,
+        "tier": 3,
+        "source": "화이트리스트(Automotive News Europe·S&P Global Mobility·Just Auto·Moody's·Reuters·Financial Times)",
+        "insight": "AA+ 신용·낮은 조달비용·CEE 본부 매력은 진입에 우호적이나, Porsche Bank 압도·작은 시장규모가 양대 제약. 단독 진입은 비매력, CEE 본부 활용/DACH 통합 진입만 매력적.",
+        "insight_ai_generated": true
+      },
+      "regulators": {
+        "item": "규제기관 식별",
+        "category": "shared",
+        "role": "context",
+        "value": "FMA(Finanzmarktaufsicht, 금융사업법 인가·건전성·시장행위 통합) / OeNB(중앙은행, 결제·통화·CB 평가) / VKI(소비자보호단체)·BMSGPK / DSB(개인정보·AI) / WKO(상공회의소·자율규제 보조)",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 1,
+        "source": "FMA, OeNB, DSB, BMSGPK 공식",
+        "insight": "FMA가 금융 전반 통합 감독+OeNB 건전성 협력(이중 감독), 데이터는 DSB, 소비자는 VKI/BMSGPK. WKO 자율규제로 보조. 단일 창구 효율적이나 BWG 인가 절차는 EU 표준 9~12개월.",
+        "insight_ai_generated": false
+      },
+      "country_summary": {
+        "item": "해당국 정성 요약",
+        "category": "business",
+        "role": "context",
+        "value": "EU 12위 자동차 시장(2025 신차 24만대 보합). Porsche Bank(VW그룹) 단독 35%+로 EU 최강 캡티브 구조 — OEM 캡티브 합산 55%·다국적 리스 20%·은행계 15%·독립계 10%. 운용리스 60%+로 EU 톱급. 소비자금융은 BWG §1 Z2 등록(€5M)·VKrG §6 사용자금리, B2B 운용리스는 VÖL 자율규제. EU GDPR·SEPA·EPS·KSV1870·ID Austria로 IT 재사용성 최상위. AA+ 신용·이자 0%·EU/CEE 본부 활용 가능.",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "Statistik Austria, VÖL, FMA, OeNB, Porsche Bank",
+        "insight": "단독 진입은 캡티브 압도로 비매력 — CEE 권역(HU/CZ/SK/SI/HR) 본부 활용 또는 한국 OEM(KCFS) 캡티브 진입만 매력적. Wien Hub로 DACH+CEE 통합 운영 권장.",
+        "insight_ai_generated": true
+      }
+    }
+  }
+}

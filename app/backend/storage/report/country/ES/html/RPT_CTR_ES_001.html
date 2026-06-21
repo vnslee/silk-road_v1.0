@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="light" lang="ko">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>스페인 - Country TCO Report</title>
+    <title>스페인 진출 진단 보고서</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -111,9 +111,11 @@
         }
     </script>
     <style>
-        body { font-family: 'Hanken Grotesk', sans-serif; }
+        body { font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; }
         .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .card-shadow { box-shadow: 0 4px 8px rgba(0, 32, 78, 0.12); }
+        .card-shadow { box-shadow: 0 4px 8px rgba(0, 32, 78, 0.04); }
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary { list-style: none; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .tab-button.active {
@@ -125,28 +127,37 @@
 <body class="bg-surface min-h-screen font-body-md text-text-primary antialiased">
 <div class="w-full flex flex-col relative bg-surface">
     <header class="border-b border-surface-border px-margin-desktop py-lg shrink-0">
-        <div class="flex justify-between items-start gap-gutter max-w-7xl mx-auto">
-            <div class="flex gap-lg items-center">
-                <div class="w-16 h-16 rounded-full overflow-hidden border border-surface-border shrink-0 bg-surface-container flex items-center justify-center">
+        <div class="max-w-7xl mx-auto flex justify-between items-start gap-gutter">
+            <div class="flex gap-md items-start">
+                <div class="w-12 h-12 rounded-lg overflow-hidden border border-surface-border shrink-0 bg-surface-container flex items-center justify-center">
                     <img alt="스페인 Flag" class="w-full h-full object-cover" src="https://flagcdn.com/w160/es.png"/>
                 </div>
                 <div>
-                    <div class="flex items-center gap-sm mb-xs">
-                        <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">스페인</h1>
-                        <span class="bg-secondary-container/20 text-secondary px-2 py-1 rounded-sm font-label-sm text-label-sm uppercase tracking-wider">ES</span>
+                    <div class="flex items-center gap-sm mb-xs flex-wrap">
+                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">Report ID: RPT_CTR_ES_001</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="font-label-sm text-label-sm text-text-secondary">Generated: 2026-06-21 13:17</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="font-label-sm text-label-sm text-text-secondary">베이스라인: 영국(GB)</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="inline-flex items-center gap-xs px-2 py-[2px] rounded-full border font-label-sm text-label-sm uppercase tracking-wide bg-surface-container text-text-secondary border-surface-border">
+                            <span class="material-symbols-outlined text-[12px]">explore</span>
+                            미진출
+                        </span>
                     </div>
-                    <div class="flex items-center gap-md text-text-secondary font-body-sm text-body-sm">
-                        <div class="flex items-center gap-xs">
-                            <span class="material-symbols-outlined text-[16px]">tag</span>
-                            <span>ID: <span class="font-semibold text-text-primary">RPT_CTR_ES_001</span></span>
-                        </div>
-                        <span class="w-[1px] h-4 bg-surface-border"></span>
-                        <div class="flex items-center gap-xs">
-                            <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                            <span>Generated: <span class="text-text-primary">Jun 21, 2026</span></span>
-                        </div>
-                    </div>
+                    <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight m-0">스페인 진출 진단 보고서</h1>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">
+                        대상국: 스페인(ES) · 권역: EU · 유럽 · 통화: EUR · FX 기준: KRW · 데이터 기준연도 2025
+                    </p>
                 </div>
+            </div>
+            <div class="flex items-center gap-sm shrink-0">
+                <button class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>PDF
+                </button>
+                <button class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">share</span>Share
+                </button>
             </div>
         </div>
     </header>
@@ -156,34 +167,39 @@
         <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-sm mb-xl sticky top-0 z-10 card-shadow">
             <div class="flex gap-sm overflow-x-auto">
                 
-            <button class="tab-button flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="tab-0">
                 <span class="material-symbols-outlined text-[18px]">summarize</span>
                 <span>요약</span>
+                <span class="opacity-60 text-[10px]">Summary</span>
             </button>
             
-            <button class="tab-button flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="tab-1">
                 <span class="material-symbols-outlined text-[18px]">radar</span>
                 <span>유사도 점수</span>
+                <span class="opacity-60 text-[10px]">Similarity</span>
             </button>
             
-            <button class="tab-button flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="tab-2">
                 <span class="material-symbols-outlined text-[18px]">account_tree</span>
                 <span>시스템 결정 트리</span>
+                <span class="opacity-60 text-[10px]">Decision Tree</span>
             </button>
             
-            <button class="tab-button flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="tab-3">
                 <span class="material-symbols-outlined text-[18px]">analytics</span>
                 <span>계약건수·구독료·TCO</span>
+                <span class="opacity-60 text-[10px]">TCO</span>
             </button>
             
-            <button class="tab-button flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="tab-4">
                 <span class="material-symbols-outlined text-[18px]">public</span>
                 <span>시장·경쟁 배경</span>
+                <span class="opacity-60 text-[10px]">Market</span>
             </button>
             
             </div>
@@ -191,10 +207,54 @@
         
 
             <div class="tab-content active" id="tab-0">
-        <div class="grid grid-cols-12 gap-gutter">
-            <div class="col-span-8 flex flex-col gap-xl">
-                <div class="grid grid-cols-3 gap-gutter">
-                    
+        <div class="flex flex-col gap-xl">
+            
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+                <h2 class="font-headline-md text-headline-md text-primary">요약</h2>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-md list-none p-0 m-0">
+                
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs">유사도 평가</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">베이스라인 <strong>영국(GB)</strong> 대비 종합 유사도 <strong>75.3점 / 100</strong></span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs">시스템 결정</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><strong>권역 내 확산 (영국 시스템)</strong> — 권역 내 확산: GB 시스템(NetSol) 현지화</span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs">10년 TCO</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">총 <strong>€104,466</strong> (시스템 + 운영비 통합 · 환산 기준 통화 KRW)</span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs">구축 기간 / 계약</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">예상 구축 기간 <strong>12.6개월</strong> · 예상 신규 계약건수 <strong>7,581건/년</strong></span>
+                </div>
+            </li>
+            
+            </ul>
+        </section>
+        
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-8 flex flex-col gap-xl">
+                    <div class="grid grid-cols-3 gap-gutter">
+                        
             <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col h-full">
                 <div class="flex items-center justify-between mb-md">
                     <span class="font-headline-md text-headline-md text-primary tracking-tight">유사도 점수</span>
@@ -211,7 +271,7 @@
                     <span class="material-symbols-outlined text-primary text-[32px]">payments</span>
                 </div>
                 <div class="flex-1 flex items-end">
-                    <span class="font-display-lg text-display-lg text-primary leading-none">€59,050</span>
+                    <span class="font-display-lg text-display-lg text-primary leading-none">€104,466</span>
                 </div>
             </div>
             
@@ -221,12 +281,12 @@
                     <span class="material-symbols-outlined text-primary text-[32px]">schedule</span>
                 </div>
                 <div class="flex-1 flex items-end">
-                    <span class="font-display-lg text-display-lg text-primary leading-none">5.4M</span>
+                    <span class="font-display-lg text-display-lg text-primary leading-none">12.6M</span>
                 </div>
             </div>
             
-                </div>
-                
+                    </div>
+                    
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span>
@@ -383,7 +443,7 @@
                                 <span class="material-symbols-outlined text-emerald-700 text-[20px]">expand_circle_down</span>
                                 <span class="font-label-md text-label-md text-emerald-800 uppercase tracking-wider">권역 내 확산 (영국 시스템)</span>
                             </div>
-                            <p class="font-body-sm text-body-sm text-emerald-900 leading-relaxed">권역 내 확산 시스템(영국 - NetSol) + 현지 특화 추가개발 → 탭1-3 비용 산정</p>
+                            <p class="font-body-sm text-body-sm text-emerald-900 leading-relaxed">권역 내 확산 시스템(영국 - NetSol) + 현지 특화 추가개발 → TCO 산정</p>
                         </div>
 
                         <div class="dt-branch-card dt-branch-ext bg-yellow-100/40 border-2 border-outline-variant opacity-40 rounded-xl p-md">
@@ -427,38 +487,38 @@
         
         </section>
         
-            </div>
-            <div class="col-span-4 flex flex-col gap-xl">
-                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
-                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
-                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
-                        <h2 class="font-headline-md text-headline-md text-primary">결정 요약</h2>
-                    </div>
-                    <div class="flex flex-col gap-md">
-                        <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
-                            <div class="flex items-center gap-sm">
-                                <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-secondary text-[18px]">account_tree</span>
+                </div>
+                <div class="col-span-4 flex flex-col gap-xl">
+                    <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                        <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                            <h2 class="font-headline-md text-headline-md text-primary">결정 요약</h2>
+                        </div>
+                        <div class="flex flex-col gap-md">
+                            <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-secondary text-[18px]">account_tree</span>
+                                    </div>
+                                    <span class="font-label-md text-label-md text-text-primary">시스템 결정</span>
                                 </div>
-                                <span class="font-label-md text-label-md text-text-primary">시스템 결정</span>
+                                <div class="flex items-center gap-xs bg-emerald-100/50 text-emerald-800 px-2 py-1 rounded-full border border-emerald-200">
+                                    <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                    <span class="font-label-sm text-label-sm uppercase tracking-wide">권역 내 확산 (영국 시스템)</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-xs bg-emerald-100/50 text-emerald-800 px-2 py-1 rounded-full border border-emerald-200">
-                                <span class="material-symbols-outlined text-[14px]">check_circle</span>
-                                <span class="font-label-sm text-label-sm uppercase tracking-wide">권역 내 확산 (영국 시스템)</span>
+                            <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-secondary text-[18px]">flag</span>
+                                    </div>
+                                    <span class="font-label-md text-label-md text-text-primary">베이스라인 국가</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-text-primary font-semibold">영국 (GB)</span>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
-                            <div class="flex items-center gap-sm">
-                                <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-secondary text-[18px]">flag</span>
-                                </div>
-                                <span class="font-label-md text-label-md text-text-primary">베이스라인 국가</span>
-                            </div>
-                            <span class="font-label-md text-label-md text-text-primary font-semibold">영국 (GB)</span>
-                        </div>
-                    </div>
-                </section>
-                
+                    </section>
+                    
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
@@ -477,7 +537,7 @@
                 <td class="px-2 py-1 border-b border-surface-container-highest text-right">€1.00</td>
             </tr>
             
-            <tr class="bg-emerald-50/60 text-emerald-900 font-semibold">
+            <tr class="text-text-primary">
                 <td class="px-2 py-1 border-b border-surface-container-highest">101 ~ 200</td>
                 <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.90</td>
             </tr>
@@ -492,7 +552,7 @@
                 <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.70</td>
             </tr>
             
-            <tr class="text-text-primary">
+            <tr class="bg-emerald-50/60 text-emerald-900 font-semibold">
                 <td class="px-2 py-1 border-b border-surface-container-highest">1,001+</td>
                 <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.60</td>
             </tr>
@@ -500,40 +560,24 @@
             </table>
             <div class="flex flex-col gap-xs mt-md pt-sm border-t border-surface-container-highest font-body-sm text-body-sm">
                 <div class="flex justify-between"><span class="text-text-secondary">기존 누적</span><span class="text-text-primary font-semibold">80건</span></div>
-                <div class="flex justify-between"><span class="text-text-secondary">신규 추가</span><span class="text-text-primary font-semibold">120건</span></div>
-                <div class="flex justify-between"><span class="text-text-secondary">신규 누적</span><span class="text-emerald-700 font-semibold">200건</span></div>
-                <div class="flex justify-between"><span class="text-text-secondary">적용 단가</span><span class="text-emerald-700 font-semibold">€0.90</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">신규 추가</span><span class="text-text-primary font-semibold">7,581건</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">신규 누적</span><span class="text-emerald-700 font-semibold">7,661건</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">적용 단가</span><span class="text-emerald-700 font-semibold">€0.60</span></div>
             </div>
         </section>
         
-                
-        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
-            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
-                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
-                <h2 class="font-headline-md text-headline-md text-primary">요약</h2>
-            </div>
-            <div class="prose max-w-none font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                <p class="mb-sm">
-                    스페인은(는) 베이스라인 국가 영국 대비 유사도 점수 75.3점으로 평가되어,
-                    <strong>권역 내 확산 (영국 시스템)</strong> 전략이 권고됩니다.
-                </p>
-                <p>
-                    10년 총소유비용(TCO)은 €59,050이며, 예상 구축 기간은 약 5.4개월입니다.
-                    예상 신규 계약건수는 약 120건입니다.
-                </p>
-            </div>
-            <div class="bg-surface-container/60 p-md rounded-lg border-l-4 border-primary mt-md"><div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span><span class="font-semibold font-label-md text-label-md text-primary uppercase">국가 종합 인사이트</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EU 5위권 자동차 시장. 2025년 신차(turismos) 등록 1,148,650대(+12.9%, ANFAC)로 강한 회복세를 보였고, 렌팅(운용리스)이 신규 등록의 25.6%(281,593대, AER)를 차지하며 법인·플릿 수요가 성장을 견인한다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 EFC(여신전문금융기관) 인가(최저자본 €5M·전액 현금납입, RD 309/2020·Banco de España 감독)와 2026년 발효 예정 신소비자신용법(한시 22% TAE 상한 + 영구적으로 BdE 분기 평균금리+금액별 마진)이라는 이중 규제가 진입 부담의 핵심이다. 반면 B2B 리스·렌팅은 인가 부담이 경감되어 진입이 유연하다. 비즈니스 매력도(EU 5위 시장규모, 렌팅 고성장)는 상위권이나, 캡티브가 아닌 은행계 주도(Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%) 구조는 독립계 진입 여지를 남긴다. IT 유사도는 높다 — EU GDPR·SEPA·Bizum·성숙한 CB 인프라(CIRBE/ASNEF/Experian)로 NetSol 베이스라인 재사용률이 양호하다. 매력도↔IT 불일치 지점은 차량회수 — 리스·렌팅은 소유권 기반으로 용이하나 소비자대출 담보회수는 사법 적체로 6~12개월이 걸려 상품 믹스가 회수 리스크를 좌우한다. 다크호스는 렌팅 시장의 EV 비중(신규의 51.3%)으로, 잔가 리스크 관리가 리스 손익의 핵심 변수다. 렌팅·플릿 우선 진입 후 EFC 인가 기반 소비자금융으로 단계적 확장하는 전략이 유효하다.</p></div>
-            <div class="bg-surface-container p-md rounded-lg border-l-4 border-primary mt-md">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
-                    <span class="font-semibold font-label-md text-label-md text-primary uppercase">전략 권고</span>
+                    
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">국가 종합 인사이트</h2>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    권역 내 확산: GB 시스템(NetSol) 현지화 (유사도 75.3점, 베이스라인: 영국)
-                </p>
-            </div>
-        </section>
-        
+                <ul class="flex flex-col gap-sm list-none p-0 m-0">
+                    <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">EU 5위권 자동차 시장.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">2025년 신차(turismos) 등록 1,148,650대(+12.9%, ANFAC)로 강한 회복세를 보였고, 렌팅(운용리스)이 신규 등록의 25.6%(281,593대, AER)를 차지하며 법인·플릿 수요가 성장을 견인한다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 EFC(여신전문금융기관) 인가(최저자본 €5M·전액 현금납입, RD 309/2020·Banco de España 감독)와 2026년 발효 예정 신소비자신용법(한시 22% TAE 상한 + 영구적으로 BdE 분기 평균금리+금액별 마진)이라는 이중 규제가 진입 부담의 핵심이다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">반면 B2B 리스·렌팅은 인가 부담이 경감되어 진입이 유연하다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">비즈니스 매력도(EU 5위 시장규모, 렌팅 고성장)는 상위권이나, 캡티브가 아닌 은행계 주도(Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%) 구조는 독립계 진입 여지를 남긴다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">IT 유사도는 높다 — EU GDPR·SEPA·Bizum·성숙한 CB 인프라(CIRBE/ASNEF/Experian)로 NetSol 베이스라인 재사용률이 양호하다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">매력도↔IT 불일치 지점은 차량회수 — 리스·렌팅은 소유권 기반으로 용이하나 소비자대출 담보회수는 사법 적체로 6~12개월이 걸려 상품 믹스가 회수 리스크를 좌우한다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">다크호스는 렌팅 시장의 EV 비중(신규의 51.3%)으로, 잔가 리스크 관리가 리스 손익의 핵심 변수다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">렌팅·플릿 우선 진입 후 EFC 인가 기반 소비자금융으로 단계적 확장하는 전략이 유효하다.</span></li>
+                </ul>
+            </section>
+            
+                </div>
             </div>
         </div>
         </div>
@@ -611,7 +655,7 @@
                     <div class="p-md bg-emerald-50/60 rounded-lg border-l-4 border-emerald-600">
                         <div class="flex items-center gap-xs mb-xs">
                             <span class="material-symbols-outlined text-emerald-700 text-[18px]">percent</span>
-                            <span class="font-semibold font-label-md text-label-md text-emerald-800 uppercase">탭1-3 승수</span>
+                            <span class="font-semibold font-label-md text-label-md text-emerald-800 uppercase">TCO 적용 승수</span>
                         </div>
                         <div class="flex items-baseline gap-xs">
                             <span class="font-headline-lg text-headline-lg text-emerald-700">70%</span>
@@ -1413,7 +1457,7 @@
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
                 <h2 class="font-headline-md text-headline-md text-primary">유사도 산정 근거 항목 (원천 데이터)</h2>
             </div>
-            <div class="flex flex-col gap-md">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
                 
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
             <div class="flex items-start justify-between gap-sm">
@@ -1422,24 +1466,36 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span>글로벌 패키지 + 은행계 자체 코어 혼재</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>글로벌 패키지 + 은행계 자체 코어 혼재</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">대형 은행계는 자체 코어, 캡티브·전문 리스사는 글로벌 패키지 사용. EU 표준 아키텍처와 정합.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">대형 은행계는 자체 코어, 캡티브·전문 리스사는 글로벌 패키지 사용. EU 표준 아키텍처와 정합.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -1449,24 +1505,36 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">4</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">4</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (Bizum·온라인 딜러금융·전자서명 보편화)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Bizum 결제·전자서명·온라인 딜러금융 보편화로 디지털 계약 성숙. 완전 디지털 온보딩 전환 진행 중.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (Bizum·온라인 딜러금융·전자서명 보편화)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Bizum 결제·전자서명·온라인 딜러금융 보편화로 디지털 계약 성숙. 완전 디지털 온보딩 전환 진행 중.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -1476,24 +1544,36 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">4</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">4</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (coches.net·Wallapop·OEM 온라인 판매)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">coches.net·온라인 딜러금융·OEM 직판 채널 발달. 디지털 리테일 성숙 — 임베디드 금융 연동 기회.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (coches.net·Wallapop·OEM 온라인 판매)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">coches.net·온라인 딜러금융·OEM 직판 채널 발달. 디지털 리테일 성숙 — 임베디드 금융 연동 기회.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -1503,24 +1583,36 @@
                     <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 1</span>
                     <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">PASS</span>
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span>소비자 여신=EFC 인가(S.A.+최저자본 €5M+스페인은행 감독), B2B 운용리스(렌팅)=인가 부담 경감</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>소비자 여신=EFC 인가(S.A.+최저자본 €5M+스페인은행 감독), B2B 운용리스(렌팅)=인가 부담 경감</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Law 5/2015, 스페인은행, Baker McKenzie Spain</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">세그먼트별 규제 강도 차이 큼. 소비자 여신은 EFC 인가·자본·감독으로 거버넌스 공수 큼, 렌팅은 컴플라이언스 공수 상대적 경감.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Law 5/2015, 스페인은행, Baker McKenzie Spain</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">세그먼트별 규제 강도 차이 큼. 소비자 여신은 EFC 인가·자본·감독으로 거버넌스 공수 큼, 렌팅은 컴플라이언스 공수 상대적 경감.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -1530,24 +1622,36 @@
                     <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 1</span>
                     <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">PASS</span>
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span>EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EU GDPR, 스페인 개인정보보호법(LOPDGDD)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EU GDPR, 스페인 개인정보보호법(LOPDGDD)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -1557,24 +1661,36 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">3</span> <span class="text-text-secondary font-body-sm">ease_1to5</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">3</span> <span class="text-text-secondary font-body-sm">ease_1to5</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">스페인 민사소송법, 업계 (리스/렌팅 소유권 기반 회수)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">리스·렌팅은 금융사 소유권 보유로 회수 용이. 소비자 대출 담보회수는 법원 절차로 수개월 — 상품별 회수 모듈 분기 필요.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">스페인 민사소송법, 업계 (리스/렌팅 소유권 기반 회수)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">리스·렌팅은 금융사 소유권 보유로 회수 용이. 소비자 대출 담보회수는 법원 절차로 수개월 — 상품별 회수 모듈 분기 필요.</p>
-            </div>
+            </details>
         </div>
         
             </div>
@@ -1583,8 +1699,8 @@
         </div>
         </div>
             <div class="tab-content" id="tab-2">
-        <div class="flex flex-col gap-xl">
-            
+        <div class="grid grid-cols-12 gap-gutter">
+            <div class="col-span-9">
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span>
@@ -1741,7 +1857,7 @@
                                 <span class="material-symbols-outlined text-emerald-700 text-[20px]">expand_circle_down</span>
                                 <span class="font-label-md text-label-md text-emerald-800 uppercase tracking-wider">권역 내 확산 (영국 시스템)</span>
                             </div>
-                            <p class="font-body-sm text-body-sm text-emerald-900 leading-relaxed">권역 내 확산 시스템(영국 - NetSol) + 현지 특화 추가개발 → 탭1-3 비용 산정</p>
+                            <p class="font-body-sm text-body-sm text-emerald-900 leading-relaxed">권역 내 확산 시스템(영국 - NetSol) + 현지 특화 추가개발 → TCO 산정</p>
                         </div>
 
                         <div class="dt-branch-card dt-branch-ext bg-yellow-100/40 border-2 border-outline-variant opacity-40 rounded-xl p-md">
@@ -1784,19 +1900,68 @@
             </div>
         
         </section>
-        
+        </div>
+            <div class="col-span-3">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
+                <h2 class="font-headline-md text-headline-md text-primary">구독료 구간표</h2>
+            </div>
+            <table class="w-full font-body-sm text-body-sm">
+                <thead>
+                    <tr class="text-text-secondary">
+                        <th class="px-2 py-1 text-left font-label-sm text-label-sm uppercase">누적건수</th>
+                        <th class="px-2 py-1 text-right font-label-sm text-label-sm uppercase">단가</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr class="text-text-primary">
+                <td class="px-2 py-1 border-b border-surface-container-highest">0 ~ 100</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right">€1.00</td>
+            </tr>
+            
+            <tr class="text-text-primary">
+                <td class="px-2 py-1 border-b border-surface-container-highest">101 ~ 200</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.90</td>
+            </tr>
+            
+            <tr class="text-text-primary">
+                <td class="px-2 py-1 border-b border-surface-container-highest">201 ~ 500</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.80</td>
+            </tr>
+            
+            <tr class="text-text-primary">
+                <td class="px-2 py-1 border-b border-surface-container-highest">501 ~ 1,000</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.70</td>
+            </tr>
+            
+            <tr class="bg-emerald-50/60 text-emerald-900 font-semibold">
+                <td class="px-2 py-1 border-b border-surface-container-highest">1,001+</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right">€0.60</td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="flex flex-col gap-xs mt-md pt-sm border-t border-surface-container-highest font-body-sm text-body-sm">
+                <div class="flex justify-between"><span class="text-text-secondary">기존 누적</span><span class="text-text-primary font-semibold">80건</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">신규 추가</span><span class="text-text-primary font-semibold">7,581건</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">신규 누적</span><span class="text-emerald-700 font-semibold">7,661건</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">적용 단가</span><span class="text-emerald-700 font-semibold">€0.60</span></div>
+            </div>
+        </section>
+        </div>
         </div>
         </div>
             <div class="tab-content" id="tab-3">
         <div class="flex flex-col gap-xl">
-            <div class="grid grid-cols-3 gap-gutter">
+            <div class="grid grid-cols-4 gap-gutter">
                 
             <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col">
                 <div class="flex items-center justify-between mb-sm">
                     <span class="font-label-md text-label-md text-primary uppercase tracking-wider">총 10년 TCO</span>
                     <span class="material-symbols-outlined text-primary text-[24px]">payments</span>
                 </div>
-                <span class="font-display-lg text-display-lg text-primary leading-none">€59,050</span>
+                <span class="font-display-lg text-display-lg text-primary leading-none">€104,466</span>
+                
             </div>
             
             <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col">
@@ -1804,7 +1969,8 @@
                     <span class="font-label-md text-label-md text-primary uppercase tracking-wider">예상 구축 기간</span>
                     <span class="material-symbols-outlined text-primary text-[24px]">schedule</span>
                 </div>
-                <span class="font-display-lg text-display-lg text-primary leading-none">5.4M</span>
+                <span class="font-display-lg text-display-lg text-primary leading-none">12.6M</span>
+                
             </div>
             
             <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col">
@@ -1812,11 +1978,129 @@
                     <span class="font-label-md text-label-md text-primary uppercase tracking-wider">예상 계약건수</span>
                     <span class="material-symbols-outlined text-primary text-[24px]">fact_check</span>
                 </div>
-                <span class="font-display-lg text-display-lg text-primary leading-none">120건</span>
+                <span class="font-display-lg text-display-lg text-primary leading-none">7,581건</span>
+                
+            </div>
+            
+            <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col">
+                <div class="flex items-center justify-between mb-sm">
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider">유사도 승수</span>
+                    <span class="material-symbols-outlined text-primary text-[24px]">percent</span>
+                </div>
+                <span class="font-display-lg text-display-lg text-primary leading-none">70%</span>
+                <span class="font-label-sm text-label-sm text-text-secondary mt-xs">구간 70~80</span>
             </div>
             
             </div>
             
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">build</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">구축비용·기간 산식</h2>
+                </div>
+                <div class="bg-surface-container p-md rounded-lg border-l-4 border-primary mb-md font-body-sm text-body-sm text-on-surface-variant">
+                    구축비용/기간 = 베이스라인(B) 값 × 유사도 승수
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-sm">
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">베이스라인</div>
+                        <div class="font-headline-md text-headline-md text-primary">영국</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">NetSol</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">B 구축비용</div>
+                        <div class="font-headline-md text-headline-md text-primary">€5,000</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">internal.json</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">B 구축기간</div>
+                        <div class="font-headline-md text-headline-md text-primary">18M</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">internal.json</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">종합 유사도</div>
+                        <div class="font-headline-md text-headline-md text-primary">75.3</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">유사도 점수 결과</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">적용 승수</div>
+                        <div class="font-headline-md text-headline-md text-primary">70%</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">구간 70~80</div>
+                    </div>
+                    <div class="p-sm bg-primary-container/10 rounded-lg border-2 border-primary">
+                        <div class="font-label-sm text-label-sm text-primary uppercase tracking-wider">신규국 산출</div>
+                        <div class="font-headline-md text-headline-md text-primary">€3,500</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">12.6M</div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section class="bg-surface-container-lowest border-2 border-dashed border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-text-secondary" style="font-variation-settings: 'FILL' 1;">domain</span>
+                    <h2 class="font-headline-md text-headline-md text-text-secondary">본사 자체구축 (참고)</h2>
+                    <span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">결정 분기와 무관 · 비교용</span>
+                </div>
+                <div class="grid grid-cols-3 gap-sm">
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">자체구축 비용</div>
+                        <div class="font-headline-md text-headline-md text-text-primary">€8,000</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">internal.json · hq_build_baseline</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">자체구축 기간</div>
+                        <div class="font-headline-md text-headline-md text-text-primary">24M</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">internal.json · hq_build_baseline</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">vs 권역 확산</div>
+                        <div class="font-headline-md text-headline-md text-text-primary">+€4,500</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">+11.4M 차이</div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">function</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">예상 계약건수 산식</h2>
+                </div>
+                <div class="bg-surface-container p-md rounded-lg border-l-4 border-primary mb-md font-body-sm text-body-sm text-on-surface-variant">
+                    신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-sm">
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">신차 판매대수</div>
+                        <div class="font-headline-md text-headline-md text-primary">1,148,650</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">대 / 년</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">금융 이용률</div>
+                        <div class="font-headline-md text-headline-md text-primary">60%</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">신차 기준</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">할부·리스 비중</div>
+                        <div class="font-headline-md text-headline-md text-primary">55%</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">구매 패턴</div>
+                    </div>
+                    <div class="p-sm bg-surface rounded-lg border border-surface-container-highest">
+                        <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">우리사 점유율</div>
+                        <div class="font-headline-md text-headline-md text-primary">2.0%</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">internal.json</div>
+                    </div>
+                    <div class="p-sm bg-primary-container/10 rounded-lg border-2 border-primary">
+                        <div class="font-label-sm text-label-sm text-primary uppercase tracking-wider">예상 계약건수</div>
+                        <div class="font-headline-md text-headline-md text-primary">7,581건</div>
+                        <div class="font-label-sm text-label-sm text-text-secondary">= 산식 결과</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-6">
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stacked_bar_chart</span>
@@ -1824,12 +2108,11 @@
             </div>
             <svg class="w-full" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet">
                 <line x1="40" y1="280" x2="740" y2="280" stroke="#c4c6d2" stroke-width="1"/>
-                <rect x="40.0" y="273.39542760372564" width="98.0" height="6.604572396274364" fill="#10b981" opacity="0.85" rx="3"/><text x="89.0" y="267.39542760372564" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€1,500</text><text x="89.0" y="296" font-size="11" fill="#434751" text-anchor="middle">구축비</text><rect x="180.0" y="270.0931414055885" width="98.0" height="3.3022861981371534" fill="#10b981" opacity="0.85" rx="3"/><text x="229.0" y="264.0931414055885" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€750</text><text x="229.0" y="296" font-size="11" fill="#434751" text-anchor="middle">특화개발</text><rect x="320.0" y="240.15241320914478" width="98.0" height="29.9407281964437" fill="#10b981" opacity="0.85" rx="3"/><text x="369.0" y="234.15241320914478" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€6,800</text><text x="369.0" y="296" font-size="11" fill="#434751" text-anchor="middle">유지비(10Y)</text><rect x="460.0" y="20.0" width="98.0" height="220.15241320914478" fill="#10b981" opacity="0.85" rx="3"/><text x="509.0" y="14.0" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€50,000</text><text x="509.0" y="296" font-size="11" fill="#434751" text-anchor="middle">운영비(10Y)</text><rect x="600.0" y="20.0" width="98.0" height="260.0" fill="#00204e" rx="3"/><text x="649.0" y="14.0" font-size="11" fill="#00204e" font-weight="700" text-anchor="middle">€59,050</text><text x="649.0" y="296" font-size="11" fill="#434751" text-anchor="middle">총 TCO</text>
+                <rect x="40.0" y="271.28903183811" width="98.0" height="8.71096816188998" fill="#10b981" opacity="0.85" rx="3"/><text x="89.0" y="265.28903183811" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€3,500</text><text x="89.0" y="296" font-size="11" fill="#434751" text-anchor="middle">구축비</text><rect x="180.0" y="144.4424023127142" width="98.0" height="126.84662952539583" fill="#10b981" opacity="0.85" rx="3"/><text x="229.0" y="138.4424023127142" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€50,966</text><text x="229.0" y="296" font-size="11" fill="#434751" text-anchor="middle">유지비(10Y)</text><rect x="320.0" y="144.4424023127142" width="98.0" height="135.5575976872858" fill="#00204e" rx="3"/><text x="369.0" y="138.4424023127142" font-size="11" fill="#00204e" font-weight="700" text-anchor="middle">€54,466</text><text x="369.0" y="296" font-size="11" fill="#434751" text-anchor="middle">시스템 소계</text><rect x="460.0" y="20.0" width="98.0" height="124.4424023127142" fill="#10b981" opacity="0.85" rx="3"/><text x="509.0" y="14.0" font-size="11" fill="#10b981" font-weight="700" text-anchor="middle">+€50,000</text><text x="509.0" y="296" font-size="11" fill="#434751" text-anchor="middle">운영비(10Y)</text><rect x="600.0" y="20.0" width="98.0" height="260.0" fill="#00204e" rx="3"/><text x="649.0" y="14.0" font-size="11" fill="#00204e" font-weight="700" text-anchor="middle">€104,466</text><text x="649.0" y="296" font-size="11" fill="#434751" text-anchor="middle">총 TCO</text>
             </svg>
         </section>
-        
-            <div class="grid grid-cols-12 gap-gutter">
-                <div class="col-span-7">
+        </div>
+                <div class="col-span-6">
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
                 <div class="flex items-center gap-sm">
@@ -1837,19 +2120,33 @@
                     <h2 class="font-headline-md text-headline-md text-primary">10년 누적 비용 추이</h2>
                 </div>
                 <div class="flex items-center gap-md">
-                    <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">일회성(구축+특화)</span></div>
-                    <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full" style="background:#599bfe"></span><span class="font-label-sm text-label-sm text-text-secondary">반복(유지+운영)</span></div>
+                    <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">Y0 구축비</span></div>
+                    <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full" style="background:#005db7"></span><span class="font-label-sm text-label-sm text-text-secondary">누적 총비용</span></div>
                 </div>
             </div>
-            <svg class="w-full" viewBox="0 0 760 280" preserveAspectRatio="xMidYMid meet">
-                <line x1="60" y1="20.0" x2="740" y2="20.0" stroke="#e3e2e2"/><text x="54" y="24.0" font-size="10" fill="#747782" text-anchor="end">€59,050</text><line x1="60" y1="76.0" x2="740" y2="76.0" stroke="#e3e2e2"/><text x="54" y="80.0" font-size="10" fill="#747782" text-anchor="end">€44,288</text><line x1="60" y1="132.0" x2="740" y2="132.0" stroke="#e3e2e2"/><text x="54" y="136.0" font-size="10" fill="#747782" text-anchor="end">€29,525</text><line x1="60" y1="188.0" x2="740" y2="188.0" stroke="#e3e2e2"/><text x="54" y="192.0" font-size="10" fill="#747782" text-anchor="end">€14,762</text><line x1="60" y1="244.0" x2="740" y2="244.0" stroke="#e3e2e2"/><text x="54" y="248.0" font-size="10" fill="#747782" text-anchor="end">€0</text>
-                <path d="M 60.0 244.0 L 60.0 235.4648602878916 L 128.0 235.4648602878916 L 196.0 235.4648602878916 L 264.0 235.4648602878916 L 332.0 235.4648602878916 L 400.0 235.4648602878916 L 468.0 235.4648602878916 L 536.0 235.4648602878916 L 604.0 235.4648602878916 L 672.0 235.4648602878916 L 740.0 235.4648602878916 L 740.0 244.0 Z" fill="#00204e" opacity="0.6"/>
-                <path d="M 60.0 235.4648602878916 L 60.0 235.4648602878916 L 128.0 213.91837425910245 L 196.0 192.3718882303133 L 264.0 170.82540220152413 L 332.0 149.27891617273497 L 400.0 127.73243014394582 L 468.0 106.18594411515664 L 536.0 84.63945808636748 L 604.0 63.09297205757832 L 672.0 41.54648602878916 L 740.0 20.0 L 740.0 235.4648602878916 L 672.0 235.4648602878916 L 604.0 235.4648602878916 L 536.0 235.4648602878916 L 468.0 235.4648602878916 L 400.0 235.4648602878916 L 332.0 235.4648602878916 L 264.0 235.4648602878916 L 196.0 235.4648602878916 L 128.0 235.4648602878916 L 60.0 235.4648602878916 Z" fill="#599bfe" opacity="0.5"/>
-                <text x="60.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y0</text><text x="128.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y1</text><text x="196.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y2</text><text x="264.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y3</text><text x="332.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y4</text><text x="400.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y5</text><text x="468.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y6</text><text x="536.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y7</text><text x="604.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y8</text><text x="672.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y9</text><text x="740.0" y="260" font-size="10" fill="#747782" text-anchor="middle">Y10</text>
+            <svg class="w-full" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet">
+                <line x1="70" y1="30.0" x2="740" y2="30.0" stroke="#e3e2e2"/><text x="64" y="34.0" font-size="10" fill="#747782" text-anchor="end">€104,466</text><line x1="70" y1="92.5" x2="740" y2="92.5" stroke="#e3e2e2"/><text x="64" y="96.5" font-size="10" fill="#747782" text-anchor="end">€78,349</text><line x1="70" y1="155.0" x2="740" y2="155.0" stroke="#e3e2e2"/><text x="64" y="159.0" font-size="10" fill="#747782" text-anchor="end">€52,233</text><line x1="70" y1="217.5" x2="740" y2="217.5" stroke="#e3e2e2"/><text x="64" y="221.5" font-size="10" fill="#747782" text-anchor="end">€26,116</text><line x1="70" y1="280.0" x2="740" y2="280.0" stroke="#e3e2e2"/><text x="64" y="284.0" font-size="10" fill="#747782" text-anchor="end">€0</text>
+                <path d="M 70.0 280.0 L 70.0 271.62406907510575 L 137.0 247.4616621675952 L 204.0 223.2992552600846 L 271.0 199.13684835257405 L 338.0 174.97444144506346 L 405.0 150.81203453755288 L 472.0 126.64962763004232 L 539.0 102.48722072253176 L 606.0 78.32481381502114 L 673.0 54.16240690751056 L 740.0 30.0 L 740.0 280.0 Z" fill="#005db7" opacity="0.12"/>
+                <path d="M 70.0 271.62406907510575 L 137.0 247.4616621675952 L 204.0 223.2992552600846 L 271.0 199.13684835257405 L 338.0 174.97444144506346 L 405.0 150.81203453755288 L 472.0 126.64962763004232 L 539.0 102.48722072253176 L 606.0 78.32481381502114 L 673.0 54.16240690751056 L 740.0 30.0" fill="none" stroke="#005db7" stroke-width="2.5"/>
+                <circle cx="70.0" cy="271.62406907510575" r="3.5" fill="#005db7"/><circle cx="137.0" cy="247.4616621675952" r="3.5" fill="#005db7"/><circle cx="204.0" cy="223.2992552600846" r="3.5" fill="#005db7"/><circle cx="271.0" cy="199.13684835257405" r="3.5" fill="#005db7"/><circle cx="338.0" cy="174.97444144506346" r="3.5" fill="#005db7"/><circle cx="405.0" cy="150.81203453755288" r="3.5" fill="#005db7"/><circle cx="472.0" cy="126.64962763004232" r="3.5" fill="#005db7"/><circle cx="539.0" cy="102.48722072253176" r="3.5" fill="#005db7"/><circle cx="606.0" cy="78.32481381502114" r="3.5" fill="#005db7"/><circle cx="673.0" cy="54.16240690751056" r="3.5" fill="#005db7"/><circle cx="740.0" cy="30.0" r="3.5" fill="#005db7"/>
+                <rect x="63.0" y="271.62406907510575" width="14" height="8.375930924894249" rx="3" fill="#00204e"/><text x="70.0" y="263.62406907510575" font-size="11" fill="#00204e" font-weight="700" text-anchor="middle">구축 €3,500</text>
+                <text x="734.0" y="20.0" font-size="12" fill="#005db7" font-weight="700" text-anchor="end">Y10 누적 €104,466</text>
+                <text x="70.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y0</text><text x="137.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y1</text><text x="204.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y2</text><text x="271.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y3</text><text x="338.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y4</text><text x="405.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y5</text><text x="472.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y6</text><text x="539.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y7</text><text x="606.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y8</text><text x="673.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y9</text><text x="740.0" y="298" font-size="10" fill="#747782" text-anchor="middle">Y10</text>
             </svg>
+            <div class="mt-md bg-surface-container/60 p-md rounded-lg border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">function</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">산식</span>
+                </div>
+                <code class="block font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                    누적(Y) = 구축비 + (연 구독료 + 연 유지보수 + 운영비 ÷ 10) × Y
+                </code>
+            </div>
         </section>
         </div>
-                <div class="col-span-5">
+            </div>
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-7">
         <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
             <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stairs</span>
@@ -1857,15 +2154,68 @@
             </div>
             <svg class="w-full" viewBox="0 0 760 260" preserveAspectRatio="xMidYMid meet">
                 <line x1="60" y1="20.0" x2="740" y2="20.0" stroke="#e3e2e2"/><text x="54" y="24.0" font-size="10" fill="#747782" text-anchor="end">€1.15</text><line x1="60" y1="70.0" x2="740" y2="70.0" stroke="#e3e2e2"/><text x="54" y="74.0" font-size="10" fill="#747782" text-anchor="end">€0.86</text><line x1="60" y1="120.0" x2="740" y2="120.0" stroke="#e3e2e2"/><text x="54" y="124.0" font-size="10" fill="#747782" text-anchor="end">€0.57</text><line x1="60" y1="170.0" x2="740" y2="170.0" stroke="#e3e2e2"/><text x="54" y="174.0" font-size="10" fill="#747782" text-anchor="end">€0.29</text><line x1="60" y1="220.0" x2="740" y2="220.0" stroke="#e3e2e2"/><text x="54" y="224.0" font-size="10" fill="#747782" text-anchor="end">€0</text>
-                <text x="60.0" y="236" font-size="10" fill="#747782" text-anchor="middle">0</text><text x="125.4095238095238" y="236" font-size="10" fill="#747782" text-anchor="middle">101</text><text x="190.17142857142858" y="236" font-size="10" fill="#747782" text-anchor="middle">201</text><text x="384.45714285714286" y="236" font-size="10" fill="#747782" text-anchor="middle">501</text><text x="708.2666666666667" y="236" font-size="10" fill="#747782" text-anchor="middle">1,001</text>
-                <line x1="60.0" y1="46.086956521739125" x2="124.76190476190476" y2="46.086956521739125" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="125.4095238095238" y1="63.47826086956522" x2="189.52380952380952" y2="63.47826086956522" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="190.17142857142858" y1="80.86956521739128" x2="383.8095238095238" y2="80.86956521739128" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="384.45714285714286" y1="98.26086956521738" x2="707.6190476190476" y2="98.26086956521738" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="708.2666666666667" y1="115.65217391304348" x2="740.0" y2="115.65217391304348" stroke="#00204e" stroke-width="3" stroke-linecap="round"/>
+                <text x="60.0" y="236" font-size="10" fill="#747782" text-anchor="middle">0</text><text x="67.47073924204847" y="236" font-size="10" fill="#747782" text-anchor="middle">101</text><text x="74.86751076882913" y="236" font-size="10" fill="#747782" text-anchor="middle">201</text><text x="97.05782534917114" y="236" font-size="10" fill="#747782" text-anchor="middle">501</text><text x="134.04168298307445" y="236" font-size="10" fill="#747782" text-anchor="middle">1,001</text>
+                <line x1="60.0" y1="46.086956521739125" x2="67.39677152678067" y2="46.086956521739125" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="67.47073924204847" y1="63.47826086956522" x2="74.79354305356134" y2="63.47826086956522" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="74.86751076882913" y1="80.86956521739128" x2="96.98385763390333" y2="80.86956521739128" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="97.05782534917114" y1="98.26086956521738" x2="133.96771526780665" y2="98.26086956521738" stroke="#00204e" stroke-width="3" stroke-linecap="round"/><line x1="134.04168298307445" y1="115.65217391304348" x2="740.0" y2="115.65217391304348" stroke="#00204e" stroke-width="3" stroke-linecap="round"/>
                 
-                <line x1="189.52380952380952" y1="20" x2="189.52380952380952" y2="220" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <circle cx="189.52380952380952" cy="63.47826086956522" r="6" fill="#10b981"/>
-                <text x="199.52380952380952" y="67.47826086956522" font-size="12" fill="#065f46" font-weight="700">현재 200건 → €0.90</text>
+                <line x1="626.6666666666667" y1="20" x2="626.6666666666667" y2="220" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="626.6666666666667" cy="115.65217391304348" r="6" fill="#10b981"/>
+                <text x="636.6666666666667" y="119.65217391304348" font-size="12" fill="#065f46" font-weight="700">현재 7,661건 → €0.60</text>
             
             </svg>
             <p class="font-label-sm text-label-sm text-text-secondary mt-xs">X=누적 계약건수, Y=건당 단가 · 누적 증가 시 자동 하향 (전 물량 소급)</p>
+        </section>
+        </div>
+                <div class="col-span-5">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">percent</span>
+                <h2 class="font-headline-md text-headline-md text-primary">유사도 → TCO 승수</h2>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-secondary mb-sm">탭1-1 종합 유사도 점수를 베이스라인 비용·기간에 적용할 승수로 환산합니다.</p>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-text-secondary">
+                        <th class="px-2 py-1 text-left font-label-sm text-label-sm uppercase">종합 유사도</th>
+                        <th class="px-2 py-1 text-right font-label-sm text-label-sm uppercase">승수</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">90 ~ 100</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">50%</td>
+            </tr>
+            
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">80 ~ 90</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">60%</td>
+            </tr>
+            
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">70 ~ 80</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">70%</td>
+            </tr>
+            
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">60 ~ 70</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">80%</td>
+            </tr>
+            
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">50 ~ 60</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">90%</td>
+            </tr>
+            
+            <tr class="">
+                <td class="px-2 py-1 border-b border-surface-container-highest font-body-sm text-body-sm">< 50</td>
+                <td class="px-2 py-1 border-b border-surface-container-highest text-right font-body-sm text-body-sm text-text-primary">100%</td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="flex flex-col gap-xs mt-md pt-sm border-t border-surface-container-highest font-body-sm text-body-sm">
+                <div class="flex justify-between"><span class="text-text-secondary">현재 유사도</span><span class="text-text-primary font-semibold">75.3</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">적용 구간</span><span class="text-emerald-700 font-semibold">70~80</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">적용 승수</span><span class="text-emerald-700 font-semibold">70%</span></div>
+            </div>
         </section>
         </div>
             </div>
@@ -1875,8 +2225,9 @@
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">table_chart</span>
                 <h2 class="font-headline-md text-headline-md text-primary">계약 규모 산정 근거 항목</h2>
             </div>
-            <div class="flex flex-col gap-md">
-                
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                <div><div class="flex flex-col gap-md">
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
             <div class="flex items-start justify-between gap-sm">
                 <div class="flex items-center gap-xs flex-wrap">
@@ -1884,115 +2235,61 @@
                     <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">1,148,650</span> <span class="text-text-secondary font-body-sm">units</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">1,148,650</span> <span class="text-text-secondary font-body-sm">units</span></div>
             </div>
             
-                <div class="flex gap-md mt-xs font-label-sm text-label-sm text-text-secondary">
-                    <span>CAGR(과거): <span class="font-semibold text-text-primary">7.5%</span></span>
-                    <span>CAGR(전망): <span class="font-semibold text-text-primary">3.0%</span></span>
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">1,330,000</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">813,000</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 60.2350840648713 L 70.66666666666666 64.61538461538461 L 105.33333333333333 51.66493081386699 L 140.0 45.18970391310817 L 174.66666666666666 32.65347418538908" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 32.65347418538908 L 209.33333333333334 27.763725636066063 L 244.0 23.9547686356197 L 278.66666666666663 21.098050885284927 L 313.3333333333333 18.241333134950153 L 348.0 15.384615384615387" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="60.2350840648713" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="64.61538461538461" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="51.66493081386699" r="2.5" fill="#00204e"/><circle cx="140.0" cy="45.18970391310817" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="32.65347418538908" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="27.763725636066063" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="23.9547686356197" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="21.098050885284927" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="18.241333134950153" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="15.384615384615387" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">7.5%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">3.0%</span>
+                    </span>
                 </div>
                 
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC 2025 (turismos 1,148,650대, +12.9%; 사적채널 539,642 +18.1%·렌팅 25.6%)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">2025년 +12.9%로 114.9만대, 100만대 안정 상회. 렌팅이 등록의 25.6%(281,593대)로 플릿 견인 — EU 5위권 규모로 금융 기반 견조. 건수 산식의 기준 모수.</p>
-            </div>
-        </div>
-        
-        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
-            <div class="flex items-start justify-between gap-sm">
-                <div class="flex items-center gap-xs flex-wrap">
-                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">금융 이용률(신차)</span>
-                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
-                    
-                </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">60</span> <span class="text-text-secondary font-body-sm">%</span></div>
-            </div>
-            
-                <div class="flex gap-md mt-xs font-label-sm text-label-sm text-text-secondary">
-                    <span>CAGR(과거): <span class="font-semibold text-text-primary">2.2%</span></span>
-                    <span>CAGR(전망): <span class="font-semibold text-text-primary">1.6%</span></span>
                 </div>
                 
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC 2025 (turismos 1,148,650대, +12.9%; 사적채널 539,642 +18.1%·렌팅 25.6%)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">2025년 +12.9%로 114.9만대, 100만대 안정 상회. 렌팅이 등록의 25.6%(281,593대)로 플릿 견인 — EU 5위권 규모로 금융 기반 견조. 건수 산식의 기준 모수.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">OCU/El Economista(신차 구매 약 60% 금융, 프로모 세그먼트 70%+), Observatorio Cetelem 2025(금융=현금 각 48%), AER(렌팅 25.7%)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">신차 구매의 약 60% 금융 조달(Cetelem 기준 금융·현금 각 48%, 딜러금융 채널 57%)+렌팅 25.7%. 침투 높아 점유율 경쟁 — 캡티브·렌팅 비중 상승.</p>
-            </div>
-        </div>
-        
-        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
-            <div class="flex items-start justify-between gap-sm">
-                <div class="flex items-center gap-xs flex-wrap">
-                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">구매 패턴(할부·리스 비중)</span>
-                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
-                    
-                </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">55</span> <span class="text-text-secondary font-body-sm">%</span></div>
-            </div>
-            
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">AER Informe Anual 2026 (렌팅 매출 €9,512M +8.44%·차량 1,013,507대 첫 100만 돌파·신규등록 351,287 +4.5%·점유 25.7%)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">렌팅(운용리스) 매출 €9.5bn·차량 100만대 돌파, 신규 등록 점유 25.7%(2024 27.67%에서 소폭 하락). 법인·플릿 견인, 전기차가 렌팅 신규의 51.3% — 렌팅 우선 진입 유효.</p>
-            </div>
-        </div>
-        
-        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
-            <div class="flex items-start justify-between gap-sm">
-                <div class="flex items-center gap-xs flex-wrap">
-                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">캡티브 강도(점유율)</span>
-                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
-                    
-                </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">40</span> <span class="text-text-secondary font-body-sm">%</span></div>
-            </div>
-            
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 (Santander Consumer+CA Auto Bank+Cetelem 3사가 승용차 금융 약 60%); Mordor(유럽 은행 46%)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">스페인은 캡티브 주도가 아닌 은행계 주도 — Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%. OEM 캡티브(VW FS·Toyota)는 자사 브랜드 중심 소수라 독립계 진입 여지 상대적으로 큼.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2002,27 +2299,214 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span>약 €30,000~32,000 (turismos 평균 거래가, 전동화로 상승 추세)</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>약 €30,000~32,000 (turismos 평균 거래가, 전동화로 상승 추세)</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 추정 (ANFAC/딜러 평균 거래가), EV 비중 상승으로 평균가 상향</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">평균 신차 거래가 €30k대, EV 비중 상승으로 우상향. 건수×평균가 기반 금융 자산규모 산정 모수.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 추정 (ANFAC/딜러 평균 거래가), EV 비중 상승으로 평균가 상향</p>
+            </details>
+        </div>
+        </div></div>
+                <div>
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">금융 이용률(신차)</span>
+                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">60</span> <span class="text-text-secondary font-body-sm">%</span></div>
             </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">평균 신차 거래가 €30k대, EV 비중 상승으로 우상향. 건수×평균가 기반 금융 자산규모 산정 모수.</p>
+            
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 1 1 30.61 100.45 L 42.37 84.27 A 30 30 0 1 0 60.00 30.00 Z" fill="#00204e"/><path d="M 30.61 100.45 A 50 50 0 0 1 60.00 10.00 L 60.00 30.00 A 30 30 0 0 0 42.37 84.27 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">60%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">금융 이용</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">60%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">현금</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">40%</span></div>
             </div>
         </div>
         
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">65</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">55</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 64.61538461538461 L 70.66666666666666 59.69230769230769 L 105.33333333333333 54.769230769230774 L 140.0 49.84615384615385 L 174.66666666666666 40.0" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 40.0 L 209.33333333333334 35.07692307692308 L 244.0 30.153846153846153 L 278.66666666666663 25.230769230769234 L 313.3333333333333 20.307692307692307 L 348.0 15.384615384615387" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="64.61538461538461" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="59.69230769230769" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="54.769230769230774" r="2.5" fill="#00204e"/><circle cx="140.0" cy="49.84615384615385" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="40.0" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="35.07692307692308" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="30.153846153846153" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="25.230769230769234" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="20.307692307692307" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="15.384615384615387" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">2.2%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">1.6%</span>
+                    </span>
+                </div>
+                
+                </div>
+                
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">OCU/El Economista(신차 구매 약 60% 금융, 프로모 세그먼트 70%+), Observatorio Cetelem 2025(금융=현금 각 48%), AER(렌팅 25.7%)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">신차 구매의 약 60% 금융 조달(Cetelem 기준 금융·현금 각 48%, 딜러금융 채널 57%)+렌팅 25.7%. 침투 높아 점유율 경쟁 — 캡티브·렌팅 비중 상승.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        </div>
             </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-md">
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">구매 패턴(할부·리스 비중)</span>
+                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">55</span> <span class="text-text-secondary font-body-sm">%</span></div>
+            </div>
+            
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 1 1 44.55 107.55 L 50.73 88.53 A 30 30 0 1 0 60.00 30.00 Z" fill="#00204e"/><path d="M 44.55 107.55 A 50 50 0 0 1 60.00 10.00 L 60.00 30.00 A 30 30 0 0 0 50.73 88.53 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">55%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">할부·리스</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">55%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">현금·기타</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">45%</span></div>
+            </div>
+        </div>
+        
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">AER Informe Anual 2026 (렌팅 매출 €9,512M +8.44%·차량 1,013,507대 첫 100만 돌파·신규등록 351,287 +4.5%·점유 25.7%)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">렌팅(운용리스) 매출 €9.5bn·차량 100만대 돌파, 신규 등록 점유 25.7%(2024 27.67%에서 소폭 하락). 법인·플릿 견인, 전기차가 렌팅 신규의 51.3% — 렌팅 우선 진입 유효.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">캡티브 강도(점유율)</span>
+                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">40</span> <span class="text-text-secondary font-body-sm">%</span></div>
+            </div>
+            
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 0 1 89.39 100.45 L 77.63 84.27 A 30 30 0 0 0 60.00 30.00 Z" fill="#00204e"/><path d="M 89.39 100.45 A 50 50 0 1 1 60.00 10.00 L 60.00 30.00 A 30 30 0 1 0 77.63 84.27 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">40%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">캡티브 금융사</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">40%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">그 외</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">60%</span></div>
+            </div>
+        </div>
+        
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 (Santander Consumer+CA Auto Bank+Cetelem 3사가 승용차 금융 약 60%); Mordor(유럽 은행 46%)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">스페인은 캡티브 주도가 아닌 은행계 주도 — Santander Consumer·CA Auto Bank·Cetelem 3사가 승용차 금융 약 60%. OEM 캡티브(VW FS·Toyota)는 자사 브랜드 중심 소수라 독립계 진입 여지 상대적으로 큼.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        </div>
         </section>
         
         </div>
@@ -2346,7 +2830,7 @@
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
                 <h2 class="font-headline-md text-headline-md text-primary">시장·경쟁 핵심 지표 (원천 데이터)</h2>
             </div>
-            <div class="flex flex-col gap-md">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
                 
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
             <div class="flex items-start justify-between gap-sm">
@@ -2355,24 +2839,36 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><ul class="flex flex-col gap-xs font-body-sm text-body-sm"><li class="flex items-center gap-xs"><span class="text-text-secondary">#1</span> <span class="font-semibold">Santander Consumer Finance</span> <span class="text-text-secondary">약 20%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#2</span> <span class="font-semibold">CA Auto Bank (구 FCA Bank)</span> <span class="text-text-secondary">약 15%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#3</span> <span class="font-semibold">Cetelem (BNP Paribas PF)</span> <span class="text-text-secondary">약 12%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#4</span> <span class="font-semibold">Volkswagen Financial Services</span> <span class="text-text-secondary">약 10%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#5</span> <span class="font-semibold">Toyota Kreditbank / Toyota España Financiación</span> <span class="text-text-secondary">약 6%</span></li></ul></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><ul class="flex flex-col gap-xs font-body-sm text-body-sm"><li class="flex items-center gap-xs"><span class="text-text-secondary">#1</span> <span class="font-semibold">Santander Consumer Finance</span> <span class="text-text-secondary">약 20%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#2</span> <span class="font-semibold">CA Auto Bank (구 FCA Bank)</span> <span class="text-text-secondary">약 15%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#3</span> <span class="font-semibold">Cetelem (BNP Paribas PF)</span> <span class="text-text-secondary">약 12%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#4</span> <span class="font-semibold">Volkswagen Financial Services</span> <span class="text-text-secondary">약 10%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#5</span> <span class="font-semibold">Toyota Kreditbank / Toyota España Financiación</span> <span class="text-text-secondary">약 6%</span></li></ul></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 / 업계 추정 (상위 3사 은행계 약 60%)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">상위는 은행계(Santander·CA Auto·Cetelem)가 약 60% 집중, OEM 캡티브(VW FS·Toyota)는 자사 브랜드 중심. 독립계 신규 진입은 EV·중고·플릿 틈새 권장.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 / 업계 추정 (상위 3사 은행계 약 60%)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">상위는 은행계(Santander·CA Auto·Cetelem)가 약 60% 집중, OEM 캡티브(VW FS·Toyota)는 자사 브랜드 중심. 독립계 신규 진입은 EV·중고·플릿 틈새 권장.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2382,24 +2878,46 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">20</span> <span class="text-text-secondary font-body-sm">%</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">20</span> <span class="text-text-secondary font-body-sm">%</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 / Santander (SCF 단독 1위, 18개 OEM 금융; 2025.10 Openbank과 합병 발표)</p>
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 0 1 107.55 44.55 L 88.53 50.73 A 30 30 0 0 0 60.00 30.00 Z" fill="#00204e"/><path d="M 107.55 44.55 A 50 50 0 1 1 60.00 10.00 L 60.00 30.00 A 30 30 0 1 0 88.53 50.73 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">20%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">Top 5</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">20%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">기타</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">80%</span></div>
             </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+        </div>
+        
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">El Economista 2024 / Santander (SCF 단독 1위, 18개 OEM 금융; 2025.10 Openbank과 합병 발표)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Santander Consumer Finance 단독 1위 약 20%(18개 OEM·Stellantis도 2026까지 SCF 경유). 상위 3사 약 60% 은행계 집중 — 신규 진입 시 틈새(EV·중고·플릿) 공략 권장.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Santander Consumer Finance 단독 1위 약 20%(18개 OEM·Stellantis도 2026까지 SCF 경유). 상위 3사 약 60% 은행계 집중 — 신규 진입 시 틈새(EV·중고·플릿) 공략 권장.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2409,24 +2927,36 @@
                     <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span>신차 자동차대출 TAE 약 6~10% (프로모 0~3% 캡티브 한정), 소비자신용 평균 TEDR 약 7%</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>신차 자동차대출 TAE 약 6~10% (프로모 0~3% 캡티브 한정), 소비자신용 평균 TEDR 약 7%</span></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Banco de España 소비자신용 통계 2025, OEM 캡티브 프로모 공시</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">표준 차량대출 TAE 6~10%, 캡티브는 0~3% 프로모로 점유. 2026 금리상한(22% TAE) 내 여유 있으나 캡티브 프로모와의 가격경쟁이 마진 압박 — 차별화 필요.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Banco de España 소비자신용 통계 2025, OEM 캡티브 프로모 공시</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">표준 차량대출 TAE 6~10%, 캡티브는 0~3% 프로모로 점유. 2026 금리상한(22% TAE) 내 여유 있으나 캡티브 프로모와의 가격경쟁이 마진 압박 — 차별화 필요.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2436,24 +2966,36 @@
                     <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><ul class="flex flex-col gap-xs font-body-sm text-body-sm"><li class="flex items-center gap-xs"><span class="text-text-secondary">#1</span> <span class="font-semibold">Toyota</span> <span class="text-text-secondary">8.39%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#2</span> <span class="font-semibold">Renault</span> <span class="text-text-secondary">7.25%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#3</span> <span class="font-semibold">Volkswagen</span> <span class="text-text-secondary">6.66%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#4</span> <span class="font-semibold">Hyundai</span> <span class="text-text-secondary">5.97%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#5</span> <span class="font-semibold">SEAT</span> <span class="text-text-secondary">5.76%</span></li></ul></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><ul class="flex flex-col gap-xs font-body-sm text-body-sm"><li class="flex items-center gap-xs"><span class="text-text-secondary">#1</span> <span class="font-semibold">Toyota</span> <span class="text-text-secondary">8.39%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#2</span> <span class="font-semibold">Renault</span> <span class="text-text-secondary">7.25%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#3</span> <span class="font-semibold">Volkswagen</span> <span class="text-text-secondary">6.66%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#4</span> <span class="font-semibold">Hyundai</span> <span class="text-text-secondary">5.97%</span></li><li class="flex items-center gap-xs"><span class="text-text-secondary">#5</span> <span class="font-semibold">SEAT</span> <span class="text-text-secondary">5.76%</span></li></ul></div>
             </div>
             
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC 2025 신차 등록 (Toyota 96,290 / Renault 83,308 / VW 76,545 / Hyundai 68,568 / SEAT 66,142 / Dacia 65,788)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Toyota 4년 연속 1위(8.39%). Renault +29.7%·Dacia +20.1%·MG +46.8% 급성장. 캡티브 강한 VW·Toyota와 현지 SEAT 비중 주목.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC 2025 신차 등록 (Toyota 96,290 / Renault 83,308 / VW 76,545 / Hyundai 68,568 / SEAT 66,142 / Dacia 65,788)</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Toyota 4년 연속 1위(8.39%). Renault +29.7%·Dacia +20.1%·MG +46.8% 급성장. 캡티브 강한 VW·Toyota와 현지 SEAT 비중 주목.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2463,29 +3005,71 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">12</span> <span class="text-text-secondary font-body-sm">%</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">12</span> <span class="text-text-secondary font-body-sm">%</span></div>
             </div>
             
-                <div class="flex gap-md mt-xs font-label-sm text-label-sm text-text-secondary">
-                    <span>CAGR(과거): <span class="font-semibold text-text-primary">33.3%</span></span>
-                    <span>CAGR(전망): <span class="font-semibold text-text-primary">24.6%</span></span>
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 0 1 94.23 23.55 L 80.54 38.13 A 30 30 0 0 0 60.00 30.00 Z" fill="#00204e"/><path d="M 94.23 23.55 A 50 50 0 1 1 60.00 10.00 L 60.00 30.00 A 30 30 0 1 0 80.54 38.13 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">12%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">EV</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">12%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">ICE 외</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">88%</span></div>
+            </div>
+        </div>
+        
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">36</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">4</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 64.61538461538461 L 70.66666666666666 63.54515050167224 L 105.33333333333333 62.16913521261347 L 140.0 61.86335403726708 L 174.66666666666666 52.07835642618251" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 52.07835642618251 L 209.33333333333334 45.962732919254655 L 244.0 39.8471094123268 L 278.66666666666663 32.202580028666986 L 313.3333333333333 24.558050645007164 L 348.0 15.38461538461538" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="64.61538461538461" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="63.54515050167224" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="62.16913521261347" r="2.5" fill="#00204e"/><circle cx="140.0" cy="61.86335403726708" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="52.07835642618251" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="45.962732919254655" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="39.8471094123268" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="32.202580028666986" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="24.558050645007164" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="15.38461538461538" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">33.3%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">24.6%</span>
+                    </span>
                 </div>
                 
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC/AEDIVE 2025(전기차 등록 급증, BEV+PHEV 점유 두 자릿수 진입), MOVES III 보조금</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">ANFAC/AEDIVE 2025(전기차 등록 급증, BEV+PHEV 점유 두 자릿수 진입), MOVES III 보조금</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">2025년 EV(BEV+PHEV) 점유 두 자릿수 진입, MOVES III 보조금이 견인. 렌팅 신규의 51.3%가 전기차 — 잔가 모델에 EV 별도 곡선 필수, 리스 손익 핵심 변수.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">2025년 EV(BEV+PHEV) 점유 두 자릿수 진입, MOVES III 보조금이 견인. 렌팅 신규의 51.3%가 전기차 — 잔가 모델에 EV 별도 곡선 필수, 리스 손익 핵심 변수.</p>
-            </div>
+            </details>
         </div>
         
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
@@ -2495,29 +3079,61 @@
                     <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
                     
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[60%]"><span class="font-semibold">55</span> <span class="text-text-secondary font-body-sm">%</span></div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">55</span> <span class="text-text-secondary font-body-sm">%</span></div>
             </div>
             
-                <div class="flex gap-md mt-xs font-label-sm text-label-sm text-text-secondary">
-                    <span>CAGR(과거): <span class="font-semibold text-text-primary">-2.9%</span></span>
-                    <span>CAGR(전망): <span class="font-semibold text-text-primary">-2.7%</span></span>
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">62</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">48</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 15.384615384615365 L 70.66666666666666 22.417582417582402 L 105.33333333333333 29.45054945054944 L 140.0 36.48351648351647 L 174.66666666666666 39.999999999999986" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 39.999999999999986 L 209.33333333333334 47.03296703296702 L 244.0 50.54945054945054 L 278.66666666666663 57.58241758241758 L 313.3333333333333 61.098901098901095 L 348.0 64.61538461538461" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="15.384615384615365" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="22.417582417582402" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="29.45054945054944" r="2.5" fill="#00204e"/><circle cx="140.0" cy="36.48351648351647" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="39.999999999999986" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="47.03296703296702" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="50.54945054945054" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="57.58241758241758" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="61.098901098901095" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="64.61538461538461" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">-2.9%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">-2.7%</span>
+                    </span>
                 </div>
                 
-            <div class="border-t border-surface-container-highest pt-sm">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Cox Automotive/Manheim 잔가 추정(3년 EV 기준), 유럽 중고 EV 가격 약세</p>
-            </div>
-            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
-                <div class="flex items-center gap-xs mb-xs">
-                    <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
-                    <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
-                    <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Cox Automotive/Manheim 잔가 추정(3년 EV 기준), 유럽 중고 EV 가격 약세</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EV 3년 잔가 하락 추세 — ICE 대비 리스 손익 압박. 렌팅 EV 비중 51%로 노출 큼. 잔가 보증·바이백 조건 보수적 설계 권장.</p>
+                    </div>
                 </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EV 3년 잔가 하락 추세 — ICE 대비 리스 손익 압박. 렌팅 EV 비중 51%로 노출 큼. 잔가 보증·바이백 조건 보수적 설계 권장.</p>
-            </div>
+            </details>
         </div>
         
             </div>

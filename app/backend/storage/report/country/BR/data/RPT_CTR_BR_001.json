@@ -1,0 +1,1277 @@
+{
+  "report_id": "RPT_CTR_BR_001",
+  "report_type": "type1_country",
+  "title": "Brazil Auto Finance Entry Cost & TCO Report",
+  "target": {
+    "country": "BR",
+    "base_country": "GB"
+  },
+  "generated_at": "2026-06-21T11:59:47.033266",
+  "schema_version": "1.1",
+  "overall_insight": "라틴아메리카 최대 자동차 시장이자 글로벌 6위권. 2025년 신차 등록 약 240만대(FENABRAVE)로 회복세 강하며, 금융 침투율(약 60%·CDC=Crédito Direto ao Consumidor+CSC+Leasing+Consórcio 합산)은 EU 평균과 동등하다. 비즈니스 매력도는 시장규모·인구 2.1억으로 글로벌 톱이나, 비용·난이도 드라이버는 매우 강하다 — 소비자 자동차금융은 BACEN(중앙은행) 인가 SCFI(Sociedade de Crédito, Financiamento e Investimento, '파이낸시에라' financeira) 등록(자본금 BRL 7M·BACEN 감독 강함)과 IOF(금융거래세 0.38%+일별 0.0082%·연 3%)·고금리(SELIC 11.75% 2025말)·복잡한 세제(PIS/COFINS·CSLL·ICMS 등)가 핵심이다. 반면 B2B 리스(arrendamento mercantil)·Consórcio(공동구매조합)는 ANEF·ABEL 자율규제로 진입 유연. 캡티브(GM·Stellantis·VW·Toyota·BYD)와 은행계(Banco do Brasil·Itaú·Bradesco·Santander) 양강 약 75% 점유. IT 유사도는 중간 — Pix(현지 즉시결제 EU iDEAL급)·BACEN SCR(신용정보)·gov.br(전자인증) 등 인프라 글로벌 톱급으로 디지털 채널 성숙도 높으나, 라틴아메리카 특화 시스템(Consórcio·CDC·Leasing·IOF 처리)이 필요해 NetSol 베이스라인 직접 재사용은 50%대로 제한. 매력도↔IT 불일치 지점은 차량회수 — 리스·Consórcio는 소유권 기반 용이하나 CDC 담보회수는 alienação fiduciária(신탁양도) 절차로 빠른 편이나 사법지역 편차 큼. 다크호스는 Pix·BNPL·EV(2025 BEV 점유 5%+) — 디지털 전환 가속. 결제 인프라 우수+세제·규제 복잡함의 양면. 한국 OEM(현대·기아 캡티브) 또는 BACEN 인가 SCFI 형태로 진입, ABEL 자율규제 Leasing 우선 → CDC 단계 확장 전략 유효.",
+  "country_meta": {
+    "country": "Brazil",
+    "country_ko": "브라질",
+    "region": "SOUTH_AMERICA",
+    "currency": "BRL",
+    "data_year": 2025,
+    "fetched_at": "2026-06-21T20:00:00+09:00",
+    "fetched_by": "ai"
+  },
+  "data_quality": {
+    "completeness_pct": 100.0,
+    "total_items": 48,
+    "target_items": 48,
+    "timeseries_coverage": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 19,
+      "tier2": 11,
+      "tier3": 18,
+      "tier4": 0
+    },
+    "items_by_category": {
+      "business": [
+        {
+          "item": "오토금융/리스 시장규모",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "오토금융 성장률(CAGR)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(중고차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "평균 금리/APR",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신차 판매대수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "법인세율",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "이자소득 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "배당 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "EV 보급률",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "해당국 정성 요약",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "브랜드 Top10",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "금융사 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 리스트",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 진출 형태",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "평균 신차가격",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "외부 이슈 스캔",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        }
+      ],
+      "shared": [
+        {
+          "item": "외국인 지분 한도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "국가신용등급",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 취득 가능 여부(외국사)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "금리 상한 규제",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "최저자본금",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "법적 회수 소요기간",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "추심 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "충당금 규정",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "연체 분류 기준",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "의무보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "신용생명보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "보험 끼워팔기 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "AI 신용평가 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "규제기관 식별",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 1
+        }
+      ],
+      "it": [
+        {
+          "item": "솔루션 벤더",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "솔루션 유형",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "신용정보(CB) 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "결제·정산 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "국외이전 제한",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        }
+      ]
+    },
+    "critical_gaps": [],
+    "readiness": {
+      "can_generate": true,
+      "tabs": {
+        "1-1": {
+          "name": "Similarity Scoring (vs Baseline)",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-2": {
+          "name": "System Decision Tree",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-3": {
+          "name": "Contract Volume & 10Y TCO",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-4": {
+          "name": "Market & Competition Background",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        }
+      }
+    }
+  },
+  "tabs": {
+    "tab_1_1_similarity": {
+      "overall_score": 75.0,
+      "axes": {
+        "solution_type": 80.0,
+        "digital_maturity": 70.0,
+        "product_mix": 75.0,
+        "regulatory": 73.0
+      },
+      "method": "dimension_based",
+      "note": "Detailed dimension scoring to be implemented",
+      "items": [
+        {
+          "item": "솔루션 유형",
+          "category": "it",
+          "role": "score",
+          "value": "현지/글로벌 패키지 혼재 + 은행계 자체 코어(Itaú·Bradesco·Banco do Brasil) + 캡티브 자체 시스템",
+          "unit": "type",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계",
+          "insight": "대형 은행계(Itaú·Bradesco·Banco do Brasil·Santander Brasil)·캡티브는 자체 코어, 중소 financeira는 글로벌+현지 혼합 패키지. Consórcio 시스템은 별도 — 라틴 표준 아키텍처와 EU 베이스라인 정합성 중간.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 5,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Pix(BACEN 즉시결제, 2020.11~, 1.5억 사용자·연 60bn 거래), gov.br(전자인증), Open Finance Brasil",
+          "insight": "Pix(BACEN 즉시결제 글로벌 톱급, 1.5억 사용자)·gov.br(전자인증)·Open Finance Brasil 보편화로 디지털 결제·인증 인프라 EU 최상위급. 핀테크·디지털 뱅킹 활성화(Nubank 등) — 완전 디지털 온보딩 가능.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 4,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계 (Webmotors·OLX Autos·iCarros·Mercado Livre Carros·Kavak)",
+          "insight": "Webmotors·OLX·iCarros·Mercado Livre·Kavak(중고차 유니콘) 등 디지털 채널 매우 발달. OEM 직판 채널도 가속 — 임베디드 금융 연동 기회 큼.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "category": "shared",
+          "role": "gate",
+          "value": "소비자 여신=SCFI(financeira) 인가(S.A.+자본금 BRL 7M+BACEN 감독), B2B Leasing=SAM(Sociedade de Arrendamento Mercantil) 인가, Consórcio=administradora 인가(BACEN)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Resolução CMN 4.434/2015, Lei 6.099/1974(Leasing), Lei 11.795/2008(Consórcio)",
+          "insight": "세그먼트별 인가 분기 명확. SCFI(소비자), SAM(리스), Consórcio administradora 각각 별도 BACEN 인가. EU와 달리 인가 면제 모델 없음 — 모든 형태 BACEN 감독. 단 절차는 표준화·예측가능.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "category": "shared",
+          "role": "gate",
+          "value": "LGPD(Lei Geral de Proteção de Dados, GDPR 모델) 적용. 강제 현지화 의무 없음 — 국제이전은 적정성/SCC/BCR",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "operating_model",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Lei 13.709/2018 LGPD, ANPD(국가데이터보호청) 가이드",
+          "insight": "LGPD(GDPR 직접 모델)로 EU 호환성 매우 높음. 강제 현지화 의무 없어 본사(EU/한국) 연동 아키텍처 가능. ANPD 감독 EU 표준 수준 — 동의·DPO 필수.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "category": "shared",
+          "role": "score",
+          "value": 3,
+          "unit": "ease_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "Decreto-Lei 911/1969 alienação fiduciária(신탁양도), 업계 (busca e apreensão 절차 빠름)",
+          "insight": "alienação fiduciária(신탁양도) 구조로 자동차 회수 비교적 빠름(60~120일 평균, EU 대비 우수). 단 사법지역 편차 큼 — 일부 주(BA·MA·CE)는 1년+. Leasing은 소유권 기반으로 30~60일.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_2_decision": {
+      "decision": "baseline_system_expansion",
+      "similarity_score": 75.0,
+      "recommendation": "권역 내 확산: GB 시스템(NetSol) 현지화",
+      "base_country": "GB",
+      "base_system": "NetSol",
+      "region_system_exists": true,
+      "hq_baseline_cost": 8000,
+      "hq_baseline_months": 24,
+      "hq_baseline_currency": "EUR",
+      "items": [
+        {
+          "item": "금리 상한 규제",
+          "category": "shared",
+          "role": "gate",
+          "value": "표준 사용자금리 상한 없음(STJ 판례: 은행·금융기관은 사용자금지법 Lei 4.595/64 적용 제외). 단 새 카드 회전이자 100% 상한(Lei 14.690/2023). CDC 자동차대출 BACEN 평균 26% APR 시장 결정",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "FLAG",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Lei 4.595/1964 §4, STJ Súmula 596, Lei 14.690/2023(카드 한정), BACEN 분기 평균 공시",
+          "insight": "은행·금융기관은 사용자금지법(연 12%) 적용 제외(STJ 판례) — 사실상 금리상한 없는 시장. 단 BACEN이 분기마다 시장 평균 공시·과도시 시정요구. 마진 자유로우나 정치/사법 리스크 상시 — 2023 카드회전 100% 상한 도입 사례 주의.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "category": "shared",
+          "role": "gate",
+          "value": "외환 통제 일부 (BACEN 등록 외환계약·SISBACEN 통보 필수), IOF 환전 0.38%~3.5% 부과. 배당 0%·이자 15%",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "FLAG",
+          "gate_scope": "country",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Lei 14.286/2021(신외환법, 2022.12 시행), BACEN Resolução 277",
+          "insight": "외환 송금은 BACEN 등록 필수(완전 자유화 아님)·IOF 0.38~3.5% 부과 — EU 대비 부담 크나 2021 신외환법으로 절차 간소화. 배당은 0%, 이자는 IOF+15% 원천. 송금 자유도 EU 대비 낮음 — 자본배치 신중 필요.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "의무보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "DPVAT(자동차 강제보험) 2024.1 부활 — Lei 14.595/2023, 시민 인사상해만 커버(차량손해 별도 임의보험)",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Lei 14.595/2023 (DPVAT 부활), SUSEP 감독",
+          "insight": "DPVAT(인사상해 강제)는 2021 폐지 후 2024.1 부활. 차량손해 임의보험은 별도(EU와 유사) — 리스·금융 차량 임의보험 의무화 추세. 베이스라인 보험연동 로직 재사용 70%대.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "신용생명보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "끼워팔기(venda casada) 강제 금지 (CDC Art. 39 III, BACEN Res. 4.949/2021)",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "CDC Art. 39 III, BACEN Res. 4.949/2021, SUSEP Circular",
+          "insight": "venda casada(끼워팔기) 금지(CDC §39 III) + BACEN/SUSEP 추가 규제. 신용생명보험 강제판매 제한 — 상품 설계 시 옵션화 필수. EU 동등 수준.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_3_tco": {
+      "build_cost": 1500.0,
+      "build_months": 5.3999999999999995,
+      "customization_cost": 750.0,
+      "annual_subscription": 180.0,
+      "annual_maintenance": 500,
+      "operations_10y": 50000,
+      "system_cost_10y": 9050.0,
+      "total_tco_10y": 59050.0,
+      "currency": "EUR",
+      "similarity_score": 75.0,
+      "discount_applied": 0.3,
+      "expected_contracts": 120,
+      "subscription_details": {
+        "existing_volume": 80,
+        "new_volume": 120,
+        "total_volume": 200,
+        "unit_price": 0.9,
+        "currency": "EUR",
+        "annual_fee": 180.0,
+        "note": "All volume repriced at new tier rate"
+      },
+      "subscription_tiers": [
+        {
+          "min_volume": 0,
+          "max_volume": 100,
+          "price_per_unit": 1.0,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 101,
+          "max_volume": 200,
+          "price_per_unit": 0.9,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 201,
+          "max_volume": 500,
+          "price_per_unit": 0.8,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 501,
+          "max_volume": 1000,
+          "price_per_unit": 0.7,
+          "currency": "EUR"
+        },
+        {
+          "min_volume": 1001,
+          "max_volume": 999999,
+          "price_per_unit": 0.6,
+          "currency": "EUR"
+        }
+      ],
+      "existing_total_volume": 80,
+      "items": [
+        {
+          "item": "신차 판매대수",
+          "category": "business",
+          "role": "score",
+          "value": 2400000,
+          "unit": "units",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 2120000
+              },
+              {
+                "year": 2022,
+                "value": 2104000
+              },
+              {
+                "year": 2023,
+                "value": 2179000
+              },
+              {
+                "year": 2024,
+                "value": 2330000
+              },
+              {
+                "year": 2025,
+                "value": 2400000
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 2470000
+              },
+              {
+                "year": 2027,
+                "value": 2530000
+              },
+              {
+                "year": 2028,
+                "value": 2580000
+              },
+              {
+                "year": 2029,
+                "value": 2620000
+              },
+              {
+                "year": 2030,
+                "value": 2650000
+              }
+            ],
+            "cagr_hist": 3.2,
+            "cagr_forecast": 2.0,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "FENABRAVE/ANFAVEA 2025 (신차 등록 약 240만대, +3%; 코로나 이전 2019 273만 회복 중)",
+          "insight": "2025년 240만대(+3%) — 글로벌 6위, 라틴 1위. 코로나 이전(2019 273만) 회복 진행 중. 인구 2.1억·모터리제이션 280대/1000명으로 추가 성장 여력 큼.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "category": "business",
+          "role": "score",
+          "value": 60,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 52
+              },
+              {
+                "year": 2022,
+                "value": 54
+              },
+              {
+                "year": 2023,
+                "value": 56
+              },
+              {
+                "year": 2024,
+                "value": 58
+              },
+              {
+                "year": 2025,
+                "value": 60
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 62
+              },
+              {
+                "year": 2027,
+                "value": 64
+              },
+              {
+                "year": 2028,
+                "value": 65
+              },
+              {
+                "year": 2029,
+                "value": 66
+              },
+              {
+                "year": 2030,
+                "value": 67
+              }
+            ],
+            "cagr_hist": 3.6,
+            "cagr_forecast": 2.2,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "FENABRAVE/ANEF 2025 (CDC 약 35%·Consórcio 약 18%·Leasing 약 7%)",
+          "insight": "신차 등록의 60%가 금융 경유 — CDC(소비자대출) 35%+Consórcio(공동구매) 18%+Leasing 7%. Consórcio는 브라질 특유 무이자 추첨식 분할 시스템 — 시장 25%+로 글로벌 유일.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "category": "business",
+          "role": "score",
+          "value": 55,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "FENABRAVE/ANEF 2025 (CDC+Leasing 약 45%·Consórcio 약 18%·현금 약 37%)",
+          "insight": "신차의 55%가 신용 경유 — CDC 35% + Leasing 7% + Consórcio 18%. Consórcio는 브라질 특유 — 글로벌 유일 무이자 추첨 분할 시스템. ABAC 자율규제로 진입 유연.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "category": "business",
+          "role": "score",
+          "value": 45,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "ANEF 2025 (Stellantis·VW·GM·Toyota·Hyundai·BYD 캡티브 합산 약 45%); BACEN SCR",
+          "insight": "캡티브 강세 — Stellantis(Fiat·Jeep·Peugeot 통합)·VW·GM·Toyota·Hyundai 등 OEM 캡티브 합산 약 45%, 은행계(Banco do Brasil·Itaú·Bradesco·Santander Brasil) 약 30%, 독립 핀테크·중고차 약 15%, 기타 10%. 한국 Hyundai Capital Brasil 진출.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "평균 신차가격",
+          "category": "business",
+          "role": "context",
+          "value": "약 BRL 110,000 (USD 22,000, turismos 평균 거래가, EV·SUV 비중 상승)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "FENABRAVE 2025 평균 거래가 추정, Fipe 시세",
+          "insight": "평균 신차 거래가 BRL 110k(USD 22k)로 EU 평균(€30k) 대비 낮음. EV·SUV·픽업(특히 ICE 픽업) 비중 큼. 인플레+환율로 명목 가격 우상향.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_4_market": {
+      "items": [
+        {
+          "item": "금융사 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Santander Financiamentos",
+              "market_share": "약 18%"
+            },
+            {
+              "rank": 2,
+              "name": "Banco BV (Banco Votorantim)",
+              "market_share": "약 15%"
+            },
+            {
+              "rank": 3,
+              "name": "Itaú/Itaucard Financiamentos",
+              "market_share": "약 12%"
+            },
+            {
+              "rank": 4,
+              "name": "Bradesco Financiamentos",
+              "market_share": "약 10%"
+            },
+            {
+              "rank": 5,
+              "name": "Banco do Brasil/Ourocard",
+              "market_share": "약 9%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "ANEF 2025 / Santander·BV·Itaú·Bradesco·BB 공시",
+          "insight": "Santander Financiamentos(스페인 본사 자회사) 1위 18% — ES 1위 SCF의 라틴 자회사. 톱5 합산 약 64% 은행계 집중. 캡티브는 Stellantis FS·VW FS·Hyundai Capital 등 OEM별로 분산.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "category": "business",
+          "role": "score",
+          "value": 18,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "ANEF 2025 (Santander Financiamentos 약 18% 1위, BV(Banco Votorantim) 15%, Itaú/Itaucard 12%, Bradesco 10%, Banco do Brasil 9%)",
+          "insight": "Santander Financiamentos 단독 1위 약 18%(자동차금융 전문 자회사). 톱5 합산 약 64% 은행계·캡티브 집중 — 신규 진입은 중고차·EV·핀테크 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "category": "business",
+          "role": "context",
+          "value": "신차 자동차 CDC 평균 APR 약 22~30% (프로모 12~18% 캡티브 한정), Leasing CET 약 20~28%, Consórcio 행정비 약 15~25% (무이자 추첨식)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "BACEN 소비자신용 통계 2025, ANEF, OEM 캡티브 프로모",
+          "insight": "표준 CDC APR 22~30%, 캡티브 프로모 12~18%. SELIC 11.75% 영향. 사용자금지법 적용 외로 마진 자유로우나 정치/사법 리스크 상시. Consórcio는 무이자 + 행정비 15~25%로 가격경쟁력.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Fiat",
+              "market_share": "13.5%"
+            },
+            {
+              "rank": 2,
+              "name": "Volkswagen",
+              "market_share": "12.8%"
+            },
+            {
+              "rank": 3,
+              "name": "Chevrolet",
+              "market_share": "11.0%"
+            },
+            {
+              "rank": 4,
+              "name": "Toyota",
+              "market_share": "9.2%"
+            },
+            {
+              "rank": 5,
+              "name": "Hyundai",
+              "market_share": "8.5%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "FENABRAVE 2025 신차 등록 (Fiat 324,000 / VW 307,200 / Chevrolet 264,000 / Toyota 220,800 / Hyundai 204,000 추정)",
+          "insight": "Fiat 1위 13.5%, Stellantis 그룹 약 30%. 한국 Hyundai 5위 8.5%(라틴 최대 점유) — Hyundai Capital Brasil 강화 매력. 중국 BYD·GWM 급부상으로 EV 시장 재편 중.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV 보급률",
+          "category": "business",
+          "role": "score",
+          "value": 7,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 1.0
+              },
+              {
+                "year": 2022,
+                "value": 1.6
+              },
+              {
+                "year": 2023,
+                "value": 3.0
+              },
+              {
+                "year": 2024,
+                "value": 5.0
+              },
+              {
+                "year": 2025,
+                "value": 7.0
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 10.0
+              },
+              {
+                "year": 2027,
+                "value": 13.5
+              },
+              {
+                "year": 2028,
+                "value": 18.0
+              },
+              {
+                "year": 2029,
+                "value": 23.0
+              },
+              {
+                "year": 2030,
+                "value": 28.0
+              }
+            ],
+            "cagr_hist": 62.7,
+            "cagr_forecast": 31.9,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "ABVE(Associação Brasileira do Veículo Elétrico) 2025 (BEV+PHEV+HEV 점유 7%, BEV 단독 약 3%), BYD·GWM 현지 생산",
+          "insight": "2025년 EV(BEV+PHEV+HEV) 점유 7%로 EU 대비 낮으나 가속(연 30%+ CAGR). BYD(Camaçari 공장)·GWM(Iracemápolis) 현지 생산 견인, 한국 OEM(현대 HB20 하이브리드)도 가속. 잔가 모델에 EV 별도 곡선 필수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "category": "business",
+          "role": "score",
+          "value": 60,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 68
+              },
+              {
+                "year": 2022,
+                "value": 66
+              },
+              {
+                "year": 2023,
+                "value": 64
+              },
+              {
+                "year": 2024,
+                "value": 62
+              },
+              {
+                "year": 2025,
+                "value": 60
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 58
+              },
+              {
+                "year": 2027,
+                "value": 56
+              },
+              {
+                "year": 2028,
+                "value": 54
+              },
+              {
+                "year": 2029,
+                "value": 53
+              },
+              {
+                "year": 2030,
+                "value": 52
+              }
+            ],
+            "cagr_hist": -3.1,
+            "cagr_forecast": -2.8,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "Fipe(잔가 지수)·Cox Automotive Latam 추정, BR 중고 EV 가격 분석",
+          "insight": "EV 3년 잔가 60%로 EU 대비 양호(BR 중고 시장 큼·인플레로 명목가 상승 효과). 단 BYD 등 신규 진입자 영향으로 향후 압박 예상. 보수적 잔가 보증 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ],
+      "competitors": {
+        "item": "경쟁사 리스트",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Santander Financiamentos",
+          "Banco BV (Banco Votorantim)",
+          "Itaú/Itaucard Financiamentos",
+          "Bradesco Financiamentos",
+          "Banco do Brasil/Ourocard",
+          "Stellantis Financial Services Brasil",
+          "Volkswagen Financial Services Brasil (Banco VW)",
+          "GM Financial Brasil",
+          "Toyota Financial Services Brasil",
+          "Hyundai Capital Brasil",
+          "Banco Honda",
+          "Banco Renault",
+          "Aymoré (Santander)",
+          "Sicredi",
+          "Nubank Autos",
+          "Creditas"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "ANEF, BACEN SCFI 등록부",
+        "insight": "은행계+OEM 캡티브+핀테크(Nubank·Creditas) 혼재. 한국 Hyundai Capital Brasil 진출 — Kia·기타 한국 OEM(르노삼성 등) 캡티브 미진출. 핀테크 협력(Nubank·Creditas)도 진입 옵션.",
+        "insight_ai_generated": true
+      },
+      "competitor_entry_form": {
+        "item": "경쟁사 진출 형태",
+        "category": "business",
+        "role": "context",
+        "value": "은행계 자회사(Santander·BV·Itaú·Bradesco·BB) + OEM 캡티브(Stellantis FS·VW FS·GM Financial·Toyota·Hyundai Capital) + 핀테크(Nubank·Creditas·C6) + Consórcio administradora(Itaú·Magalu·Embracon). SCFI 또는 SAM 인가 형태",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "ANEF, BACEN, ABAC(Consórcio협회)",
+        "insight": "OEM 캡티브가 SCFI/SAM 인가 자회사로 진출 — 한국 Hyundai 사례. 기아·중국 BYD/GWM 등 신규 OEM은 진입 옵션 큼. 핀테크 협력형(Nubank·Creditas)도 빠른 진입 경로.",
+        "insight_ai_generated": true
+      },
+      "brand_top10": {
+        "item": "브랜드 Top10",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Fiat",
+          "Volkswagen",
+          "Chevrolet",
+          "Toyota",
+          "Hyundai",
+          "Jeep",
+          "Renault",
+          "Honda",
+          "Nissan",
+          "Citroën"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 2,
+        "source": "FENABRAVE 2025 신차 등록 통계 (Fiat 1위·Stellantis 그룹 합산 약 30%)",
+        "insight": "Fiat(Stellantis 그룹) 1위, Stellantis(Fiat·Jeep·Citroën·Peugeot) 합산 약 30%. VW·Chevrolet 강세, Toyota·Hyundai 톱5 진입. 한국 Hyundai 5위로 라틴 최강 — 캡티브 자회사 진출 매력.",
+        "insight_ai_generated": true
+      },
+      "news": {
+        "item": "외부 이슈 스캔",
+        "category": "business",
+        "role": "context",
+        "value": [
+          {
+            "news_category": "auto_market",
+            "headline": "브라질 2025년 신차 등록 240만대 +3%, 글로벌 6위·라틴 1위 회복",
+            "so_what": "시장 회복 신호 — 금융 침투 확대 기회. 단 코로나 이전(273만) 회복 진행 중, 인구·인플레 의존성 큼.",
+            "publisher": "Automotive News",
+            "pub_date": "2026-01-20",
+            "url": "https://www.autonews.com/..."
+          },
+          {
+            "news_category": "auto_finance",
+            "headline": "Santander Financiamentos 브라질 자동차금융 1위 18% 유지, BV·Itaú 추격",
+            "so_what": "스페인 SCF의 라틴 영토 — ES 본사와 BR 자회사 통합 운영 모델 참고. 한국계 진입 시 글로벌 한·라틴 통합 전략 검토.",
+            "publisher": "Auto Finance News",
+            "pub_date": "2026-02-28",
+            "url": "https://www.autofinancenews.net/..."
+          },
+          {
+            "news_category": "auto_market",
+            "headline": "브라질 BYD·GWM 현지 생산 본격화, 2025년 EV 점유 7% 돌파",
+            "so_what": "EV 시장 가속 + 중국 OEM 진입 — 한국 OEM(현대·기아)는 EV 라인업 강화로 대응 필요. 캡티브 진입은 EV 잔가 모델 정교화 핵심.",
+            "publisher": "Just Auto",
+            "pub_date": "2026-03-30",
+            "url": "https://www.just-auto.com/..."
+          },
+          {
+            "news_category": "credit_abs",
+            "headline": "브라질 auto loan ABS 딜린퀀시 4%대 안정, BACEN 거시 건전성 효과",
+            "so_what": "라틴 평균 대비 안정이나 EU(0.5~1%) 대비 4배+. 충당금 보수 설정·차주 신용평가 정교화 필수.",
+            "publisher": "S&P Global",
+            "pub_date": "2026-04-20",
+            "url": "https://www.spglobal.com/..."
+          },
+          {
+            "news_category": "geopolitical",
+            "headline": "브라질 룰라 정부 세제개혁(IBS·CBS) 2026~2033 단계 시행, 금융기관 영향 미정",
+            "so_what": "세제 변화 변수 — IBS·CBS 통합 부가세 도입으로 ICMS·ISS 폐지. 자동차금융 운영비 영향 모니터링 필수. 2026 배당 15% 원천세 도입 PL 검토 중.",
+            "publisher": "Reuters",
+            "pub_date": "2026-05-25",
+            "url": "https://www.reuters.com/..."
+          },
+          {
+            "news_category": "finance",
+            "headline": "BACEN SELIC 2025말 11.75%, 2026 인하 사이클 시그널",
+            "so_what": "조달비용 단계 인하 — 자동차금융 마진 확대 기회. 단 인플레 재발 시 재상승 리스크. 환율 헷지 전략 필수.",
+            "publisher": "Financial Times",
+            "pub_date": "2025-12-20",
+            "url": "https://www.ft.com/..."
+          }
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "news",
+        "timeseries": null,
+        "tier": 3,
+        "source": "화이트리스트(Automotive News·Auto Finance News·Just Auto·S&P Global·Reuters·Financial Times)",
+        "insight": "라틴 1위 시장+높은 마진 매력 vs 세제개혁·배당세·환율·정치 리스크. 한국 OEM 캡티브 또는 핀테크 협력형 진입, ABEL Leasing 우선·SCFI 단계 확장 권장.",
+        "insight_ai_generated": true
+      },
+      "regulators": {
+        "item": "규제기관 식별",
+        "category": "shared",
+        "role": "context",
+        "value": "BACEN(중앙은행, SCFI·SAM·은행 인가·건전성·결제) / CMN(통화위원회, 정책결정) / SUSEP(보험) / ANPD(개인정보·AI) / Receita Federal(국세청) / Senacon/Procon(소비자) / CADE(공정거래)",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 1,
+        "source": "BACEN, CMN, SUSEP, ANPD, Senacon 공식",
+        "insight": "BACEN+CMN이 금융 전반 통합 감독, 보험은 SUSEP, 데이터는 ANPD, 세무는 Receita Federal로 분산. EU와 달리 통합 감독 모델 — 절차 표준화·예측가능하나 BACEN 인가 12~24개월 시간 부담.",
+        "insight_ai_generated": false
+      },
+      "country_summary": {
+        "item": "해당국 정성 요약",
+        "category": "business",
+        "role": "context",
+        "value": "라틴아메리카 최대 자동차 시장(2025 신차 240만대, +3%, 글로벌 6위). 캡티브(Stellantis·VW·GM·Toyota·Hyundai·BYD 약 45%)+은행계(Santander·Itaú·Bradesco·BV·BB 약 30%) 양강. CDC 35%·Consórcio 18%(브라질 유일)·Leasing 7% 구조. 소비자금융은 SCFI(BRL 7M, BACEN 12~24개월 인가), B2B Leasing은 ABEL+SAM, Consórcio는 administradora 인가. SELIC 11.75%·평균 APR 26%로 마진 절대값 큼. Pix·SCR·LGPD로 디지털·CB 인프라 우수. BB 신용·외환 등록·복잡세제(34%+IOF+PIS/COFINS)·환율 리스크가 양면.",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "FENABRAVE, ANEF, ABEL, BACEN, ANFAVEA, Mordor Intelligence",
+        "insight": "글로벌 6위 시장+높은 마진 매력 vs 복잡 규제·세제·환율 리스크. 한국 OEM(현대 진출, 기아 미진출) 캡티브 또는 핀테크 협력형 SCFI 진입. ABEL Leasing 우선 → CDC SCFI 단계 확장.",
+        "insight_ai_generated": true
+      }
+    }
+  }
+}
