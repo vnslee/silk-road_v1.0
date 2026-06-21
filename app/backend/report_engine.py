@@ -75,10 +75,18 @@ class ReportEngine:
         }
     }
 
-    def __init__(self, country_data_path: str, output_base_path: str = "storage/report"):
-        """Initialize report engine with country data."""
+    def __init__(self, country_data_path: str, output_base_path: str = "storage/report",
+                 report_type: str = "TYPE1"):
+        """Initialize report engine with country data.
+
+        Args:
+            country_data_path: Path to country data JSON file
+            output_base_path: Base output directory for reports
+            report_type: "TYPE1" for country TCO or "TYPE2" for region ranking
+        """
         self.country_data_path = country_data_path
         self.output_base = output_base_path
+        self.report_type = report_type
         self.country_data: Optional[Dict] = None
         self.data_inventory: Dict[str, Any] = {
             "present": {},
@@ -95,6 +103,24 @@ class ReportEngine:
         except Exception as e:
             print(f"Error loading country data: {e}")
             return False
+
+    def detect_report_type(self) -> str:
+        """Auto-detect report type based on country data structure.
+
+        Returns:
+            "TYPE1" if country data is single country, "TYPE2" if region
+        """
+        if not self.country_data:
+            return self.report_type
+
+        # TYPE2: Region-based data contains "region" at top level and lists of countries
+        # TYPE1: Country-based data contains "country" code (2-letter) at top level
+        if "region" in self.country_data:
+            return "TYPE2"
+        elif "country" in self.country_data and "code" in self.country_data:
+            return "TYPE1"
+        else:
+            return self.report_type
 
     def analyze_data_structure(self) -> Dict[str, Any]:
         """Analyze country data structure and identify gaps."""
@@ -385,15 +411,47 @@ def main():
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python report_engine.py <country_data_json> [output_base_path]")
-        print("Example: python report_engine.py data/country/ES_latest.json")
+        print("Usage: python report_engine.py <country_data_json> [--type TYPE1|TYPE2] [output_base_path]")
+        print("Example (Type 1): python report_engine.py data/country/ES_latest.json --type TYPE1")
+        print("Example (Type 2): python report_engine.py data/region/EU_region.json --type TYPE2")
+        print("\nIf --type not specified, auto-detects based on data structure:")
+        print("  - Single country JSON -> TYPE1 (single-country TCO)")
+        print("  - Region JSON -> TYPE2 (region ranking)")
         sys.exit(1)
 
     country_data_path = sys.argv[1]
-    output_base = sys.argv[2] if len(sys.argv) > 2 else "storage/report"
+
+    # Parse optional arguments
+    report_type = "TYPE1"
+    output_base = "storage/report"
+
+    # Check for --type flag
+    if "--type" in sys.argv:
+        type_idx = sys.argv.index("--type")
+        if type_idx + 1 < len(sys.argv):
+            report_type = sys.argv[type_idx + 1].upper()
+            if report_type not in ["TYPE1", "TYPE2"]:
+                print(f"Error: Invalid report type '{report_type}'. Must be TYPE1 or TYPE2")
+                sys.exit(1)
+
+    # Last positional argument is output_base if provided
+    positional_args = [arg for arg in sys.argv[2:] if not arg.startswith("--") and arg != report_type]
+    if positional_args:
+        output_base = positional_args[-1]
 
     # Initialize engine
-    engine = ReportEngine(country_data_path, output_base)
+    engine = ReportEngine(country_data_path, output_base, report_type)
+
+    # Load data
+    if not engine.load_country_data():
+        sys.exit(1)
+
+    # Auto-detect report type if not explicitly set
+    detected_type = engine.detect_report_type()
+    if engine.report_type == "TYPE1" and detected_type == "TYPE2":
+        engine.report_type = "TYPE2"
+    elif engine.report_type == "TYPE2" and detected_type == "TYPE1":
+        engine.report_type = "TYPE1"
 
     # Generate gap report
     gap_report = engine.generate_gap_report()
@@ -405,6 +463,7 @@ def main():
     # Save JSON report
     json_path = engine.save_gap_report(gap_report)
     print(f"📁 Gap analysis JSON saved: {json_path}")
+    print(f"📊 Report Type: {engine.report_type}")
 
     return 0 if gap_report.get("type1_readiness", {}).get("can_generate") else 1
 
