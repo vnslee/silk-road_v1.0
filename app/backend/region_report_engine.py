@@ -245,13 +245,23 @@ class RegionReportEngine:
         return readiness
 
     def save_gap_report(self, gap_report: Dict[str, Any]) -> str:
-        """Save gap analysis report to file."""
+        """Save gap analysis report to file with RPT_RGN_{code}_nnn.json naming."""
         region_code = gap_report["region_code"]
-        output_dir = Path(self.output_base) / "analysis" / region_code / "type2"
+        output_dir = Path(self.output_base) / "analysis" / region_code
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = output_dir / f"gap_analysis_{region_code}_{timestamp}.json"
+        # Find next sequence number
+        existing_files = list(output_dir.glob(f"RPT_RGN_{region_code}_*.json"))
+        next_num = 1
+        if existing_files:
+            max_num = max(
+                int(f.stem.split("_")[-1])
+                for f in existing_files
+                if f.stem.split("_")[-1].isdigit()
+            )
+            next_num = max_num + 1
+
+        output_file = output_dir / f"RPT_RGN_{region_code}_{next_num:03d}.json"
 
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(gap_report, f, ensure_ascii=False, indent=2)

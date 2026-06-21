@@ -215,13 +215,23 @@ class CountryReportEngine:
         return readiness
 
     def save_gap_report(self, gap_report: Dict[str, Any]) -> str:
-        """Save gap analysis report to file."""
+        """Save gap analysis report to file with RPT_CTR_{code}_nnn.json naming."""
         country_code = gap_report["country_code"]
-        output_dir = Path(self.output_base) / "analysis" / country_code / "type1"
+        output_dir = Path(self.output_base) / "analysis" / country_code
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = output_dir / f"gap_analysis_{country_code}_{timestamp}.json"
+        # Find next sequence number
+        existing_files = list(output_dir.glob(f"RPT_CTR_{country_code}_*.json"))
+        next_num = 1
+        if existing_files:
+            max_num = max(
+                int(f.stem.split("_")[-1])
+                for f in existing_files
+                if f.stem.split("_")[-1].isdigit()
+            )
+            next_num = max_num + 1
+
+        output_file = output_dir / f"RPT_CTR_{country_code}_{next_num:03d}.json"
 
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(gap_report, f, ensure_ascii=False, indent=2)
@@ -232,7 +242,7 @@ class CountryReportEngine:
         """Generate human-readable gap analysis report."""
         lines = [
             f"\n{'='*70}",
-            f"TYPE 1 GAP ANALYSIS: {gap_report['country']} ({gap_report['country_code']})",
+            f"COUNTRY GAP ANALYSIS: {gap_report['country']} ({gap_report['country_code']})",
             f"{'='*70}",
             f"Generated: {gap_report['generated_at']}",
             f"Schema Version: {gap_report['schema_version']}",
@@ -272,12 +282,12 @@ class CountryReportEngine:
             lines.append("  None - all required fields present!")
         lines.append("")
 
-        lines.append("TYPE 1 REPORT (SINGLE-COUNTRY TCO) READINESS:")
+        lines.append("COUNTRY REPORT (SINGLE-COUNTRY TCO) READINESS:")
         type1 = gap_report["type1_readiness"]
         lines.append(f"  Can Generate: {'YES ✓' if type1['can_generate'] else 'NO ✗'}")
         for tab_id, status in type1["tabs"].items():
             ready_icon = "✓" if status["ready"] else "✗"
-            lines.append(f"  Tab 1-{tab_id}: {ready_icon} {status['name']}")
+            lines.append(f"  Tab {tab_id}: {ready_icon} {status['name']}")
             if not status["ready"]:
                 lines.append(f"           Missing: {', '.join(status['missing_fields'][:2])}")
         lines.append("")
