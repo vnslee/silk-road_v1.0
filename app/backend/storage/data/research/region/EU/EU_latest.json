@@ -1,0 +1,47 @@
+{
+  "region": "Europe",
+  "region_ko": "유럽",
+  "code": "EU",
+  "currency": "EUR",
+  "baseline": "UK",
+  "schema_version": "0.1-provisional",
+  "data_year": 2025,
+  "fetched_at": "2026-06-21T15:00:00+09:00",
+  "fetched_by": "ai",
+  "_note": "잠정 권역 리서치 샘플 — P2 상세화면 렌더 검증용. 정식 스키마는 ROADMAP 2차(region 리서치)에서 확정. candidate_countries 수치는 report/region/EU/data/EU_rpt_latest.json ranking 기반.",
+  "overall_insight": "EU 권역은 영국(UK) 베이스라인 재사용률이 높아 구축비·기간 절감폭이 큰 권역이다. 기진출 영국을 거점으로 스페인(ES)·독일(DE)이 퀵윈 후보 — 스페인은 유사도 82.2로 IT 재사용률이 가장 높고, 독일은 진입난이도가 낮아(42.5) '즉시 진출' 사분면에 위치한다. 폴란드(PL)는 매력도는 높으나 난이도(71.2)가 임계를 넘어 선별 진출 대상이다. 권역 전반 GDPR·SEPA 공통 인프라로 IT 정합 비용이 낮은 것이 구조적 강점이다.",
+  "kpis": [
+    {"label": "Total Portfolio Volume", "value": "€4.2B", "delta": "+5.2%", "trend": "up", "icon": "account_balance", "note": "권역 누적 포트폴리오"},
+    {"label": "Active Diagnostic Nodes", "value": "1,204", "icon": "hub", "note": "Across 14 markets"},
+    {"label": "Network Efficiency Score", "value": "94%", "target": "95%", "icon": "speed", "note": "베이스라인 재사용 효율"},
+    {"label": "Regional Risk Index", "value": "Low", "delta": "-2.1%", "trend": "down", "icon": "security", "note": "Stable Outlook"}
+  ],
+  "entered_countries": [
+    {"code": "UK", "name_ko": "영국", "name_en": "United Kingdom", "status": "baseline", "solution": "NetSol", "since": 2019, "note": "권역 베이스라인 — 재사용 기준"}
+  ],
+  "candidate_countries": [
+    {"code": "ES", "name_ko": "스페인", "name_en": "Spain", "quick_win_rank": 1, "similarity": 82.2, "difficulty": 60.0, "attractiveness": 49.3, "composite_score": 60.1, "quick_win": true, "quadrant": "JV/제휴 필요"},
+    {"code": "DE", "name_ko": "독일", "name_en": "Germany", "quick_win_rank": 2, "similarity": 64.0, "difficulty": 42.5, "attractiveness": 55.9, "composite_score": 59.5, "quick_win": true, "quadrant": "즉시 진출"},
+    {"code": "PL", "name_ko": "폴란드", "name_en": "Poland", "quick_win_rank": 3, "similarity": 73.4, "difficulty": 71.2, "attractiveness": 56.3, "composite_score": 56.3, "quick_win": false, "quadrant": "선별 진출"}
+  ],
+  "items": [
+    {
+      "item": "권역 신차 판매대수",
+      "category": "business", "axis": "attractiveness", "unit": "units", "value": 10800000,
+      "timeseries": {
+        "history": [{"year": 2021, "value": 9700000}, {"year": 2022, "value": 9200000}, {"year": 2023, "value": 10100000}, {"year": 2024, "value": 10500000}, {"year": 2025, "value": 10800000}],
+        "forecast": [{"year": 2026, "value": 11100000}, {"year": 2027, "value": 11400000}, {"year": 2028, "value": 11700000}]
+      },
+      "insight": "EU 권역 승용차 신규 등록 회복세. 스페인·독일이 성장 견인."
+    },
+    {
+      "item": "권역 평균 EV 보급률",
+      "category": "business", "axis": "attractiveness", "unit": "%", "value": 18.5,
+      "timeseries": {
+        "history": [{"year": 2021, "value": 9.0}, {"year": 2022, "value": 12.1}, {"year": 2023, "value": 14.6}, {"year": 2024, "value": 16.8}, {"year": 2025, "value": 18.5}],
+        "forecast": [{"year": 2026, "value": 21.0}, {"year": 2027, "value": 24.0}, {"year": 2028, "value": 27.5}]
+      },
+      "insight": "EV 비중 상승 → 잔가 리스크 관리가 리스 손익의 핵심 변수."
+    }
+  ]
+}

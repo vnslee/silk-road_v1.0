@@ -20,9 +20,6 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Claude Code & Temporary storage
-app/backend/storage/
-
 # Research compilation artifacts
 data/*.txt
 *_SYNTHESIS_REPORT_*.json
