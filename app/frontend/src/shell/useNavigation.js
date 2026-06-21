@@ -8,6 +8,13 @@ import { useCallback, useEffect, useState } from 'react'
  */
 export const SCREENS = ['M1', 'C1', 'P1', 'P2', 'PR1', 'PR2', 'PS1', 'PS2']
 
+// 화면별 기본 진입 모드(web_design_spec §5.1). C1 챗봇·PS2 는 항상 팝업.
+const DEFAULT_MODE = {
+  C1: 'popup', PS2: 'popup',
+  P1: 'fullsize', P2: 'fullsize', PR1: 'fullsize', PR2: 'fullsize', PS1: 'fullsize',
+}
+const modeFor = (screen) => DEFAULT_MODE[screen] || 'fullsize'
+
 function parseHash() {
   // "#P1/ES" → { screen:'P1', params:{code:'ES'} }
   const h = window.location.hash.replace(/^#/, '')
@@ -24,8 +31,7 @@ export function useNavigation() {
   // nav: { screen, mode, params } | null(=M1 지도만)
   const [nav, setNav] = useState(() => {
     const fromHash = parseHash()
-    // 딥링크는 풀사이즈로 진입(메뉴 경로와 동일 취급)
-    return fromHash ? { ...fromHash, mode: 'fullsize' } : null
+    return fromHash ? { ...fromHash, mode: modeFor(fromHash.screen) } : null
   })
 
   // hash ↔ 상태 동기화
@@ -40,14 +46,14 @@ export function useNavigation() {
 
   // 브라우저 뒤로가기 대응
   useEffect(() => {
-    const onPop = () => setNav(parseHash() ? { ...parseHash(), mode: 'fullsize' } : null)
+    const onPop = () => { const h = parseHash(); setNav(h ? { ...h, mode: modeFor(h.screen) } : null) }
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
-  const open = useCallback((screen, { mode = 'popup', params = {} } = {}) => {
+  const open = useCallback((screen, { mode, params = {} } = {}) => {
     if (screen === 'M1') { setNav(null); return }
-    setNav({ screen, mode, params })
+    setNav({ screen, mode: mode || modeFor(screen), params })
   }, [])
 
   const close = useCallback(() => setNav(null), [])

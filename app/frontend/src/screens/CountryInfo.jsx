@@ -49,11 +49,27 @@ function fmtValue(it) {
   return '—'
 }
 
-export default function CountryInfo({ code, onReport, onGenerate }) {
+export default function CountryInfo({ code, onReport, onGenerate, onResearch }) {
   const { data, loading, error } = useApi(() => api.country(code), [code])
 
   if (loading) return <Centered>불러오는 중…</Centered>
-  if (error) return <Centered>데이터를 불러올 수 없습니다: {error}</Centered>
+  // 데이터 없음(404) → 외부 리서치 제안 (§6.5.1)
+  if (error) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-md p-xl text-center">
+        <span className="material-symbols-outlined text-[48px] text-outline-variant">travel_explore</span>
+        <p className="text-headline-md text-primary">{code} 정보가 아직 없습니다</p>
+        <p className="text-body-sm text-text-secondary">외부 리서치를 통해 이 국가의 진단 데이터를 생성할까요?</p>
+        <div className="mt-sm flex gap-sm">
+          <button onClick={() => onResearch && onResearch(code)}
+            className="rounded bg-primary px-lg py-sm text-label-md text-on-primary shadow-sm transition-transform hover:scale-[0.98]">
+            예, 리서치 진행
+          </button>
+        </div>
+        <p className="text-label-sm text-text-disabled">완료까지 수 분 소요됩니다. 진행률은 프로그레스 화면에서 확인하세요.</p>
+      </div>
+    )
+  }
 
   const items = data.items || []
   const byCat = (cats, roles) =>

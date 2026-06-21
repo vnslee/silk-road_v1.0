@@ -117,7 +117,22 @@
       "Bash(pkill -f vite)",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=9000 --screenshot=/tmp/ps1_new.png --window-size=1280,860 \"http://localhost:5173/#PS1\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=9000 --screenshot=/tmp/ps1n.png --window-size=1280,860 \"http://localhost:5173/#PS1\")",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=10000 --screenshot=/tmp/pr1_check.png --window-size=1280,900 \"http://localhost:5173/#PR1/GB\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=9000 --screenshot=/tmp/c1_popup.png --window-size=1280,860 \"http://localhost:5173/#C1\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=10000 --screenshot=/tmp/pr1_clean.png --window-size=1280,900 \"http://localhost:5173/#PR1/GB\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=9000 --dump-dom \"http://localhost:5173\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --virtual-time-budget=9000 --screenshot=/tmp/p1_cz.png --window-size=1280,860 \"http://localhost:5173/#P1/CZ\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/api/countries)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:5173/)",
+      "Bash(curl -s http://127.0.0.1:8000/api/countries)",
+      "Bash(node -e \"require\\('@babel/core'\\)\")",
+      "Bash(node --check src/globe/globe.js)",
+      "Bash(node -e \"fetch\\('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'\\).then\\(r=>{console.log\\('topojson CDN:', r.status\\)}\\).catch\\(e=>console.log\\('topojson CDN ERR:', e.message\\)\\)\")",
+      "Bash(node /tmp/click_test.mjs)",
+      "Bash(node click_test.mjs)",
+      "Bash(pip3 install *)"
     ]
   }
 }

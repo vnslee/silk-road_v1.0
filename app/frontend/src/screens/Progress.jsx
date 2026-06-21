@@ -12,7 +12,7 @@ const STATE_COLOR = {
   error: 'bg-error',
 }
 
-export default function Progress({ jobId, onViewReport }) {
+export default function Progress({ jobId, purpose, onViewReport }) {
   const job = useJob(jobId)
 
   if (!jobId) return <Centered>진행 중인 작업이 없습니다.</Centered>
@@ -27,7 +27,7 @@ export default function Progress({ jobId, onViewReport }) {
     <div className="flex h-full flex-col items-center justify-center gap-lg p-xl">
       <div className="w-full max-w-md">
         <div className="mb-md flex items-center justify-between">
-          <h2 className="text-headline-md text-primary">보고서 생성</h2>
+          <h2 className="text-headline-md text-primary">{purpose === 'research' ? '외부 리서치' : '보고서 생성'}</h2>
           <span className="text-body-sm tabular-nums text-text-secondary">{job.progress}%</span>
         </div>
 
@@ -50,7 +50,7 @@ export default function Progress({ jobId, onViewReport }) {
         {done && (
           <button onClick={() => onViewReport && onViewReport(job)}
             className="mt-lg w-full rounded bg-primary py-md text-label-md text-on-primary shadow-sm transition-transform hover:scale-[0.99]">
-            보고서 보기
+            {purpose === 'research' ? '국가 정보 보기' : '보고서 보기'}
           </button>
         )}
       </div>

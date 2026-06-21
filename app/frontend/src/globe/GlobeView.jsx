@@ -8,7 +8,7 @@ import './globe.css'
  * @param {(api)=>void} onReady  인트로 완료 시 호출(UI 페이드인)
  * @param {Array} countries  마커 카탈로그(API에서 주입). 없으면 모듈 기본값.
  */
-export default function Globe({ onReady, countries }) {
+export default function Globe({ onReady, onSelectCountry, onSelectRegion, countries }) {
   const canvasRef = useRef(null)
   const svgRef = useRef(null)
   const stageRef = useRef(null)
@@ -25,6 +25,8 @@ export default function Globe({ onReady, countries }) {
       stage: stageRef.current,
       countries,
       onIntroDone: () => finish(api),
+      onSelectCountry,
+      onSelectRegion,
     })
     apiRef.current = api
     if (deepLink) api.skipIntro()
@@ -42,7 +44,9 @@ export default function Globe({ onReady, countries }) {
       {!introDone && (
         <div className="intro-overlay" aria-hidden="true">
           <div className="intro-logo visible">
-            <div className="logo-eyebrow">Hyundai Capital · Internal Analytics</div>
+            <img src="/brand/logo_header.png" alt="Hyundai Capital"
+              style={{ height: 22, width: 'auto', marginBottom: 4, opacity: 0.92 }} />
+            <div className="logo-eyebrow">Internal Analytics</div>
             <div className="logo-title">Where Should We<br />Expand <em>Next?</em></div>
             <div className="logo-tagline">Global Auto Finance Market Diagnostics</div>
           </div>

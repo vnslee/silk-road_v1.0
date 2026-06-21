@@ -10,11 +10,19 @@ import * as d3 from 'd3'
 import { feature } from 'topojson-client'
 
 const TOPO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
-const ISO_NUM = { UK: 826, GB: 826, DE: 276, ES: 724, PL: 616, BR: 76, IN: 356, KR: 410 }
+const ISO_NUM = {
+  UK: 826, GB: 826, DE: 276, ES: 724, PL: 616, BR: 76, IN: 356, KR: 410,
+  AT: 40, DK: 208, FR: 250, IT: 380, MX: 484, NL: 528, PT: 620,
+  CZ: 203, HU: 348, US: 840, CA: 124, AU: 36, JP: 392, NZ: 554, SG: 702,
+}
+// world-atlas 숫자 id → ISO alpha-2 (육지 클릭용 역매핑). 826=영국은 GB 로.
+const NUM_ISO = Object.fromEntries(
+  Object.entries(ISO_NUM).filter(([c]) => c !== 'UK').map(([c, n]) => [n, c]),
+)
 const HQ = { name: 'SEOUL HQ', lonlat: [126.978, 37.5665] }
 
 const DEFAULT_CATALOG = [
-  { code: 'UK', country_ko: '영국', capital: [-0.1276, 51.5074], is_baseline: true, region: 'EU' },
+  { code: 'GB', country_ko: '영국', capital: [-0.1276, 51.5074], is_baseline: true, region: 'EU' },
   { code: 'DE', country_ko: '독일', capital: [13.405, 52.52], is_baseline: false, region: 'EU' },
   { code: 'ES', country_ko: '스페인', capital: [-3.7038, 40.4168], is_baseline: false, region: 'EU' },
   { code: 'PL', country_ko: '폴란드', capital: [21.0122, 52.2297], is_baseline: false, region: 'EU' },
@@ -29,7 +37,7 @@ const easeOut = (t) => 1 - (1 - t) * (1 - t) * (1 - t)
  * createGlobe 와 동일한 공개 API({runIntro, skipIntro, destroy})를 반환.
  */
 function _flatOnlyFallback(opts) {
-  const { canvas, svg, stage, onIntroDone } = opts
+  const { canvas, svg, stage, onIntroDone, onSelectCountry, onSelectRegion } = opts
   const CATALOG = opts.countries || DEFAULT_CATALOG
   let disposed = false
   if (canvas) canvas.style.display = 'none'
@@ -43,7 +51,7 @@ function _flatOnlyFallback(opts) {
     pathFn = d3.geoPath(proj)
     LAND = feature(topo, topo.objects.countries).features
     ready = true
-    _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND })
+    _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND, onSelectCountry, onSelectRegion })
     svg.style.opacity = '1'
     svg.style.pointerEvents = 'auto'
     if (onIntroDone) onIntroDone()
@@ -55,8 +63,21 @@ function _flatOnlyFallback(opts) {
   }
 }
 
+// 국가코드 → 권역코드. /regions 가 노출하는 baseline 보유 권역(EU/NA/APAC)만 매핑.
+// 여기 없는 국가(BR·MX 등 baseline 없는 권역)는 육지 클릭 시 국가(P1)로 폴백.
+const CODE_REGION = {
+  AT: 'EU', CZ: 'EU', DE: 'EU', DK: 'EU', ES: 'EU', FR: 'EU', GB: 'EU', UK: 'EU',
+  HU: 'EU', IT: 'EU', NL: 'EU', PL: 'EU', PT: 'EU',
+  AU: 'APAC', JP: 'APAC', KR: 'APAC', NZ: 'APAC', SG: 'APAC',
+  CA: 'NA', US: 'NA',
+}
+/** 국가코드 → /regions 가 해석 가능한 권역코드(없으면 null → 국가 P1 폴백). */
+function _regionOf(code) {
+  return CODE_REGION[code] || null
+}
+
 /** 평면 SVG 렌더(폴백·정상 경로 공용 코어). */
-function _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND }) {
+function _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND, onSelectCountry, onSelectRegion }) {
   const sel = d3.select(svg).attr('viewBox', `0 0 ${W} ${H}`)
   sel.selectAll('*').remove()
   const defs = sel.append('defs')
@@ -67,10 +88,21 @@ function _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND }) {
   sel.append('rect').attr('width', W).attr('height', H).attr('fill', 'url(#fm-ocean)')
   sel.append('path').attr('class', 'graticule').attr('d', pathFn(d3.geoGraticule10()))
   const activeIds = new Set(CATALOG.filter((d) => d.is_baseline).map((d) => ISO_NUM[d.code]))
-  sel.append('g').selectAll('path').data(LAND).enter().append('path')
+  const landSel = sel.append('g').selectAll('path').data(LAND).enter().append('path')
     .attr('class', 'country-land')
     .classed('region-active', (d) => activeIds.has(d.id))
     .attr('d', pathFn)
+  // 육지(권역 영역) 클릭 → 권역 정보(P2). 매핑된 국가의 region 으로 분기(§6.3).
+  if (onSelectRegion || onSelectCountry) {
+    landSel
+      .style('cursor', (d) => (NUM_ISO[d.id] ? 'pointer' : 'default'))
+      .on('click', (event, d) => {
+        const c = NUM_ISO[d.id]; if (!c) return
+        const region = _regionOf(c)
+        if (region && onSelectRegion) onSelectRegion(region)
+        else if (onSelectCountry) onSelectCountry(c)
+      })
+  }
   const mkG = sel.append('g')
   CATALOG.map((d) => ({ ...d, xy: proj(d.capital) })).forEach((d) => {
     if (!d.xy) return
@@ -80,6 +112,10 @@ function _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND }) {
       .attr('stroke', '#2F79D9').attr('stroke-width', d.is_baseline ? 0 : 1.5)
     g.append('text').attr('class', 'mk-label').attr('y', -15)
       .attr('text-anchor', 'middle').style('opacity', 1).text(d.country_ko)
+    if (onSelectCountry) {
+      g.style('cursor', 'pointer').on('click', () => onSelectCountry(d.code))
+      g.append('circle').attr('r', 16).attr('fill', 'transparent')
+    }
   })
 }
 
@@ -91,7 +127,7 @@ function _renderFlat({ svg, CATALOG, W, H, proj, pathFn, LAND }) {
  *   onIntroDone: 인트로 완료 콜백(UI 페이드인용)
  */
 export function createGlobe(opts) {
-  const { canvas, svg, stage, onIntroDone } = opts
+  const { canvas, svg, stage, onIntroDone, onSelectCountry, onSelectRegion } = opts
   const CATALOG = opts.countries || DEFAULT_CATALOG
   const reducedMotion = opts.reducedMotion ||
     (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -242,10 +278,21 @@ export function createGlobe(opts) {
     sel.append('path').attr('class', 'graticule').attr('d', pathFn(d3.geoGraticule10()))
 
     const activeIds = new Set(CATALOG.filter((d) => d.is_baseline).map((d) => ISO_NUM[d.code]))
-    sel.append('g').selectAll('path').data(LAND).enter().append('path')
+    const landSel = sel.append('g').selectAll('path').data(LAND).enter().append('path')
       .attr('class', 'country-land')
       .classed('region-active', (d) => activeIds.has(d.id))
       .attr('d', pathFn)
+    // 육지(권역 영역) 클릭 → 권역 정보(P2, §6.3). 매핑 없는 나라는 비활성.
+    if (onSelectRegion || onSelectCountry) {
+      landSel
+        .style('cursor', (d) => (NUM_ISO[d.id] ? 'pointer' : 'default'))
+        .on('click', (event, d) => {
+          const c = NUM_ISO[d.id]; if (!c) return
+          const region = _regionOf(c)
+          if (region && onSelectRegion) onSelectRegion(region)
+          else if (onSelectCountry) onSelectCountry(c)
+        })
+    }
 
     const arcG = sel.append('g').attr('id', 'arc-layer')
     CATALOG.forEach((d) => {
@@ -262,8 +309,11 @@ export function createGlobe(opts) {
     all.push({ code: 'HQ', country_ko: HQ.name, capital: HQ.lonlat, is_hq: true, xy: proj(HQ.lonlat) })
     all.forEach((d) => {
       if (!d.xy) return
-      const g = mkG.append('g').attr('class', 'mk').attr('id', 'mk-' + d.code)
+      // 바깥 g: 위치 지정(translate). markerDrop 애니메이션의 transform 이
+      // 이 translate 를 덮어쓰지 않도록 위치와 애니메이션 그룹을 분리한다.
+      const pos = mkG.append('g').attr('id', 'mk-' + d.code)
         .attr('transform', `translate(${d.xy[0]},${d.xy[1]})`)
+      const g = pos.append('g').attr('class', 'mk')
       if (d.is_hq || d.is_baseline) g.append('circle').attr('class', 'pulse')
       g.append('circle').attr('r', 12).attr('fill', 'none').attr('stroke', '#2F79D9')
         .attr('stroke-opacity', 0.3).attr('filter', 'url(#mkGlow)')
@@ -272,6 +322,13 @@ export function createGlobe(opts) {
         .attr('stroke', '#2F79D9').attr('stroke-width', (d.is_hq || d.is_baseline) ? 0 : 1.5)
       g.append('text').attr('class', 'mk-label').attr('x', 0).attr('y', -15)
         .attr('text-anchor', 'middle').text(d.is_hq ? 'SEOUL HQ' : d.country_ko)
+      // 마커 클릭 → 국가 정보(P1). HQ 제외.
+      if (!d.is_hq && onSelectCountry) {
+        g.style('cursor', 'pointer')
+         .on('click', () => onSelectCountry(d.code))
+        // 클릭 영역 확대용 투명 원
+        g.append('circle').attr('r', 16).attr('fill', 'transparent')
+      }
     })
   }
 
@@ -280,8 +337,10 @@ export function createGlobe(opts) {
     order.forEach((code, i) => {
       const delay = 150 + i * 240
       setT(() => {
-        const mk = document.getElementById('mk-' + code)
+        const pos = document.getElementById('mk-' + code)
+        const mk = pos && pos.querySelector('.mk')
         if (!mk) return
+        // 애니메이션은 안쪽 .mk 에만 — 바깥 위치 translate 보존.
         mk.style.animation = 'markerDrop 0.55s cubic-bezier(.34,1.56,.64,1) forwards'
         setT(() => { const lbl = mk.querySelector('.mk-label'); if (lbl) lbl.style.animation = 'labelFade 0.4s ease forwards' }, 320)
       }, delay)
