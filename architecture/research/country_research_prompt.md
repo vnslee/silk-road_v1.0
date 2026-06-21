@@ -35,7 +35,7 @@
   신차 판매대수                 [business / score]  ※시계열
   구매 패턴(할부·리스 비중)     [business / score]
   캡티브 강도(점유율)           [business / score]
-  1위사 점유율                  [business / score]
+  금융사 점유율(Top 5)          [business / score]  ※Top 5사 점유율 조사
   법인세율                      [business / score]
   이자소득 원천징수             [business / score]
   배당 원천징수                 [business / score]
@@ -79,9 +79,9 @@
 ■ 서술·배경(context)
   해당국 정성 요약              [business / context]
   브랜드 Top10                  [business / context]
-  OEM 순위                      [business / context]
-  금융사 순위                   [business / context]
-  경쟁사 리스트                 [business / context]
+  OEM 순위(Top 5)               [business / context]  ※자동차 제조사 Top 5
+  금융사 순위(Top 5)            [business / context]  ※자동차금융사 Top 5
+  경쟁사 리스트                 [business / context]  ※해외 진출 금융사
   경쟁사 진출 형태              [business / context]
   경쟁사 금리 범위              [business / context]
   평균 신차가격                 [business / context]
@@ -111,6 +111,11 @@
 7. 세그먼트 의존 항목(라이선스·금리상한·회수)은 세그먼트별 차이를 value/insight에 명시.
 8. score 항목 중 등급형(CB인프라·디지털성숙도·회수용이성 등)은 1~5 정수,
    unit에 "maturity_1to5" / "ease_1to5" 등 명시. direction·axis 지정.
+9. 순위·리스트 항목(금융사 순위·OEM 순위·경쟁사 리스트 등)은 반드시 배열 형식으로 출력:
+   value = [
+     {"rank": 1, "name": "회사명", "market_share": "점유율"} 또는 {"rank": 1, "name": "브랜드명"}
+   ]
+   ★ 최소 Top 5 이상. 1위만 기록 금지.
 
 [NEWS 규칙] — 외부 이슈 스캔 (신규)
 - 단일 item으로 출력.
