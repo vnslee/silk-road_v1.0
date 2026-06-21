@@ -309,6 +309,18 @@ class CountryReportEngine:
 
         return "\n".join(lines)
 
+    # Legacy/alternate country code aliases used in research data → ISO 3166-1 alpha-2
+    # GB(영국), US(미국) 등이 ISO 표준. 과거 데이터의 UK/USA는 등록 시 보정.
+    COUNTRY_CODE_ALIASES = {
+        "USA": "US",
+    }
+
+    def normalize_country_code(self, code: str) -> str:
+        """Map legacy code aliases (UK→GB, USA→US) to ISO codes used by internal.json."""
+        if not code:
+            return code
+        return self.COUNTRY_CODE_ALIASES.get(code.upper(), code.upper())
+
     def resolve_base_country(self, target_country: str) -> str:
         """Resolve baseline country for the target country's region.
 
@@ -321,6 +333,7 @@ class CountryReportEngine:
         if not self.internal_data:
             self.load_internal_data()
 
+        target_country = self.normalize_country_code(target_country)
         country_to_region = self.internal_data.get("country_to_region", {})
         region_baselines = self.internal_data.get("region_baselines", {})
 
@@ -362,10 +375,19 @@ class CountryReportEngine:
             return None
 
         item_similarity = sum(d["similarity"] for d in dim_results) / len(dim_results)
+        item_name = item.get("item")
+        # 가중치/축은 internal.similarity_item_weights에서 우선 조회, 없으면 항목 내 fallback
+        weights_cfg = (self.internal_data or {}).get("similarity_item_weights", {}) or {}
+        w_entry = weights_cfg.get(item_name) or {}
+        axis = w_entry.get("axis") or item.get("similarity_axis")
+        weight = w_entry.get("weight")
+        if weight is None:
+            weight = item.get("similarity_weight", 0.0)
+
         return {
-            "item": item.get("item"),
-            "axis": item.get("similarity_axis"),
-            "weight": item.get("similarity_weight", 0.0),
+            "item": item_name,
+            "axis": axis,
+            "weight": weight or 0.0,
             "dimensions": dim_results,
             "item_similarity": item_similarity,
         }
@@ -376,6 +398,16 @@ class CountryReportEngine:
         Returns:
             Dict with overall score and axis breakdown
         """
+        # 자기 자신이 베이스라인인 경우 (is_baseline 국가): 유사도 100점 자동
+        if self.normalize_country_code(target_country) == self.normalize_country_code(base_country):
+            return {
+                "overall_score": 100.0,
+                "axes": {"system": 100.0, "product": 100.0, "regulatory": 100.0, "risk": 100.0},
+                "items": [],
+                "method": "self_baseline",
+                "note": "베이스라인 국가 자기 자신 — 유사도 100점 적용",
+            }
+
         items = (self.country_data or {}).get("items", []) or []
         scored_items = []
         for it in items:
@@ -435,15 +467,20 @@ class CountryReportEngine:
         base_solution = base_info.get("solution", "N/A")
         region_system_exists = base_country in country_assets
 
+        # 임계값 — internal_data.decision_thresholds 우선, 누락 시 명세 기본값(70/50)
+        thresholds = (self.internal_data or {}).get("decision_thresholds") or {}
+        expansion_min = float(thresholds.get("expansion_min_score", 70))
+        hq_build_min = float(thresholds.get("hq_build_min_score", 50))
+
         # Stage 1 — does the region already have a deployed system?
         if not region_system_exists:
             # No region system → straight into external-solution review (then HQ fallback)
             decision = "external_solution"
             recommendation = "권역 내 확산 가능 시스템 없음 → 외부솔루션 검토 (미달 시 본사 자체구축)"
-        elif similarity_score >= 70:
+        elif similarity_score >= expansion_min:
             decision = "baseline_system_expansion"
             recommendation = f"권역 내 확산: {base_country} 시스템({base_solution}) 현지화"
-        elif similarity_score >= 50:
+        elif similarity_score >= hq_build_min:
             decision = "hq_build"
             recommendation = "본사 자체구축 추천 (유사도 중간 구간)"
         else:
@@ -461,6 +498,30 @@ class CountryReportEngine:
             "hq_baseline_months": hq_baseline.get("months", 0),
             "hq_baseline_currency": hq_baseline.get("currency", "EUR")
         }
+
+    def calculate_similarity_multiplier(self, similarity_score: float) -> Dict[str, Any]:
+        """명세서 산식 1 — 종합 유사도 → TCO 적용 승수%.
+
+        승수 테이블은 internal_data.similarity_multiplier_table에서 로드.
+        승수는 'B 구축비용/기간'에 곱해 신규국 구축 비용·기간을 산출하는 값.
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+        table = (self.internal_data or {}).get("similarity_multiplier_table") or []
+        for row in table:
+            if not isinstance(row, dict):
+                continue
+            lo = row.get("min")
+            hi = row.get("max")
+            if lo is None or hi is None:
+                continue
+            if lo <= similarity_score <= hi:
+                return {
+                    "multiplier": float(row.get("multiplier", 1.0)),
+                    "band": row.get("band", f"{lo}~{hi}"),
+                }
+        # 표가 비어 있거나 매칭 실패 → 안전 폴백 (재사용 없음 = 100%)
+        return {"multiplier": 1.0, "band": "—"}
 
     def calculate_similarity_discount(self, similarity_score: float) -> float:
         """Map similarity score to discount percentage.
@@ -482,23 +543,77 @@ class CountryReportEngine:
 
         return 0.0
 
-    def calculate_expected_contracts(self, target_country_data: Dict) -> int:
+    def calculate_expected_contracts(self, target_country_data: Dict) -> Dict[str, Any]:
         """Calculate expected contract volume for target country.
 
-        Args:
-            target_country_data: Country data with market info
+        명세서 산식 2:
+            A 예상건수 = A 판매대수 × A 금융이용률 × (할부+리스 비중) × 우리사 예상 점유율
 
         Returns:
-            Expected annual contract count
+            Dict with computed value + 입력 추적 (산식 재현용).
         """
-        # TODO: Extract from country_data items:
-        # - 신차 판매대수
-        # - 금융 이용률(신차)
-        # - 구매 패턴(할부·리스 비중)
-        # - 우리사 예상 점유율 (from internal?)
+        if not self.internal_data:
+            self.load_internal_data()
 
-        # Placeholder calculation
-        return 120
+        items_by_name = {it.get("item"): it for it in target_country_data.get("items", []) or []}
+
+        def _to_float(v, default=None):
+            try:
+                return float(v)
+            except (TypeError, ValueError):
+                return default
+
+        def _read_value(name, default=None):
+            it = items_by_name.get(name)
+            if not it:
+                return default
+            return _to_float(it.get("value"), default)
+
+        # 신차 판매대수 (단위는 country_data에서 unit으로 표시, 보통 units_K 또는 절대수)
+        sales_item = items_by_name.get("신차 판매대수")
+        sales_value = _to_float((sales_item or {}).get("value"), 0) or 0
+        sales_unit = (sales_item or {}).get("unit", "")
+        # 단위 정규화: units_K → ×1000, units_M → ×1,000,000, 그 외(units/대 등)는 그대로
+        unit_multiplier = 1
+        if sales_unit in ("units_K", "K", "thousand"):
+            unit_multiplier = 1_000
+        elif sales_unit in ("units_M", "M", "million"):
+            unit_multiplier = 1_000_000
+        # 절대수가 큰 경우(>= 10만)에는 이미 절대수로 들어왔다고 간주
+        if sales_value >= 100_000 and unit_multiplier > 1:
+            unit_multiplier = 1
+        total_sales = sales_value * unit_multiplier
+
+        # 금융 이용률(신차) — % 값
+        penetration_pct = _read_value("금융 이용률(신차)", 0) or 0
+        penetration = penetration_pct / 100.0
+
+        # 구매 패턴(할부·리스 비중) — % 값
+        installment_lease_pct = _read_value("구매 패턴(할부·리스 비중)", 0) or 0
+        installment_lease = installment_lease_pct / 100.0
+
+        # 우리사 예상 점유율 — internal.json
+        expected_share = self.internal_data.get("expected_market_share", 0.02) or 0
+        try:
+            expected_share = float(expected_share)
+        except (TypeError, ValueError):
+            expected_share = 0.02
+
+        expected_contracts = total_sales * penetration * installment_lease * expected_share
+        expected_contracts_int = int(round(expected_contracts))
+
+        return {
+            "value": expected_contracts_int,
+            "formula": "신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율",
+            "inputs": {
+                "신차 판매대수": int(total_sales) if total_sales else 0,
+                "신차 판매대수(원본값)": sales_value,
+                "신차 판매대수(단위)": sales_unit,
+                "금융 이용률(신차)_%": penetration_pct,
+                "구매 패턴(할부·리스 비중)_%": installment_lease_pct,
+                "우리사 예상 점유율": expected_share,
+            },
+        }
 
     def calculate_subscription_fee(self, new_volume: int) -> Dict[str, Any]:
         """Calculate subscription fee with volume-based tiering.
@@ -555,8 +670,11 @@ class CountryReportEngine:
         if not self.internal_data:
             self.load_internal_data()
 
-        # Get similarity and discount
+        # Get similarity and multiplier (명세서 산식 1)
         similarity = self.calculate_similarity_score(target_country, base_country)
+        mult_info = self.calculate_similarity_multiplier(similarity["overall_score"])
+        multiplier = mult_info["multiplier"]
+        # 'discount'는 internal.similarity_brackets(레거시) 정보 — JSON 트레이스용으로만 유지
         discount = self.calculate_similarity_discount(similarity["overall_score"])
 
         # Get base country build info
@@ -564,15 +682,32 @@ class CountryReportEngine:
         base_cost = base_info.get("build_cost", 5000)
         base_months = base_info.get("build_months", 18)
 
-        # Calculate build cost with discount
-        build_cost = base_cost * discount
-        build_months = base_months * discount
+        # 명세서 산식 4:
+        #   구축비   = B 구축비용 × 유사도승수
+        #   구축기간 = B 구축기간 × 유사도승수
+        build_cost = base_cost * multiplier
+        build_months = base_months * multiplier
 
-        # Localization/customization cost (placeholder - should be based on gap analysis)
-        customization_cost = base_cost * 0.15
+        build_breakdown = {
+            "formula": "구축비용/기간 = 베이스라인(B) 값 × 유사도 승수",
+            "inputs": {
+                "베이스라인 국가": base_country,
+                "베이스라인 솔루션": base_info.get("solution"),
+                "B 구축비용": base_cost,
+                "B 구축기간(개월)": base_months,
+                "종합 유사도": round(similarity["overall_score"], 1),
+                "승수 구간": mult_info["band"],
+                "적용 승수": multiplier,
+            },
+            "outputs": {
+                "신규국 구축비용": build_cost,
+                "신규국 구축기간(개월)": build_months,
+            },
+        }
 
         # Calculate subscription
-        expected_volume = self.calculate_expected_contracts(self.country_data or {})
+        expected = self.calculate_expected_contracts(self.country_data or {})
+        expected_volume = expected.get("value", 0) if isinstance(expected, dict) else int(expected or 0)
         subscription = self.calculate_subscription_fee(expected_volume)
         annual_subscription = subscription["annual_fee"]
 
@@ -582,23 +717,28 @@ class CountryReportEngine:
         # Operations
         operations_10y = self.internal_data.get("operational_cost_10y", {}).get("amount", 50000)
 
-        # Total TCO
-        system_cost = build_cost + customization_cost + (annual_subscription * 10) + (maintenance_annual * 10)
+        # Total TCO (명세 산식 4)
+        annual_recurring = annual_subscription + maintenance_annual
+        system_cost = build_cost + (annual_recurring * 10)
         total_tco = system_cost + operations_10y
 
         return {
             "build_cost": build_cost,
             "build_months": build_months,
-            "customization_cost": customization_cost,
             "annual_subscription": annual_subscription,
             "annual_maintenance": maintenance_annual,
+            "annual_recurring": annual_recurring,
             "operations_10y": operations_10y,
             "system_cost_10y": system_cost,
             "total_tco_10y": total_tco,
             "currency": "EUR",
             "similarity_score": similarity["overall_score"],
+            "similarity_multiplier": multiplier,
+            "similarity_band": mult_info["band"],
             "discount_applied": discount,
+            "build_breakdown": build_breakdown,
             "expected_contracts": expected_volume,
+            "expected_contracts_breakdown": expected if isinstance(expected, dict) else None,
             "subscription_details": subscription,
             "subscription_tiers": self.internal_data.get("subscription_tiers", []),
             "existing_total_volume": self.internal_data.get("existing_total_volume", 0),
@@ -663,6 +803,8 @@ class CountryReportEngine:
         if not self.internal_data:
             self.load_internal_data()
 
+        # 데이터에 기록된 원본 코드(예: UK)는 저장/표시용으로 유지하고,
+        # 내부 룩업(베이스라인·진출상태)에만 정규화된 코드(예: GB)를 쓴다.
         target_country = self.country_data.get("code", "N/A")
         base_country = self.resolve_base_country(target_country)
 
@@ -671,19 +813,55 @@ class CountryReportEngine:
         quality = self._assess_data_quality()
         readiness = self._assess_type1_readiness(analysis)
 
+        # 기준국 자가 분석 감지 — TCO/결정 산식이 무의미해지므로 명시적 안내로 대체.
+        is_baseline_self = (
+            self.normalize_country_code(target_country)
+            == self.normalize_country_code(base_country)
+        )
+        base_solution = (
+            (self.internal_data or {}).get("country_assets", {}).get(base_country, {}).get("solution")
+            or "N/A"
+        )
+
         # Tab 1-1: Similarity Scoring
         # calculate_similarity_score()가 디멘전 채점 결과를 'items'에 채움.
         # 보조적인 raw evidence는 별도 'evidence_items' 키로 분리해서 보관.
         similarity = self.calculate_similarity_score(target_country, base_country)
         similarity["evidence_items"] = self._collect_tab_items("1-1")
 
-        # Tab 1-2: System Decision Tree (+ regulatory item evidence)
-        decision = self.determine_system_decision(similarity["overall_score"], base_country)
-        decision["items"] = self._collect_tab_items("1-2")
+        # Tab 1-2: System Decision Tree
+        if is_baseline_self:
+            decision = {
+                "is_baseline": True,
+                "decision": "baseline_already_deployed",
+                "recommendation": (
+                    f"{target_country}는 권역 기준국 — 시스템({base_solution})이 이미 운영 중입니다. "
+                    f"신규 진출 결정 트리는 적용되지 않습니다."
+                ),
+                "similarity_score": similarity.get("overall_score"),
+                "base_country": base_country,
+                "base_system": base_solution,
+                "region_system_exists": True,
+                "items": self._collect_tab_items("1-2"),
+            }
+        else:
+            decision = self.determine_system_decision(similarity["overall_score"], base_country)
+            decision["items"] = self._collect_tab_items("1-2")
 
-        # Tab 1-3: Contract Volume & 10Y TCO (+ volume/penetration evidence)
-        tco = self.calculate_tco_10y(target_country, base_country)
-        tco["items"] = self._collect_tab_items("1-3")
+        # Tab 1-3: Contract Volume & 10Y TCO
+        if is_baseline_self:
+            tco = {
+                "is_baseline": True,
+                "message": (
+                    f"{target_country}는 권역 기준국 — 신규 구축 비용·기간이 적용되지 않습니다. "
+                    f"운영 현황(기존 누적 계약·운영비)은 별도 관리 보고서를 참조하세요."
+                ),
+                "currency": (self.country_data.get("currency") or "EUR"),
+                "items": self._collect_tab_items("1-3"),
+            }
+        else:
+            tco = self.calculate_tco_10y(target_country, base_country)
+            tco["items"] = self._collect_tab_items("1-3")
 
         # Tab 1-4: Market & Competition — fully sourced from country_data.items
         tab_1_4_items = self._collect_tab_items("1-4")
@@ -698,9 +876,10 @@ class CountryReportEngine:
         }
 
         report = {
-            "report_id": f"RPT_CTR_{target_country}_001",
+            # 일련번호는 save_type1_report()에서 출력 디렉터리를 스캔해 자동 갱신.
+            "report_id": f"RPT_CTR_{target_country}_001",  # placeholder — save 시점에 덮어씀
             "report_type": "type1_country",
-            "title": f"{self.country_data.get('country', target_country)} Auto Finance Entry Cost & TCO Report",
+            "title": f"{self.country_data.get('country_ko') or self.country_data.get('country', target_country)} 진출 진단 보고서",
             "target": {
                 "country": target_country,
                 "base_country": base_country
@@ -717,6 +896,11 @@ class CountryReportEngine:
                 "data_year": self.country_data.get("data_year"),
                 "fetched_at": self.country_data.get("fetched_at"),
                 "fetched_by": self.country_data.get("fetched_by"),
+                "entry_status": (
+                    (self.internal_data or {}).get("country_status", {}).get(target_country)
+                    or (self.internal_data or {}).get("country_status", {}).get(self.normalize_country_code(target_country))
+                    or "미진출"
+                ),
             },
 
             "data_quality": {
@@ -764,7 +948,10 @@ class CountryReportEngine:
             )
             next_num = max_num + 1
 
-        output_file = output_dir / f"RPT_CTR_{country_code}_{next_num:03d}.json"
+        new_report_id = f"RPT_CTR_{country_code}_{next_num:03d}"
+        report["report_id"] = new_report_id  # 일련번호에 맞춰 ID 동기화
+
+        output_file = output_dir / f"{new_report_id}.json"
 
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
@@ -813,9 +1000,31 @@ def main():
     if can_generate:
         type1_path = engine.save_type1_report(type1_report)
         print(f"\n📊 Type 1 TCO Report saved: {type1_path}")
-        print(f"\n10Y TCO: {type1_report['tabs']['tab_1_3_tco']['total_tco_10y']:,.0f} EUR")
+        tco_tab = type1_report['tabs']['tab_1_3_tco']
+        if tco_tab.get("is_baseline"):
+            print(f"\n[기준국 자가 분석] TCO/결정 트리는 적용되지 않음 (운영 중인 시스템 기준).")
+        else:
+            print(f"\n10Y TCO: {tco_tab.get('total_tco_10y', 0):,.0f} EUR")
         print(f"Similarity Score: {type1_report['tabs']['tab_1_1_similarity']['overall_score']:.1f}")
         print(f"Decision: {type1_report['tabs']['tab_1_2_decision']['recommendation']}")
+
+        # 자동으로 렌더러까지 호출해서 HTML 생성
+        try:
+            import sys as _sys
+            from pathlib import Path as _Path
+            renderer_dir = _Path(__file__).resolve().parent.parent / "rendering"
+            if str(renderer_dir) not in _sys.path:
+                _sys.path.insert(0, str(renderer_dir))
+            from country_report_renderer import CountryReportRenderer  # type: ignore
+
+            renderer = CountryReportRenderer(type1_path)
+            if renderer.load_report():
+                html_path = renderer.save_html()
+                print(f"🖼  HTML rendered: {html_path}")
+            else:
+                print("⚠️  렌더링용 보고서 JSON 로드 실패 — HTML 생성 건너뜀.")
+        except Exception as render_err:
+            print(f"⚠️  HTML 자동 렌더 실패: {render_err}")
         return 0
     else:
         print("\n⚠️  Data gaps exist but report generated for review")
