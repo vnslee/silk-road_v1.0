@@ -1,5 +1,5 @@
 {
-  "report_id": "RPT_RGN_EU_001",
+  "report_id": "RPT_RGN_EU_002",
   "report_type": "type2_region",
   "title": "European Union 권역 퀵윈 순위 보고서",
   "target": {
@@ -16,7 +16,7 @@
     ],
     "baseline_country": "UK"
   },
-  "generated_at": "2026-06-21T18:11:18.497409",
+  "generated_at": "2026-06-21T18:15:40.281665",
   "generated_by": "engine",
   "data_snapshot_id": "2026-06-21T12:55:20.332614",
   "config_version": "1.2",

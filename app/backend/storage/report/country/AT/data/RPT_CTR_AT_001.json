@@ -1,12 +1,12 @@
 {
   "report_id": "RPT_CTR_AT_001",
   "report_type": "type1_country",
-  "title": "Austria Auto Finance Entry Cost & TCO Report",
+  "title": "오스트리아 진출 진단 보고서",
   "target": {
     "country": "AT",
     "base_country": "GB"
   },
-  "generated_at": "2026-06-21T11:59:46.905299",
+  "generated_at": "2026-06-21T19:11:12.265026",
   "schema_version": "1.1",
   "overall_insight": "EU 12위 자동차 시장이자 독일·체코·헝가리 CEE 권역의 자연스러운 거점. 2025년 신차 등록 약 24만대(Statistik Austria)로 규모는 작으나 운용리스(operatives Leasing) 비중 EU 톱급(법인 신차 60%+), 캡티브 강도 EU 최강(VW FS·Porsche Bank 단독으로 자동차금융 50%+)인 구조가 핵심이다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 FMA(금융시장청)+OeNB(중앙은행) 이중 감독 하 BWG(은행법) §1 Z2 등록 또는 Zahlungsdienstleister 인가(자본금 €5M)와 강력한 사용자금리 상한(VKrG §6: OeNB 분기 평균 + 2배·12pp 절대, 2025 약 19% APR)이 진입 부담의 핵심이다. 반면 B2B 운용리스(VÖL 회원)는 BWG 인가 면제로 진입 매우 유연. 비즈니스 매력도는 시장규모는 EU 중하위이나 단위경제 우수(평균 신차가 €36k·BEV 25%+)·국가신용 AA+. 캡티브 압도(Porsche Bank가 그룹 합산 약 50%, 독일 VW FS 모회사)와 다국적 리스사(Ayvens·Arval·Sixt Leasing) 양강 구조로 약 80% 점유 — 독립계 단독 진입은 거의 비매력. 한국 OEM이 진입한다면 캡티브(KCFS) 형태로 신규 진입 가능성. IT 유사도는 매우 높음 — EU GDPR·SEPA·EPS Überweisung(현지 결제)·KSV1870/CRIF(신용정보)·Handy-Signatur/ID Austria(전자인증) 등 인프라 EU 최상위. 매력도↔IT 불일치 지점은 작은 시장규모 — 단독 진입은 ROI 회수 어려움. 다크호스는 CEE 권역 본부 활용(Wien Hub) — Erste Group이 CEE 전역 운영하는 모델 적용 가능. 운용리스·플릿 우선 진입(VÖL) → CEE 권역(HU/CZ/SK/SI/HR) 본부 활용 전략이 유효.",
   "country_meta": {
@@ -16,7 +16,8 @@
     "currency": "EUR",
     "data_year": 2025,
     "fetched_at": "2026-06-21T19:30:00+09:00",
-    "fetched_by": "ai"
+    "fetched_by": "ai",
+    "entry_status": "미진출"
   },
   "data_quality": {
     "completeness_pct": 100.0,
@@ -358,16 +359,266 @@
   },
   "tabs": {
     "tab_1_1_similarity": {
-      "overall_score": 75.0,
+      "overall_score": 83.4375,
       "axes": {
-        "solution_type": 80.0,
-        "digital_maturity": 70.0,
-        "product_mix": 75.0,
-        "regulatory": 73.0
+        "product": 93.75,
+        "regulatory": 73.21428571428572,
+        "system": 90.625,
+        "risk": 75.0
       },
-      "method": "dimension_based",
-      "note": "Detailed dimension scoring to be implemented",
       "items": [
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "axis": "product",
+          "weight": 0.15,
+          "dimensions": [
+            {
+              "dimension": "리스 취급 일치도",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "리스(운용+금융) 신차 45%+ — EU 톱급"
+            },
+            {
+              "dimension": "렌탈 취급 일치도",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "단기렌탈 보통, Sixt 등 다국적"
+            },
+            {
+              "dimension": "플릿 취급 일치도",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "법인 운용리스 60%+ — 플릿 강함"
+            },
+            {
+              "dimension": "상품별 비중 유사도",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "운용리스 비중 EU 상위, 캡티브 압도 구조"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "axis": "regulatory",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "현지 저장 강제",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "강제 현지화 없음"
+            },
+            {
+              "dimension": "국외 이전 허용도",
+              "target_score": 5,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "EU 역내 자유 이전"
+            },
+            {
+              "dimension": "동의·보관 규제",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "DSG·GDPR 표준"
+            },
+            {
+              "dimension": "GDPR 동등성",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "GDPR 동등(EU)"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "axis": "regulatory",
+          "weight": 0.25,
+          "dimensions": [
+            {
+              "dimension": "취득방식(등록 vs 인가)",
+              "target_score": 2,
+              "base_score": 4,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "BWG §1 Z2 등록(인가형) — 부담 중상"
+            },
+            {
+              "dimension": "외국인 취득 가능",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "EU 자본자유 — 100% 가능"
+            },
+            {
+              "dimension": "처리기간(개월)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "FMA/OeNB 이중 심사로 9~12개월"
+            },
+            {
+              "dimension": "최저자본금 수준",
+              "target_score": 2,
+              "base_score": 4,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "BWG 자본 €5M (GB FCA 대비 무거움)"
+            },
+            {
+              "dimension": "감독 강도",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "FMA+OeNB 이중 감독"
+            }
+          ],
+          "item_similarity": 65.0
+        },
+        {
+          "item": "솔루션 유형",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "배포형태(패키지/SI/SaaS)",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "DACH 표준, EU 패키지(NETSOL·Sofico)+은행 자체 코어 혼재"
+            },
+            {
+              "dimension": "커스터마이징 자유도",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "글로벌 패키지 의존 — DE/AT 자체 커스텀 양호"
+            },
+            {
+              "dimension": "벤더 종속도",
+              "target_score": 3,
+              "base_score": 3,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "Sopra·SAP Auto Lease 등 글로벌 벤더 의존 GB와 유사"
+            },
+            {
+              "dimension": "멀티테넌시 여부",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "표준 멀티테넌시 지원"
+            }
+          ],
+          "item_similarity": 93.75
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "온라인 신청 연동",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "ID Austria 통합 전자인증 100% 보급"
+            },
+            {
+              "dimension": "비대면 계약 가능",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "EPS Überweisung·전자서명 보편"
+            },
+            {
+              "dimension": "API 개방도",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "PSD2 적용, GB Open Banking 대비 보통"
+            },
+            {
+              "dimension": "페이퍼리스 수준",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "표준 페이퍼리스, GB 풀 디지털 대비 한 단계 아래"
+            }
+          ],
+          "item_similarity": 87.5
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "axis": "risk",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "사법절차 필요",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Gerichtsvollzieher 절차 필요"
+            },
+            {
+              "dimension": "회수 소요기간(일)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "평균 6~12개월 — EU 평균"
+            },
+            {
+              "dimension": "자력구제 허용",
+              "target_score": 2,
+              "base_score": 4,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "자력구제 제한적"
+            },
+            {
+              "dimension": "회수율",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "회수율 EU 상위"
+            }
+          ],
+          "item_similarity": 75.0
+        }
+      ],
+      "method": "dimension_based",
+      "scale": "1~5 per dimension → gap 0=100, gap 4=0",
+      "evidence_items": [
         {
           "item": "솔루션 유형",
           "category": "it",
@@ -486,7 +737,7 @@
     },
     "tab_1_2_decision": {
       "decision": "baseline_system_expansion",
-      "similarity_score": 75.0,
+      "similarity_score": 83.4375,
       "recommendation": "권역 내 확산: GB 시스템(NetSol) 현지화",
       "base_country": "GB",
       "base_system": "NetSol",
@@ -574,25 +825,55 @@
       ]
     },
     "tab_1_3_tco": {
-      "build_cost": 1500.0,
-      "build_months": 5.3999999999999995,
-      "customization_cost": 750.0,
-      "annual_subscription": 180.0,
+      "build_cost": 3000.0,
+      "build_months": 10.799999999999999,
+      "annual_subscription": 1333.8,
       "annual_maintenance": 500,
+      "annual_recurring": 1833.8,
       "operations_10y": 50000,
-      "system_cost_10y": 9050.0,
-      "total_tco_10y": 59050.0,
+      "system_cost_10y": 21338.0,
+      "total_tco_10y": 71338.0,
       "currency": "EUR",
-      "similarity_score": 75.0,
-      "discount_applied": 0.3,
-      "expected_contracts": 120,
+      "similarity_score": 83.4375,
+      "similarity_multiplier": 0.6,
+      "similarity_band": "80~90",
+      "discount_applied": 0.4,
+      "build_breakdown": {
+        "formula": "구축비용/기간 = 베이스라인(B) 값 × 유사도 승수",
+        "inputs": {
+          "베이스라인 국가": "GB",
+          "베이스라인 솔루션": "NetSol",
+          "B 구축비용": 5000,
+          "B 구축기간(개월)": 18,
+          "종합 유사도": 83.4,
+          "승수 구간": "80~90",
+          "적용 승수": 0.6
+        },
+        "outputs": {
+          "신규국 구축비용": 3000.0,
+          "신규국 구축기간(개월)": 10.799999999999999
+        }
+      },
+      "expected_contracts": 2143,
+      "expected_contracts_breakdown": {
+        "value": 2143,
+        "formula": "신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율",
+        "inputs": {
+          "신차 판매대수": 240000,
+          "신차 판매대수(원본값)": 240000.0,
+          "신차 판매대수(단위)": "units",
+          "금융 이용률(신차)_%": 72.0,
+          "구매 패턴(할부·리스 비중)_%": 62.0,
+          "우리사 예상 점유율": 0.02
+        }
+      },
       "subscription_details": {
         "existing_volume": 80,
-        "new_volume": 120,
-        "total_volume": 200,
-        "unit_price": 0.9,
+        "new_volume": 2143,
+        "total_volume": 2223,
+        "unit_price": 0.6,
         "currency": "EUR",
-        "annual_fee": 180.0,
+        "annual_fee": 1333.8,
         "note": "All volume repriced at new tier rate"
       },
       "subscription_tiers": [

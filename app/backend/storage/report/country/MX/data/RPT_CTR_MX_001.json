@@ -1,12 +1,12 @@
 {
   "report_id": "RPT_CTR_MX_001",
   "report_type": "type1_country",
-  "title": "Mexico Auto Finance Entry Cost & TCO Report",
+  "title": "멕시코 진출 진단 보고서",
   "target": {
     "country": "MX",
     "base_country": "US"
   },
-  "generated_at": "2026-06-21T11:59:47.167791",
+  "generated_at": "2026-06-21T19:11:12.668771",
   "schema_version": "1.1",
   "overall_insight": "라틴아메리카 2위·북미 통합 가치사슬의 핵심 자동차 시장. 2025년 신차 등록 약 153만대(AMDA/INEGI)로 코로나 이전(2016 1.6M) 회복 임박, 글로벌 톱10권. 비즈니스 매력도는 USMCA 통합·니어쇼어링(nearshoring)·자동차 생산 글로벌 5위로 인구 1.3억 매크로 우위. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 CNBV(국가은행증권위원회) 인가 SOFOM(Sociedad Financiera de Objeto Múltiple) ER 등록(자본금 약 MXN 50M)+CONDUSEF·Banxico CAT(Costo Anual Total) 분기 평균 모니터링·고금리(Banxico 9.5% 2025말)가 핵심이다. 반면 SOFOM ENR(비규제)은 CNBV 인가 면제로 진입 매우 유연(단 CONDUSEF 등록·SHCP UIF 자금세탁 보고는 필수). 캡티브(GM·Nissan·VW·Ford·Stellantis·Toyota·Hyundai)와 은행계(BBVA·Santander·Banorte) 양강 약 70% 점유, 캡티브가 EU 대비 매우 강함(자동차금융의 60%+가 OEM 캡티브). IT 유사도는 중간 — CoDi/DiMo(현지 즉시결제, Pix급은 아니나 성장)·Buró de Crédito(신용정보)·e.firma(전자서명) 인프라 양호하나, 라틴 특화 시스템(SOFOM·CAT·USMCA 세제)이 필요해 NetSol 베이스라인 직접 재사용은 55%대. 매력도↔IT 불일치 지점은 차량회수 — Leasing/SOFOM은 fideicomiso(신탁) 구조로 비교적 빠르나(평균 90~180일) 사법지역 편차 큼. 다크호스는 USMCA 니어쇼어링·EV 가속(2025 7%+)·핀테크 Ley Fintech 2018(중남미 최초 핀테크법) — 한국 OEM(현대·기아) 진출 매력 높음. SOFOM 우선 진입 → 은행 인가 단계 확장 또는 한국 OEM 캡티브 진출 전략 유효.",
   "country_meta": {
@@ -16,7 +16,8 @@
     "currency": "MXN",
     "data_year": 2025,
     "fetched_at": "2026-06-21T20:30:00+09:00",
-    "fetched_by": "ai"
+    "fetched_by": "ai",
+    "entry_status": "미진출"
   },
   "data_quality": {
     "completeness_pct": 100.0,
@@ -360,14 +361,264 @@
     "tab_1_1_similarity": {
       "overall_score": 75.0,
       "axes": {
-        "solution_type": 80.0,
-        "digital_maturity": 70.0,
-        "product_mix": 75.0,
-        "regulatory": 73.0
+        "product": 62.5,
+        "regulatory": 85.71428571428572,
+        "system": 71.875,
+        "risk": 68.75
       },
-      "method": "dimension_based",
-      "note": "Detailed dimension scoring to be implemented",
       "items": [
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "axis": "product",
+          "weight": 0.15,
+          "dimensions": [
+            {
+              "dimension": "리스 취급 일치도",
+              "target_score": 3,
+              "base_score": 5,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "Arrendamiento Financiero 7%+Puro 8%"
+            },
+            {
+              "dimension": "렌탈 취급 일치도",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "단기렌탈 보통"
+            },
+            {
+              "dimension": "플릿 취급 일치도",
+              "target_score": 3,
+              "base_score": 5,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "법인 운용리스 보통"
+            },
+            {
+              "dimension": "상품별 비중 유사도",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Crédito automotriz 50% 압도, 리스 보조"
+            }
+          ],
+          "item_similarity": 62.5
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "axis": "regulatory",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "현지 저장 강제",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "LFPDPPP — 강제 현지화 없음"
+            },
+            {
+              "dimension": "국외 이전 허용도",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "국제이전 동의/계약 기반 — 매우 자유"
+            },
+            {
+              "dimension": "동의·보관 규제",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "LFPDPPP 완화, EU GDPR 대비 부담 작음"
+            },
+            {
+              "dimension": "GDPR 동등성",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "GDPR 이전 모델, 동등성 부분"
+            }
+          ],
+          "item_similarity": 87.5
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "axis": "regulatory",
+          "weight": 0.25,
+          "dimensions": [
+            {
+              "dimension": "취득방식(등록 vs 인가)",
+              "target_score": 5,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "SOFOM ENR 인가 면제 — 글로벌 최유연"
+            },
+            {
+              "dimension": "외국인 취득 가능",
+              "target_score": 5,
+              "base_score": 5,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "USMCA 자유화로 100% 허용"
+            },
+            {
+              "dimension": "처리기간(개월)",
+              "target_score": 5,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "SOFOM ENR 단순 등록 1~3개월"
+            },
+            {
+              "dimension": "최저자본금 수준",
+              "target_score": 4,
+              "base_score": 4,
+              "gap": 0.0,
+              "similarity": 100.0,
+              "note": "자본 MXN 50M(USD 2.5M) — EU 대비 절반"
+            },
+            {
+              "dimension": "감독 강도",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "CONDUSEF+SHCP+Banxico 분산"
+            }
+          ],
+          "item_similarity": 85.0
+        },
+        {
+          "item": "솔루션 유형",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "배포형태(패키지/SI/SaaS)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "라틴 특화(SOFOM·CAT·USMCA)로 NetSol 재사용 55%대"
+            },
+            {
+              "dimension": "커스터마이징 자유도",
+              "target_score": 3,
+              "base_score": 5,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "Softtek·Aspel 등 라틴 SI 의존"
+            },
+            {
+              "dimension": "벤더 종속도",
+              "target_score": 2,
+              "base_score": 3,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "글로벌+라틴 혼합, 종속도 높음"
+            },
+            {
+              "dimension": "멀티테넌시 여부",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "멀티테넌시 부분 지원"
+            }
+          ],
+          "item_similarity": 68.75
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "axis": "system",
+          "weight": 0.2,
+          "dimensions": [
+            {
+              "dimension": "온라인 신청 연동",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "CoDi/DiMo 즉시결제 + e.firma 7,500만+"
+            },
+            {
+              "dimension": "비대면 계약 가능",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Ley Fintech 2018(중남미 최초)·전자서명 보편"
+            },
+            {
+              "dimension": "API 개방도",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "Open Finance México 2024 본격화"
+            },
+            {
+              "dimension": "페이퍼리스 수준",
+              "target_score": 4,
+              "base_score": 5,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "페이퍼리스 진행 중, 현금 35%+ 잔존"
+            }
+          ],
+          "item_similarity": 75.0
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "axis": "risk",
+          "weight": 0.1,
+          "dimensions": [
+            {
+              "dimension": "사법절차 필요",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "fideicomiso 신탁담보 구조"
+            },
+            {
+              "dimension": "회수 소요기간(일)",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "평균 90~180일"
+            },
+            {
+              "dimension": "자력구제 허용",
+              "target_score": 2,
+              "base_score": 4,
+              "gap": 2.0,
+              "similarity": 50.0,
+              "note": "자력구제 제한"
+            },
+            {
+              "dimension": "회수율",
+              "target_score": 3,
+              "base_score": 4,
+              "gap": 1.0,
+              "similarity": 75.0,
+              "note": "사법지역 편차 큼"
+            }
+          ],
+          "item_similarity": 68.75
+        }
+      ],
+      "method": "dimension_based",
+      "scale": "1~5 per dimension → gap 0=100, gap 4=0",
+      "evidence_items": [
         {
           "item": "솔루션 유형",
           "category": "it",
@@ -574,25 +825,55 @@
       ]
     },
     "tab_1_3_tco": {
-      "build_cost": 1800.0,
-      "build_months": 6.0,
-      "customization_cost": 900.0,
-      "annual_subscription": 180.0,
+      "build_cost": 4200.0,
+      "build_months": 14.0,
+      "annual_subscription": 7208.4,
       "annual_maintenance": 500,
+      "annual_recurring": 7708.4,
       "operations_10y": 50000,
-      "system_cost_10y": 9500.0,
-      "total_tco_10y": 59500.0,
+      "system_cost_10y": 81284.0,
+      "total_tco_10y": 131284.0,
       "currency": "EUR",
       "similarity_score": 75.0,
+      "similarity_multiplier": 0.7,
+      "similarity_band": "70~80",
       "discount_applied": 0.3,
-      "expected_contracts": 120,
+      "build_breakdown": {
+        "formula": "구축비용/기간 = 베이스라인(B) 값 × 유사도 승수",
+        "inputs": {
+          "베이스라인 국가": "US",
+          "베이스라인 솔루션": "Salesforce",
+          "B 구축비용": 6000,
+          "B 구축기간(개월)": 20,
+          "종합 유사도": 75.0,
+          "승수 구간": "70~80",
+          "적용 승수": 0.7
+        },
+        "outputs": {
+          "신규국 구축비용": 4200.0,
+          "신규국 구축기간(개월)": 14.0
+        }
+      },
+      "expected_contracts": 11934,
+      "expected_contracts_breakdown": {
+        "value": 11934,
+        "formula": "신차 판매대수 × 금융이용률(신차) × (할부+리스 비중) × 우리사 예상 점유율",
+        "inputs": {
+          "신차 판매대수": 1530000,
+          "신차 판매대수(원본값)": 1530000.0,
+          "신차 판매대수(단위)": "units",
+          "금융 이용률(신차)_%": 65.0,
+          "구매 패턴(할부·리스 비중)_%": 60.0,
+          "우리사 예상 점유율": 0.02
+        }
+      },
       "subscription_details": {
         "existing_volume": 80,
-        "new_volume": 120,
-        "total_volume": 200,
-        "unit_price": 0.9,
+        "new_volume": 11934,
+        "total_volume": 12014,
+        "unit_price": 0.6,
         "currency": "EUR",
-        "annual_fee": 180.0,
+        "annual_fee": 7208.4,
         "note": "All volume repriced at new tier rate"
       },
       "subscription_tiers": [

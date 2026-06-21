@@ -1,19 +1,31 @@
 {
-  "version": "1.2",
-  "updated_at": "2026-06-01T00:00:00+09:00",
-
+  "version": "1.3",
+  "updated_at": "2026-06-21T00:00:00+09:00",
   "country_assets": {
-    "GB": { "solution": "NetSol",     "build_cost": 5000, "build_months": 18, "reuse_factor": 0.70 },
-    "US": { "solution": "Salesforce", "build_cost": 6000, "build_months": 20, "reuse_factor": 0.50 },
-    "AU": { "solution": "Self-built", "build_cost": 4500, "build_months": 16, "reuse_factor": 1.00 }
+    "GB": {
+      "solution": "NetSol",
+      "build_cost": 5000,
+      "build_months": 18,
+      "reuse_factor": 0.7
+    },
+    "US": {
+      "solution": "Salesforce",
+      "build_cost": 6000,
+      "build_months": 20,
+      "reuse_factor": 0.5
+    },
+    "AU": {
+      "solution": "Self-built",
+      "build_cost": 4500,
+      "build_months": 16,
+      "reuse_factor": 1.0
+    }
   },
-
   "region_baselines": {
     "EU": "GB",
     "NA": "US",
     "APAC": "AU"
   },
-
   "country_status": {
     "GB": "운영중",
     "US": "운영중",
@@ -32,54 +44,467 @@
     "KR": "미진출",
     "SG": "미진출"
   },
-
   "country_to_region": {
-    "ES": "EU", "PL": "EU", "CZ": "EU", "HU": "EU", "DE": "EU", "FR": "EU", "IT": "EU", "GB": "EU",
-    "US": "NA", "CA": "NA", "MX": "NA",
-    "AU": "APAC", "NZ": "APAC", "JP": "APAC", "KR": "APAC", "SG": "APAC"
+    "ES": "EU",
+    "PL": "EU",
+    "CZ": "EU",
+    "HU": "EU",
+    "DE": "EU",
+    "FR": "EU",
+    "IT": "EU",
+    "GB": "EU",
+    "US": "NA",
+    "CA": "NA",
+    "MX": "NA",
+    "AU": "APAC",
+    "NZ": "APAC",
+    "JP": "APAC",
+    "KR": "APAC",
+    "SG": "APAC"
   },
-
   "similarity_brackets": [
-    { "min": 80, "max": 100, "discount": 0.40 },
-    { "min": 70, "max": 79,  "discount": 0.30 },
-    { "min": 60, "max": 69,  "discount": 0.20 },
-    { "min": 50, "max": 59,  "discount": 0.10 },
-    { "min": 0,  "max": 49,  "discount": 0.00 }
+    {
+      "min": 80,
+      "max": 100,
+      "discount": 0.4
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "discount": 0.3
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "discount": 0.2
+    },
+    {
+      "min": 50,
+      "max": 59,
+      "discount": 0.1
+    },
+    {
+      "min": 0,
+      "max": 49,
+      "discount": 0.0
+    }
   ],
-
+  "similarity_item_weights": {
+    "_note": "탭1-1 종합 유사도 산정용 항목 가중치(합=1.0). 화면에서 직접 편집 가능. baseline_scoring과 country JSON 어느 쪽에도 weight를 두지 않고 여기서만 관리.",
+    "솔루션 유형": {
+      "axis": "system",
+      "weight": 0.2
+    },
+    "디지털 채널 성숙도": {
+      "axis": "system",
+      "weight": 0.2
+    },
+    "구매 패턴(할부·리스 비중)": {
+      "axis": "product",
+      "weight": 0.15
+    },
+    "라이선스 체제(세그먼트별)": {
+      "axis": "regulatory",
+      "weight": 0.25
+    },
+    "데이터 현지화 의무": {
+      "axis": "regulatory",
+      "weight": 0.1
+    },
+    "차량회수 절차 용이성": {
+      "axis": "risk",
+      "weight": 0.1
+    }
+  },
+  "baseline_scoring": {
+    "_note": "권역 베이스라인 국가의 운영 시스템 기준 디멘전 점수. 신규국 country JSON에는 target_score만 두고, 비교 시 엔진이 여기서 base_score를 매칭한다. ※MOCK 값 — 실제 운영자가 검증 후 보정 필요.",
+    "GB": {
+      "country_name": "United Kingdom",
+      "system_solution": "NetSol",
+      "as_of": "2026-06-21",
+      "items": {
+        "솔루션 유형": {
+          "dimensions": {
+            "배포형태(패키지/SI/SaaS)": {
+              "score": 4,
+              "note": "[MOCK] NetSol 패키지 + 일부 자체 코어 혼재"
+            },
+            "커스터마이징 자유도": {
+              "score": 5,
+              "note": "[MOCK] NetSol 모듈 단위 자유 커스터마이징"
+            },
+            "벤더 종속도": {
+              "score": 3,
+              "note": "[MOCK] 글로벌 패키지 의존도 중간"
+            },
+            "멀티테넌시 여부": {
+              "score": 4,
+              "note": "[MOCK] 멀티테넌시 지원"
+            }
+          }
+        },
+        "디지털 채널 성숙도": {
+          "dimensions": {
+            "온라인 신청 연동": {
+              "score": 5,
+              "note": "[MOCK] Open Banking 표준 연동 우위"
+            },
+            "비대면 계약 가능": {
+              "score": 5,
+              "note": "[MOCK] 풀 디지털 계약 일반화"
+            },
+            "API 개방도": {
+              "score": 5,
+              "note": "[MOCK] Open Banking 선도"
+            },
+            "페이퍼리스 수준": {
+              "score": 5,
+              "note": "[MOCK] 페이퍼리스 보편"
+            }
+          }
+        },
+        "구매 패턴(할부·리스 비중)": {
+          "dimensions": {
+            "리스 취급 일치도": {
+              "score": 5,
+              "note": "[MOCK] 리스/렌팅 활성"
+            },
+            "렌탈 취급 일치도": {
+              "score": 4,
+              "note": "[MOCK] 렌탈 시장 성숙"
+            },
+            "플릿 취급 일치도": {
+              "score": 5,
+              "note": "[MOCK] 플릿 시장 강세"
+            },
+            "상품별 비중 유사도": {
+              "score": 4,
+              "note": "[MOCK] 리스 우위 구성"
+            }
+          }
+        },
+        "라이선스 체제(세그먼트별)": {
+          "dimensions": {
+            "취득방식(등록 vs 인가)": {
+              "score": 4,
+              "note": "[MOCK] FCA 인가, 절차 명확"
+            },
+            "외국인 취득 가능": {
+              "score": 5,
+              "note": "[MOCK] Brexit 이후 명확한 외국사 가이드"
+            },
+            "처리기간(개월)": {
+              "score": 4,
+              "note": "[MOCK] 3~6개월"
+            },
+            "최저자본금 수준": {
+              "score": 4,
+              "note": "[MOCK] 합리적 수준"
+            },
+            "감독 강도": {
+              "score": 4,
+              "note": "[MOCK] FCA 단일 감독, 일관성↑"
+            }
+          }
+        },
+        "데이터 현지화 의무": {
+          "dimensions": {
+            "현지 저장 강제": {
+              "score": 5,
+              "note": "[MOCK] 강제 없음"
+            },
+            "국외 이전 허용도": {
+              "score": 4,
+              "note": "[MOCK] UK GDPR + EU 적정성 결정"
+            },
+            "동의·보관 규제": {
+              "score": 4,
+              "note": "[MOCK] UK GDPR"
+            },
+            "GDPR 동등성": {
+              "score": 5,
+              "note": "[MOCK] EU GDPR과 동등"
+            }
+          }
+        },
+        "차량회수 절차 용이성": {
+          "dimensions": {
+            "사법절차 필요": {
+              "score": 4,
+              "note": "[MOCK] 사적 회수 허용"
+            },
+            "회수 소요기간(일)": {
+              "score": 4,
+              "note": "[MOCK] 1~3개월"
+            },
+            "자력구제 허용": {
+              "score": 4,
+              "note": "[MOCK] 자력구제 허용"
+            },
+            "회수율": {
+              "score": 4,
+              "note": "[MOCK] 회수율 양호"
+            }
+          }
+        }
+      }
+    },
+    "US": {
+      "country_name": "United States",
+      "system_solution": "Salesforce",
+      "as_of": "2026-06-21",
+      "_note": "[TODO] NA 베이스라인 — 실제 운영자가 디멘전 점수 보강 필요",
+      "items": {
+        "솔루션 유형": {
+          "dimensions": {
+            "배포형태(패키지/SI/SaaS)": {
+              "score": 5,
+              "note": "[TODO] Salesforce SaaS"
+            },
+            "커스터마이징 자유도": {
+              "score": 4,
+              "note": "[TODO]"
+            },
+            "벤더 종속도": {
+              "score": 2,
+              "note": "[TODO] Salesforce 단일 벤더 종속"
+            },
+            "멀티테넌시 여부": {
+              "score": 5,
+              "note": "[TODO] SaaS 멀티테넌시"
+            }
+          }
+        },
+        "디지털 채널 성숙도": {
+          "dimensions": {
+            "온라인 신청 연동": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "비대면 계약 가능": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "API 개방도": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "페이퍼리스 수준": {
+              "score": 4,
+              "note": "[TODO]"
+            }
+          }
+        },
+        "구매 패턴(할부·리스 비중)": {
+          "dimensions": {
+            "리스 취급 일치도": {
+              "score": 4,
+              "note": "[TODO]"
+            },
+            "렌탈 취급 일치도": {
+              "score": 3,
+              "note": "[TODO]"
+            },
+            "플릿 취급 일치도": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "상품별 비중 유사도": {
+              "score": 4,
+              "note": "[TODO]"
+            }
+          }
+        },
+        "라이선스 체제(세그먼트별)": {
+          "dimensions": {
+            "취득방식(등록 vs 인가)": {
+              "score": 3,
+              "note": "[TODO] 주별 라이선스, 복잡"
+            },
+            "외국인 취득 가능": {
+              "score": 4,
+              "note": "[TODO]"
+            },
+            "처리기간(개월)": {
+              "score": 3,
+              "note": "[TODO]"
+            },
+            "최저자본금 수준": {
+              "score": 4,
+              "note": "[TODO]"
+            },
+            "감독 강도": {
+              "score": 3,
+              "note": "[TODO]"
+            }
+          }
+        },
+        "데이터 현지화 의무": {
+          "dimensions": {
+            "현지 저장 강제": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "국외 이전 허용도": {
+              "score": 4,
+              "note": "[TODO]"
+            },
+            "동의·보관 규제": {
+              "score": 3,
+              "note": "[TODO] 주별(CCPA 등)"
+            },
+            "GDPR 동등성": {
+              "score": 3,
+              "note": "[TODO]"
+            }
+          }
+        },
+        "차량회수 절차 용이성": {
+          "dimensions": {
+            "사법절차 필요": {
+              "score": 5,
+              "note": "[TODO] 자력회수 광범위"
+            },
+            "회수 소요기간(일)": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "자력구제 허용": {
+              "score": 5,
+              "note": "[TODO]"
+            },
+            "회수율": {
+              "score": 4,
+              "note": "[TODO]"
+            }
+          }
+        }
+      }
+    },
+    "AU": {
+      "country_name": "Australia",
+      "system_solution": "Self-built",
+      "as_of": "2026-06-21",
+      "_note": "[TODO] APAC 베이스라인 자료 미입력 — 운영자가 디멘전 점수 보강 필요",
+      "items": {}
+    }
+  },
+  "tier_weights": {
+    "tier1": 1.0,
+    "tier2": 0.85,
+    "tier3": 0.7,
+    "tier4": 0.5,
+    "_note": "출처 신뢰도(Tier)별 점수 가중 배수. Tier1=1.0 고정. Tier2~4는 관리자가 조정 가능. 매력도·IT 유사도 산식에서 항목 가중치에 곱해 effective weight = item_weight × tier_multiplier 로 사용."
+  },
+  "similarity_multiplier_table": [
+    {
+      "min": 90,
+      "max": 100,
+      "multiplier": 0.5,
+      "band": "90~100"
+    },
+    {
+      "min": 80,
+      "max": 89,
+      "multiplier": 0.6,
+      "band": "80~90"
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "multiplier": 0.7,
+      "band": "70~80"
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "multiplier": 0.8,
+      "band": "60~70"
+    },
+    {
+      "min": 50,
+      "max": 59,
+      "multiplier": 0.9,
+      "band": "50~60"
+    },
+    {
+      "min": 0,
+      "max": 49,
+      "multiplier": 1.0,
+      "band": "50 미만"
+    },
+    {
+      "_note": "유형1 탭1-3 산식1 — 종합 유사도 점수 → B 구축비용·기간에 곱해지는 승수. 유사도가 높을수록 재사용률이 높아 신규국 비용 절감. 명세 §탭1-3 정책표."
+    }
+  ],
+  "decision_thresholds": {
+    "expansion_min_score": 70,
+    "hq_build_min_score": 50,
+    "_note": "유형1 탭1-2 시스템 결정 트리 임계값. 유사도 ≥ expansion_min_score → B시스템 확산 / ≥ hq_build_min_score → 본사 자체구축 / 그 외 → 외부솔루션. 명세 §탭1-2 정책."
+  },
   "maintenance_rate": 0.18,
-
   "subscription_tiers": [
-    { "min_volume": 0, "max_volume": 100, "price_per_unit": 1.0, "currency": "EUR" },
-    { "min_volume": 101, "max_volume": 200, "price_per_unit": 0.9, "currency": "EUR" },
-    { "min_volume": 201, "max_volume": 500, "price_per_unit": 0.8, "currency": "EUR" },
-    { "min_volume": 501, "max_volume": 1000, "price_per_unit": 0.7, "currency": "EUR" },
-    { "min_volume": 1001, "max_volume": 999999, "price_per_unit": 0.6, "currency": "EUR" }
+    {
+      "min_volume": 0,
+      "max_volume": 2000,
+      "price_per_unit": 9.88,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 2001,
+      "max_volume": 4000,
+      "price_per_unit": 5.928,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 4001,
+      "max_volume": 7500,
+      "price_per_unit": 5.434,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 7501,
+      "max_volume": 10000,
+      "price_per_unit": 4.94,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 10001,
+      "max_volume": 20000,
+      "price_per_unit": 4.323,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 20001,
+      "max_volume": 80000,
+      "price_per_unit": 4.073,
+      "currency": "EUR"
+    },
+    {
+      "min_volume": 80001,
+      "max_volume": 999999,
+      "price_per_unit": 0.865,
+      "currency": "EUR"
+    }
   ],
-
   "existing_total_volume": 80,
-
   "expected_market_share": 0.02,
-
   "operational_cost_10y": {
     "amount": 50000,
     "currency": "EUR",
     "note": "시스템과 별도인 내부 운영비용 (10년 통금액)"
   },
-
   "hq_build_baseline": {
     "cost": 8000,
     "months": 24,
     "currency": "EUR",
     "note": "본사 자체구축 시 기본 비용/기간 (참고용)"
   },
-
   "maintenance_cost_annual": {
     "amount": 500,
     "currency": "EUR",
     "note": "연간 유지보수 비용"
   },
-
   "fx": {
     "base": "KRW",
     "as_of": "2026-06-01",
@@ -95,67 +520,39 @@
     },
     "note": "기준통화=KRW. 각 통화 1단위당 KRW 환산율. 관리자가 입력하며 스냅샷에 고정됨."
   },
-
   "values": {
     "biz_attractiveness": {
       "GDP 성장률": 0.25,
-      "자동차 판매대수": 0.20,
-      "시장규모(CAGR)": 0.20,
+      "자동차 판매대수": 0.2,
+      "시장규모(CAGR)": 0.2,
       "금융 이용률": 0.15,
-      "금융이용유형": 0.10,
-      "경쟁강도": 0.10
+      "금융이용유형": 0.1,
+      "경쟁강도": 0.1
     },
     "it_readiness": {
-      "솔루션 유형": 0.30,
+      "솔루션 유형": 0.3,
       "디지털 채널 성숙도": 0.25,
-      "라이선스 종류": 0.20,
+      "라이선스 종류": 0.2,
       "데이터현지화": 0.15,
-      "차량회수 절차": 0.10
+      "차량회수 절차": 0.1
     },
     "report_blend": {
-      "w_biz": 0.60,
-      "w_it": 0.40
+      "w_biz": 0.6,
+      "w_it": 0.4
     }
   },
-
-  "weights": {
-    "business": {
-      "오토금융/리스 시장규모": 0.30,
-      "오토금융 성장률(CAGR)": 0.20,
-      "금융 이용률(신차)": 0.20,
-      "평균 금리/APR": 0.15,
-      "캡티브 강도(점유율)": 0.15,
-      "1위사 점유율": 0.15,
-      "신차 판매대수": 0.10,
-      "금융 이용률(중고차)": 0.10,
-      "구매 패턴(할부·리스 비중)": 0.10,
-      "법인세율": 0.10,
-      "이자소득 원천징수(비거주자)": 0.05,
-      "배당 원천징수(비거주자)": 0.05
-    },
-    "it": {
-      "솔루션 벤더": 0.40,
-      "신용정보(CB) 인프라": 0.20,
-      "디지털 채널 성숙도": 0.15,
-      "차량회수 절차 용이성": 0.10,
-      "솔루션 유형": 0.0,
-      "추심 규제": 0.05,
-      "법적 회수 소요기간": 0.05,
-      "충당금 규정": 0.05,
-      "연체 분류 기준": 0.05,
-      "국외이전 제한": 0.05,
-      "결제·정산 인프라": 0.05,
-      "디지털 딜러 성숙도": 0.05
-    }
-  },
-
   "scoring_rules": {
-    "default_active": ["mvp"],
+    "default_active": [
+      "mvp"
+    ],
     "always_excluded": []
   },
-
   "quick_win_rules": {
-    "weights": { "similarity": 0.40, "attractiveness": 0.35, "ease": 0.25 },
+    "weights": {
+      "similarity": 0.4,
+      "attractiveness": 0.35,
+      "ease": 0.25
+    },
     "thresholds": {
       "quick_win_score": 55,
       "min_similarity": 60,

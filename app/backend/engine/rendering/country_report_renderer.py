@@ -45,8 +45,10 @@ class CountryReportRenderer:
         Returns:
             Flag image URL
         """
-        # Placeholder - would use actual flag service
-        return f"https://flagcdn.com/w160/{country_code.lower()}.png"
+        # ISO codes for flag service (USA→us 등 별칭 보정)
+        flag_aliases = {"USA": "us"}
+        code = flag_aliases.get(country_code.upper(), country_code.lower())
+        return f"https://flagcdn.com/w160/{code}.png"
 
     def get_country_name(self, country_code: str) -> str:
         """Get full country name from code.
@@ -1157,8 +1159,8 @@ class CountryReportRenderer:
                 <thead>
                     <tr class="text-text-secondary border-b border-surface-container-highest">
                         <th class="py-xs pr-sm text-left font-label-sm text-label-sm uppercase">디멘전</th>
-                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">{target_country_name} (A)</th>
-                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">{base_country_name} (B)</th>
+                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">{target_country_name} <span class="text-text-secondary normal-case">(대상국)</span></th>
+                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">{base_country_name} <span class="text-text-secondary normal-case">(베이스라인)</span></th>
                         <th class="py-xs px-sm text-right font-label-sm text-label-sm uppercase">격차</th>
                         <th class="py-xs pl-sm text-right font-label-sm text-label-sm uppercase">유사도</th>
                     </tr>
@@ -1211,6 +1213,14 @@ class CountryReportRenderer:
         similarity = tabs.get("tab_1_1_similarity", {})
         axes = similarity.get("axes", {})
         overall_score = similarity.get("overall_score", 0)
+        target_code = self.report_data.get("target", {}).get("country", "")
+        base_code = self.report_data.get("target", {}).get("base_country", "GB")
+        target_name = self.get_country_name(target_code)
+        base_name = self.get_country_name(base_code)
+        similarity_title = (
+            "유사도 점수 (자기 베이스라인)" if target_code == base_code
+            else f"유사도 점수 ({target_name} vs {base_name})"
+        )
         scoring_section = self.render_similarity_scoring_section()
         evidence_section = self.render_items_section(
             similarity.get("evidence_items", []),
@@ -1255,7 +1265,7 @@ class CountryReportRenderer:
                 <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
                     <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
                         <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">radar</span>
-                        <h2 class="font-headline-md text-headline-md text-primary">유사도 점수 (A vs B)</h2>
+                        <h2 class="font-headline-md text-headline-md text-primary">{similarity_title}</h2>
                     </div>
                     <div class="relative flex flex-col items-center">
                         <div class="w-full aspect-square relative flex items-center justify-center mb-md max-w-md mx-auto">
@@ -1662,10 +1672,49 @@ class CountryReportRenderer:
         </section>
         '''
 
+    def _baseline_notice_card(self, title: str, message: str, base_country: str = "",
+                              base_system: str = "") -> str:
+        """기준국(자가 분석) 안내 카드 — TCO/결정 산식 적용 불가 시 표시."""
+        import html as _html
+        def _e(s): return _html.escape("" if s is None else str(s))
+        sub = ""
+        if base_country or base_system:
+            chips = []
+            if base_country:
+                chips.append(f'<span class="px-2 py-[2px] rounded bg-[#E8F0FE] text-[#1967D2] font-label-sm text-label-sm">기준국 {_e(base_country)}</span>')
+            if base_system:
+                chips.append(f'<span class="px-2 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">{_e(base_system)}</span>')
+            sub = '<div class="flex items-center gap-xs mt-sm">' + "".join(chips) + '</div>'
+        title = _e(title); message = _e(message)
+        return f'''
+        <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-start gap-md">
+                <div class="w-12 h-12 rounded-lg bg-[#E8F0FE] text-[#1967D2] flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="flex-1">
+                    <h2 class="font-headline-md text-headline-md text-primary m-0">{title}</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-xs">{message}</p>
+                    {sub}
+                </div>
+            </div>
+        </div>
+        '''
+
     def render_tab_1_2_decision(self) -> str:
         """Render Tab 1-2: System Decision Tree."""
         if not self.report_data:
             return ""
+
+        decision = self.report_data.get("tabs", {}).get("tab_1_2_decision", {}) or {}
+        if decision.get("is_baseline"):
+            notice = self._baseline_notice_card(
+                "기준국 — 시스템 결정 트리 적용 불가",
+                decision.get("recommendation") or "기준국은 이미 운영 중인 시스템이 권역 확산의 기준입니다.",
+                base_country=decision.get("base_country", ""),
+                base_system=decision.get("base_system", ""),
+            )
+            return f'<div class="flex flex-col gap-xl">{notice}</div>'
 
         flowchart = self.render_decision_tree_section(include_outer=True)
         tier_panel = self.render_subscription_tier_table()
@@ -1691,6 +1740,8 @@ class CountryReportRenderer:
 
         tabs = self.report_data.get("tabs", {})
         tco = tabs.get("tab_1_3_tco", {})
+        if tco.get("is_baseline"):
+            return f'<div class="flex flex-col gap-xl">{self._baseline_notice_card("기준국 — TCO 산정 적용 불가", tco.get("message") or "기준국은 신규 구축 비용 산정 대상이 아닙니다.")}</div>'
 
         build_cost = tco.get("build_cost", 0)
         annual_subscription = tco.get("annual_subscription", 0)
@@ -2530,6 +2581,23 @@ class CountryReportRenderer:
         .card-shadow {{ box-shadow: 0 4px 8px rgba(0, 32, 78, 0.04); }}
         details > summary::-webkit-details-marker {{ display: none; }}
         details > summary {{ list-style: none; }}
+        @media print {{
+            @page {{ size: A3 landscape; margin: 12mm; }}
+            body {{ background: #ffffff; }}
+            .no-print, header button, .tab-button {{ display: none !important; }}
+            /* 인쇄 시 모든 탭 펼침 */
+            .tab-content {{ display: block !important; }}
+            .tab-content + .tab-content {{ page-break-before: always; }}
+            /* 아코디언 모두 펼침 */
+            details {{ display: block !important; }}
+            details > summary {{ display: none !important; }}
+            details > *:not(summary) {{ display: block !important; }}
+            /* sticky 비활성화 */
+            .sticky {{ position: static !important; }}
+            /* 카드 페이지 내에서 잘리지 않게 */
+            section, .card-shadow {{ break-inside: avoid; page-break-inside: avoid; }}
+            .card-shadow {{ box-shadow: none !important; }}
+        }}
         .tab-content {{ display: none; }}
         .tab-content.active {{ display: block; }}
         .tab-button.active {{
@@ -2565,11 +2633,11 @@ class CountryReportRenderer:
                     </p>
                 </div>
             </div>
-            <div class="flex items-center gap-sm shrink-0">
-                <button class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+            <div class="flex items-center gap-sm shrink-0 no-print">
+                <button id="btn-pdf" class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
                     <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>PDF
                 </button>
-                <button class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm">
+                <button id="btn-share" class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">share</span>Share
                 </button>
             </div>
@@ -2586,6 +2654,47 @@ class CountryReportRenderer:
             <div class="tab-content" id="tab-4">{tab_4}</div>
         </div>
     </main>
+</div>
+
+<!-- Share Modal — QR 코드 + URL 복사 -->
+<div id="share-modal" class="no-print hidden fixed inset-0 z-[60] items-center justify-center" style="background: rgba(0, 32, 78, 0.4); backdrop-filter: blur(6px);">
+    <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_24px_rgba(0,32,78,0.16)] max-w-md w-full mx-md flex flex-col" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between px-lg py-md border-b border-surface-border">
+            <div>
+                <h3 class="font-headline-md text-headline-md text-primary m-0">보고서 공유</h3>
+                <p class="font-body-sm text-body-sm text-text-secondary mt-xs m-0">QR 스캔 또는 URL 복사로 공유</p>
+            </div>
+            <button id="share-close" class="text-on-surface-variant hover:text-primary p-xs rounded-full hover:bg-surface-container">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="px-lg py-lg flex flex-col items-center gap-md">
+            <div class="bg-white border-2 border-surface-border rounded-lg p-sm">
+                <img id="share-qr" src="" alt="QR Code" class="w-56 h-56" />
+            </div>
+            <div class="w-full">
+                <div class="text-label-sm text-text-secondary uppercase tracking-wider mb-xs">현재 페이지 URL</div>
+                <div class="flex items-stretch gap-xs">
+                    <input id="share-url" type="text" readonly class="flex-1 min-w-0 px-sm py-xs bg-surface-light border border-surface-border rounded text-body-sm text-on-surface-variant font-mono truncate" />
+                    <button id="share-copy" class="px-sm py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:scale-[0.98] transition-transform flex items-center gap-xs shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        <span id="share-copy-label">복사</span>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full grid grid-cols-2 gap-sm">
+                <button id="share-email" class="flex items-center justify-center gap-xs px-sm py-sm border border-primary text-primary rounded font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">mail</span>
+                    이메일로 보내기
+                </button>
+                <button id="share-download" class="flex items-center justify-center gap-xs px-sm py-sm border border-primary text-primary rounded font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    HTML 다운로드
+                </button>
+            </div>
+            <p class="text-label-sm text-text-secondary text-center">스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.</p>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -2614,6 +2723,121 @@ class CountryReportRenderer:
 
     // Set first tab as active
     document.querySelector('.tab-button').classList.add('active');
+
+    // PDF (browser print → save as PDF) — 인쇄 전 모든 아코디언 펼침, 끝나면 원복
+    function exportPDF() {{
+        const tabs = document.querySelectorAll('.tab-content');
+        const details = document.querySelectorAll('details');
+        const tabState = Array.from(tabs).map(t => t.classList.contains('active'));
+        const detailState = Array.from(details).map(d => d.open);
+        details.forEach(d => d.open = true);
+        const restore = () => {{
+            details.forEach((d, i) => d.open = detailState[i]);
+            tabs.forEach((t, i) => t.classList.toggle('active', tabState[i]));
+            window.removeEventListener('afterprint', restore);
+        }};
+        window.addEventListener('afterprint', restore);
+        setTimeout(restore, 60000);
+        window.print();
+    }}
+    const pdfBtn = document.getElementById('btn-pdf');
+    if (pdfBtn) pdfBtn.addEventListener('click', exportPDF);
+    // Cmd/Ctrl+P 단축키
+    window.addEventListener('keydown', (e) => {{
+        if ((e.metaKey || e.ctrlKey) && e.key === 'p') {{
+            e.preventDefault();
+            exportPDF();
+        }}
+    }});
+
+    // Share modal (QR code + URL copy)
+    const shareBtn = document.getElementById('btn-share');
+    const shareModal = document.getElementById('share-modal');
+    const shareClose = document.getElementById('share-close');
+    const shareUrlInput = document.getElementById('share-url');
+    const shareQrImg = document.getElementById('share-qr');
+    const shareCopyBtn = document.getElementById('share-copy');
+    const shareCopyLabel = document.getElementById('share-copy-label');
+
+    function openShareModal() {{
+        if (!shareModal) return;
+        const url = window.location.href;
+        shareUrlInput.value = url;
+        // 공개 무료 QR API (외부 호출 가능한 환경에서만 표시)
+        shareQrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&data=' + encodeURIComponent(url);
+        shareQrImg.onerror = () => {{
+            shareQrImg.alt = 'QR 코드를 불러올 수 없습니다 (오프라인 환경). URL을 직접 복사해서 공유하세요.';
+        }};
+        shareModal.classList.remove('hidden');
+        shareModal.style.display = 'flex';
+    }}
+    function closeShareModal() {{
+        if (!shareModal) return;
+        shareModal.classList.add('hidden');
+        shareModal.style.display = '';
+    }}
+
+    if (shareBtn) shareBtn.addEventListener('click', openShareModal);
+    if (shareClose) shareClose.addEventListener('click', closeShareModal);
+    if (shareModal) {{
+        shareModal.addEventListener('click', (e) => {{
+            if (e.target === shareModal) closeShareModal();
+        }});
+    }}
+    window.addEventListener('keydown', (e) => {{
+        if (e.key === 'Escape') closeShareModal();
+    }});
+
+    if (shareCopyBtn) {{
+        shareCopyBtn.addEventListener('click', async () => {{
+            const url = shareUrlInput.value;
+            try {{
+                if (navigator.clipboard) {{
+                    await navigator.clipboard.writeText(url);
+                }} else {{
+                    shareUrlInput.select();
+                    document.execCommand('copy');
+                }}
+                shareCopyLabel.textContent = '복사됨';
+                setTimeout(() => shareCopyLabel.textContent = '복사', 1500);
+            }} catch (_) {{
+                shareCopyLabel.textContent = '실패';
+                setTimeout(() => shareCopyLabel.textContent = '복사', 1500);
+            }}
+        }});
+    }}
+
+    // Email
+    const shareEmailBtn = document.getElementById('share-email');
+    if (shareEmailBtn) {{
+        shareEmailBtn.addEventListener('click', () => {{
+            const title = document.title;
+            const url = window.location.href;
+            const body = [title, '', 'URL: ' + url, '', '— 자동 생성 보고서'].join('\\n');
+            const mailto = 'mailto:?subject=' + encodeURIComponent('[보고서] ' + title) +
+                           '&body=' + encodeURIComponent(body);
+            window.location.href = mailto;
+        }});
+    }}
+
+    // HTML download
+    const shareDownloadBtn = document.getElementById('share-download');
+    if (shareDownloadBtn) {{
+        shareDownloadBtn.addEventListener('click', () => {{
+            try {{
+                const html = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+                const blob = new Blob([html], {{ type: 'text/html;charset=utf-8' }});
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = (document.title || 'report') + '.html';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(blobUrl);
+            }} catch (_) {{}}
+        }});
+    }}
 </script>
 </body>
 </html>'''
