@@ -33,6 +33,7 @@ data/*.txt
 *_COMPLETION_STATUS.txt
 *_MARKET_MATURITY_REPORT_*.md
 *_FINTECH_*.md
+*_market_research_report*.json
 
 # Generated report output
 storage/report/
