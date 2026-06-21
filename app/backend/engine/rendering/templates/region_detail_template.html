@@ -6,7 +6,6 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
@@ -122,6 +121,17 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #c4c6d2; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #747782; }
+
+        /* 접근성: 키보드 포커스 가시화(제거 금지) */
+        :focus-visible { outline: 2px solid #005db7; outline-offset: 2px; border-radius: 2px; }
+        /* 스크린리더 전용(차트 표 대체본 등) */
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+                   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        /* 모션 민감 사용자 존중 */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+        }
     </style>
 </head>
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased flex h-screen overflow-hidden">

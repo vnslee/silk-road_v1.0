@@ -12,7 +12,7 @@
 
 ⚠️ 권역 리서치 데이터·스키마는 잠정(ROADMAP 2차에서 정식화). 상세는 storage/detail/README.md.
 스코어링/계산은 일절 하지 않고 "표현"만 담당한다 (관심사 분리).
-포맷·차트 헬퍼는 region_report_rendering_engine(rre)을 재사용한다.
+포맷·차트 헬퍼는 render_helpers(rre)을 재사용한다.
 """
 import json, os, sys, glob
 
@@ -25,7 +25,7 @@ DETAIL = os.path.join(STORAGE, "detail")
 
 # 같은 rendering/ 폴더의 포맷·차트 헬퍼 재사용 (중복 작성 금지)
 sys.path.insert(0, BASE)
-import region_report_rendering_engine as rre  # noqa: E402
+import render_helpers as rre  # noqa: E402
 
 TPL_PATH = os.path.join(BASE, "templates", "region_detail_template.html")
 
@@ -38,29 +38,45 @@ def kpi_card(k):
     label = k.get("label", "")
     value = k.get("value", "—")
     note = k.get("note", "")
-    # delta 배지 (trend up=녹색, down=녹색 화살표 — 디자인 목업 기준)
+    # delta 배지 — trend에 따라 색·아이콘 분기(색만으로 의미 전달 금지: 화살표 아이콘 병행).
+    #   up→success(개선), down→error(악화), 그 외→중립(text_secondary). KPI 방향성이
+    #   "낮을수록 좋음"인 지표는 데이터의 trend가 이미 그 의미를 담는다는 전제.
     delta = k.get("delta")
     delta_html = ""
     if delta:
-        arrow = "trending_up" if k.get("trend") == "up" else "trending_down"
+        trend = k.get("trend")
+        if trend == "up":
+            arrow, fg = "trending_up", rre.TOK["success"]
+        elif trend == "down":
+            arrow, fg = "trending_down", rre.TOK["error"]
+        else:
+            arrow, fg = "trending_flat", rre.TOK["text_secondary"]
         delta_html = (
-            '<span class="font-label-sm text-label-sm text-[#006A4E] bg-[#E6F4EA] px-2 py-1 rounded flex items-center gap-[2px]">'
+            f'<span class="font-label-sm text-label-sm px-2 py-1 rounded flex items-center gap-[2px]" '
+            f'style="color:{fg};background:{fg}1a">'
             f'<span class="material-symbols-outlined text-[12px]">{arrow}</span>{rre.esc(delta)}</span>')
     target = k.get("target")
+    # value·target이 모두 수치면 불릿 차트(목표 대비)로 시각화 — charts.csv #18(AAA).
+    # 수치 추출 불가(예: 'Low')면 텍스트 Target 표기로 폴백.
     bottom = ""
-    if target:
+    bullet = ""
+    if target and rre._to_number(value) is not None and rre._to_number(target) is not None:
+        bullet = rre.bullet_chart(value, target, title=f"{label} 목표 대비")
+    elif target:
         bottom = f'<span class="font-label-sm text-label-sm text-on-surface-variant">Target: {rre.esc(target)}</span>'
     elif note:
         bottom = f'<span class="font-label-sm text-label-sm text-on-surface-variant">{rre.esc(note)}</span>'
+    # 불릿이 들어가면 카드 높이를 자동(min-h)으로 — 고정 120px는 차트 없는 카드에만.
+    h_cls = "min-h-[120px]" if bullet else "h-[120px]"
     return (
-        '<div class="bg-surface rounded-lg p-md border border-surface-border custom-shadow-level-2 flex flex-col justify-between h-[120px]">'
+        f'<div class="bg-surface rounded-lg p-md border border-surface-border custom-shadow-level-2 flex flex-col justify-between {h_cls}">'
         '<div class="flex justify-between items-start">'
         f'<span class="font-label-md text-label-md text-on-surface-variant">{rre.esc(label)}</span>'
         f'<span class="material-symbols-outlined text-secondary text-[20px]">{rre.esc(icon)}</span></div>'
         '<div class="flex items-end justify-between">'
         f'<span class="font-headline-md text-headline-md text-primary font-bold">{rre.esc(value)}</span>'
         f'{delta_html}</div>'
-        f'{bottom}</div>')
+        f'{bullet}{bottom}</div>')
 
 
 def kpi_cards(data):
@@ -79,7 +95,7 @@ def entered_list(data):
         f'<td class="p-sm font-mono text-xs text-on-surface">{rre.esc(r.get("code", ""))}</td>'
         f'<td class="p-sm text-on-surface">{rre.esc(r.get("name_ko", ""))} '
         f'<span class="text-on-surface-variant">{rre.esc(r.get("name_en", ""))}</span></td>'
-        f'<td class="p-sm">{rre.badge(r.get("status", "-"), "#e8f0fe", "#1967d2")}</td>'
+        f'<td class="p-sm">{rre.badge(r.get("status", "-"), "#e8f0fe", rre.TOK["info"])}</td>'
         f'<td class="p-sm text-on-surface-variant">{rre.esc(r.get("solution", "—"))}</td>'
         f'<td class="p-sm text-right text-on-surface-variant">{rre.esc(r.get("since", "—"))}</td>'
         '</tr>' for r in rows)
@@ -104,10 +120,10 @@ def quickwin_table(data):
     if not rows:
         return ""
 
-    def score_cell(v):
+    def score_cell(v, name="점수"):
         col = rre.score_color(v)
         return (f'<td class="p-sm w-32"><div class="flex items-center gap-sm">'
-                f'<div class="flex-1">{rre.bar(v, 100, col)}</div>'
+                f'<div class="flex-1">{rre.bar(v, 100, col, label=f"{name} {rre.fmt_num(round(v,1))}/100")}</div>'
                 f'<span class="font-label-md text-label-md font-semibold w-8 text-right" style="color:{col}">{rre.fmt_num(round(v,1))}</span>'
                 f'</div></td>')
 
@@ -115,7 +131,7 @@ def quickwin_table(data):
         # 난이도는 낮을수록 좋음 → ease(100-v) 색
         col = rre.score_color(100 - v)
         return (f'<td class="p-sm w-32"><div class="flex items-center gap-sm">'
-                f'<div class="flex-1">{rre.bar(v, 100, col)}</div>'
+                f'<div class="flex-1">{rre.bar(v, 100, col, label=f"BIZ 난이도 {rre.fmt_num(round(v,1))}/100 (낮을수록 좋음)")}</div>'
                 f'<span class="font-label-md text-label-md font-semibold w-8 text-right" style="color:{col}">{rre.fmt_num(round(v,1))}</span>'
                 f'</div></td>')
 
@@ -124,10 +140,10 @@ def quickwin_table(data):
         f'<td class="p-sm font-label-md text-label-md text-primary font-bold">{rre.esc(r.get("quick_win_rank", "—"))}</td>'
         f'<td class="p-sm text-on-surface whitespace-nowrap">{rre.esc(r.get("name_ko", ""))} '
         f'<span class="font-mono text-xs text-on-surface-variant">{rre.esc(r.get("code", ""))}</span></td>'
-        f'{score_cell(r.get("similarity", 0))}'
+        f'{score_cell(r.get("similarity", 0), "IT 준비도(유사도)")}'
         f'{diff_cell(r.get("difficulty", 0))}'
-        f'{score_cell(r.get("composite_score", 0))}'
-        f'<td class="p-sm">{rre.badge("퀵윈" if r.get("quick_win") else r.get("quadrant", "-"), "#e6f4ea" if r.get("quick_win") else "#eef0f2", "#137333" if r.get("quick_win") else "#555555")}</td>'
+        f'{score_cell(r.get("composite_score", 0), "종합점수")}'
+        f'<td class="p-sm">{rre.badge("퀵윈" if r.get("quick_win") else r.get("quadrant", "-"), "#e6f4ea" if r.get("quick_win") else "#eef0f2", rre.TOK["success"] if r.get("quick_win") else rre.TOK["text_secondary"])}</td>'
         '</tr>' for r in rows)
     return (
         '<div class="bg-surface rounded-lg p-lg border border-surface-border custom-shadow-level-2">'
@@ -149,7 +165,9 @@ def perf_chart(data):
     blocks = []
     for it in data.get("items", []):
         ts = it.get("timeseries") or {}
-        svg = rre.line_chart(ts.get("history"), ts.get("forecast"))
+        unit = it.get("unit") if isinstance(it.get("unit"), str) and it.get("unit") == "%" else ""
+        svg = rre.line_chart(ts.get("history"), ts.get("forecast"),
+                             unit=unit, title=rre.esc(it["item"]) + " 추이")
         if not svg:
             continue
         val = rre.fmt_value(it) if it.get("value") is not None else ""
@@ -158,7 +176,7 @@ def perf_chart(data):
             '<div class="flex justify-between items-center mb-md">'
             f'<h3 class="font-headline-md text-[18px] leading-[24px] text-primary font-bold">{rre.esc(it["item"])}</h3>'
             f'<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-2 py-0.5 rounded">{rre.esc(val)}</span></div>'
-            f'<div class="h-40 w-full overflow-hidden">{svg}</div>'
+            f'<div class="w-full">{svg}</div>'
             + (f'<p class="font-body-sm text-body-sm text-on-surface-variant mt-md">{rre.esc(it.get("insight",""))}</p>' if it.get("insight") else "")
             + '</div>')
     if not blocks:

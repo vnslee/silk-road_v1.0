@@ -9,10 +9,10 @@
 ```
 detail/
 ├── country/<CODE>/
-│   └── html/                       # 국가 상세화면(P1) — country_detail_rendering_engine 산출
+│   └── html/                       # 국가 상세화면(P1) — country_detail_renderer 산출
 │       └── <CODE>_detail_<TS>.html
 └── region/<REGION>/
-    └── html/                       # 권역 상세화면(P2) — region_detail_rendering_engine 산출
+    └── html/                       # 권역 상세화면(P2) — region_detail_renderer 산출
         └── <REGION>_detail_<TS>.html
 ```
 

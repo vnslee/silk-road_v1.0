@@ -7,9 +7,9 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
 
 ## 현재 상태 요약 (착수 전 기준선)
 
-- **있음**: 엔진 코어(calculation 단일국 스코어링, **보고서** generation/rendering은 **region 전용**), **상세화면(P1/P2) 렌더링 엔진은 country·region 양쪽 구현됨**(`rendering/{country,region}_detail_rendering_engine.py` → `storage/detail/`), research country 데이터 6개국(BR·DE·ES·IN·PL·UK), internal 룰셋, 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
+- **있음**: 엔진 코어 — 보고서 generation 엔진 country·region 양쪽 구현됨(`generation/{country,region}_report_engine.py` → 리포트 JSON), **보고서 렌더링도 country(PR1)·region(PR2) 양쪽 구현됨**(`rendering/{country,region}_report_renderer.py`), **상세화면(P1/P2) 렌더링 엔진도 country·region 양쪽 구현됨**(`rendering/{country,region}_detail_renderer.py` → `storage/detail/`), 공유 헬퍼 `rendering/render_helpers.py`, research 데이터(country ES, region EU — P1/P2·보고서 검증용 샘플), internal 룰셋, 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
 - **설치됨**: FastAPI, uvicorn, boto3, pydantic, Jinja2, requests, weasyprint(+pango/cairo)
-- **없음(구현 대상)**: 백엔드 API 레이어, **country 전용 보고서(PR1) generation/rendering 엔진**(상세화면 detail 엔진과는 별개), region/country 리서치 실행 코드(Bedrock), 프론트엔드, requirements.txt, Dockerfile, CloudFormation 템플릿
+- **없음(구현 대상)**: 백엔드 API 레이어, region/country 리서치 실행 코드(Bedrock), 프론트엔드, requirements.txt, Dockerfile, CloudFormation 템플릿
 - **예정**: region 리서치 프롬프트·스키마(`architecture/research/`에 country만 있음 → region 추가 예정)
 
 ## 공통 제약 (모든 덩어리에 적용)
@@ -27,10 +27,10 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
 - **범위**:
   - FastAPI 앱(`app/backend/api/` 또는 `main.py`): **country/region 공통** 엔드포인트 — 국가/권역 조회, 리포트 생성 트리거, 리포트(JSON/HTML/PDF) 제공
   - **region**: 기존 generation/rendering 엔진을 API에 연결(엔진 자체는 존재).
-  - **country**: 누락된 country 전용 generation/rendering 엔진을 region 패턴 대칭 복제 → PR1 보고서 HTML 생성, API 연결.
+  - **country**: 기존 generation/rendering 엔진(`country_report_engine.py` + `country_report_renderer.py`)을 API에 연결(엔진 자체는 존재).
   - 두 축이 같은 API 형태/경로 규칙(`report/<country|region>/<ID>/data·html·pdf`)을 공유하도록 정합.
   - `requirements.txt` 생성(현재 설치 패키지 고정).
-- **산출물**: API 서버, `engine/`의 country 엔진(region 대칭), country/region 리포트 산출 경로 통일
+- **산출물**: API 서버, country/region 리포트 산출 경로·응답 형태 통일
 - **의존**: 없음(가장 먼저)
 
 ### 2차 — 챗봇 + 리서치 (Bedrock, country/region 공통)

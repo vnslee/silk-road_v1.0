@@ -11,7 +11,7 @@
 - 출력: detail/country/<CODE>/html/<CODE>_detail_<TS>.html
 
 스코어링/계산은 일절 하지 않고 "표현"만 담당한다 (관심사 분리).
-포맷·차트 헬퍼는 region_report_rendering_engine(rre)을 재사용한다.
+포맷·차트 헬퍼는 render_helpers(rre)을 재사용한다.
 """
 import json, os, sys, glob, datetime
 
@@ -24,7 +24,7 @@ DETAIL = os.path.join(STORAGE, "detail")
 
 # 같은 rendering/ 폴더의 포맷·차트 헬퍼 재사용 (중복 작성 금지)
 sys.path.insert(0, BASE)
-import region_report_rendering_engine as rre  # noqa: E402
+import render_helpers as rre  # noqa: E402
 
 TPL_PATH = os.path.join(BASE, "templates", "country_detail_template.html")
 
@@ -45,10 +45,12 @@ def entry_status(code):
         a = assets[code]
         sol = a.get("solution", "")
         label = f"기진출 · {sol}" if sol else "기진출"
+        # 진출=성공 신호색(TOK success) — 점/텍스트 병행(색만으로 의미 전달 금지)
+        sc = rre.TOK["success"]
         badge = (
-            '<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-label-sm '
-            'bg-[#e8f5e9] text-[#2e7d32] border border-[#a5d6a7]">'
-            '<span class="w-1.5 h-1.5 rounded-full bg-[#2e7d32] mr-1.5"></span>'
+            '<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-label-sm" '
+            f'style="background:{sc}1a;color:{sc};border:1px solid {sc}55">'
+            f'<span class="w-1.5 h-1.5 rounded-full mr-1.5" style="background:{sc}"></span>'
             f'{rre.esc(label)}</span>')
     else:
         badge = (
@@ -84,7 +86,9 @@ def general_cards(data):
 def chart_block(it):
     """timeseries 보유 항목 → 라인차트 카드."""
     ts = it.get("timeseries") or {}
-    svg = rre.line_chart(ts.get("history"), ts.get("forecast"))
+    unit = it.get("unit") if isinstance(it.get("unit"), str) and it.get("unit") == "%" else ""
+    svg = rre.line_chart(ts.get("history"), ts.get("forecast"),
+                         unit=unit, title=rre.esc(it["item"]) + " 추이")
     if not svg:
         return ""
     return (
@@ -93,17 +97,39 @@ def chart_block(it):
         f'<h4 class="font-label-md text-label-md text-on-surface-variant">{rre.esc(it["item"])}</h4>'
         f'<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-2 py-0.5 rounded">{rre.esc(rre.fmt_value(it))}</span>'
         '</div>'
-        f'<div class="h-24 relative w-full overflow-hidden">{svg}</div>'
+        f'<div class="relative w-full">{svg}</div>'
         '</div>')
 
 
+def maturity_radar(data):
+    """성숙도/준비도 레이더 — unit이 '*_1to5'인 항목만(동일 척도) ×20→0-100 정규화.
+    단위가 섞인 원시값으로는 레이더가 오도되므로 1-5 척도 항목만 사용(최소 3축)."""
+    picks = [it for it in data.get("items", [])
+             if isinstance(it.get("unit"), str) and it["unit"].endswith("_1to5")
+             and isinstance(it.get("value"), (int, float))]
+    if len(picks) < 3:
+        return ""
+    picks = picks[:6]
+    axes = [it["item"] for it in picks]
+    vals = [it["value"] * 20 for it in picks]  # 1-5 → 0-100
+    svg = rre.radar_chart(axes, [(data.get("country_ko", data.get("code", "")), vals, rre.TOK["secondary"])],
+                          title="디지털·시스템 성숙도 (1-5 척도)")
+    if not svg:
+        return ""
+    return (
+        '<div class="border border-surface-border rounded-lg p-md bg-surface">'
+        '<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">디지털·시스템 성숙도</h4>'
+        f'{svg}</div>')
+
+
 def charts(data):
-    """시계열 보유 항목들을 차트 카드로 (최대 4개)."""
+    """시계열 보유 항목들을 차트 카드로 (최대 4개) + 성숙도 레이더."""
     blocks = [chart_block(it) for it in data.get("items", []) if it.get("timeseries")]
     blocks = [b for b in blocks if b][:4]
-    if not blocks:
+    radar = maturity_radar(data)
+    if not blocks and not radar:
         return ('<p class="font-body-sm text-body-sm text-on-surface-variant">시계열 데이터 없음.</p>')
-    return '<div class="flex flex-col gap-md">' + "".join(blocks) + "</div>"
+    return '<div class="flex flex-col gap-md">' + radar + "".join(blocks) + "</div>"
 
 
 def item_row(it):

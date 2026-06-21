@@ -23,7 +23,7 @@ HTML/CSS 렌더링 품질이 우수해 Tailwind 기반 보고서 레이아웃을
 ```bash
 # 출력 경로 자동 도출 (.../html/<name>.html → .../pdf/<name>.pdf)
 python3 .claude/skills/report-pdf/scripts/html_to_pdf.py \
-  app/backend/storage/report/region/EU/html/EU_rpt_<TS>.html
+  app/backend/storage/report/region/EU/html/RPT_RGN_EU_001.html
 
 # 출력 경로 명시
 python3 .claude/skills/report-pdf/scripts/html_to_pdf.py <HTML_PATH> <OUT_PDF_PATH>
