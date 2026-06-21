@@ -1,0 +1,1261 @@
+{
+  "country": "Denmark",
+  "country_ko": "덴마크",
+  "code": "DK",
+  "region": "EU",
+  "is_baseline": false,
+  "currency": "DKK",
+  "schema_version": "1.1",
+  "data_year": 2025,
+  "fetched_at": "2026-06-21T19:00:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "EU 16위 자동차 시장이자 EU에서 가장 특수한 자동차 세제 구조를 가진 국가. 2025년 신차 등록 약 17만대(De Danske Bilimportører)로 규모는 작으나 BEV(순수전기차) 점유 60%+로 EU 1위(노르웨이 다음 글로벌 2위). 비용·난이도 드라이버는 명확하다 — 자동차 등록세(Registreringsafgift, ICE 차량 약 90~150%의 사실상 사용 금지급 세율)가 시장을 BEV·소형·중고차로 강제 전환시킨 구조다. 소비자 자동차금융은 Finanstilsynet(FSA) 인가 finansieringsselskab(자본금 DKK 8M)+APR 상한(2020 Lov om forbrugslån 강화, 비카드 신용 사실상 금지 — 35% APR + 100% TCC 상한)이라는 이중 규제가 진입 부담의 핵심이다. 반면 B2B 운용리스(operationel leasing)는 FSA 인가 면제·Finans og Leasing 자율규제로 진입 매우 유연. 비즈니스 매력도는 시장규모 작음·소비자대출 사실상 금지로 단독 진입 매력 제한적이나, BEV 침투 EU 1위·플릿 리스 비중 EU 톱급이라 EV 운용리스 전문 진입 전략이 유효하다. 캡티브(VW·Toyota·Stellantis)와 다국적 리스사(Ayvens·Arval·LeasePlan) 양강 약 70% 점유. IT 유사도는 매우 높음 — EU GDPR·SEPA·NemKonto(국가 은행계좌)·MitID(전자인증)·RKI(신용정보) 등 인프라 EU 최상위. 매력도↔IT 불일치 지점은 차량 등록세 — 진입 시 잔가 모델·중고 EV 가격에 큰 영향. 다크호스는 사용리스(brugtleasing) 시장 — 등록세 회피 구조로 급성장 중. EV·플릿·중고리스 우선 진입, 소비자금융은 사실상 진입 비매력.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business",
+      "role": "score",
+      "value": 5500,
+      "unit": "EUR_M",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 4000
+          },
+          {
+            "year": 2022,
+            "value": 4300
+          },
+          {
+            "year": 2023,
+            "value": 4700
+          },
+          {
+            "year": 2024,
+            "value": 5100
+          },
+          {
+            "year": 2025,
+            "value": 5500
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 5850
+          },
+          {
+            "year": 2027,
+            "value": 6200
+          },
+          {
+            "year": 2028,
+            "value": 6500
+          },
+          {
+            "year": 2029,
+            "value": 6800
+          },
+          {
+            "year": 2030,
+            "value": 7100
+          }
+        ],
+        "cagr_hist": 8.3,
+        "cagr_forecast": 5.2,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Finans og Leasing(덴마크 리스협회) 2025 (운용리스+금융리스 매출 €5bn+); Mordor Intelligence Nordic Auto Finance",
+      "insight": "북유럽 보조 시장 — 합산 €5.5bn대(SE €15bn의 35% 수준). EV 운용리스 매우 높은 비중으로 단위경제 우수. 단 시장규모 작아 단독 진입 매력 제한.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "오토금융 성장률(CAGR)",
+      "category": "business",
+      "role": "score",
+      "value": 8.3,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 7.0
+          },
+          {
+            "year": 2022,
+            "value": 7.5
+          },
+          {
+            "year": 2023,
+            "value": 9.3
+          },
+          {
+            "year": 2024,
+            "value": 8.5
+          },
+          {
+            "year": 2025,
+            "value": 7.8
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 6.4
+          },
+          {
+            "year": 2027,
+            "value": 6.0
+          },
+          {
+            "year": 2028,
+            "value": 4.8
+          },
+          {
+            "year": 2029,
+            "value": 4.6
+          },
+          {
+            "year": 2030,
+            "value": 4.4
+          }
+        ],
+        "cagr_hist": 8.3,
+        "cagr_forecast": 5.2,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Finans og Leasing 2025 (EV 리스·운용리스 성장 견인, 종합 한 자릿수 후반)",
+      "insight": "EV 리스·운용리스 두 자릿수 성장, 종합 CAGR 한 자릿수 후반. 단 등록세 제도 변경 리스크가 장기 성장 변수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(신차)",
+      "category": "business",
+      "role": "score",
+      "value": 80,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 72
+          },
+          {
+            "year": 2022,
+            "value": 75
+          },
+          {
+            "year": 2023,
+            "value": 77
+          },
+          {
+            "year": 2024,
+            "value": 78
+          },
+          {
+            "year": 2025,
+            "value": 80
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 81
+          },
+          {
+            "year": 2027,
+            "value": 82
+          },
+          {
+            "year": 2028,
+            "value": 83
+          },
+          {
+            "year": 2029,
+            "value": 84
+          },
+          {
+            "year": 2030,
+            "value": 85
+          }
+        ],
+        "cagr_hist": 2.7,
+        "cagr_forecast": 1.2,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Finans og Leasing 2025 (법인 신차의 80%+ 리스, 등록세 회피용 splitleasing 활성화)",
+      "insight": "신차 등록의 80%가 금융 경유 — 등록세(90~150%) 회피 구조로 리스가 비정상적으로 큼. 개인 splitleasing(이용기간 비율로 분할)이 합법적 등록세 회피 수단으로 활성화 — EU 유일 구조.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(중고차)",
+      "category": "business",
+      "role": "score",
+      "value": 38,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 3,
+      "source": "Finans og Leasing 2025 / De Danske Bilimportører (중고 brugtleasing 시장 급성장)",
+      "insight": "중고차 정식 금융 침투율 약 38% — brugtleasing(중고 리스, 등록세 회피용) 시장이 EU에서 가장 발달. 중고 EV 리스가 신규 EV 리스보다 더 큰 시장 — 진입 시 핵심 세그먼트.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business",
+      "role": "score",
+      "value": 6.5,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 5.0
+          },
+          {
+            "year": 2022,
+            "value": 5.5
+          },
+          {
+            "year": 2023,
+            "value": 7.5
+          },
+          {
+            "year": 2024,
+            "value": 7.2
+          },
+          {
+            "year": 2025,
+            "value": 6.5
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 6.2
+          },
+          {
+            "year": 2027,
+            "value": 6.0
+          },
+          {
+            "year": 2028,
+            "value": 5.8
+          },
+          {
+            "year": 2029,
+            "value": 5.7
+          },
+          {
+            "year": 2030,
+            "value": 5.6
+          }
+        ],
+        "cagr_hist": 5.4,
+        "cagr_forecast": -2.9,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "Nationalbanken 소비자신용 통계 2025 (자동차대출 평균 약 6~7%) / 덴마크 기준금리 ECB 연동(2025말 1.85%)",
+      "insight": "Nationalbanken 자동차대출 평균 6.5%(EU 최저권, NL과 동급) — 덴마크 기준금리 ECB 대비 0.15pp 낮은 통화정책으로 조달비용 저렴. 단 2020 forbrugslån 법으로 35% APR + 100% TCC 상한 — 비카드 소비자신용 사실상 금지급.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신차 판매대수",
+      "category": "business",
+      "role": "score",
+      "value": 170000,
+      "unit": "units",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 158000
+          },
+          {
+            "year": 2022,
+            "value": 137000
+          },
+          {
+            "year": 2023,
+            "value": 167000
+          },
+          {
+            "year": 2024,
+            "value": 169000
+          },
+          {
+            "year": 2025,
+            "value": 170000
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 175000
+          },
+          {
+            "year": 2027,
+            "value": 178000
+          },
+          {
+            "year": 2028,
+            "value": 180000
+          },
+          {
+            "year": 2029,
+            "value": 182000
+          },
+          {
+            "year": 2030,
+            "value": 185000
+          }
+        ],
+        "cagr_hist": 1.9,
+        "cagr_forecast": 1.7,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "De Danske Bilimportører(DBI)/Bilstatistik 2025 (신차 등록 약 17만대, BEV 점유 60%+)",
+      "insight": "2025년 17만대 보합 — 등록세로 시장 크게 위축(인구 600만 대비 낮은 차량 보급). 단 BEV 비중 60%+로 단위경제 우수. EU 16위 규모로 단독 진입 매력 작음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "구매 패턴(할부·리스 비중)",
+      "category": "business",
+      "role": "score",
+      "value": 65,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Finans og Leasing 2025 (운용리스+금융리스+splitleasing 합산 65%+); 등록세 회피 구조",
+      "insight": "신차의 65%+가 리스 경유 — 운용리스(법인) 40%+개인 splitleasing 15%+금융리스 10%+할부 15%. EU 특수한 splitleasing(개인 + 법인 분할 등록세 절감) 활성화.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "리스 취급 일치도": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "운용리스+금융리스+splitleasing 65%+"
+        },
+        "렌탈 취급 일치도": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "단기렌탈 보통"
+        },
+        "플릿 취급 일치도": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "법인 운용리스 80%+ — 등록세 회피 구조"
+        },
+        "상품별 비중 유사도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "splitleasing(개인+법인 분할)이 EU 유일 — GB와 큰 차이"
+        }
+      },
+      "similarity_axis": "product",
+      "similarity_weight": 0.15
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business",
+      "role": "score",
+      "value": 30,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "Finans og Leasing 2025 / 업계 추정 (VW FS·Toyota·Stellantis 약 30%, Ayvens·Arval·LeasePlan 약 35%)",
+      "insight": "다국적 리스사 주도 — Ayvens(ALD+LeasePlan)·Arval·Athlon 합산 약 35%, OEM 캡티브(VW·Toyota·Stellantis·BMW·MB) 30%, 은행계(Nordea Finans·Jyske Bank) 20%, 독립계 15%. 캡티브 강도 EU 평균 — 독립계 진입은 EV·brugtleasing 틈새 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 점유율(Top 5)",
+      "category": "business",
+      "role": "score",
+      "value": 18,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "Finans og Leasing 2025 / Ayvens·LeasePlan 합병 후 1위 약 18%",
+      "insight": "Ayvens(舊 ALD+LeasePlan 합병) 단독 1위 약 18%. 톱5 합산 약 60% 다국적·캡티브 집중 — 신규 진입은 EV·brugtleasing·SME 틈새 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "법인세율",
+      "category": "business",
+      "role": "score",
+      "value": 22,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Selskabsskatteloven(법인세법): 표준 22%",
+      "insight": "표준 법인세 22%(EU 평균 수준). 추가 지방세 없음 — 실효세율도 22%. SKAT(국세청) 행정 효율 EU 최상위.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "이자소득 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 22,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "PwC Denmark WHT (EU 이자·로열티 지침 면제 가능, 한·덴 조세조약 15%)",
+      "insight": "비거주자 이자 22%, EU 이자·로열티 지침으로 0% 면제 가능, 한·덴 조세조약 15% — 본사 차입 구조는 EU 지침 활용 시 0%.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "배당 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 22,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "PwC Denmark WHT (EU 모자회사지침 0% 가능, 한·덴 조세조약 15%)",
+      "insight": "배당 표준 22%(2024 27%→22% 인하), EU 모자회사지침(10%지분·1년 보유) 0%, 한·덴 조세조약 15% — 이익 회수 효율적.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared",
+      "role": "gate",
+      "value": "100% 허용 (EU 회원국, 금융업은 FSA 사전 인가 필요)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "덴마크 외국인투자법, EU 자본자유이동, Lov om screening af visse udenlandske direkte investeringer 2021",
+      "insight": "외국인 100% 소유 가능, JV 불필요. 2021 외국인 투자 사전심사법(IIS)으로 핵심 인프라·기술 사전심사 도입되었으나 자동차금융은 적용 외. 단독 진출 자유.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외환·배당 송금 자유도",
+      "category": "shared",
+      "role": "gate",
+      "value": "외환 통제 없음 (배당·이자 비거주자 원천징수 22%, EU 지침·조세조약 면제 가능)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "PwC Denmark Withholding Taxes, EU 모자회사·이자로열티 지침",
+      "insight": "송금 자유. 배당·이자 원천징수 22%는 EU 지침으로 0%까지 감면 — 본국 회수 장애 없음. AAA 신용도로 자본회수 리스크 사실상 없음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared",
+      "role": "gate",
+      "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+      "gate_result": "PASS",
+      "gate_scope": "operating_model",
+      "segment": null,
+      "tier": 1,
+      "source": "EU GDPR, Databeskyttelsesloven(GDPR 이행법), Datatilsynet",
+      "insight": "EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음. Datatilsynet 표준 수준 — 동의·DPIA 준수면 충분.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "현지 저장 강제": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "강제 현지화 없음"
+        },
+        "국외 이전 허용도": {
+          "target_score": 5,
+          "base_score": 4,
+          "note": "EU 역내 자유"
+        },
+        "동의·보관 규제": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "Databeskyttelsesloven·GDPR"
+        },
+        "GDPR 동등성": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "GDPR 동등(EU)"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "국가신용등급",
+      "category": "shared",
+      "role": "gate",
+      "value": "AAA (S&P/Moody's/Fitch 만장일치, 2025 안정적)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "S&P·Moody's·Fitch 국가신용등급 (2025 AAA 유지)",
+      "insight": "AAA(EU 톱티어, 독일·NL·룩셈부르크와 동급). 송금·자본회수 리스크 사실상 없음 — 킬스위치 통과.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared",
+      "role": "gate",
+      "value": "소비자 자동차금융=Finanstilsynet(FSA) 인가 finansieringsselskab 필요/취득가능, B2B 운용리스=FSA 인가 면제(Finans og Leasing 자율규제)",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "Lov om finansiel virksomhed(금융사업법) §5, Finanstilsynet 가이드",
+      "insight": "소비자 여신은 FSA 인가 finansieringsselskab(자본금 DKK 8M=약 €1.07M+적합성 심사). 운용리스는 FSA 인가 면제(자율규제) — 운용리스 우선 진입 자명. 소비자금융은 2020 forbrugslån 강화로 사실상 비매력.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 체제(세그먼트별)",
+      "category": "shared",
+      "role": "gate",
+      "value": "소비자 여신=FSA 인가 finansieringsselskab(A/S+자본금 DKK 8M+FSA 감독), B2B 운용리스=FSA 인가 면제(일반 ApS/A/S+Finans og Leasing 자율규제)",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "Lov om finansiel virksomhed §5, Finanstilsynet",
+      "insight": "세그먼트별 규제 강도 큼. 소비자 여신 FSA 인가 자본 DKK 8M(약 €1.07M)으로 NL과 동급 중간 부담. 운용리스는 ApS(€2k 최저자본)/A/S(€53k)로 진입 부담 경량 — 단계적 전략.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "취득방식(등록 vs 인가)": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "FSA 인가 finansieringsselskab, 운용리스 면제"
+        },
+        "외국인 취득 가능": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "EU 자본자유"
+        },
+        "처리기간(개월)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "FSA 표준 9~12개월"
+        },
+        "최저자본금 수준": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "자본 DKK 8M(€1.07M) — EU 중간"
+        },
+        "감독 강도": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "단일 FSA 감독으로 거버넌스 효율"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.25
+    },
+    {
+      "item": "금리 상한 규제",
+      "category": "shared",
+      "role": "gate",
+      "value": "Lov om forbrugslån 2020 강화: APR 상한 35% + TCC(총비용) 100% 원금 상한 + 비카드 소비자신용 광고 금지(2020.7~)",
+      "gate_result": "FLAG",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "Lov om forbrugslån 2020 (소비자대출법, 2020.7 시행), 광고 제한령 BEK 1336/2020",
+      "insight": "2020 forbrugslån 강화 — APR 35% + TCC 100% 상한 + 광고 금지로 비카드 소비자신용 사실상 시장 소멸. 자동차대출 평균 6.5%는 여유 충분하나 광고·마케팅 제약 큼. B2B 리스는 적용 외 — 소비자금융 단독 진입 매우 비매력.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "최저자본금",
+      "category": "shared",
+      "role": "score",
+      "value": "FSA 인가 finansieringsselskab DKK 8,000,000(€1.07M) / A/S(공개회사) DKK 400,000(€53k) / ApS(유한회사) DKK 20,000(€2.7k) / 은행 EUR 5M",
+      "unit": "EUR",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Lov om finansiel virksomhed §125, 덴마크 회사법(Selskabsloven)",
+      "insight": "소비자 여신 FSA 인가 자본 €1.07M으로 NL(€730k)에 근접한 중간 부담. 운용리스 사업회사(ApS €2.7k)는 자본 부담 사실상 없음 — 세그먼트별 자본 전략 분기.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it",
+      "role": "score",
+      "value": "글로벌 벤더(NETSOL/Sopra Banking/Sofico/Quadient) + 현지/북유럽 SI(KMD·Tieto Evry·Nordea Digital) 혼재",
+      "unit": "match",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "시장 조사 (EU/북유럽 공통 리스/오토금융 패키지 생태계)",
+      "insight": "EU 공통 벤더 생태계(NETSOL·Sopra·Sofico) + 북유럽 강자(KMD·Tieto Evry) — 베이스라인 재사용률 높음. Nordic 통합 운영 시 SE·NO·FI 시너지 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "솔루션 유형",
+      "category": "it",
+      "role": "score",
+      "value": "글로벌 패키지 + 은행계 자체 코어(Danske Bank·Nordea·Jyske) + 다국적 리스사 자체 시스템 혼재",
+      "unit": "type",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계",
+      "insight": "대형 은행계(Danske Bank·Nordea·Jyske Bank)·다국적 리스사는 자체 코어, 캡티브·중소 리스사는 글로벌 패키지. EU 표준 아키텍처와 정합.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "배포형태(패키지/SI/SaaS)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "EU 공통 패키지(NETSOL·Sofico)+북유럽 SI(KMD)"
+        },
+        "커스터마이징 자유도": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "Nordic 통합 운영용 커스텀 가능"
+        },
+        "벤더 종속도": {
+          "target_score": 3,
+          "base_score": 3,
+          "note": "글로벌+북유럽 벤더 의존 GB와 유사"
+        },
+        "멀티테넌시 여부": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "표준 멀티테넌시"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "디지털 채널 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "MitID(국가 전자인증, 100% 보급)·NemKonto(국가 은행계좌)·MobilePay(EU 톱급 P2P 결제, 99% 보급)·Dankort 보편화",
+      "insight": "MitID(국가 전자인증 100% 보급)·NemKonto(시민 1인 1계좌 의무)·MobilePay(P2P 결제, 99% 보급) 보편화로 디지털 계약 성숙도 EU 최상위(NL과 동급). 완전 디지털 온보딩 표준.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "온라인 신청 연동": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "MitID 전자인증 100% 보급"
+        },
+        "비대면 계약 가능": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "MobilePay 99% 보급, NemKonto 의무"
+        },
+        "API 개방도": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "Open Banking + Nordic API 게이트웨이"
+        },
+        "페이퍼리스 수준": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "Betalingsservice 80%+ 보급 — EU 최상위"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "RKI(Experian Denmark), Debitor Registret, Bisnode/Dun & Bradstreet Denmark",
+      "insight": "RKI(Experian) 중심 + Debitor Registret + Bisnode로 인프라 매우 성숙. 단일 CB 커버리지 EU 최상위 — 영국 CB 연동 패턴 재사용 가능.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "결제·정산 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "SEPA, Betalingsservice(국가 직불 시스템·EU 톱), Dankort, MobilePay, TARGET Instant",
+      "insight": "Betalingsservice(국가 직불 시스템 80%+ 보급)·Dankort·MobilePay·SEPA·TARGET Instant 보편. 결제·정산 인프라 EU 최상위 — 수금 자동화 EU 최고.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "디지털 딜러 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 (Bilbasen·DBA·OEM 직판·Tesla 모델)",
+      "insight": "Bilbasen·DBA(중고차 마켓) 등 온라인 채널 발달. Tesla 직판 모델 영향으로 OEM 디지털 직판 가속 — 임베디드 금융 연동 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "국외이전 제한",
+      "category": "it",
+      "role": "score",
+      "value": 1,
+      "unit": "restriction_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "EU GDPR, Databeskyttelsesloven, Datatilsynet",
+      "insight": "EU 역내 자유, 제3국은 적정성/SCC. 강제 현지화 없어 아키텍처 자유도 높음. Nordic 통합 운영에 유리.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "ease_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "덴마크 민사소송법(Retsplejeloven), 업계 (fogedretten 절차 효율적)",
+      "insight": "리스·운용리스는 금융사 소유권 보유로 회수 매우 용이(평균 30~60일). 소비자 대출 담보회수도 fogedretten(집행법원) 효율 EU 상위로 평균 3~6개월 — 회수 환경 EU 최우호.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "사법절차 필요": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "fogedretten 절차 효율적"
+        },
+        "회수 소요기간(일)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "평균 3~6개월 — EU 최우월"
+        },
+        "자력구제 허용": {
+          "target_score": 2,
+          "base_score": 4,
+          "note": "자력구제 제한"
+        },
+        "회수율": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "회수율 EU 최상위"
+        }
+      },
+      "similarity_axis": "risk",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "법적 회수 소요기간",
+      "category": "shared",
+      "role": "score",
+      "value": 150,
+      "unit": "days",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "유럽사법위원회(CEPEJ) 2024 (덴마크 사법 효율 EU 톱)",
+      "insight": "사법 효율 EU 최상위로 담보회수 평균 3~6개월(EU 최우월). 리스 회수는 1~2개월 단기. 베이스라인 회수 모듈 재사용 매우 용이.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "추심 규제",
+      "category": "shared",
+      "role": "score",
+      "value": 3,
+      "unit": "constraint_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Inkassoloven(추심법), Forbrugerombudsmanden(소비자보호청)",
+      "insight": "Inkassoloven으로 추심비용·절차 명확화. Forbrugerombudsmanden(소비자보호청) 부당추심 규율. EU 표준 수준 — 베이스라인 컴플라이언스 재사용 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "충당금 규정",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Finanstilsynet Bekendtgørelse, IFRS 9, EBA 가이드라인",
+      "insight": "FSA 건전성 규제+IFRS 9 ECL 적용으로 충당금 체계 EU 표준. NPL 비중 매우 낮아 운영 부담 작음 — 시스템 재사용 용이.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "연체 분류 기준",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Finanstilsynet, EBA NPL 가이드라인",
+      "insight": "EBA 90일 NPE 기준 적용으로 연체 분류 표준화. 베이스라인 NPL 엔진 그대로 재사용 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "의무보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "자동차 의무책임보험(ansvarsforsikring) 강제, Færdselsloven §105 / EU 지침 2009/103 적용",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Færdselsloven §105 (도로교통법 책임보험), DFIM(보장기금), EU 자동차보험 지침",
+      "insight": "차량 책임보험 의무는 EU 표준과 동일(DFIM 보장기금). 베이스라인 보험연동 로직 재사용 가능 — 특화개발 부담 낮음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "신용생명보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "끼워팔기 강제 금지, 별도 동의·대안 제시 의무 (Forbrugeraftaleloven + FSA Bekendtgørelse om god skik)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Forbrugeraftaleloven(소비자계약법), FSA Bekendtgørelse om god skik(선의 규정)",
+      "insight": "신용생명보험 강제판매(번들) 제한 + FSA 'god skik'(선의) 거버넌스 — 동의·대안 제공 의무로 상품 설계 시 옵션화 필요. EU 일반 수준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "보험 끼워팔기 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "tying(강제 끼워팔기) 금지, bundling은 조건부 허용 (Lov om forsikringsformidling 2018 IDD 이행 + Finanstilsynet)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Lov om forsikringsformidling 2018(보험배분법, IDD 이행), FSA",
+      "insight": "강제 끼워팔기(tying) 금지, 묶음판매(bundling)는 정보·분리구매 옵션 제공 시 허용. EU IDD 표준 — 베이스라인 컴플라이언스 재사용 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "AI 신용평가 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "EU AI Act 고위험 분류(신용평가) + GDPR 22조 자동화 의사결정 규제 적용. Datatilsynet 감독",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "EU AI Act(Reg. 2024/1689, 신용평가=고위험), GDPR Art.22, Datatilsynet",
+      "insight": "AI 신용평가는 EU AI Act 고위험으로 분류돼 투명성·설명가능성·인적 개입 요건 부과. Datatilsynet는 EU 표준 수준 적용 — 모델 거버넌스 문서화 부담 EU 평균.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "EV 보급률",
+      "category": "business",
+      "role": "score",
+      "value": 60,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 26.0
+          },
+          {
+            "year": 2022,
+            "value": 33.0
+          },
+          {
+            "year": 2023,
+            "value": 42.0
+          },
+          {
+            "year": 2024,
+            "value": 52.0
+          },
+          {
+            "year": 2025,
+            "value": 60.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 67.0
+          },
+          {
+            "year": 2027,
+            "value": 73.0
+          },
+          {
+            "year": 2028,
+            "value": 79.0
+          },
+          {
+            "year": 2029,
+            "value": 84.0
+          },
+          {
+            "year": 2030,
+            "value": 90.0
+          }
+        ],
+        "cagr_hist": 23.2,
+        "cagr_forecast": 8.4,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "De Danske Bilimportører/DEA(전기차협회) 2025 (BEV+PHEV 점유 60%, BEV 단독 약 50%), Registreringsafgift BEV 감면",
+      "insight": "2025년 EV 점유 60%(BEV 단독 50%) — EU 1위(NO 다음 글로벌 2위). 등록세 BEV 감면(2030까지 단계 인상)·법인세 BEV 우대 견인. 운용리스 신규 80%+가 BEV — 잔가 모델에 EV 별도 곡선 필수, 리스 손익 핵심 변수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "EV·ICE 잔존가치 리스크",
+      "category": "business",
+      "role": "score",
+      "value": 52,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 60
+          },
+          {
+            "year": 2022,
+            "value": 58
+          },
+          {
+            "year": 2023,
+            "value": 55
+          },
+          {
+            "year": 2024,
+            "value": 53
+          },
+          {
+            "year": 2025,
+            "value": 52
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 50
+          },
+          {
+            "year": 2027,
+            "value": 48
+          },
+          {
+            "year": 2028,
+            "value": 46
+          },
+          {
+            "year": 2029,
+            "value": 45
+          },
+          {
+            "year": 2030,
+            "value": 44
+          }
+        ],
+        "cagr_hist": -3.5,
+        "cagr_forecast": -3.2,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "Cox Automotive/Manheim Nordic 잔가 추정(3년 EV), DBI 중고 EV 가격 분석",
+      "insight": "EV 3년 잔가 52%로 NL(50%) 다음으로 EU 최저 수준 — 높은 BEV 침투+중고 공급 과잉. 운용리스 BEV 80%+ 비중으로 노출 최대. 잔가 보증·바이백·세컨드 라이프 모델 필수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "해당국 정성 요약",
+      "category": "business",
+      "role": "context",
+      "value": "EU 16위 자동차 시장(2025 신차 17만대) — 등록세(90~150%)로 시장 크게 위축. BEV 점유 60%(EU 1위)·운용리스 80%+로 단위경제 우수. 다국적 리스(Ayvens·Arval·LeasePlan 35%)+OEM 캡티브(VW·Toyota·Stellantis 30%)+은행계(20%) 구조. 소비자금융은 2020 forbrugslån 강화로 사실상 비매력, B2B 운용리스는 FSA 인가 면제로 매우 유연. EU GDPR·SEPA·MitID·MobilePay·RKI로 IT 재사용성 최상위. AAA 신용·이자 원천세 EU 지침 0% — Nordic 허브 활용 가능.",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "DBI, Finans og Leasing, Finanstilsynet, Nationalbanken",
+      "insight": "운용리스·EV 전문 진입 → brugtleasing 중고리스 확장 → SE·NO·FI Nordic 통합 운영. 소비자금융은 사실상 진입 비매력 — B2B 한정 전략.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "브랜드 Top10",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Tesla",
+        "Volkswagen",
+        "Toyota",
+        "Kia",
+        "Volvo",
+        "Skoda",
+        "BMW",
+        "Hyundai",
+        "Audi",
+        "Peugeot"
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "De Danske Bilimportører 2025 신차 등록 통계 (Tesla 1위·EV 강세)",
+      "insight": "Tesla 1위(BEV 60% 침투 효과, EU에서 매우 드문 1위), VW·Toyota·Kia 상위. 한국 브랜드(Kia·Hyundai) 합산 톱5급 — 한국 OEM EV 라인업 우위. Volvo·Skoda 등 EV 강한 유럽 브랜드 강세.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "OEM 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Tesla",
+          "market_share": "12.5%"
+        },
+        {
+          "rank": 2,
+          "name": "Volkswagen",
+          "market_share": "10.2%"
+        },
+        {
+          "rank": 3,
+          "name": "Toyota",
+          "market_share": "8.5%"
+        },
+        {
+          "rank": 4,
+          "name": "Kia",
+          "market_share": "7.8%"
+        },
+        {
+          "rank": 5,
+          "name": "Volvo",
+          "market_share": "6.5%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "De Danske Bilimportører 2025 신차 등록 (Tesla 21,250 / VW 17,340 / Toyota 14,450 / Kia 13,260 / Volvo 11,050 추정)",
+      "insight": "Tesla 단독 1위 12.5%(BEV 시장 점유율 영향) — EU에서 매우 드문 사례. Kia 4위 7.8%로 한국 OEM EU 최상위권 점유, Hyundai 8위. 한국 OEM EV 라인업 우위가 진입에 유리.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Ayvens (구 ALD+LeasePlan)",
+          "market_share": "약 18%"
+        },
+        {
+          "rank": 2,
+          "name": "Arval (BNP Paribas)",
+          "market_share": "약 11%"
+        },
+        {
+          "rank": 3,
+          "name": "Volkswagen Financial Services Denmark",
+          "market_share": "약 10%"
+        },
+        {
+          "rank": 4,
+          "name": "Nordea Finans",
+          "market_share": "약 8%"
+        },
+        {
+          "rank": 5,
+          "name": "Jyske Bank Finans / Jyske Finans",
+          "market_share": "약 7%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "Finans og Leasing 2025 / Ayvens·Arval·Nordea 공시 (운용리스 기준)",
+      "insight": "Ayvens 단독 1위 18%, Arval 2위 — 다국적 리스사 양강. 은행계(Nordea·Jyske) 톱5 진입. 톱5 합산 약 54% — 신규 진입은 EV·brugtleasing·SME 틈새.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 리스트",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Ayvens Denmark (ALD+LeasePlan)",
+        "Arval Denmark (BNP Paribas)",
+        "Volkswagen Financial Services Denmark",
+        "Nordea Finans",
+        "Jyske Finans",
+        "Toyota Financial Services Denmark",
+        "Stellantis Financial Services Denmark",
+        "BMW Bank Denmark",
+        "Mercedes-Benz Financial Denmark",
+        "Alphabet Denmark (BMW)",
+        "Athlon Car Lease Denmark",
+        "Dansk Bilfinansiering",
+        "DLR Kredit (현지 중견)"
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "Finans og Leasing 회원사 명단, FSA 등록부",
+      "insight": "다국적 리스사+OEM 캡티브+북유럽 은행계(Nordea·Jyske) 혼재. 한국계 미진출 — Kia 점유 4위·Hyundai 8위 OEM 강세 감안 시 한국 OEM 캡티브 진입 매력 큼.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 진출 형태",
+      "category": "business",
+      "role": "context",
+      "value": "다국적 리스사 자회사(Ayvens·Arval·Athlon·Alphabet) + OEM 캡티브(VW FS·Toyota·Stellantis·BMW·MB) + 북유럽 은행계(Nordea Finans·Jyske Finans·Danske). 운용리스는 ApS/A/S 즉시 가능, 소비자금융은 FSA 인가 필요",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "Finans og Leasing, FSA 등록부",
+      "insight": "B2B 운용리스는 ApS(€2.7k)/A/S(€53k) 즉시 진입, 소비자금융은 FSA 인가(€1.07M). Kia OEM 4위·Hyundai 8위 점유 감안 시 한국 캡티브 미진출은 진입 기회. Nordic 통합 운영(SE·NO·FI) 시 시너지 큼.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 금리 범위",
+      "category": "business",
+      "role": "context",
+      "value": "신차 자동차대출 APR 약 5~8% (프로모 0~3% 캡티브 한정), 운용리스 월 임대료 DKK 3,000~6,000 (€400~800, 등록세 회피 splitleasing), 소비자신용 평균 Nationalbanken 통계 약 6.5%",
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "Nationalbanken 소비자신용 통계 2025, OEM 캡티브 프로모, Finans og Leasing",
+      "insight": "표준 차량대출 APR 5~8%(EU 최저권, NL과 동급), 캡티브 0~3% 프로모. forbrugslån 35% 상한 내 여유 매우 큼. 운용리스는 splitleasing 구조로 등록세 회피 — 가격경쟁의 핵심은 잔가 모델·세제 최적화.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 신차가격",
+      "category": "business",
+      "role": "context",
+      "value": "약 €40,000 (turismos 평균 거래가, 등록세+EV·SUV 비중으로 EU 평균 상회)",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "De Danske Bilimportører 2025 평균 거래가 추정, Bilbasen 분석",
+      "insight": "평균 신차 거래가 €40k로 EU 평균 상회(등록세+EV 비중 영향, NL과 동급). 등록세 부담으로 소형·BEV 비중 큼. 건수×평균가 기반 금융 자산규모 단위 가치 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "규제기관 식별",
+      "category": "shared",
+      "role": "context",
+      "value": "Finanstilsynet(FSA, 금융사업법 인가·건전성·시장행위 통합) / Nationalbanken(중앙은행, 결제·통화) / Forbrugerombudsmanden(소비자보호청) / Datatilsynet(개인정보·AI) / SKAT(국세청) / Konkurrence- og Forbrugerstyrelsen(경쟁·소비자청)",
+      "context_type": "descriptive",
+      "tier": 1,
+      "source": "Finanstilsynet, Nationalbanken, Forbrugerombudsmanden, Datatilsynet 공식",
+      "insight": "FSA가 금융 전반 통합 감독(NL Twin Peaks와 달리 단일 감독청 구조), 소비자보호는 Forbrugerombudsmanden, 데이터는 Datatilsynet로 분산. 단일 창구로 컴플라이언스 거버넌스 효율적.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외부 이슈 스캔",
+      "category": "business",
+      "role": "context",
+      "context_type": "news",
+      "value": [
+        {
+          "news_category": "auto_market",
+          "headline": "덴마크 2025년 BEV 점유 50% 돌파, EU에서 NO 다음 글로벌 2위",
+          "so_what": "BEV 압도적 시장 — EV 운용리스 전문 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우, 한국 OEM(Kia·Hyundai) EV 라인업 우위 활용.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-01-28",
+          "url": "https://europe.autonews.com/..."
+        },
+        {
+          "news_category": "auto_finance",
+          "headline": "덴마크 splitleasing 시장 급성장, 등록세 회피 구조로 신차 등록의 15%+ 점유",
+          "so_what": "splitleasing(개인+법인 분할 등록세 절감) EU 유일 구조 — 진입 시 정확한 세제 이해 필수. 잘 설계하면 경쟁우위, 잘못하면 SKAT 분쟁 리스크.",
+          "publisher": "S&P Global Mobility",
+          "pub_date": "2026-02-18",
+          "url": "https://www.spglobal.com/mobility/..."
+        },
+        {
+          "news_category": "auto_market",
+          "headline": "덴마크 brugtleasing(중고 리스) 시장 30%+ 성장, EV 중고 리스 EU 톱",
+          "so_what": "중고 EV 리스 진입 기회 — 등록세 회피 + 신규 EV 잔가 압박의 해결책. 세컨드 라이프 모델 결합 시 단위경제 우수.",
+          "publisher": "Just Auto",
+          "pub_date": "2026-03-25",
+          "url": "https://www.just-auto.com/..."
+        },
+        {
+          "news_category": "credit_abs",
+          "headline": "덴마크 auto loan/lease ABS 딜린퀀시 0.3%대 EU 최저, NL·SE와 동급",
+          "so_what": "연체 매우 안정 — 충당금 부담 EU 최저. 진입 초기 신용정책 보수화 불필요, 가격경쟁력 확보 가능.",
+          "publisher": "Moody's",
+          "pub_date": "2026-04-22",
+          "url": "https://www.moodys.com/..."
+        },
+        {
+          "news_category": "geopolitical",
+          "headline": "Nordic Council 통합 디지털 인프라 확대, EU+EEA 자동차금융 단일시장 강화",
+          "so_what": "Nordic 통합 운영(DK+SE+NO+FI) 매력 강화 — 한 번의 진입으로 4개국 커버 가능. DK를 Nordic 허브로 활용 시 효율 극대화.",
+          "publisher": "Reuters",
+          "pub_date": "2026-05-20",
+          "url": "https://www.reuters.com/..."
+        },
+        {
+          "news_category": "finance",
+          "headline": "덴마크 Nationalbanken 통화 페그(EUR) 유지, AAA 신용·낮은 조달비용 지속",
+          "so_what": "조달환경 EU 최우호 — 한국 본사 자본배치·EU Holding 허브 활용 매력. 외환 리스크 사실상 없음.",
+          "publisher": "Financial Times",
+          "pub_date": "2025-12-12",
+          "url": "https://www.ft.com/..."
+        }
+      ],
+      "tier": 3,
+      "source": "화이트리스트(Automotive News Europe·S&P Global Mobility·Just Auto·Moody's·Reuters·Financial Times)",
+      "insight": "BEV 시장·낮은 조달비용·AAA·Nordic 통합으로 EV 운용리스 진입 우호적, 단 시장 규모(EU 16위)·EV 잔가 압박·등록세 변화 리스크가 양대 제약. 한국 OEM 캡티브 미진출+Kia 4위 점유로 진입 기회 큼.",
+      "insight_ai_generated": true
+    }
+  ]
+}

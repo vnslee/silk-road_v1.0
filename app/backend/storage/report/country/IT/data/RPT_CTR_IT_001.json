@@ -1,0 +1,1242 @@
+{
+  "report_id": "RPT_CTR_IT_001",
+  "report_type": "type1_country",
+  "title": "Italy Auto Finance Entry Cost & TCO Report",
+  "target": {
+    "country": "IT",
+    "base_country": "GB"
+  },
+  "generated_at": "2026-06-21T11:14:08.172694",
+  "schema_version": "1.1",
+  "overall_insight": "EU 4위 자동차 시장(독·프·영 뒤). 2025년 신차 등록 약 156만대(UNRAE/ANFIA)로 회복세는 더디지만 노레지오날레 리스(NLT, 장기렌트)가 신규의 30%+를 차지하며 시장 구조를 빠르게 재편하고 있다. 비용·난이도 드라이버는 명확하다 — 소비자 자동차금융은 Banca d'Italia 감독 하 금융중개기관(Intermediario Finanziario, TUB Art. 106) 등록 의무·최저자본 €2M·MIFID/IFD 자기자본 요건과 사용자금리(Tasso Soglia, 분기별 BdI 고시 평균+25%+4pp 절대 한도)라는 이중 규제가 진입 부담의 핵심이다. 반면 B2B 리스(Leasing/Renting Lungo Termine)는 등록은 필요하나 자본·감독 강도가 경감되어 진입이 유연하다. 비즈니스 매력도(EU 4위 시장규모, NLT 고성장)는 상위권이나, 캡티브(Stellantis FS·VW FS·Toyota)와 은행계(UniCredit·Intesa·BNL)가 양강 구조로 약 70% 점유해 독립계 진입은 틈새(EV·중고·인증중고) 공략 필요. IT 유사도는 양호 — EU GDPR·SEPA·PagoPA(공공결제)·SDD/RID·CRIF/Experian/CTC 신용정보·SPID 전자인증 등 인프라 성숙으로 NetSol 베이스라인 재사용률 높음. 매력도↔IT 불일치 지점은 차량회수 — 리스·NLT는 소유권 기반으로 용이하나 소비자대출 담보회수는 사법 적체 심각(평균 4~7년)으로 상품 믹스가 회수 리스크를 좌우한다. 다크호스는 NLT(장기렌트) 시장의 EV 비중 약 30%+로 잔가 리스크 관리가 리스 손익의 핵심 변수. NLT·플릿 우선 진입 후 TUB Art. 106 등록 기반 소비자금융으로 단계적 확장이 유효하다.",
+  "country_meta": {
+    "country": "Italy",
+    "country_ko": "이탈리아",
+    "region": "EU",
+    "currency": "EUR",
+    "data_year": 2025,
+    "fetched_at": "2026-06-21T17:30:00+09:00",
+    "fetched_by": "ai"
+  },
+  "data_quality": {
+    "completeness_pct": 100.0,
+    "total_items": 48,
+    "target_items": 48,
+    "timeseries_coverage": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 18,
+      "tier2": 10,
+      "tier3": 20,
+      "tier4": 0
+    },
+    "items_by_category": {
+      "business": [
+        {
+          "item": "오토금융/리스 시장규모",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "오토금융 성장률(CAGR)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융 이용률(중고차)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "평균 금리/APR",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "신차 판매대수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "법인세율",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "이자소득 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "배당 원천징수",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "EV 보급률",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "해당국 정성 요약",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "브랜드 Top10",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "금융사 순위(Top 5)",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 리스트",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 진출 형태",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 2
+        },
+        {
+          "item": "평균 신차가격",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        },
+        {
+          "item": "외부 이슈 스캔",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 3
+        }
+      ],
+      "shared": [
+        {
+          "item": "외국인 지분 한도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "국가신용등급",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 취득 가능 여부(외국사)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "금리 상한 규제",
+          "role": "gate",
+          "has_timeseries": false,
+          "source_tier": 1
+        },
+        {
+          "item": "최저자본금",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "법적 회수 소요기간",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "추심 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "충당금 규정",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "연체 분류 기준",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "의무보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "신용생명보험 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "보험 끼워팔기 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 2
+        },
+        {
+          "item": "AI 신용평가 규제",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "규제기관 식별",
+          "role": "context",
+          "has_timeseries": false,
+          "source_tier": 1
+        }
+      ],
+      "it": [
+        {
+          "item": "솔루션 벤더",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "솔루션 유형",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "신용정보(CB) 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "결제·정산 인프라",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 3
+        },
+        {
+          "item": "국외이전 제한",
+          "role": "score",
+          "has_timeseries": true,
+          "source_tier": 1
+        }
+      ]
+    },
+    "critical_gaps": [],
+    "readiness": {
+      "can_generate": true,
+      "tabs": {
+        "1-1": {
+          "name": "Similarity Scoring (vs Baseline)",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-2": {
+          "name": "System Decision Tree",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-3": {
+          "name": "Contract Volume & 10Y TCO",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "1-4": {
+          "name": "Market & Competition Background",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        }
+      }
+    }
+  },
+  "tabs": {
+    "tab_1_1_similarity": {
+      "overall_score": 75.0,
+      "axes": {
+        "solution_type": 80.0,
+        "digital_maturity": 70.0,
+        "product_mix": 75.0,
+        "regulatory": 73.0
+      },
+      "method": "dimension_based",
+      "note": "Detailed dimension scoring to be implemented",
+      "items": [
+        {
+          "item": "솔루션 유형",
+          "category": "it",
+          "role": "score",
+          "value": "글로벌 패키지 + 은행계 자체 코어(UniCredit·Intesa) + 캡티브 패키지 혼재",
+          "unit": "type",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계",
+          "insight": "대형 은행계(UniCredit·Intesa Sanpaolo·BNL)는 자체 코어, 캡티브·전문 리스사는 글로벌 패키지 사용. EU 표준 아키텍처와 정합.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 채널 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 4,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계 (PagoPA·SPID(전자인증) 보편화·SDD/RID 직불·온라인 딜러금융)",
+          "insight": "SPID(전자인증, 3,000만+ 사용자)·PagoPA(공공결제)·SDD/RID 직불 보편화로 디지털 계약 성숙. CIE(전자ID) 확산 중 — 완전 디지털 온보딩 전환 가속.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "디지털 딜러 성숙도",
+          "category": "it",
+          "role": "score",
+          "value": 4,
+          "unit": "maturity_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "업계 (Subito.it·AutoScout24 Italia·OEM 온라인 판매·Brumbrum·Drivalia)",
+          "insight": "AutoScout24·Subito·OEM 직판 채널 발달, Drivalia(Stellantis)·Brumbrum 등 디지털 리테일러 성숙 — 임베디드 금융 연동 기회.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "라이선스 체제(세그먼트별)",
+          "category": "shared",
+          "role": "gate",
+          "value": "소비자 여신=TUB Art. 106 등록(S.p.A.+최저자본 €2M+BdI 감독), B2B 리스=Art. 106 등록 의무, NLT(렌터카)=일반 회사+ANIASA 자율규제",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "TUB Art. 106, BdI Circolare 288/2015, ANIASA",
+          "insight": "세그먼트별 규제 강도 큼. 소비자 여신+금융리스는 TUB Art. 106 등록·자본·감독(€2M)으로 거버넌스 공수 큼, NLT(장기렌트)는 일반 회사로 즉시 진입 가능 — 단계적 진입 전략 권장.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "데이터 현지화 의무",
+          "category": "shared",
+          "role": "gate",
+          "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "operating_model",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "EU GDPR, 이탈리아 개인정보보호법(D.Lgs. 196/2003 + 101/2018), Garante Privacy",
+          "insight": "EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음. Garante Privacy가 별도 엄격 감독 — 동의·DPIA 절차 보강 필요.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "차량회수 절차 용이성",
+          "category": "shared",
+          "role": "score",
+          "value": 2,
+          "unit": "ease_1to5",
+          "direction": "up",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "이탈리아 민사소송법(c.p.c.), 업계 (사법 적체 EU 최악권)",
+          "insight": "리스·NLT는 금융사 소유권 보유로 회수 용이. 소비자 대출 담보회수는 사법 적체로 평균 4~7년(EU 최악권) — 상품별 회수 모듈 강제 분기, 추심 외주(NPL 매각) 필수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_2_decision": {
+      "decision": "baseline_system_expansion",
+      "similarity_score": 75.0,
+      "recommendation": "GB(NetSol) 시스템을 현지화 확장",
+      "base_country": "GB",
+      "base_system": "NetSol",
+      "hq_baseline_cost": 8000,
+      "hq_baseline_months": 24,
+      "hq_baseline_currency": "EUR",
+      "items": [
+        {
+          "item": "금리 상한 규제",
+          "category": "shared",
+          "role": "gate",
+          "value": "Tasso Soglia(사용자금리): BdI 분기 고시 평균(TEGM) × 1.25 + 4pp 절대 한도. 2025Q4 자동차대출 TEGM 약 9%대 → Tasso Soglia 약 15.5%. Legge 108/1996 사용자금지법",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "FLAG",
+          "gate_scope": "segment",
+          "segment": "consumer_credit",
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Legge 108/1996(사용자금지법), BdI 분기 TEGM/Tasso Soglia 고시",
+          "insight": "사용자금지법(Legge 108/1996)으로 분기마다 BdI가 Tasso Soglia 고시 — 자동차대출 약 15.5%(2025Q4). 상품 APR 로직에 동적 상한 분기 필수. B2B 리스는 적용 제외로 자유. 초과 시 형사처벌(usura) — 컴플라이언스 엄격 관리.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "외환·배당 송금 자유도",
+          "category": "shared",
+          "role": "gate",
+          "value": "외환 통제 없음 (배당/이자 비거주자 원천징수 26%, EU 지침·조세조약 면제 가능)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": "PASS",
+          "gate_scope": "country",
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "PwC Italy Withholding Taxes, EU 모자회사·이자로열티 지침",
+          "insight": "송금 자유. 배당·이자 원천징수 26%는 EU 지침/조세조약으로 1.2~10%까지 감면 가능 — 본국 회수 장애 없음. 단 €15k+ 현금 신고 의무.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "의무보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "자동차 의무책임보험(RCA) 강제, Codice delle Assicurazioni Private(D.Lgs. 209/2005) / EU 지침 2009/103 적용",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 1,
+          "source": "Codice delle Assicurazioni Private(D.Lgs. 209/2005), IVASS 감독, EU 자동차보험 지침",
+          "insight": "차량 책임보험(RCA) 의무는 EU 표준과 동일(IVASS 감독·Fondo Vittime 보장기금). 베이스라인 보험연동 로직 재사용 가능 — 특화개발 부담 낮음.",
+          "insight_ai_generated": false,
+          "status": "present"
+        },
+        {
+          "item": "신용생명보험 규제",
+          "category": "shared",
+          "role": "score",
+          "value": "끼워팔기 강제 금지, 별도 동의·대안 제시 의무 (D.Lgs. 141/2010 신용계약법 + IVASS Regolamento 41/2018)",
+          "unit": "regime",
+          "direction": "down",
+          "axis": "similarity",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 2,
+          "source": "D.Lgs. 141/2010(신용계약법), IVASS Regolamento 41/2018 (보험배분)",
+          "insight": "신용생명보험 강제판매(번들) 제한. 동의·대안 제공 의무 + IVASS 추가 가이드로 상품 설계 시 옵션화 필수 — EU 일반 수준 + 이탈리아 추가 엄격.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_3_tco": {
+      "build_cost": 1500.0,
+      "build_months": 5.3999999999999995,
+      "customization_cost": 750.0,
+      "annual_subscription": 180.0,
+      "annual_maintenance": 500,
+      "operations_10y": 50000,
+      "system_cost_10y": 9050.0,
+      "total_tco_10y": 59050.0,
+      "currency": "EUR",
+      "similarity_score": 75.0,
+      "discount_applied": 0.3,
+      "expected_contracts": 120,
+      "subscription_details": {
+        "existing_volume": 80,
+        "new_volume": 120,
+        "total_volume": 200,
+        "unit_price": 0.9,
+        "currency": "EUR",
+        "annual_fee": 180.0,
+        "note": "All volume repriced at new tier rate"
+      },
+      "items": [
+        {
+          "item": "신차 판매대수",
+          "category": "business",
+          "role": "score",
+          "value": 1560000,
+          "unit": "units",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 1457000
+              },
+              {
+                "year": 2022,
+                "value": 1316000
+              },
+              {
+                "year": 2023,
+                "value": 1566000
+              },
+              {
+                "year": 2024,
+                "value": 1573000
+              },
+              {
+                "year": 2025,
+                "value": 1560000
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 1600000
+              },
+              {
+                "year": 2027,
+                "value": 1640000
+              },
+              {
+                "year": 2028,
+                "value": 1670000
+              },
+              {
+                "year": 2029,
+                "value": 1700000
+              },
+              {
+                "year": 2030,
+                "value": 1730000
+              }
+            ],
+            "cagr_hist": 1.7,
+            "cagr_forecast": 2.1,
+            "estimated": true
+          },
+          "tier": 2,
+          "source": "UNRAE/ANFIA 2025 (신차 등록 약 156만대, -0.8%; 사적채널 약 60%·NLT 약 28%·딜러 KM0 약 12%)",
+          "insight": "2025년 -0.8%로 156만대, 코로나 이전(2019: 191만대) 회복 더딤. NLT가 등록의 28%로 플릿 견인 — EU 4위 규모로 금융 기반 견조. 건수 산식의 기준 모수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융 이용률(신차)",
+          "category": "business",
+          "role": "score",
+          "value": 65,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 60
+              },
+              {
+                "year": 2022,
+                "value": 61
+              },
+              {
+                "year": 2023,
+                "value": 62
+              },
+              {
+                "year": 2024,
+                "value": 64
+              },
+              {
+                "year": 2025,
+                "value": 65
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 66
+              },
+              {
+                "year": 2027,
+                "value": 67
+              },
+              {
+                "year": 2028,
+                "value": 68
+              },
+              {
+                "year": 2029,
+                "value": 69
+              },
+              {
+                "year": 2030,
+                "value": 70
+              }
+            ],
+            "cagr_hist": 2.0,
+            "cagr_forecast": 1.5,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "Assofin(소비자신용협회) Osservatorio 2025 / ANIASA (NLT 점유 30%+)",
+          "insight": "신차 구매의 약 65% 금융 조달(할부 35%+NLT 30%+할부리스 약 5%). NLT 비중 30%+로 가속 — EU 최상위권 침투율.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "구매 패턴(할부·리스 비중)",
+          "category": "business",
+          "role": "score",
+          "value": 60,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "ANIASA Rapporto 2025 (NLT 등록 점유 28%·매출 €10bn+; Assilea 금융리스 등록 점유 약 7%)",
+          "insight": "NLT(장기렌트) 28% + 금융리스 7% + 할부 25%대로 신차 구매의 60% 리스·금융 경유. NLT가 가속 성장 — 진입 시 NLT/플릿 우선 유효.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "캡티브 강도(점유율)",
+          "category": "business",
+          "role": "score",
+          "value": 45,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "Assofin/Assilea 2025 (Stellantis FS·VW FS·Toyota·BMW·MB 합산 약 45%); 은행계(UniCredit·Intesa·BNL) 약 25%",
+          "insight": "이탈리아는 캡티브 주도 — Stellantis Financial Services(舊 FCA Bank·Banca PSA) 단독 1위 약 18%, OEM 캡티브 합산 45%. 은행계(UniCredit·Intesa·BNL) 25%, 독립계 30%. 캡티브 강해 독립계 진입은 EV·중고·디지털 차별화 필요.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "평균 신차가격",
+          "category": "business",
+          "role": "context",
+          "value": "약 €28,500 (turismos 평균 거래가, 전동화·SUV 비중 상승으로 우상향)",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "UNRAE/ANFIA 2025 평균 거래가 추정, Quattroruote 분석",
+          "insight": "평균 신차 거래가 €28~29k(독일·프랑스보다 낮음), EV·SUV 비중 상승으로 우상향. 건수×평균가 기반 금융 자산규모 산정 모수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ]
+    },
+    "tab_1_4_market": {
+      "items": [
+        {
+          "item": "금융사 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Stellantis Financial Services (구 FCA Bank+Banca PSA)",
+              "market_share": "약 18%"
+            },
+            {
+              "rank": 2,
+              "name": "Volkswagen Financial Services",
+              "market_share": "약 11%"
+            },
+            {
+              "rank": 3,
+              "name": "Findomestic Banca (BNP Paribas PF)",
+              "market_share": "약 9%"
+            },
+            {
+              "rank": 4,
+              "name": "Agos Ducato (Crédit Agricole)",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 5,
+              "name": "Toyota Financial Services Italia",
+              "market_share": "약 6%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 3,
+          "source": "Assofin 2025 / Stellantis FS·Findomestic·Agos 공시 (캡티브+소비자신용 전문은행 혼재)",
+          "insight": "Stellantis FS(舊 FCA Bank·Banca PSA 통합, Crédit Agricole 합작) 1위 18%, OEM 캡티브(VW FS·Toyota)+소비자신용 전문은행(Findomestic·Agos) 톱5 합산 약 52%. 신규 진입은 EV·중고·NLT 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "금융사 점유율(Top 5)",
+          "category": "business",
+          "role": "score",
+          "value": 18,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": null,
+          "tier": 3,
+          "source": "Assofin 2025 / Stellantis Financial Services 공시 (Banca Stellantis 단독 1위 약 18%)",
+          "insight": "Stellantis FS(舊 FCA Bank, Crédit Agricole 합작) 단독 1위 약 18%. 톱5 합산 약 60% 캡티브·은행계 집중 — 신규 진입은 EV·중고·NLT 틈새 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "경쟁사 금리 범위",
+          "category": "business",
+          "role": "context",
+          "value": "신차 자동차대출 TAEG 약 7~11% (프로모 0~3% 캡티브 한정, Stellantis FS Black Friday 0%), 소비자신용 평균 TAEG BdI 통계 약 9%",
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "Banca d'Italia 소비자신용 통계 2025, OEM 캡티브 프로모 공시",
+          "insight": "표준 차량대출 TAEG 7~11%, 캡티브는 0~3% 프로모로 점유. Tasso Soglia(약 15.5%) 내 여유 있으나 캡티브 프로모와의 가격경쟁이 마진 압박 — 차별화(EV·디지털·중고) 필요.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "OEM 순위(Top 5)",
+          "category": "business",
+          "role": "context",
+          "value": [
+            {
+              "rank": 1,
+              "name": "Fiat",
+              "market_share": "11.2%"
+            },
+            {
+              "rank": 2,
+              "name": "Toyota",
+              "market_share": "8.5%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen",
+              "market_share": "7.8%"
+            },
+            {
+              "rank": 4,
+              "name": "Dacia",
+              "market_share": "7.0%"
+            },
+            {
+              "rank": 5,
+              "name": "Peugeot",
+              "market_share": "6.5%"
+            }
+          ],
+          "unit": null,
+          "direction": null,
+          "axis": null,
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": "descriptive",
+          "timeseries": null,
+          "tier": 2,
+          "source": "UNRAE/ANFIA 2025 신차 등록 (Fiat 174,720 / Toyota 132,600 / VW 121,680 / Dacia 109,200 / Peugeot 101,400 추정)",
+          "insight": "Fiat 4년 연속 1위 11.2%, Stellantis 그룹(Fiat·Peugeot·Citroën·Jeep) 합산 약 30%. Toyota 강세, Dacia(저가)·MG·BYD(중국) 급성장 — 캡티브 강한 Fiat·VW·Toyota 비중 주목.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV 보급률",
+          "category": "business",
+          "role": "score",
+          "value": 10.5,
+          "unit": "%",
+          "direction": "up",
+          "axis": "attractiveness",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 4.6
+              },
+              {
+                "year": 2022,
+                "value": 4.7
+              },
+              {
+                "year": 2023,
+                "value": 4.2
+              },
+              {
+                "year": 2024,
+                "value": 7.5
+              },
+              {
+                "year": 2025,
+                "value": 10.5
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 14.0
+              },
+              {
+                "year": 2027,
+                "value": 18.0
+              },
+              {
+                "year": 2028,
+                "value": 23.0
+              },
+              {
+                "year": 2029,
+                "value": 28.0
+              },
+              {
+                "year": 2030,
+                "value": 34.0
+              }
+            ],
+            "cagr_hist": 18.0,
+            "cagr_forecast": 26.5,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "UNRAE/ANFIA 2025 (BEV+PHEV 점유 약 10.5%), Motus-E 인프라 통계, Ecobonus 2024 보조금",
+          "insight": "2025년 EV(BEV+PHEV) 점유 10.5%로 EU 평균 하회하나 가속(2024 Ecobonus·2025 신 보조금). NLT 신규의 약 30%가 EV — 잔가 모델에 EV 별도 곡선 필수, 리스 손익 핵심 변수.",
+          "insight_ai_generated": true,
+          "status": "present"
+        },
+        {
+          "item": "EV·ICE 잔존가치 리스크",
+          "category": "business",
+          "role": "score",
+          "value": 56,
+          "unit": "%",
+          "direction": "down",
+          "axis": "difficulty",
+          "gate_result": null,
+          "gate_scope": null,
+          "segment": null,
+          "context_type": null,
+          "timeseries": {
+            "history": [
+              {
+                "year": 2021,
+                "value": 63
+              },
+              {
+                "year": 2022,
+                "value": 61
+              },
+              {
+                "year": 2023,
+                "value": 59
+              },
+              {
+                "year": 2024,
+                "value": 57
+              },
+              {
+                "year": 2025,
+                "value": 56
+              }
+            ],
+            "forecast": [
+              {
+                "year": 2026,
+                "value": 54
+              },
+              {
+                "year": 2027,
+                "value": 53
+              },
+              {
+                "year": 2028,
+                "value": 51
+              },
+              {
+                "year": 2029,
+                "value": 50
+              },
+              {
+                "year": 2030,
+                "value": 49
+              }
+            ],
+            "cagr_hist": -2.9,
+            "cagr_forecast": -2.7,
+            "estimated": true
+          },
+          "tier": 3,
+          "source": "Cox Automotive/Manheim 잔가 추정(3년 EV 기준), Quattroruote/Eurotax 중고 EV 가격 분석",
+          "insight": "EV 3년 잔가 하락 추세 — ICE 대비 리스 손익 압박. NLT EV 비중 30%+로 노출 큼. 잔가 보증·바이백 조건 보수적 설계 권장.",
+          "insight_ai_generated": true,
+          "status": "present"
+        }
+      ],
+      "competitors": {
+        "item": "경쟁사 리스트",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Stellantis Financial Services",
+          "Volkswagen Financial Services",
+          "Findomestic Banca (BNP Paribas)",
+          "Agos Ducato (Crédit Agricole)",
+          "Toyota Financial Services Italia",
+          "BMW Bank Italia",
+          "Mercedes-Benz Financial Services Italia",
+          "UniCredit Leasing",
+          "Intesa Sanpaolo (Banca Intesa Leasint)",
+          "BNL BNP Paribas Leasing",
+          "Arval Italia (BNP Paribas)",
+          "ALD/Ayvens Italia",
+          "LeasePlan Italia",
+          "Alphabet Italia (BMW)",
+          "Leasys (Stellantis NLT)"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "Assofin·Assilea·ANIASA 회원사 명단",
+        "insight": "캡티브+은행계+다국적 플릿 리스사+소비자신용 전문은행 혼재. 한국계 미진출 — Hyundai Capital Italia가 소규모 운영 중. 한국 OEM 진입 시 캡티브 또는 NLT 자회사 형태 검토.",
+        "insight_ai_generated": true
+      },
+      "competitor_entry_form": {
+        "item": "경쟁사 진출 형태",
+        "category": "business",
+        "role": "context",
+        "value": "OEM 캡티브(Stellantis FS·VW FS·Toyota·BMW·MB) + 소비자신용 전문은행(Findomestic·Agos·Compass) + 은행계 리스(UniCredit·Intesa·BNL) + NLT 다국적(Arval·ALD/Ayvens·LeasePlan·Alphabet·Leasys). TUB Art. 106 등록 형태가 일반적",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "Assofin·Assilea·ANIASA, BdI 등록부",
+        "insight": "소비자금융은 TUB Art. 106 금융중개기관, NLT는 ANIASA 회원 일반회사. 한국계 진출은 Hyundai Capital이 소규모 — Stellantis FS의 1위 점유 감안 시 한국 OEM(현대·기아)는 캡티브 또는 독립 EFC 형태 진입 기회.",
+        "insight_ai_generated": true
+      },
+      "brand_top10": {
+        "item": "브랜드 Top10",
+        "category": "business",
+        "role": "context",
+        "value": [
+          "Fiat",
+          "Toyota",
+          "Volkswagen",
+          "Dacia",
+          "Peugeot",
+          "Citroën",
+          "Renault",
+          "Jeep",
+          "Ford",
+          "Hyundai"
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 2,
+        "source": "UNRAE/ANFIA 2025 신차 등록 통계 (Fiat 1위 약 11%·Stellantis 그룹 합산 약 30%)",
+        "insight": "Fiat 단독 1위 약 11%, Stellantis 그룹(Fiat·Peugeot·Citroën·Jeep·Lancia·Alfa) 합산 약 30% — 자국 OEM 강세. Toyota 2위, 중국(MG·BYD) 급부상.",
+        "insight_ai_generated": true
+      },
+      "news": {
+        "item": "외부 이슈 스캔",
+        "category": "business",
+        "role": "context",
+        "value": [
+          {
+            "news_category": "auto_market",
+            "headline": "이탈리아 2025년 신차 등록 156만대로 -0.8%, EU 회복세 평균 하회",
+            "so_what": "시장 정체로 금융 침투 증분 제한 — NLT 비중 28%로 플릿·B2B 진입에 의존. 소매 자동차금융은 캡티브 프로모와의 가격경쟁 압박.",
+            "publisher": "Automotive News Europe",
+            "pub_date": "2026-01-18",
+            "url": "https://europe.autonews.com/..."
+          },
+          {
+            "news_category": "auto_finance",
+            "headline": "Stellantis Financial Services, 이탈리아 자동차금융 1위 18% 점유 유지",
+            "so_what": "Stellantis 자국 OEM 캡티브 강세 — 독립계는 비-Stellantis 브랜드(Toyota·VW·중국) 또는 EV·중고 틈새 공략 필요.",
+            "publisher": "S&P Global Mobility",
+            "pub_date": "2026-02-25",
+            "url": "https://www.spglobal.com/mobility/..."
+          },
+          {
+            "news_category": "auto_market",
+            "headline": "이탈리아 NLT(장기렌트) 신규등록 점유 28% 돌파, EV 비중 30%+로 가속",
+            "so_what": "NLT 진입 시 EV 잔가·충전 인프라 리스크 노출 큼. 잔가 보증·바이백 조건 보수적 설계 필요. NLT 우선 진입 전략의 근거.",
+            "publisher": "Just Auto",
+            "pub_date": "2026-03-15",
+            "url": "https://www.just-auto.com/..."
+          },
+          {
+            "news_category": "credit_abs",
+            "headline": "이탈리아 auto loan ABS 딜린퀀시 안정, 단 UTP 분류 비중 EU 평균 상회",
+            "so_what": "Bad Loan은 안정이나 UTP(부실 가능성) 분류 보수적 — Calendar Provisioning 엄격 적용 필요. 진입 초기 신용정책 보수 권장.",
+            "publisher": "Moody's",
+            "pub_date": "2026-04-08",
+            "url": "https://www.moodys.com/..."
+          },
+          {
+            "news_category": "geopolitical",
+            "headline": "이탈리아 Golden Power 적용 확대, 자동차·반도체 부문 외국인 인수 사전심사 강화",
+            "so_what": "M&A 진입 시 Golden Power 사전심사 변수. 그린필드 또는 €100M 미만 인수는 대부분 면제이나 캡티브 인수 검토 시 사전 컨설팅 필요.",
+            "publisher": "Reuters",
+            "pub_date": "2026-05-12",
+            "url": "https://www.reuters.com/..."
+          },
+          {
+            "news_category": "finance",
+            "headline": "이탈리아 Moody's 등급 전망 2025.11 안정→긍정 상향, BTP 스프레드 축소",
+            "so_what": "국가 신용도 회복 시그널 — 조달비용 하향 안정, 자동차금융 마진·신차 수요에 우호적. 본사 차입 구조 효율 개선.",
+            "publisher": "Financial Times",
+            "pub_date": "2025-11-22",
+            "url": "https://www.ft.com/..."
+          }
+        ],
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "news",
+        "timeseries": null,
+        "tier": 3,
+        "source": "화이트리스트(Automotive News Europe·S&P Global Mobility·Just Auto·Moody's·Reuters·Financial Times)",
+        "insight": "시장 정체·캡티브 1위 강세는 진입에 보수적 함의, NLT 가속·국가 신용도 회복은 우호적. Tasso Soglia·EV 잔가·Golden Power가 상품/M&A 설계의 3대 제약.",
+        "insight_ai_generated": true
+      },
+      "regulators": {
+        "item": "규제기관 식별",
+        "category": "shared",
+        "role": "context",
+        "value": "Banca d'Italia(BdI, TUB Art. 106 인가·건전성·결제) / Consob(증권) / IVASS(보험) / AGCM(공정거래·소비자) / Garante Privacy(개인정보·AI) / MISE/MEF(경제재정부, 인가 보조)",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 1,
+        "source": "Banca d'Italia, Consob, IVASS, AGCM, Garante Privacy 공식",
+        "insight": "여신·결제는 BdI, 보험·렌터카 부수는 IVASS, 소비자보호·공정거래는 AGCM, 데이터·AI는 Garante로 감독 분산. 단 Garante가 EU에서 가장 적극적이라 컴플라이언스 거버넌스에 추가 공수 필요.",
+        "insight_ai_generated": false
+      },
+      "country_summary": {
+        "item": "해당국 정성 요약",
+        "category": "business",
+        "role": "context",
+        "value": "EU 4위 자동차 시장(2025 신차 156만대, -0.8%). 캡티브 주도(Stellantis FS 18%·VW FS·Toyota·BMW 등 약 45%)+은행계(UniCredit·Intesa·BNL 25%)+독립계(30%) 구조. NLT(장기렌트) 고성장(점유 28%, EV 30%+). 소비자금융은 TUB Art. 106 등록(€2M)·Tasso Soglia 적용, B2B 리스·NLT는 유연. EU GDPR·SEPA·CRIF·PagoPA·SPID로 IT 재사용성 높음. 단 사법회수 4~7년이 회수 리스크 핵심.",
+        "unit": null,
+        "direction": null,
+        "axis": null,
+        "gate_result": null,
+        "gate_scope": null,
+        "segment": null,
+        "context_type": "descriptive",
+        "timeseries": null,
+        "tier": 3,
+        "source": "UNRAE, ANFIA, Assofin, Assilea, ANIASA",
+        "insight": "NLT·플릿으로 빠른 진입 → EV·중고 틈새 → TUB Art. 106 등록 기반 소비자금융 확장의 단계적 전략 유효. Mezzogiorno 세제 혜택 활용 가능.",
+        "insight_ai_generated": true
+      }
+    }
+  }
+}

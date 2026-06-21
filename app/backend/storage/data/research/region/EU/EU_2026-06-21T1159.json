@@ -3,9 +3,9 @@
   "region_ko": "유럽권역",
   "code": "EU",
   "schema_version": "1.1",
-  "fetched_at": "2026-06-21T12:55:20.332614",
+  "fetched_at": "2026-06-21T11:59:51.428105",
   "fetched_by": "aggregator",
-  "baseline_country": "UK",
+  "baseline_country": "GB",
   "countries": [
     {
       "country": "Spain",
@@ -363,30 +363,6 @@
           "source": "AER Informe Anual 2026 (렌팅 매출 €9,512M +8.44%·차량 1,013,507대 첫 100만 돌파·신규등록 351,287 +4.5%·점유 25.7%)",
           "insight": "렌팅(운용리스) 매출 €9.5bn·차량 100만대 돌파, 신규 등록 점유 25.7%(2024 27.67%에서 소폭 하락). 법인·플릿 견인, 전기차가 렌팅 신규의 51.3% — 렌팅 우선 진입 유효.",
           "insight_ai_generated": true,
-          "score_dimensions": {
-            "리스 취급 일치도": {
-              "target_score": 5,
-              "base_score": 5,
-              "note": "양국 리스/렌팅 활성"
-            },
-            "렌탈 취급 일치도": {
-              "target_score": 5,
-              "base_score": 4,
-              "note": "ES 렌팅 25.7% 점유"
-            },
-            "플릿 취급 일치도": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "GB 플릿 시장 성숙"
-            },
-            "상품별 비중 유사도": {
-              "target_score": 3,
-              "base_score": 4,
-              "note": "ES 할부 55% vs GB 리스 우위"
-            }
-          },
-          "similarity_axis": "product",
-          "similarity_weight": 0.15,
           "country": "ES"
         },
         {
@@ -504,30 +480,6 @@
           "source": "EU GDPR, 스페인 개인정보보호법(LOPDGDD)",
           "insight": "EU GDPR 직접 적용, 역내 자유 이전. 강제 현지화 의무 없어 본사(EU) 연동 아키텍처 제약 낮음.",
           "insight_ai_generated": false,
-          "score_dimensions": {
-            "현지 저장 강제": {
-              "target_score": 5,
-              "base_score": 5,
-              "note": "양국 모두 강제 없음"
-            },
-            "국외 이전 허용도": {
-              "target_score": 5,
-              "base_score": 4,
-              "note": "ES EU 역내 자유, GB UK→EU 적정성"
-            },
-            "동의·보관 규제": {
-              "target_score": 4,
-              "base_score": 4,
-              "note": "GDPR/LOPDGDD vs UK GDPR"
-            },
-            "GDPR 동등성": {
-              "target_score": 5,
-              "base_score": 5,
-              "note": "동등"
-            }
-          },
-          "similarity_axis": "regulatory",
-          "similarity_weight": 0.1,
           "country": "ES"
         },
         {
@@ -570,35 +522,6 @@
           "source": "Law 5/2015, 스페인은행, Baker McKenzie Spain",
           "insight": "세그먼트별 규제 강도 차이 큼. 소비자 여신은 EFC 인가·자본·감독으로 거버넌스 공수 큼, 렌팅은 컴플라이언스 공수 상대적 경감.",
           "insight_ai_generated": false,
-          "score_dimensions": {
-            "취득방식(등록 vs 인가)": {
-              "target_score": 2,
-              "base_score": 4,
-              "note": "ES EFC 인가(↑부담), GB FCA 인가(중간)"
-            },
-            "외국인 취득 가능": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "ES EU 자본자유, GB Brexit 이후 명확"
-            },
-            "처리기간(개월)": {
-              "target_score": 3,
-              "base_score": 4,
-              "note": "ES 6~12M, GB 3~6M"
-            },
-            "최저자본금 수준": {
-              "target_score": 2,
-              "base_score": 4,
-              "note": "ES €5M 전액납입 부담"
-            },
-            "감독 강도": {
-              "target_score": 3,
-              "base_score": 4,
-              "note": "ES BdE+DGSFP 다중, GB FCA 단일"
-            }
-          },
-          "similarity_axis": "regulatory",
-          "similarity_weight": 0.25,
           "country": "ES"
         },
         {
@@ -658,30 +581,6 @@
           "source": "업계",
           "insight": "대형 은행계는 자체 코어, 캡티브·전문 리스사는 글로벌 패키지 사용. EU 표준 아키텍처와 정합.",
           "insight_ai_generated": true,
-          "score_dimensions": {
-            "배포형태(패키지/SI/SaaS)": {
-              "target_score": 4,
-              "base_score": 4,
-              "note": "양국 모두 패키지 + 자체 코어 혼재"
-            },
-            "커스터마이징 자유도": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "GB는 NetSol로 자유도↑, ES는 은행계 자체 의존"
-            },
-            "벤더 종속도": {
-              "target_score": 3,
-              "base_score": 3,
-              "note": "글로벌 패키지 의존도 유사"
-            },
-            "멀티테넌시 여부": {
-              "target_score": 4,
-              "base_score": 4,
-              "note": "둘 다 멀티테넌시 지원"
-            }
-          },
-          "similarity_axis": "system",
-          "similarity_weight": 0.2,
           "country": "ES"
         },
         {
@@ -697,30 +596,6 @@
           "source": "업계 (Bizum·온라인 딜러금융·전자서명 보편화)",
           "insight": "Bizum 결제·전자서명·온라인 딜러금융 보편화로 디지털 계약 성숙. 완전 디지털 온보딩 전환 진행 중.",
           "insight_ai_generated": true,
-          "score_dimensions": {
-            "온라인 신청 연동": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "ES coches.net/Wallapop 활성, GB Open Banking 우위"
-            },
-            "비대면 계약 가능": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "ES 전자서명 보편, GB 풀 디지털"
-            },
-            "API 개방도": {
-              "target_score": 3,
-              "base_score": 5,
-              "note": "ES PSD2 수준, GB Open Banking 선도"
-            },
-            "페이퍼리스 수준": {
-              "target_score": 4,
-              "base_score": 5,
-              "note": "GB 우위"
-            }
-          },
-          "similarity_axis": "system",
-          "similarity_weight": 0.2,
           "country": "ES"
         },
         {
@@ -796,30 +671,6 @@
           "source": "스페인 민사소송법, 업계 (리스/렌팅 소유권 기반 회수)",
           "insight": "리스·렌팅은 금융사 소유권 보유로 회수 용이. 소비자 대출 담보회수는 법원 절차로 수개월 — 상품별 회수 모듈 분기 필요.",
           "insight_ai_generated": true,
-          "score_dimensions": {
-            "사법절차 필요": {
-              "target_score": 2,
-              "base_score": 4,
-              "note": "ES 민사소송법 적체, GB 사적 회수 허용"
-            },
-            "회수 소요기간(일)": {
-              "target_score": 2,
-              "base_score": 4,
-              "note": "ES 6~12M, GB 1~3M"
-            },
-            "자력구제 허용": {
-              "target_score": 1,
-              "base_score": 4,
-              "note": "ES 금지, GB 허용"
-            },
-            "회수율": {
-              "target_score": 3,
-              "base_score": 4,
-              "note": "GB 우위"
-            }
-          },
-          "similarity_axis": "risk",
-          "similarity_weight": 0.1,
           "country": "ES"
         },
         {
