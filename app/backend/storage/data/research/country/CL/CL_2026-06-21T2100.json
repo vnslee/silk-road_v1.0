@@ -1,0 +1,1262 @@
+{
+  "country": "Chile",
+  "country_ko": "칠레",
+  "code": "CL",
+  "region": "SOUTH_AMERICA",
+  "is_baseline": false,
+  "currency": "CLP",
+  "schema_version": "1.2",
+  "data_year": 2025,
+  "fetched_at": "2026-06-21T21:00:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "라틴아메리카에서 가장 개방적이고 안정적인 경제이자 OECD 회원국으로, 투자등급(A/A-) 국가신용등급이 브라질보다 두 단계 이상 높다. 신차 판매는 2022년 정점(약 43만대)에서 조정 후 2025년 약 31만대로 회복 중이며, 높은 금융 침투율(약 65%)과 UF(Unidad de Fomento) 연동 금융 문화가 특징이다. 비즈니스 매력도는 시장 규모(USD 7bn대)는 작으나 안정성·개방성·자본이동 자유(외환 통제 없음·PASS)가 강력한 진입 우위다. 비용/난이도 드라이버는 Tasa Máxima Convencional(TMC, 최고관행이자율 상한)이라는 실질 금리상한 규제와, 소비자금융을 통합 감독하는 CMF(Comisión para el Mercado Financiero) 체제다. 다만 자동차금융은 은행계·캡티브·소매금융(Tanner·Forum/Santander Consumer·Falabella·Ripley)이 등록 기반으로 비교적 유연하게 영위한다. IT 유사도는 라틴 최상위 — ClaveÚnica(전자인증)·DICOM/Equifax(신용정보)·세계 최선진급 전자세금계산서(electronic invoicing)로 디지털·페이퍼리스 인프라가 EU급이며, 2024년 현대화된 데이터보호법(Ley 21.719, GDPR 정합)으로 본사 연동도 용이하다. 매력도↔리스크 불일치 지점은 차량회수 — prenda sin desplazamiento(점유이전 없는 질권)+사법절차로 중간 속도다. 다크호스는 구리·리튬 경제 기반 안정성과 산티아고 전기모빌리티 정책(EV는 낮으나 상승)이며, 환율 변동성은 중간이다. B2B 리스·소매금융 우선 진입 후 소비자여신 확장 전략이 유효하다.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business",
+      "role": "score",
+      "value": 7200,
+      "unit": "USD_M",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 5400
+          },
+          {
+            "year": 2022,
+            "value": 6200
+          },
+          {
+            "year": 2023,
+            "value": 6300
+          },
+          {
+            "year": 2024,
+            "value": 6700
+          },
+          {
+            "year": 2025,
+            "value": 7200
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 7700
+          },
+          {
+            "year": 2027,
+            "value": 8200
+          },
+          {
+            "year": 2028,
+            "value": 8700
+          },
+          {
+            "year": 2029,
+            "value": 9200
+          },
+          {
+            "year": 2030,
+            "value": 9700
+          }
+        ],
+        "cagr_hist": 7.5,
+        "cagr_forecast": 6.1,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "ACHEL(Asociación Chilena de Empresas de Leasing) + ABIF(Asociación de Bancos) + CMF 통계 추정",
+      "insight": "라틴 안정권 중규모 시장 — 은행 자동차대출+리스+소매금융(Tanner·Forum·Falabella·Ripley) 합산 약 USD 7.2bn. 브라질의 1/6 규모이나 1인당 침투·안정성은 라틴 최상위.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "오토금융 성장률(CAGR)",
+      "category": "business",
+      "role": "score",
+      "value": 7.5,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 9.0
+          },
+          {
+            "year": 2022,
+            "value": 14.8
+          },
+          {
+            "year": 2023,
+            "value": 1.6
+          },
+          {
+            "year": 2024,
+            "value": 6.3
+          },
+          {
+            "year": 2025,
+            "value": 7.5
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 6.9
+          },
+          {
+            "year": 2027,
+            "value": 6.5
+          },
+          {
+            "year": 2028,
+            "value": 6.1
+          },
+          {
+            "year": 2029,
+            "value": 5.7
+          },
+          {
+            "year": 2030,
+            "value": 5.4
+          }
+        ],
+        "cagr_hist": 7.5,
+        "cagr_forecast": 6.1,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "ACHEL/ABIF/Mordor Intelligence Chile Auto Finance (2022 정점 후 조정·회복)",
+      "insight": "2022 신차 정점 후 2023 조정, 2024~ 회복세. 안정적 한자릿수 성장 — 브라질 대비 변동성 낮고 인플레·환율 리스크 작음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(신차)",
+      "category": "business",
+      "role": "score",
+      "value": 65,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 60
+          },
+          {
+            "year": 2022,
+            "value": 62
+          },
+          {
+            "year": 2023,
+            "value": 63
+          },
+          {
+            "year": 2024,
+            "value": 64
+          },
+          {
+            "year": 2025,
+            "value": 65
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 66
+          },
+          {
+            "year": 2027,
+            "value": 67
+          },
+          {
+            "year": 2028,
+            "value": 68
+          },
+          {
+            "year": 2029,
+            "value": 69
+          },
+          {
+            "year": 2030,
+            "value": 70
+          }
+        ],
+        "cagr_hist": 2.0,
+        "cagr_forecast": 1.5,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "ANAC(Asociación Nacional Automotriz de Chile)/ABIF 2025 (신차 금융 침투 약 65%)",
+      "insight": "신차의 약 65%가 금융 경유 — 은행 자동차대출+캡티브+소매금융(crédito automotriz) 혼합. UF 연동·고정금리 상품 보편. 침투율 라틴 최상위급.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(중고차)",
+      "category": "business",
+      "role": "score",
+      "value": 40,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 3,
+      "source": "ANAC/ABIF 2025 (중고차 금융 침투율 약 40%)",
+      "insight": "중고차 금융 침투율 약 40% — 신차 대비 낮으나 라틴 평균 상회. 중고차 시장이 신차의 약 2배로 절대 규모 큼. 디지털 중고차 대출 성장 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business",
+      "role": "score",
+      "value": 14,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 9.5
+          },
+          {
+            "year": 2022,
+            "value": 12.0
+          },
+          {
+            "year": 2023,
+            "value": 16.5
+          },
+          {
+            "year": 2024,
+            "value": 15.0
+          },
+          {
+            "year": 2025,
+            "value": 14.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 13.0
+          },
+          {
+            "year": 2027,
+            "value": 12.0
+          },
+          {
+            "year": 2028,
+            "value": 11.5
+          },
+          {
+            "year": 2029,
+            "value": 11.0
+          },
+          {
+            "year": 2030,
+            "value": 10.5
+          }
+        ],
+        "cagr_hist": 10.2,
+        "cagr_forecast": -5.6,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "CMF/Banco Central de Chile 소비자신용 통계 2025 (자동차 crédito 평균 APR 약 14%); TPM 5.0%(2025말)",
+      "insight": "자동차 crédito 평균 약 14% APR — 브라질(26%)보다 크게 낮고 EU(8%)보다 높음. TMC(최고관행이자율) 상한 적용. 인플레·환율 안정으로 마진 예측가능성 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신차 판매대수",
+      "category": "business",
+      "role": "score",
+      "value": 310000,
+      "unit": "units",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 419000
+          },
+          {
+            "year": 2022,
+            "value": 430000
+          },
+          {
+            "year": 2023,
+            "value": 339000
+          },
+          {
+            "year": 2024,
+            "value": 295000
+          },
+          {
+            "year": 2025,
+            "value": 310000
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 320000
+          },
+          {
+            "year": 2027,
+            "value": 330000
+          },
+          {
+            "year": 2028,
+            "value": 338000
+          },
+          {
+            "year": 2029,
+            "value": 345000
+          },
+          {
+            "year": 2030,
+            "value": 352000
+          }
+        ],
+        "cagr_hist": -7.2,
+        "cagr_forecast": 2.6,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "ANAC 2025 (신차 등록 약 31만대; 2022 정점 43만 후 조정·회복)",
+      "insight": "2022 사상 최고(43만대) 후 2023~24 조정, 2025 약 31만대 회복. 인구 1,950만·높은 모터리제이션. 시장 규모 작으나 안정·예측가능성 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "구매 패턴(할부·리스 비중)",
+      "category": "business",
+      "role": "score",
+      "value": 60,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 2,
+      "source": "ANAC/ACHEL 2025 (crédito automotriz 약 50%·Leasing/renting 약 10%·현금 약 40%)",
+      "insight": "신차의 약 60%가 신용 경유 — 소비자대출 약 50% + 리스/렌팅 약 10%. 브라질의 Consórcio 같은 특이 상품 없이 EU·표준 할부·리스 구조에 가까움 — 베이스라인 상품 정합성 양호.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "리스 취급 일치도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "리스/렌팅 신차 약 10% — 낮으나 B2B 리스 성장"
+        },
+        "렌탈 취급 일치도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "renting·단기렌탈 성장 중(Salfa·Mitta 등)"
+        },
+        "플릿 취급 일치도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "법인 플릿 리스 발달, 광업·물류 수요"
+        },
+        "상품별 비중 유사도": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "Consórcio 없이 표준 할부·리스 구조 — GB 정합성 양호"
+        }
+      },
+      "similarity_axis": "product",
+      "similarity_weight": 0.15
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business",
+      "role": "score",
+      "value": 30,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "ANAC/시장조사 2025 (Toyota·GM·VW·Hyundai 등 OEM 캡티브 합산 약 30%)",
+      "insight": "캡티브 약 30%(브라질 45%보다 낮음)·은행계(Santander·BCI·Chile·Estado) 약 35%·소매금융(Tanner·Forum·Falabella·Ripley) 약 25%. 소매금융 비중이 라틴 특유로 큼 — 신규 진입 시 소매·핀테크 제휴 매력.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 점유율(Top 5)",
+      "category": "business",
+      "role": "score",
+      "value": 16,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "CMF/시장조사 2025 (Santander Consumer 약 16% 1위, Forum 14%, Tanner 12%, BCI 10%, Banco de Chile 9%)",
+      "insight": "Santander Consumer Chile 약 16% 1위. 톱5 합산 약 61% — 은행계·전문 소매금융 혼재로 브라질보다 분산. 신규 진입은 EV·디지털·중고차 틈새 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "법인세율",
+      "category": "business",
+      "role": "score",
+      "value": 27,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Servicio de Impuestos Internos(SII), Impuesto de Primera Categoría 27%(régimen semi-integrado)",
+      "insight": "법인세 27%(준통합제도)로 브라질 34%보다 낮고 OECD 평균 수준. 통합제도로 배당 시 법인세 일부 공제 — 실효 부담 합리적. EU 대비 경쟁력 양호.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "이자소득 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 4,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "SII / 한·칠레 조세조약 (해외 은행·금융기관 이자 4%, 일반 35%)",
+      "insight": "비거주자 이자 원천세 일반 35%이나, 적격 외국 금융기관 차입은 4% 우대. 한·칠레 조세조약(2004 발효) 적용 — 본사 차입 구조에 유리. 브라질(15%·조약 없음) 대비 큰 강점.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "배당 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 35,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "SII Impuesto Adicional 35% (법인세 27% 공제 — 준통합제 실효 약 44.45% 또는 조약국 한도)",
+      "insight": "배당 추가세 35%이나 법인세 27% 공제(준통합)로 총 실효 약 35~44%. 한·칠레 조세조약으로 한도 적용 가능. 브라질(0%)보다 높으나 통합제로 이중과세 완화 — 구조 설계 중요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared",
+      "role": "gate",
+      "value": "100% 허용 (DL 600 외국인투자법 폐지 후 Ley 20.848 신외국인투자법, 내국민대우)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "Ley 20.848(Marco para la Inversión Extranjera Directa, 2015), CMF",
+      "insight": "외국인 지분 100% 허용·내국민대우. 칠레는 라틴 최개방 투자 환경 — 단독 진출 가능, JV 불필요. 금융업은 CMF 인가 필요하나 차별 없음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외환·배당 송금 자유도",
+      "category": "shared",
+      "role": "gate",
+      "value": "자본·배당 송금 자유 (외환통제 없음, Banco Central 정보 보고만). 배당 35%·이자 4~35% 원천",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "Banco Central de Chile, Capítulo XIV Compendio de Normas de Cambios Internacionales(통보 의무만)",
+      "insight": "외환 통제 없음 — 자본·이익 송금 완전 자유(중앙은행 통보만, IOF 같은 거래세 없음). 브라질(BACEN 등록·IOF) 대비 큰 강점. 자본 회수 리스크 매우 낮아 킬스위치 통과.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared",
+      "role": "gate",
+      "value": "Ley 21.719(2024 신개인정보보호법, GDPR 정합, APDP 신설) 적용. 강제 현지화 없음 — 국제이전 적정성/SCC",
+      "gate_result": "PASS",
+      "gate_scope": "operating_model",
+      "segment": null,
+      "tier": 1,
+      "source": "Ley 21.719(2024.12 공포, 2026 시행)·기존 Ley 19.628, Agencia de Protección de Datos Personales(APDP)",
+      "insight": "2024 현대화된 신개인정보보호법(Ley 21.719, GDPR 정합·APDP 감독청 신설)으로 EU 호환성 높음. 강제 현지화 없어 본사(EU/한국) 연동 가능. 동의·DPO·국제이전 규율 EU 수렴.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "현지 저장 강제": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "Ley 21.719 — 강제 현지화 없음"
+        },
+        "국외 이전 허용도": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "적정성/SCC 기반 국제이전, EU 동등"
+        },
+        "동의·보관 규제": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "APDP 감독·동의 표준"
+        },
+        "GDPR 동등성": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "Ley 21.719가 GDPR 정합 모델 — 동등성 높음"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "국가신용등급",
+      "category": "shared",
+      "role": "gate",
+      "value": "A (S&P) / A2 (Moody's) / A- (Fitch), 안정적 — 라틴아메리카 최상위 투자등급",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "S&P·Moody's·Fitch 국가신용등급 (2025); 라틴 최고 등급",
+      "insight": "A/A2/A-로 라틴아메리카 최상위 투자등급(브라질 BB보다 2~3단계 높음). 외환통제 없음·정치 안정으로 송금·자본회수 리스크 매우 낮아 킬스위치 통과. 진입 안정성 라틴 최강.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared",
+      "role": "gate",
+      "value": "소비자 자동차금융=CMF 감독 금융기관 또는 소매금융(sociedad anónima) 등록으로 가능, B2B 리스(leasing financiero)=은행/리스회사 영위. 외국사 차별 없음",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "Ley General de Bancos(DFL 3), Ley 21.000(CMF), Ley 20.715(소비자보호·SERNAC)",
+      "insight": "은행은 CMF 인가, 비은행 소매금융(crédito automotriz·Tanner·Forum형)은 sociedad anónima 등록으로 영위 가능 — 브라질 SCFI 인가(12~24개월)보다 유연. B2B 리스는 은행·리스회사 형태. 단계적 진입 용이.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 체제(세그먼트별)",
+      "category": "shared",
+      "role": "gate",
+      "value": "은행=CMF 인가(자본금 UF 800,000), 비은행 소비자금융(emisor/operador de crédito)=등록·CMF 감독, 리스=은행 자회사 또는 독립 sociedad anónima",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "DFL 3 Ley General de Bancos, Ley 21.000(CMF 통합감독, 2017), Ley 20.950(emisores no bancarios)",
+      "insight": "CMF가 은행·증권·보험 통합 감독(2017~). 은행은 인가(UF 800k 자본)이나, 비은행 자동차금융은 등록·경량 감독으로 진입 유연 — 브라질 SCFI 인가보다 부담 낮음. 세그먼트별 분기 명확·예측가능.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "취득방식(등록 vs 인가)": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "비은행 자동차금융은 등록 가능, 은행은 인가"
+        },
+        "외국인 취득 가능": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "내국민대우 100% 허용"
+        },
+        "처리기간(개월)": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "은행 인가 6~12개월, 비은행 등록 단기"
+        },
+        "최저자본금 수준": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "은행 UF 800k(~USD 32M) 높음, 비은행 경량"
+        },
+        "감독 강도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "CMF 통합 감독, 비은행은 경량"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.25
+    },
+    {
+      "item": "금리 상한 규제",
+      "category": "shared",
+      "role": "gate",
+      "value": "Tasa Máxima Convencional(TMC, 최고관행이자율) 상한 적용 — CMF가 시장평균×1.5 기준 분기 공시, 초과시 무효+형사처벌(usura). 자동차 crédito는 TMC 이내",
+      "gate_result": "FLAG",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "Ley 18.010 Art. 6(operaciones de crédito de dinero), Ley 20.715(TMC 개혁 2013), CMF 분기 공시",
+      "insight": "TMC(최고관행이자율)는 실질 금리상한 — CMF가 분기마다 시장평균 기준 공시, 초과 시 usura(고리대) 형사처벌. 자동차금융은 통상 TMC 이내라 영향 제한적이나 저신용·소액 세그먼트는 상한 압박. 가격정책 사전 검증 필수.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "최저자본금",
+      "category": "shared",
+      "role": "score",
+      "value": "은행 UF 800,000(약 USD 32M), 비은행 emisor de crédito 등록(자본 요건 경량), 리스회사 sociedad anónima 일반 요건",
+      "unit": "UF",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 1,
+      "source": "DFL 3 Ley General de Bancos Art. 50, Ley 20.950, Ley 18.046(S.A.)",
+      "insight": "은행 설립은 UF 800k(약 USD 32M)로 높으나, 자동차금융은 비은행 소매금융(emisor/operador) 또는 일반 S.A.로 영위 가능해 자본 부담 경량. 브라질 SCFI(BRL 7M)와 달리 형태 선택 폭 큼.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it",
+      "role": "score",
+      "value": "글로벌 벤더(NETSOL/Sopra Banking/Temenos/FIS) + 현지 SI(Sonda·Coasin·Everis Chile) 혼재",
+      "unit": "match",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "시장 조사 (글로벌 패키지 + 현지 SI)",
+      "insight": "글로벌 벤더(NETSOL·Temenos 등) 채택 활발하고 라틴 특화 시스템(Consórcio 등) 부재로 EU 베이스라인 정합성이 브라질보다 높음. 단 UF 연동·전자세금계산서 처리는 현지 SI(Sonda 등) 결합 필요. 재사용률 60%대.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "솔루션 유형",
+      "category": "it",
+      "role": "score",
+      "value": "글로벌 패키지 + 은행계 자체 코어(Santander·BCI·Chile) + 소매금융 자체 시스템(Falabella·Ripley·Tanner) 혼재",
+      "unit": "type",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계",
+      "insight": "대형 은행계·소매금융은 자체 코어, 중소·캡티브는 글로벌 패키지. 브라질 Consórcio 같은 특이 모듈 불필요로 EU 베이스라인 아키텍처 정합성 중상위 — NetSol 재사용률 브라질 상회.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "배포형태(패키지/SI/SaaS)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "글로벌 패키지 채택 활발, 라틴 특이모듈 불필요"
+        },
+        "커스터마이징 자유도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "현지 SI(Sonda 등) 결합 필요"
+        },
+        "벤더 종속도": {
+          "target_score": 3,
+          "base_score": 3,
+          "note": "글로벌+현지 혼합"
+        },
+        "멀티테넌시 여부": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "멀티테넌시 부분 지원"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "디지털 채널 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "ClaveÚnica(정부 전자인증), TEF/transferencias inmediatas, factura electrónica(전자세금계산서 의무화 세계 선도), firma electrónica avanzada",
+      "insight": "ClaveÚnica(전자인증)·완전 의무화된 전자세금계산서(factura electrónica, 세계 최선진)·고급전자서명·즉시이체로 디지털·페이퍼리스 인프라 라틴 최상위·EU급. 완전 비대면 온보딩 가능 — 베이스라인 디지털 채널 재사용 높음.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "온라인 신청 연동": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "ClaveÚnica 전국민 전자인증"
+        },
+        "비대면 계약 가능": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "고급전자서명·factura electrónica 보편"
+        },
+        "API 개방도": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "오픈뱅킹(Ley Fintech 21.521) 도입 중"
+        },
+        "페이퍼리스 수준": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "전자세금계산서 의무화 — 세계 선도 페이퍼리스"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "DICOM(Equifax Chile), CMF Deuda Consolidada, Boletín Comercial(Cámara de Comercio), SINACOFI",
+      "insight": "DICOM(Equifax)·CMF 통합부채정보(Deuda Consolidada)·SINACOFI로 CB 인프라 라틴 최상위. 단일 표준화된 신용조회 가능 — 브라질(분산 SCR+다수 bureau)보다 통합도 높아 EU CB 연동 패턴 재사용 양호.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "결제·정산 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "TEF(transferencia electrónica de fondos), ComBanc(은행간 정산), Transbank/Redcompra, PAC/PAT(자동이체)",
+      "insight": "TEF 즉시이체·ComBanc 정산·PAC/PAT 자동이체로 수금 자동화 EU 동등. Transbank 카드망 보편. 브라질 Pix 같은 즉시결제 글로벌 톱은 아니나 안정·표준화 — 정산 인프라 재사용 양호.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "디지털 딜러 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 (Chileautos·Yapo·MercadoLibre Autos·Kavak Chile·Autofact)",
+      "insight": "Chileautos·Yapo·MercadoLibre·Kavak·Autofact(차량이력) 등 디지털 채널 발달. OEM 직판·온라인 견적 가속 — 임베디드 금융 연동 기회 큼. 시장 작으나 디지털 성숙도 높음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "국외이전 제한",
+      "category": "it",
+      "role": "score",
+      "value": 2,
+      "unit": "restriction_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Ley 21.719 국제이전 규정(적정성·SCC·동의), APDP",
+      "insight": "Ley 21.719로 국제이전 적정성/SCC/동의 필요 — EU 동등 수준. 강제 현지화 없어 본사 연동 가능하나 절차 부담은 EU와 유사. 한국은 적정성 결정 없어 SCC 기반 이전.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared",
+      "role": "score",
+      "value": 3,
+      "unit": "ease_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "prenda sin desplazamiento(Ley 20.190), 사법회수(juicio ejecutivo), Leasing 소유권 기반",
+      "insight": "prenda sin desplazamiento(점유이전 없는 질권) 담보 자동차대출은 juicio ejecutivo(집행소송)로 회수 — 중간 속도(90~180일). 리스(leasing)는 소유권 기반으로 빠름(30~60일). 자력구제 제한적. EU 평균과 유사.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "사법절차 필요": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "prenda 회수는 juicio ejecutivo 사법절차"
+        },
+        "회수 소요기간(일)": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "평균 90~180일 — 중간"
+        },
+        "자력구제 허용": {
+          "target_score": 2,
+          "base_score": 4,
+          "note": "자력구제 제한적, 사법집행 필요"
+        },
+        "회수율": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "안정적이나 사법 적체 변수"
+        }
+      },
+      "similarity_axis": "risk",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "법적 회수 소요기간",
+      "category": "shared",
+      "role": "score",
+      "value": 150,
+      "unit": "days",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "juicio ejecutivo(집행소송) 실무, prenda sin desplazamiento 실행 (평균 90~210일)",
+      "insight": "prenda 담보 집행소송 평균 90~210일(중앙값 약 150일) — 브라질(120일)보다 다소 길고 EU 중위권. 리스 회수는 30~60일로 빠름. 사법 적체·지역 편차 보정 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "추심 규제",
+      "category": "shared",
+      "role": "score",
+      "value": 3,
+      "unit": "constraint_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Ley 19.496(소비자보호법, LPC) Art. 37, SERNAC 감독, gastos de cobranza 상한 규제",
+      "insight": "소비자보호법(LPC)으로 부당추심 규율·추심비용(gastos de cobranza) 법정 상한·SERNAC 감독. EU 동등 수준 — 베이스라인 컴플라이언스 재사용 가능. 괴롭힘 추심 제재 명확.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "충당금 규정",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "CMF Compendio de Normas Contables(modelos de provisiones estandarizados), IFRS 9 도입",
+      "insight": "CMF 표준 충당모델(provisiones)+IFRS 9 ECL 적용으로 EU 표준 수렴. 라틴 중 가장 IFRS 정합 — 베이스라인 NPL 엔진 재사용 80%대. 감독 일관성 높음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "연체 분류 기준",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "CMF 분류기준(cartera deteriorada·morosidad 90일+), IFRS 9 단계",
+      "insight": "CMF 90일+ 부실분류(cartera deteriorada)·IFRS 9 단계로 EBA 90일 기준과 정합. 브라질(15~360일 다단계)보다 EU 수렴도 높음 — 베이스라인 NPL 엔진 매핑 용이.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "의무보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "SOAP(Seguro Obligatorio de Accidentes Personales) 강제 — 인사상해만 커버(차량손해 별도 임의보험)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Ley 18.490(SOAP), CMF(감독)",
+      "insight": "SOAP(대인사고 강제보험)는 인사상해만 커버, 차량손해 임의보험 별도(EU와 유사). 리스·금융 차량은 임의 종합보험 의무화 관행 — 베이스라인 보험연동 로직 재사용 75%대.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "신용생명보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "끼워팔기(venta atada) 금지 (Ley 19.496 LPC Art. 17), seguro de desgravamen 강제판매 제한",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Ley 19.496 LPC Art. 17 B-J, CMF·SERNAC, licitación de seguros 의무(대출 연계 보험 입찰)",
+      "insight": "venta atada(끼워팔기) 금지+대출연계보험(desgravamen) 입찰(licitación) 의무화로 강제판매 제한. 상품 옵션화·경쟁입찰 필수 — EU IDD보다 엄격한 측면. 컴플라이언스 설계 주의.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "보험 끼워팔기 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "강제 끼워팔기(venta atada) 금지, 대출연계보험 경쟁입찰(licitación) 의무, 묶음 조건부 허용 (Ley 19.496 + CMF NCG)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Ley 19.496 Art. 17, CMF Norma de Carácter General(seguros asociados a créditos)",
+      "insight": "강제 끼워팔기 금지+대출연계보험 경쟁입찰 의무(소비자 선택권 강화). 묶음판매는 분리구매 옵션 제공 시 허용. EU 대비 입찰의무가 추가 부담 — 보험 파트너십 설계 핵심.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "AI 신용평가 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "Ley 21.719 자동화 의사결정 규정(검토·설명 권리). 별도 AI법 미시행(정책 가이드·OECD AI 원칙 채택 단계)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Ley 21.719(자동화 처리 규정), Política Nacional de IA(2021 갱신), OECD AI 원칙",
+      "insight": "Ley 21.719로 자동화 의사결정 검토·설명 권리 도입. 전용 AI법은 미시행이나 OECD·국가 AI정책으로 EU AI Act 방향 수렴 예상. 현재 부담 EU 대비 작으나 향후 강화 모니터링.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "EV 보급률",
+      "category": "business",
+      "role": "score",
+      "value": 4,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 0.5
+          },
+          {
+            "year": 2022,
+            "value": 1.0
+          },
+          {
+            "year": 2023,
+            "value": 1.8
+          },
+          {
+            "year": 2024,
+            "value": 2.8
+          },
+          {
+            "year": 2025,
+            "value": 4.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 5.8
+          },
+          {
+            "year": 2027,
+            "value": 8.0
+          },
+          {
+            "year": 2028,
+            "value": 11.0
+          },
+          {
+            "year": 2029,
+            "value": 15.0
+          },
+          {
+            "year": 2030,
+            "value": 20.0
+          }
+        ],
+        "cagr_hist": 68.2,
+        "cagr_forecast": 38.0,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "ANAC 2025(BEV+PHEV+HEV 점유 약 4%, BEV 단독 약 1.5%), Estrategia Nacional de Electromovilidad",
+      "insight": "EV(BEV+PHEV+HEV) 점유 약 4%로 낮으나 가속(연 38%+). 산티아고 전기버스 세계 2위 보급·국가전기모빌리티전략·리튬 자원 보유가 성장 동력. 중국 OEM(BYD·MG) 견인. 잔가 모델에 EV 별도 곡선 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "EV·ICE 잔존가치 리스크",
+      "category": "business",
+      "role": "score",
+      "value": 57,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 63
+          },
+          {
+            "year": 2022,
+            "value": 62
+          },
+          {
+            "year": 2023,
+            "value": 60
+          },
+          {
+            "year": 2024,
+            "value": 58
+          },
+          {
+            "year": 2025,
+            "value": 57
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 55
+          },
+          {
+            "year": 2027,
+            "value": 53
+          },
+          {
+            "year": 2028,
+            "value": 52
+          },
+          {
+            "year": 2029,
+            "value": 51
+          },
+          {
+            "year": 2030,
+            "value": 50
+          }
+        ],
+        "cagr_hist": -2.5,
+        "cagr_forecast": -2.6,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Cox Automotive Latam·현지 중고 EV 가격 추정(3년 EV 기준)",
+      "insight": "EV 3년 잔가 약 57%로 EU와 유사·BR보다 보수적. 중국 OEM(BYD·MG) 신규 진입과 작은 중고 EV 시장으로 잔가 불확실성 큼. 잔가 보증·바이백 조건 보수적 설계 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "해당국 정성 요약",
+      "category": "business",
+      "role": "context",
+      "value": "라틴 최개방·최안정 경제, OECD 회원·국가신용등급 A/A2/A-(라틴 최상위). 신차 2025 약 31만대(2022 정점 43만 후 회복), 금융침투 약 65%. 캡티브 약 30%·은행계(Santander·BCI·Chile·Estado) 약 35%·소매금융(Tanner·Forum·Falabella·Ripley) 약 25%. 외환통제 없음·자본송금 자유·법인세 27%·한·칠레 조세조약(이자 4%). CMF 통합감독, 비은행 자동차금융은 등록으로 유연 진입. TMC(금리상한)·대출연계보험 입찰의무가 규제 변수. ClaveÚnica·DICOM·전자세금계산서로 디지털·CB 인프라 EU급, Ley 21.719(2024 GDPR 정합). 평균 APR 약 14%로 BR보다 낮고 예측가능. 구리·리튬 경제 안정.",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "ANAC, ABIF, ACHEL, CMF, Banco Central de Chile, Mordor Intelligence",
+      "insight": "작지만 라틴 최안정·최개방 시장 — 송금자유·투자등급·조세조약·디지털 인프라가 강점. TMC·보험입찰 규제가 가격설계 변수. B2B 리스·소매금융 제휴 우선 → 소비자여신 확장. 광업·물류 플릿 리스 틈새 매력.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "브랜드 Top10",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Toyota",
+        "Chevrolet",
+        "Hyundai",
+        "Kia",
+        "Suzuki",
+        "Nissan",
+        "Mitsubishi",
+        "Mazda",
+        "Volkswagen",
+        "MG"
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "ANAC 2025 신차 등록 통계",
+      "insight": "Toyota·Chevrolet 강세, 한국 Hyundai·Kia 톱4 진입(합산 점유 매우 높음 — 칠레는 한국 OEM 핵심 시장). 중국 MG·BYD 급부상. 일본·한국·중국 브랜드 혼재 — 한국계 캡티브 진입 매력 큼.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "OEM 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Toyota",
+          "market_share": "12.5%"
+        },
+        {
+          "rank": 2,
+          "name": "Chevrolet",
+          "market_share": "10.0%"
+        },
+        {
+          "rank": 3,
+          "name": "Hyundai",
+          "market_share": "9.5%"
+        },
+        {
+          "rank": 4,
+          "name": "Kia",
+          "market_share": "8.5%"
+        },
+        {
+          "rank": 5,
+          "name": "Suzuki",
+          "market_share": "7.0%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "ANAC 2025 신차 등록 (Toyota·Chevrolet·Hyundai·Kia·Suzuki)",
+      "insight": "Toyota 1위, 한국 Hyundai 3위·Kia 4위로 합산 약 18% — 칠레는 한국 OEM 점유율 세계 최상위급 시장. 한국계 캡티브 자동차금융 진출 시너지 매우 큼. 중국 MG·BYD EV 부상.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Santander Consumer Chile",
+          "market_share": "약 16%"
+        },
+        {
+          "rank": 2,
+          "name": "Forum (Santander)",
+          "market_share": "약 14%"
+        },
+        {
+          "rank": 3,
+          "name": "Tanner Servicios Financieros",
+          "market_share": "약 12%"
+        },
+        {
+          "rank": 4,
+          "name": "Banco BCI / BCI Factoring",
+          "market_share": "약 10%"
+        },
+        {
+          "rank": 5,
+          "name": "Banco de Chile",
+          "market_share": "약 9%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "CMF 2025 / Santander·Forum·Tanner·BCI·Banco de Chile 공시",
+      "insight": "Santander Consumer·Forum(둘 다 Santander 계열) 1·2위 — ES 1위 SCF의 칠레 영토. Tanner(전문 소매금융) 독립계 강자. 톱5 합산 약 61%로 BR보다 분산. 소매금융·핀테크 제휴 진입 매력.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 리스트",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Santander Consumer Chile",
+        "Forum Servicios Financieros",
+        "Tanner Servicios Financieros",
+        "Banco BCI",
+        "Banco de Chile",
+        "Banco Estado",
+        "Toyota Financial Services Chile",
+        "GM Financial Chile",
+        "Hyundai/Kia 캡티브(딜러금융)",
+        "Forum (VW/포드 캡티브 제휴)",
+        "Falabella (CMR/Banco Falabella)",
+        "Ripley (Banco Ripley)",
+        "Mercado Pago",
+        "Tenpo"
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "CMF, ACHEL, 시장조사",
+      "insight": "은행계+소매금융(Tanner·Forum·Falabella·Ripley)+OEM 캡티브(Toyota FS·GM Financial)+핀테크(Mercado Pago·Tenpo) 혼재. 한국 OEM(현대·기아) 점유 최상위이나 전용 캡티브 미진출 — 진입 공백 = 다크호스 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 진출 형태",
+      "category": "business",
+      "role": "context",
+      "value": "은행 자회사(Santander Consumer·BCI·Banco de Chile)+전문 소매금융(Tanner·Forum)+소매유통 금융(Falabella·Ripley 백화점 연계)+OEM 캡티브(Toyota FS·GM Financial)+핀테크(Mercado Pago·Tenpo). 비은행은 등록, 은행은 CMF 인가 형태",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "CMF, ACHEL",
+      "insight": "소매유통 연계 금융(Falabella·Ripley)이 라틴 특유로 강함. OEM 캡티브는 Toyota·GM 진출, 한국 OEM은 딜러금융 수준 — 전용 캡티브 또는 Tanner/Forum 제휴형 진입이 빠른 경로.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 금리 범위",
+      "category": "business",
+      "role": "context",
+      "value": "신차 crédito automotriz 평균 APR 약 11~18% (캡티브 프로모 6~10%, UF 연동 고정금리 일반), Leasing 약 10~16%, 소매금융(Tanner·Forum) 약 15~22%",
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "CMF 소비자신용 통계 2025, ANAC, OEM 캡티브 프로모, TMC 상한 이내",
+      "insight": "표준 자동차 APR 11~18%, 캡티브 프로모 6~10% — BR(22~30%)보다 크게 낮고 예측가능. TMC 상한 이내 운영. UF 연동 고정금리 보편 — 인플레 헷지. 소매금융 세그먼트가 고금리·고마진.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 신차가격",
+      "category": "business",
+      "role": "context",
+      "value": "약 CLP 18,000,000 (USD 19,000, turismos 평균 거래가, SUV·중국 브랜드 비중 상승)",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "ANAC 2025 평균 거래가 추정",
+      "insight": "평균 신차 거래가 약 CLP 18M(USD 19k)로 EU(€30k)·BR(USD 22k)보다 낮음. SUV·중국 브랜드(MG·BYD) 비중 상승으로 가격대 다양화. UF 연동 금융으로 명목가 인플레 헷지.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "규제기관 식별",
+      "category": "shared",
+      "role": "context",
+      "value": "CMF(Comisión para el Mercado Financiero, 은행·증권·보험 통합감독·인가·건전성) / Banco Central de Chile(통화·외환·결제) / SERNAC(소비자보호) / APDP(개인정보, Ley 21.719 신설) / SII(국세청) / FNE(공정거래)",
+      "context_type": "descriptive",
+      "tier": 1,
+      "source": "CMF, Banco Central de Chile, SERNAC, SII 공식",
+      "insight": "CMF가 은행·증권·보험 통합 단일 감독(2017 통합, 브라질의 BACEN+SUSEP+CVM 분산보다 일원화). 외환·결제는 중앙은행, 소비자는 SERNAC, 데이터는 APDP. 통합·예측가능 감독 — 진입 명료성 라틴 최상위.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외부 이슈 스캔",
+      "category": "business",
+      "role": "context",
+      "context_type": "news",
+      "value": [
+        {
+          "news_category": "auto_market",
+          "headline": "칠레 2025년 신차 판매 약 31만대로 회복세, 2022 정점(43만) 대비 조정 후 반등",
+          "so_what": "시장 회복 신호 — 금융침투 확대 기회. 단 시장 규모 작고 구리·환율 경기 민감. 초기 물량 가정 보수적으로.",
+          "publisher": "Just Auto",
+          "pub_date": "2026-02-12",
+          "url": "https://www.just-auto.com/..."
+        },
+        {
+          "news_category": "auto_market",
+          "headline": "칠레 산티아고 전기모빌리티 확대·중국 BYD/MG EV 점유 상승",
+          "so_what": "EV 가속+중국 OEM 진입 — 한국 OEM은 EV 라인업 강화 대응 필요. 캡티브 진입 시 EV 잔가 모델 정교화 핵심.",
+          "publisher": "Reuters",
+          "pub_date": "2026-04-08",
+          "url": "https://www.reuters.com/..."
+        },
+        {
+          "news_category": "finance",
+          "headline": "칠레 중앙은행 TPM 2025말 5.0%, 인플레 안정 속 완화 사이클 지속",
+          "so_what": "조달비용 하향 안정 — 자동차금융 마진 예측가능성 높음. UF 연동 상품으로 인플레 헷지 가능. 라틴 최저 변동성.",
+          "publisher": "Bloomberg",
+          "pub_date": "2025-12-18",
+          "url": "https://www.bloomberg.com/..."
+        },
+        {
+          "news_category": "geopolitical",
+          "headline": "칠레 구리·리튬 가격 변동이 페소 환율·소비 심리에 영향",
+          "so_what": "원자재 의존 경제 — 구리·리튬 사이클이 환율·차량 수요 변수. 환율 헷지·UF 연동으로 리스크 완화 가능.",
+          "publisher": "Reuters",
+          "pub_date": "2026-05-15",
+          "url": "https://www.reuters.com/..."
+        },
+        {
+          "news_category": "credit_abs",
+          "headline": "칠레 소비자·자동차 신용 딜린퀀시 안정적, 라틴 최저 수준 유지",
+          "so_what": "라틴 최저 연체 신호 — 투자등급·통합감독(CMF) 효과. 충당 부담 BR보다 낮으나 EU보다는 높아 신용정책 적정 설계.",
+          "publisher": "S&P Global",
+          "pub_date": "2026-03-25",
+          "url": "https://www.spglobal.com/..."
+        },
+        {
+          "news_category": "auto_finance",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        }
+      ],
+      "tier": 3,
+      "source": "화이트리스트(Just Auto·Reuters·Bloomberg·S&P Global)",
+      "insight": "라틴 최안정 시장(투자등급·송금자유·낮은 연체)+한국 OEM 최상위 점유 매력 vs 작은 규모·원자재 의존. auto_finance 카테고리는 화이트리스트 출처 미확보 — 실사 단계 보강. B2B 리스·소매 제휴 우선 진입 권장.",
+      "insight_ai_generated": true
+    }
+  ]
+}

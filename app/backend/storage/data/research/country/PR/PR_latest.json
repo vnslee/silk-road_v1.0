@@ -1,0 +1,1251 @@
+{
+  "country": "Puerto Rico",
+  "country_ko": "푸에르토리코",
+  "code": "PR",
+  "region": "NORTH_AMERICA",
+  "is_baseline": false,
+  "currency": "USD",
+  "schema_version": "1.2",
+  "data_year": 2025,
+  "fetched_at": "2026-06-21T21:00:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "미국 자치령(unincorporated territory)으로 USD 단일통화·미 연방 소비자금융 프레임워크(CFPB·Truth in Lending/Reg Z·Dodd-Frank)가 직접 적용돼 환율·송금 리스크가 사실상 없고 게이트 대부분 PASS다. 비즈니스 규모는 인구 약 320만·연 신차 9만~11만대의 소형 섬 시장이나 자동차 의존도·금융 침투율이 매우 높아(신차 80%대) 단위 시장 매력은 견조하다. 비용·난이도 드라이버는 연방 규제 위에 현지 OCIF(금융기관감독청) 라이선스와 소매할부·소액대출 현지법이 이중으로 얹히는 점, 그리고 PROMESA 재정감독위원회 체제(채무 구조조정 이후)의 재정·준국가 신용 뉘앙스다 — 후자는 FLAG로 둔다. 매력도↔IT 유사도는 대체로 정합적이다 — USD+미 법체계로 시스템·신용정보(TransUnion·Equifax·Experian 미국 CB)·결제 인프라가 미국/EU 베이스라인과 매우 높은 유사도를 보여 NetSol 재사용률이 높다. 다크호스는 자력구제(UCC Art.9형) 기반 채권자 우호적 회수와 높은 연료가로 부상하는 EV이며, 실행 리스크는 소형 규모·Popular/Reliable 과점·재정 취약성이다. 연방+현지 이중 라이선스를 OCIF 중심으로 신속 취득 후 개인 신차 우선, B2B 리스 확장 전략이 유효하다.",
+  "items": [
+    {
+      "item": "오토금융/리스 시장규모",
+      "category": "business",
+      "role": "score",
+      "value": 2600,
+      "unit": "USD_M",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 2050
+          },
+          {
+            "year": 2022,
+            "value": 2200
+          },
+          {
+            "year": 2023,
+            "value": 2380
+          },
+          {
+            "year": 2024,
+            "value": 2500
+          },
+          {
+            "year": 2025,
+            "value": 2600
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 2700
+          },
+          {
+            "year": 2027,
+            "value": 2800
+          },
+          {
+            "year": 2028,
+            "value": 2900
+          },
+          {
+            "year": 2029,
+            "value": 3000
+          },
+          {
+            "year": 2030,
+            "value": 3100
+          }
+        ],
+        "cagr_hist": 6.1,
+        "cagr_forecast": 3.6,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Banco Popular/Popular Auto·Reliable Financial 공시 + OCIF 통계 추정 (USD 약 2.6bn)",
+      "insight": "소형 섬 시장이나 USD 환산 가치·높은 금융침투로 단위 매력 견조. 인구 회복(허리케인·이주 이후 안정)·관광 회복이 완만 성장 견인.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "오토금융 성장률(CAGR)",
+      "category": "business",
+      "role": "score",
+      "value": 6.1,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 8.5
+          },
+          {
+            "year": 2022,
+            "value": 7.3
+          },
+          {
+            "year": 2023,
+            "value": 8.2
+          },
+          {
+            "year": 2024,
+            "value": 5.0
+          },
+          {
+            "year": 2025,
+            "value": 4.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 3.8
+          },
+          {
+            "year": 2027,
+            "value": 3.7
+          },
+          {
+            "year": 2028,
+            "value": 3.6
+          },
+          {
+            "year": 2029,
+            "value": 3.5
+          },
+          {
+            "year": 2030,
+            "value": 3.3
+          }
+        ],
+        "cagr_hist": 6.1,
+        "cagr_forecast": 3.6,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "OCIF·Popular Auto 추정, Mordor/IBISWorld Puerto Rico Auto Finance",
+      "insight": "팬데믹 보복 수요·재난복구 자금 효과 소멸 후 한 자릿수 초중반으로 정상화. 인구 감소가 구조적 상한 — 단위 침투율 심화가 성장 동력.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(신차)",
+      "category": "business",
+      "role": "score",
+      "value": 82,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 78
+          },
+          {
+            "year": 2022,
+            "value": 79
+          },
+          {
+            "year": 2023,
+            "value": 80
+          },
+          {
+            "year": 2024,
+            "value": 81
+          },
+          {
+            "year": 2025,
+            "value": 82
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 82
+          },
+          {
+            "year": 2027,
+            "value": 83
+          },
+          {
+            "year": 2028,
+            "value": 83
+          },
+          {
+            "year": 2029,
+            "value": 84
+          },
+          {
+            "year": 2030,
+            "value": 84
+          }
+        ],
+        "cagr_hist": 1.3,
+        "cagr_forecast": 0.5,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Popular Auto·Reliable 추정 / 미국 본토 침투율 패턴 준용 (신차 80%대)",
+      "insight": "신차의 80%대가 금융 경유 — 미 본토 수준의 높은 침투. 자동차 절대 의존(대중교통 빈약)으로 구조적 고침투. 추가 성장 여지는 제한적이나 안정적 모수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융 이용률(중고차)",
+      "category": "business",
+      "role": "score",
+      "value": 45,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 3,
+      "source": "Reliable Financial·핀테크 추정 (중고차 정식 금융 약 40~50%)",
+      "insight": "중고차 정식 금융 약 45% — 신차 대비 낮으나 미국식 CB·딜러 금융으로 라틴 평균 상회. 수입 중고차·재고 회전 큼. 디지털 대출 성장 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 금리/APR",
+      "category": "business",
+      "role": "score",
+      "value": 9.5,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 7.0
+          },
+          {
+            "year": 2022,
+            "value": 7.5
+          },
+          {
+            "year": 2023,
+            "value": 9.0
+          },
+          {
+            "year": 2024,
+            "value": 9.8
+          },
+          {
+            "year": 2025,
+            "value": 9.5
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 9.0
+          },
+          {
+            "year": 2027,
+            "value": 8.5
+          },
+          {
+            "year": 2028,
+            "value": 8.2
+          },
+          {
+            "year": 2029,
+            "value": 8.0
+          },
+          {
+            "year": 2030,
+            "value": 7.8
+          }
+        ],
+        "cagr_hist": 7.9,
+        "cagr_forecast": -3.9,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "미 연방준비제도 G.19 소비자신용 통계 준용 + Popular/Reliable APR 공시 (신차 약 9~10%)",
+      "insight": "신차 APR 약 9.5% — Fed 정책금리 영향으로 본토와 동조. Truth in Lending(Reg Z) APR 공시 의무로 투명성 EU 동등. 인하 사이클로 완만 하락 전망.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "신차 판매대수",
+      "category": "business",
+      "role": "score",
+      "value": 102000,
+      "unit": "units",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 98000
+          },
+          {
+            "year": 2022,
+            "value": 95000
+          },
+          {
+            "year": 2023,
+            "value": 105000
+          },
+          {
+            "year": 2024,
+            "value": 104000
+          },
+          {
+            "year": 2025,
+            "value": 102000
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 103000
+          },
+          {
+            "year": 2027,
+            "value": 104000
+          },
+          {
+            "year": 2028,
+            "value": 105000
+          },
+          {
+            "year": 2029,
+            "value": 106000
+          },
+          {
+            "year": 2030,
+            "value": 107000
+          }
+        ],
+        "cagr_hist": 1.0,
+        "cagr_forecast": 1.0,
+        "estimated": true
+      },
+      "tier": 2,
+      "source": "GUIA(Grupo Unido de Importadores de Automóviles) 신차 등록 통계 2025 (연 약 10만대)",
+      "insight": "연 약 10만대로 소형 시장이나 인구 대비 차량 밀도 높음. 허리케인 재해복구·재고 사이클로 연도별 변동. 금융침투·우리사 점유와 결합해 계약건수 환산.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "구매 패턴(할부·리스 비중)",
+      "category": "business",
+      "role": "score",
+      "value": 82,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 2,
+      "source": "Popular Auto·Reliable 추정 (할부 약 70%·리스 약 12%, 미국식 retail installment 압도)",
+      "insight": "신차의 82%가 금융 경유 — retail installment(할부) 약 70% + 리스 약 12%. 미국식 할부 압도, 개인 리스는 본토보다 낮으나 B2B 플릿 리스 확대 여지.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "리스 취급 일치도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "개인 리스 약 12%, 본토 대비 낮음"
+        },
+        "렌탈 취급 일치도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "관광 렌탈 활발, 단기렌탈 보통"
+        },
+        "플릿 취급 일치도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "법인 플릿 리스 보통"
+        },
+        "상품별 비중 유사도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "할부 70% 압도, 리스 보조"
+        }
+      },
+      "similarity_axis": "product",
+      "similarity_weight": 0.15
+    },
+    {
+      "item": "캡티브 강도(점유율)",
+      "category": "business",
+      "role": "score",
+      "value": 40,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 추정 (Toyota·Honda·Ford·GM 캡티브 합산 약 40%, 은행/독립계 약 60%)",
+      "insight": "캡티브(Toyota FS·Honda·Ford Credit·GM Financial) 약 40% — 본토 패턴 유사. 단 Banco Popular/Popular Auto·Reliable 등 은행/독립계가 약 60%로 우세해 멕시코보다 캡티브 약함.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 점유율(Top 5)",
+      "category": "business",
+      "role": "score",
+      "value": 30,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 추정 (Popular Auto/Reliable 약 30%, Oriental·FirstBank·캡티브 순)",
+      "insight": "Banco Popular/Popular Auto·Reliable Financial 합산 단독 1위 약 30% — 과점적. Top5 합산 약 75%로 집중도 높음. 신규 진입은 디지털·EV·중고차 틈새 또는 캡티브 채널.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "법인세율",
+      "category": "business",
+      "role": "score",
+      "value": 37.5,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Puerto Rico Internal Revenue Code 2011 (법인세 기본 18.5% + 누진 부가세 최대 19% = 합산 약 37.5%)",
+      "insight": "PR 자체 세제(미 연방 소득세 대신 PR 내국세법 적용) — 합산 최대 약 37.5%로 명목 높음. 단 Act 60/Act 20-22 등 인센티브로 적격 사업 4% 우대 가능 — 구조 설계로 실효세율 절감 여지.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "이자소득 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 29,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Puerto Rico Internal Revenue Code (비거주 외국법인 이자 원천징수 표준 29%; 한·미 조세조약은 PR 비적용)",
+      "insight": "PR은 미 본토와 별개 세관할 — 비거주자 이자 원천 29%로 높음. ★중요: 미 조세조약(한·미 포함)이 PR에 적용되지 않아 본사 차입 송금 시 세부담 큼. PR 내 자회사 자체 조달·재투자 구조 권장.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "배당 원천징수",
+      "category": "business",
+      "role": "score",
+      "value": 10,
+      "unit": "%",
+      "direction": "down",
+      "axis": "attractiveness",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Puerto Rico Internal Revenue Code (외국법인 배당 원천 10%, Act 60 적격 시 우대)",
+      "insight": "배당 원천 10% — 명목 우호적이나 조세조약 미적용으로 한국 본사 직접 회수는 미국 경유 구조 검토 필요. Act 60 인센티브 사업은 배당 우대 가능.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외국인 지분 한도",
+      "category": "shared",
+      "role": "gate",
+      "value": "100% 허용 (미국 자치령 — 외국인 투자 제한 없음, 연방·PR 법 모두 내국민 대우)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "미 연방법 / PR 상법, OCIF 가이드",
+      "insight": "미국 영토로 외국인 지분 제한 없음. 단독 진출 가능, JV 불필요. 미국 본토 진출과 동일한 자유도.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외환·배당 송금 자유도",
+      "category": "shared",
+      "role": "gate",
+      "value": "USD 사용·미국 통화권 — 외환통제 없음, 송금 완전 자유 (원천세는 PR 세법 적용)",
+      "gate_result": "PASS",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "미 연방 통화법, PR Internal Revenue Code",
+      "insight": "USD 단일통화로 환율·외환통제 리스크 사실상 0 — 킬스위치 통과. 송금 자유. 단 조세조약 미적용으로 원천세 효율은 별도 구조 설계 필요(이자 29%·배당 10%).",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "데이터 현지화 의무",
+      "category": "shared",
+      "role": "gate",
+      "value": "강제 현지화 없음 — 미 연방 GLBA·FCRA + PR Act 111(데이터 침해 통지법) 적용, 국외 이전 자유",
+      "gate_result": "PASS",
+      "gate_scope": "operating_model",
+      "segment": null,
+      "tier": 1,
+      "source": "미 GLBA·FCRA, PR Act 111-2005 (Citizen Information on Data Banks Security Act)",
+      "insight": "미 연방 금융프라이버시(GLBA)+신용보고(FCRA) 적용, 강제 현지화 없음 — 본사(미국·한국) 연동 아키텍처 자유. PR Act 111은 침해 통지 의무 중심으로 GDPR보다 완화.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "현지 저장 강제": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "강제 현지화 없음 (GLBA/FCRA)"
+        },
+        "국외 이전 허용도": {
+          "target_score": 5,
+          "base_score": 4,
+          "note": "미국 통합 — 이전 매우 자유"
+        },
+        "동의·보관 규제": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "GLBA/FCRA, EU GDPR 대비 완화"
+        },
+        "GDPR 동등성": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "미국식 섹터별 규제, GDPR 동등성 낮음"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "국가신용등급",
+      "category": "shared",
+      "role": "gate",
+      "value": "주권 신용등급 별도 부재(미국 자치령). PR 정부 일반채(GO)는 PROMESA 채무 구조조정(2022 완료) 후 회복 중 — 준국가 신용 FLAG",
+      "gate_result": "FLAG",
+      "gate_scope": "country",
+      "segment": null,
+      "tier": 1,
+      "source": "PROMESA(2016) Oversight Board, S&P/Moody's PR GO 등급, 2022 Plan of Adjustment",
+      "insight": "통화·송금은 미국(USD)에 연동돼 자본회수 리스크 낮으나, PR 정부 자체 재정은 PROMESA 감독위 체제·채무 구조조정 이력으로 준국가 신용 취약 — FLAG. 사업 자체 영향은 제한적이나 공공부문 익스포저·재정 정책 변동 모니터링 필요.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 취득 가능 여부(외국사)",
+      "category": "shared",
+      "role": "gate",
+      "value": "개인 신차 금융=OCIF 소매할부/소액대출 라이선스(외국사 취득 가능), B2B 리스=상업금융 등록. 연방 CFPB 등록 병행",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "OCIF(Oficina del Comisionado de Instituciones Financieras), PR Retail Installment Sales Act, 연방 CFPB",
+      "insight": "외국사 라이선스 취득 가능 — OCIF 인가가 핵심 관문. B2B 리스/상업금융은 등록 수준으로 비교적 경량. 연방 CFPB·Reg Z 컴플라이언스 병행 필수. 단계적 진입 권장.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "라이선스 체제(세그먼트별)",
+      "category": "shared",
+      "role": "gate",
+      "value": "개인 신차 금융=OCIF 'Financing Company' 라이선스(인가)+연방 Reg Z 준수, B2B 리스=상업금융 등록(경량). 연방+현지 이중 체제",
+      "gate_result": "PASS",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 1,
+      "source": "OCIF Reglamento, PR Small Loans Act·Retail Installment Sales Act, 연방 Dodd-Frank/CFPB",
+      "insight": "연방(CFPB·TILA·Dodd-Frank) 위에 현지 OCIF 라이선스가 이중으로 얹히는 구조 — EU 대비 컴플라이언스 부담은 있으나 미국 본토 운영 노하우 직접 재사용 가능. 처리기간 비교적 짧음.",
+      "insight_ai_generated": false,
+      "score_dimensions": {
+        "취득방식(등록 vs 인가)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "OCIF 인가 — 연방+현지 이중이나 표준화"
+        },
+        "외국인 취득 가능": {
+          "target_score": 5,
+          "base_score": 5,
+          "note": "미국 영토 — 100% 허용"
+        },
+        "처리기간(개월)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "OCIF 인가 약 3~6개월"
+        },
+        "최저자본금 수준": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "Financing company 자본 요건 중간"
+        },
+        "감독 강도": {
+          "target_score": 3,
+          "base_score": 4,
+          "note": "OCIF+연방 CFPB 이중 감독"
+        }
+      },
+      "similarity_axis": "regulatory",
+      "similarity_weight": 0.25
+    },
+    {
+      "item": "금리 상한 규제",
+      "category": "shared",
+      "role": "gate",
+      "value": "PR 소액대출법(Small Loans Act)·소매할부법상 금리 상한 존재 (소비자 자동차 할부 한도 규정). 단 'Financing company' 면허 차량금융은 별도 한도",
+      "gate_result": "FLAG",
+      "gate_scope": "segment",
+      "segment": "consumer_credit",
+      "tier": 2,
+      "source": "PR Retail Installment Sales Act, Small Loans Act, OCIF",
+      "insight": "PR은 본토 일부 주처럼 소매할부·소액대출 금리 상한 존재 — 차량 클래스·만기별 한도 적용. 마진 설계 시 상한 확인 필수. 가격 자유도는 멕시코보다 낮으나 미국 본토 일부 주와 유사.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "최저자본금",
+      "category": "shared",
+      "role": "score",
+      "value": "OCIF Financing Company 자본 약 USD 1~2M (라이선스 종류별 상이) / 은행 인가는 별도 고액",
+      "unit": "USD",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": null,
+      "tier": 2,
+      "source": "OCIF Reglamento (financing company 자본 요건), PR 금융기관법",
+      "insight": "Financing company 자본 약 USD 1~2M으로 EU(€5M) 대비 가벼움. 은행 인가는 고액이나 자동차금융은 financing company 형태로 충분 — 진입 자본 부담 낮음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "솔루션 벤더",
+      "category": "it",
+      "role": "score",
+      "value": "미국 벤더(NETSOL/FIS/Fiserv/MeridianLink/Salesforce Auto) 직접 사용 + 일부 현지 SI",
+      "unit": "match",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "시장 조사 (미국 본토 동일 벤더 생태계 + 스페인어 현지화)",
+      "insight": "미국 본토와 동일 벤더 생태계(FIS·Fiserv·NetSol·MeridianLink) 직접 사용 — NetSol 베이스라인 재사용률 높음(75%대). 스페인어 현지화·PR 세제만 보정. 라틴 중 최고 정합성.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "솔루션 유형",
+      "category": "it",
+      "role": "score",
+      "value": "미국 패키지 + 은행계 자체 코어(Banco Popular) + 캡티브 본토 시스템 직접 연동",
+      "unit": "type",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 (미국 본토 아키텍처 직접 적용)",
+      "insight": "Banco Popular 등 은행계는 자체 코어, 캡티브는 본토 시스템 직접 연동. 미국 표준 아키텍처를 그대로 써 EU/미국 베이스라인 정합성 높음 — 멕시코보다 우월.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "배포형태(패키지/SI/SaaS)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "미국 패키지 직접 사용 — 재사용 75%대"
+        },
+        "커스터마이징 자유도": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "본토 벤더 활용, 스페인어 보정"
+        },
+        "벤더 종속도": {
+          "target_score": 3,
+          "base_score": 3,
+          "note": "미국 벤더 생태계 동일"
+        },
+        "멀티테넌시 여부": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "멀티테넌시 지원"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "디지털 채널 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 4,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "미국 ACH/Zelle/카드 인프라 직접 적용, ATH Móvil(현지 즉시결제), e-sign(연방 ESIGN Act)",
+      "insight": "ATH Móvil(현지 P2P 즉시결제, 보편)+미국 ACH/Zelle/카드망+연방 ESIGN Act 전자서명으로 비대면 계약 보편. 미국 본토 수준 디지털 — EU 동등. 단 섬 규모로 핀테크 다양성은 본토 대비 낮음.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "온라인 신청 연동": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "미국 ACH/Zelle + ATH Móvil 보편"
+        },
+        "비대면 계약 가능": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "연방 ESIGN Act 전자서명 보편"
+        },
+        "API 개방도": {
+          "target_score": 3,
+          "base_score": 5,
+          "note": "미국 오픈뱅킹 준용, 섬 규모로 제한적"
+        },
+        "페이퍼리스 수준": {
+          "target_score": 4,
+          "base_score": 5,
+          "note": "페이퍼리스 진행, 본토 수준"
+        }
+      },
+      "similarity_axis": "system",
+      "similarity_weight": 0.2
+    },
+    {
+      "item": "신용정보(CB) 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "TransUnion·Equifax·Experian (미국 3대 CB 동일 적용), FICO 스코어, 연방 FCRA",
+      "insight": "미국 3대 CB(TransUnion·Equifax·Experian)+FICO 스코어 동일 적용 — CB 인프라 최상위. 연방 FCRA 규율. 미국 본토 CB 연동 패턴 직접 재사용(90%+) — 유사도 견인 핵심.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "결제·정산 인프라",
+      "category": "it",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "Fedwire/ACH(연방준비), Zelle, ATH Móvil(EVERTEC 현지망), 카드망",
+      "insight": "미 연준 Fedwire/ACH·Zelle+ATH Móvil(EVERTEC) 즉시결제망으로 결제·정산 인프라 최상위 — 수금 자동화 우수. 미국 본토 정산 아키텍처 직접 재사용.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "디지털 딜러 성숙도",
+      "category": "it",
+      "role": "score",
+      "value": 3,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "업계 (Clasificados Online·미국 Cars.com/CarGurus 접근, 딜러 디지털화 진행)",
+      "insight": "미국 딜러 디지털 도구 접근 가능하나 섬 시장 규모로 본토 대비 디지털 딜러 생태계 얕음(중간). 딜러 중심 대면 거래 여전 — 임베디드 금융·온라인 신청 연동 기회.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "국외이전 제한",
+      "category": "it",
+      "role": "score",
+      "value": 1,
+      "unit": "restriction_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "미 GLBA·FCRA, PR Act 111 (강제 현지화 없음)",
+      "insight": "강제 현지화 없고 미국 통합 데이터권으로 국외이전 매우 자유 — 본사(미국·한국) 연동 제약 거의 없음. EU·라틴 대비 가장 자유.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "차량회수 절차 용이성",
+      "category": "shared",
+      "role": "score",
+      "value": 4,
+      "unit": "ease_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "PR Commercial Transactions Act (UCC Art.9 채택), 자력구제(self-help repossession) 허용",
+      "insight": "UCC Art.9형 담보권으로 채권자 우호적 — 평화 위반 없는 자력구제(self-help) 회수 허용으로 사법절차 없이 신속(평균 30~60일). 미국 본토와 동일 — 멕시코·EU 대비 우월.",
+      "insight_ai_generated": true,
+      "score_dimensions": {
+        "사법절차 필요": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "UCC Art.9 자력구제 — 사법절차 불요"
+        },
+        "회수 소요기간(일)": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "평균 30~60일"
+        },
+        "자력구제 허용": {
+          "target_score": 5,
+          "base_score": 4,
+          "note": "평화위반 없는 self-help 허용"
+        },
+        "회수율": {
+          "target_score": 4,
+          "base_score": 4,
+          "note": "채권자 우호적, 회수율 양호"
+        }
+      },
+      "similarity_axis": "risk",
+      "similarity_weight": 0.1
+    },
+    {
+      "item": "법적 회수 소요기간",
+      "category": "shared",
+      "role": "score",
+      "value": 60,
+      "unit": "days",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 3,
+      "source": "PR Commercial Transactions Act(UCC Art.9), 업계 추정 (자력구제 30~60일)",
+      "insight": "자력구제 회수 평균 30~60일, 사법절차 필요 시 90~180일. 미국 본토 수준으로 EU(NL 180일)·멕시코보다 빠름 — 손실 익스포저 짧음.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "추심 규제",
+      "category": "shared",
+      "role": "score",
+      "value": 3,
+      "unit": "constraint_1to5",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "연방 FDCPA(공정채권추심법), CFPB, PR 소비자보호 규정",
+      "insight": "연방 FDCPA(Fair Debt Collection Practices Act)+CFPB가 추심 규율 — 미국 본토 동일 기준. 베이스라인 컴플라이언스 직접 재사용 가능. EU 동등 수준.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "충당금 규정",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "US GAAP CECL(현재예상신용손실) / IFRS 9, OCIF·연방 감독",
+      "insight": "US GAAP CECL 또는 IFRS 9 적용으로 충당 체계 최상위 — EU 표준과 수렴. 베이스라인 NPL/충당 엔진 재사용률 매우 높음.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "연체 분류 기준",
+      "category": "shared",
+      "role": "score",
+      "value": 5,
+      "unit": "maturity_1to5",
+      "direction": "up",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "연방 FFIEC 연체 분류(30/60/90일), OCIF",
+      "insight": "FFIEC 30/60/90일 단계 분류(미국 본토 동일, EBA 90일과 정합). 베이스라인 NPL 엔진 직접 매핑 가능 — 추가 보정 최소.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "의무보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "자동차 의무책임보험(Seguro de Responsabilidad Obligatorio) 강제 — 연 약 USD 99, PR 자동차책임보험법",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "PR Compulsory Motor Vehicle Liability Insurance Act, 보험감독청(Oficina del Comisionado de Seguros)",
+      "insight": "의무책임보험(저액 정액형) 강제. 리스·금융 차량은 임의 종합보험(comprehensive) 추가가 표준 — 베이스라인 보험연동 로직 재사용 가능.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "신용생명보험 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "신용생명보험(credit life) 옵션 제공·강제 끼워팔기 제한 (연방 + PR 보험법, OCIF/보험감독)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "PR Insurance Code, 연방 소비자보호 규정",
+      "insight": "신용생명보험 옵션 제공, 강제 끼워팔기 제한 — 미국 본토 관행 동일. EU 동등 수준으로 베이스라인 재사용 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "보험 끼워팔기 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "강제 끼워팔기 금지, 묶음 조건부 허용 (연방 + PR 보험법/소비자보호)",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 2,
+      "source": "PR Insurance Code, 연방 anti-tying 규정",
+      "insight": "강제 끼워팔기(tying) 금지, 정보·분리구매 옵션 제공 시 묶음 허용 — 미국 본토 동일. 베이스라인 컴플라이언스 재사용 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "AI 신용평가 규제",
+      "category": "shared",
+      "role": "score",
+      "value": "별도 AI법 없음. 연방 ECOA(공정대출)·FCRA 자동화 의사결정 설명의무·adverse action notice 적용",
+      "unit": "regime",
+      "direction": "down",
+      "axis": "similarity",
+      "timeseries": null,
+      "tier": 1,
+      "source": "연방 ECOA(Equal Credit Opportunity Act)·Reg B, FCRA, CFPB AI 가이드",
+      "insight": "별도 AI법 없으나 연방 ECOA/Reg B·FCRA가 자동화 신용결정에 설명의무·adverse action notice 부과 — 미국 본토 동일. EU AI Act 대비 부담 작으나 차별금지 컴플라이언스 필수.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "EV 보급률",
+      "category": "business",
+      "role": "score",
+      "value": 6,
+      "unit": "%",
+      "direction": "up",
+      "axis": "attractiveness",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 1.0
+          },
+          {
+            "year": 2022,
+            "value": 1.8
+          },
+          {
+            "year": 2023,
+            "value": 3.0
+          },
+          {
+            "year": 2024,
+            "value": 4.5
+          },
+          {
+            "year": 2025,
+            "value": 6.0
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 8.5
+          },
+          {
+            "year": 2027,
+            "value": 11.5
+          },
+          {
+            "year": 2028,
+            "value": 15.0
+          },
+          {
+            "year": 2029,
+            "value": 19.0
+          },
+          {
+            "year": 2030,
+            "value": 23.0
+          }
+        ],
+        "cagr_hist": 56.5,
+        "cagr_forecast": 30.8,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "GUIA 신차 등록 추정 (BEV+PHEV+HEV 약 6%), 높은 연료가·Tesla/BYD 진입",
+      "insight": "EV(BEV+PHEV+HEV) 약 6% — 높은 연료가·소형 섬(짧은 주행거리, 충전 적합)으로 가속 잠재. Tesla·중국 OEM 진입. 잔가 모델에 EV 별도 곡선 필요.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "EV·ICE 잔존가치 리스크",
+      "category": "business",
+      "role": "score",
+      "value": 58,
+      "unit": "%",
+      "direction": "down",
+      "axis": "difficulty",
+      "timeseries": {
+        "history": [
+          {
+            "year": 2021,
+            "value": 64
+          },
+          {
+            "year": 2022,
+            "value": 63
+          },
+          {
+            "year": 2023,
+            "value": 61
+          },
+          {
+            "year": 2024,
+            "value": 59
+          },
+          {
+            "year": 2025,
+            "value": 58
+          }
+        ],
+        "forecast": [
+          {
+            "year": 2026,
+            "value": 56
+          },
+          {
+            "year": 2027,
+            "value": 54
+          },
+          {
+            "year": 2028,
+            "value": 52
+          },
+          {
+            "year": 2029,
+            "value": 51
+          },
+          {
+            "year": 2030,
+            "value": 50
+          }
+        ],
+        "cagr_hist": -2.4,
+        "cagr_forecast": -2.9,
+        "estimated": true
+      },
+      "tier": 3,
+      "source": "Cox Automotive/Manheim 미국 잔가 지수 준용 (3년 EV 기준), 섬 시장 보정",
+      "insight": "EV 3년 잔가 미국 본토 추세 추종(하락). 소형 섬 중고 유동성 제약·습한 기후가 변수. 잔가 보증·바이백 보수적 설계 권장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "해당국 정성 요약",
+      "category": "business",
+      "role": "context",
+      "value": "미국 자치령(인구 약 320만, USD)·연 신차 약 10만대의 소형 고침투 시장. 신차 금융침투 80%대로 미 본토 수준. 미 연방 소비자금융 프레임워크(CFPB·TILA/Reg Z·Dodd-Frank·FCRA·FDCPA) + 현지 OCIF 라이선스·소매할부/소액대출법 이중 적용. Banco Popular/Popular Auto·Reliable Financial 과점(합산 약 30%)+Oriental·FirstBank+캡티브(Toyota·Honda·Ford·GM). 신용정보 미국 3대 CB(TransUnion·Equifax·Experian)·FICO 직접 사용, 결제 ATH Móvil+미국 ACH/Zelle. 회수는 UCC Art.9 자력구제로 채권자 우호적. PROMESA 감독위·채무 구조조정 이력으로 재정 취약(준국가 신용 FLAG). 조세조약 미적용으로 본사 송금 세효율 별도 설계 필요.",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "OCIF, GUIA, Popular/Reliable 공시, PROMESA Oversight Board",
+      "insight": "USD+미 법체계로 시스템·IT 유사도 최상위 — 미국 본토 진출 자산 직접 재사용. 소형 규모·과점·재정 취약이 리스크. 개인 신차 우선 진입 후 B2B 플릿 리스 확장, 미 본토 운영과 통합 관리 전략 유효.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "브랜드 Top10",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Toyota",
+        "Honda",
+        "Hyundai",
+        "KIA",
+        "Nissan",
+        "Ford",
+        "Chevrolet",
+        "Mitsubishi",
+        "Mazda",
+        "Jeep"
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "GUIA 신차 등록 통계 2025 (일본·한국 브랜드 강세)",
+      "insight": "Toyota·Honda 일본 브랜드 양강, 한국(Hyundai·Kia) 합산 톱3급으로 강세. 미 본토 대비 픽업 비중 낮고 소형·컴팩트 선호. 한국 OEM 캡티브 진출 매력 큼.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "OEM 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Toyota",
+          "market_share": "약 22%"
+        },
+        {
+          "rank": 2,
+          "name": "Honda",
+          "market_share": "약 13%"
+        },
+        {
+          "rank": 3,
+          "name": "Hyundai",
+          "market_share": "약 11%"
+        },
+        {
+          "rank": 4,
+          "name": "KIA",
+          "market_share": "약 9%"
+        },
+        {
+          "rank": 5,
+          "name": "Nissan",
+          "market_share": "약 8%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "GUIA 2025 신차 등록 추정",
+      "insight": "Toyota 단독 1위 약 22%, Hyundai+Kia 합산 약 20%로 사실상 톱2급. 한국 OEM이 PR에서 글로벌 최상위권 점유 — 캡티브 강화·통합 운영 매력 우월.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "금융사 순위(Top 5)",
+      "category": "business",
+      "role": "context",
+      "value": [
+        {
+          "rank": 1,
+          "name": "Popular Auto (Banco Popular)",
+          "market_share": "약 20%"
+        },
+        {
+          "rank": 2,
+          "name": "Reliable Financial Services",
+          "market_share": "약 12%"
+        },
+        {
+          "rank": 3,
+          "name": "Oriental Bank Auto",
+          "market_share": "약 9%"
+        },
+        {
+          "rank": 4,
+          "name": "FirstBank Auto",
+          "market_share": "약 8%"
+        },
+        {
+          "rank": 5,
+          "name": "Toyota Financial Services PR",
+          "market_share": "약 7%"
+        }
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "OCIF, Popular/Reliable/Oriental/FirstBank 공시 추정",
+      "insight": "Popular Auto 단독 1위 약 20%+Reliable 12%로 은행/독립계 과점. 캡티브(Toyota FS) 보조. Top5 합산 약 56% — 신규 진입은 캡티브 채널·EV·중고차 디지털 틈새.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 리스트",
+      "category": "business",
+      "role": "context",
+      "value": [
+        "Popular Auto (Banco Popular)",
+        "Reliable Financial Services",
+        "Oriental Bank Auto",
+        "FirstBank Auto",
+        "Toyota Financial Services PR",
+        "Honda Finance PR",
+        "Ford Credit PR",
+        "GM Financial PR",
+        "Hyundai Capital (본토 연동)",
+        "Kia Finance (본토 연동)",
+        "Cooperativas (신협 자동차대출)"
+      ],
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "OCIF 등록부, 업계",
+      "insight": "은행/독립계(Popular·Reliable·Oriental·FirstBank) 압도+캡티브+신협(cooperativas) 혼재. 한국 Hyundai/Kia는 본토 캡티브 연동 — PR 점유 확대·통합 운영 여지. 신협 채널도 독특한 변수.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 진출 형태",
+      "category": "business",
+      "role": "context",
+      "value": "현지 은행계 자회사(Popular Auto·Oriental·FirstBank) + 독립 금융사(Reliable) + OEM 캡티브(Toyota·Honda·Ford·GM, 본토 연동) + 신협(cooperativas). OCIF financing company 라이선스 형태",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "OCIF, 업계",
+      "insight": "OEM 캡티브는 본토 캡티브 PR 영업 형태로 진출 — 한국 OEM도 동일 경로 가능(별도 법인 최소화). OCIF financing company 라이선스가 표준 진입 형태. 본토 인프라 직접 확장.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "경쟁사 금리 범위",
+      "category": "business",
+      "role": "context",
+      "value": "신차 할부 APR 약 7~12% (프로모 캡티브 1.9~4.9%), 중고차 약 12~18%, B2B 리스 별도. 미국 본토 대비 약간 높음",
+      "context_type": "descriptive",
+      "tier": 2,
+      "source": "Popular/Reliable APR 공시, 캡티브 프로모, Fed G.19 준용",
+      "insight": "신차 APR 7~12%, 캡티브 프로모 1.9~4.9%. 본토 대비 소폭 상회(리스크 프리미엄). 소매할부 금리 상한 내 운영. 캡티브 프로모로 가격경쟁력 확보 가능.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "평균 신차가격",
+      "category": "business",
+      "role": "context",
+      "value": "약 USD 32,000 (소형·컴팩트 선호, SUV·EV로 우상향, 미 본토 평균 USD 48k보다 낮음)",
+      "context_type": "descriptive",
+      "tier": 3,
+      "source": "GUIA 평균 거래가 추정",
+      "insight": "평균 신차 거래가 약 USD 32k — 미 본토(USD 48k)보다 낮음(소형·컴팩트 선호, 소득 수준). USD 표시로 환변동 없음 — 계약 LTV·잔가 모델 안정적.",
+      "insight_ai_generated": true
+    },
+    {
+      "item": "규제기관 식별",
+      "category": "shared",
+      "role": "context",
+      "value": "OCIF(Oficina del Comisionado de Instituciones Financieras, 현지 금융기관 라이선스·감독) / 연방 CFPB(소비자금융보호국) / 연방 FTC·연준(FCRA·ECOA) / PR 보험감독청(Oficina del Comisionado de Seguros) / PROMESA Oversight Board(재정) / PR 소비자국(DACO)",
+      "context_type": "descriptive",
+      "tier": 1,
+      "source": "OCIF, CFPB, FTC, 보험감독청, PROMESA, DACO 공식",
+      "insight": "현지 OCIF가 라이선스 핵심 창구, 연방 CFPB/FTC/연준이 소비자금융 규율 — 연방+현지 이중 감독. 보험은 보험감독청, 재정은 PROMESA 감독위, 소비자는 DACO. 미국 본토 컴플라이언스 노하우 직접 적용.",
+      "insight_ai_generated": false
+    },
+    {
+      "item": "외부 이슈 스캔",
+      "category": "business",
+      "role": "context",
+      "context_type": "news",
+      "value": [
+        {
+          "news_category": "geopolitical",
+          "headline": "푸에르토리코 PROMESA 재정감독위 체제 지속, 전력망·재정 개혁 진행",
+          "so_what": "재정 구조조정 이후 안정화 — 공공부문 익스포저는 신중히. 자동차금융 민간 수요 자체는 견조. 준국가 신용 변동 모니터링.",
+          "publisher": "Reuters",
+          "pub_date": "2026-04-20",
+          "url": "https://www.reuters.com/..."
+        },
+        {
+          "news_category": "credit_abs",
+          "headline": "미국 subprime auto loan ABS 딜린퀀시 상승세, 푸에르토리코 등 고금리 시장 주의",
+          "so_what": "본토 연체 상승 신호 — PR도 동조 가능. 진입 초기 신용정책 보수화·충당 강화 권장. UCC 자력구제로 손실 회수는 빠름.",
+          "publisher": "Moody's",
+          "pub_date": "2026-05-12",
+          "url": "https://www.moodys.com/..."
+        },
+        {
+          "news_category": "finance",
+          "headline": "Fed 2026 금리 인하 시그널, USD 통화권 푸에르토리코 조달비용 완화 기대",
+          "so_what": "조달비용 단계 인하 — 자동차금융 마진 확대 기회. USD 단일통화로 본토와 완전 동조, 환헷지 불요.",
+          "publisher": "Wall Street Journal",
+          "pub_date": "2026-03-15",
+          "url": "https://www.wsj.com/..."
+        },
+        {
+          "news_category": "auto_finance",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        },
+        {
+          "news_category": "auto_market",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        }
+      ],
+      "tier": 3,
+      "source": "화이트리스트(Reuters·Moody's·Wall Street Journal). auto_finance·auto_market 카테고리 PR 직접 화이트리스트 출처 미확보 — 실사 보강",
+      "insight": "재정(PROMESA)·본토 연체 동조 리스크 vs Fed 인하·USD 안정성·UCC 빠른 회수. auto_finance·auto_market은 PR 한정 화이트리스트 기사 미확보로 비움 — 실사 단계 보강. 보수적 신용정책 + 본토 통합 운영 권장.",
+      "insight_ai_generated": true
+    }
+  ]
+}

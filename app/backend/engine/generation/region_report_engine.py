@@ -765,7 +765,10 @@ class RegionReportEngine:
                          "attractiveness": r["attractiveness"],
                          "it_similarity_band": r["it_similarity_band"]}
                         for r in ranked],
-            "note": "퀵윈 = 매력도×w_biz + IT유사도×w_it. 기준국(B국) 및 킬스위치 탈락국 제외. 10점 구간 표기.",
+            "note": {
+                "ko": "퀵윈 = 매력도×w_biz + IT유사도×w_it. 기준국(B국) 및 킬스위치 탈락국 제외. 10점 구간 표기.",
+                "en": "Quickwin = Attractiveness×w_biz + IT×w_it. Baseline and killswitch failures excluded. Reported in 10-point buckets.",
+            },
         }
 
     def build_top3_cards(self, quickwin: Dict, killswitch: Dict,
@@ -818,19 +821,26 @@ class RegionReportEngine:
     def build_executive_summary(self, quickwin: Dict, killswitch: Dict,
                                  attractiveness: Dict, it_similarity: Dict,
                                  top3: List[Dict]) -> Dict[str, Any]:
-        # A. 핵심 결론 (CALC 인용만)
+        # A. 핵심 결론 (CALC 인용만) — ko/en 동시 출력
         top_ranking = quickwin.get("ranking", [])[:3]
         why_top1 = None
         if top3:
             top1 = top3[0]
-            why_top1 = (
-                f"{top1['country_name']}({top1['country']}) — "
-                f"매력도 {top1['attractiveness']}, IT유사도 {top1['it_similarity_band']} 구간, "
-                f"퀵윈 {top1['quickwin_score_band']} 구간"
-            )
+            why_top1 = {
+                "ko": (
+                    f"{top1['country_name']}({top1['country']}) — "
+                    f"매력도 {top1['attractiveness']}, IT유사도 {top1['it_similarity_band']} 구간, "
+                    f"퀵윈 {top1['quickwin_score_band']} 구간"
+                ),
+                "en": (
+                    f"{top1['country_name']}({top1['country']}) — "
+                    f"Attractiveness {top1['attractiveness']}, IT band {top1['it_similarity_band']}, "
+                    f"Quickwin band {top1['quickwin_score_band']}"
+                ),
+            }
 
-        # B. AI 교차 인사이트 (탭 간 해석) — 기준국 제외하고 후보국 중에서 비교
-        ai_insights: List[str] = []
+        # B. AI 교차 인사이트 (탭 간 해석) — 기준국 제외하고 후보국 중에서 비교, 양 언어 dict로 반환
+        ai_insights: List[Dict[str, str]] = []
         baseline = quickwin.get("baseline_country")
         attr_rank = {r["country"]: r["rank"] for r in attractiveness["ranking"] if r["country"] != baseline}
         it_rank = {r["country"]: r["rank"] for r in it_similarity["ranking"] if r["country"] != baseline}
@@ -838,23 +848,45 @@ class RegionReportEngine:
             top_attr = min(attr_rank, key=lambda k: attr_rank[k])
             top_it = min(it_rank, key=lambda k: it_rank[k])
             if top_attr != top_it:
-                ai_insights.append(
-                    f"후보국 중 매력도 1위({top_attr})와 IT유사도 1위({top_it})가 일치하지 않음 — "
-                    f"단기 확산(IT 유사)과 시장 잠재력(매력도) 사이 트레이드오프 존재."
-                )
+                ai_insights.append({
+                    "ko": (
+                        f"후보국 중 매력도 1위({top_attr})와 IT유사도 1위({top_it})가 일치하지 않음 — "
+                        f"단기 확산(IT 유사)과 시장 잠재력(매력도) 사이 트레이드오프 존재."
+                    ),
+                    "en": (
+                        f"Top attractiveness ({top_attr}) and top IT similarity ({top_it}) "
+                        f"are different countries — trade-off between fast deployment (IT) and "
+                        f"market potential (attractiveness)."
+                    ),
+                })
             else:
-                ai_insights.append(
-                    f"{top_attr}이 후보국 매력도·IT유사도 모두 1위 — 권역 진출의 명백한 1순위."
-                )
+                ai_insights.append({
+                    "ko": f"{top_attr}이 후보국 매력도·IT유사도 모두 1위 — 권역 진출의 명백한 1순위.",
+                    "en": (
+                        f"{top_attr} ranks #1 in both attractiveness and IT similarity — "
+                        f"the clear top entry candidate for the region."
+                    ),
+                })
         if baseline:
-            ai_insights.append(
-                f"기준국 {baseline}은 이미 시스템 보유국 → 순위에서 제외(B국 시스템 확산의 비교 기준)."
-            )
+            ai_insights.append({
+                "ko": f"기준국 {baseline}은 이미 시스템 보유국 → 순위에서 제외(B국 시스템 확산의 비교 기준).",
+                "en": (
+                    f"Baseline {baseline} already operates a deployed system — "
+                    f"excluded from the ranking (used as the reference for system expansion)."
+                ),
+            })
         if killswitch.get("failed"):
-            ai_insights.append(
-                f"킬스위치 탈락국: {', '.join(killswitch['failed'])} — "
-                f"규제·신용등급 게이트로 사전 차단(스코어링 제외)."
-            )
+            failed_str = ", ".join(killswitch["failed"])
+            ai_insights.append({
+                "ko": (
+                    f"킬스위치 탈락국: {failed_str} — "
+                    f"규제·신용등급 게이트로 사전 차단(스코어링 제외)."
+                ),
+                "en": (
+                    f"Killswitch failed: {failed_str} — "
+                    f"pre-blocked by regulatory/credit-rating gates (excluded from scoring)."
+                ),
+            })
 
         # C. 외부 이슈 스캔 (NEWS) — 권역 공통 이슈를 가장 위에, 그 다음 상위 3개국 헤드라인
         news: List[Dict[str, Any]] = []
@@ -904,7 +936,10 @@ class RegionReportEngine:
                 "source_flag": "NEWS",
                 "items": news,
                 "region_news_count": len(region_news),
-                "note": f"권역 공통 이슈 {len(region_news)}건 + 상위 3개국 헤드라인. '조사 필요' 항목은 제외.",
+                "note": {
+                    "ko": f"권역 공통 이슈 {len(region_news)}건 + 상위 3개국 헤드라인. '조사 필요' 항목은 제외.",
+                    "en": f"{len(region_news)} region-wide issues + top-3 country headlines. '조사 필요' (research needed) entries excluded.",
+                },
             },
         }
 

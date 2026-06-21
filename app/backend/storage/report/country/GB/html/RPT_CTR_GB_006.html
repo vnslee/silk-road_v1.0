@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>영국 진출 진단 보고서</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "accent-red": "#E63946",
+                        "surface-bright": "#fbf9f9",
+                        "on-primary-fixed-variant": "#1c4489",
+                        "tertiary-fixed": "#ffdad8",
+                        "primary-fixed-dim": "#aec6ff",
+                        "inverse-surface": "#303031",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#005db7",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#92001c",
+                        "secondary-fixed": "#d6e3ff",
+                        "tertiary": "#4d000a",
+                        "inverse-primary": "#aec6ff",
+                        "primary-container": "#003478",
+                        "on-primary-container": "#7d9fe9",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#003268",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-border": "#DCDCDC",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed": "#410007",
+                        "surface-variant": "#e3e2e2",
+                        "on-tertiary-container": "#ff7576",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline": "#747782",
+                        "surface-light": "#F8F9FA",
+                        "text-secondary": "#555555",
+                        "on-primary-fixed": "#001a43",
+                        "surface-tint": "#395da2",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-surface-variant": "#434751",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c4c6d2",
+                        "text-disabled": "#BEBEBE",
+                        "secondary-container": "#599bfe",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-secondary": "#ffffff",
+                        "background": "#fbf9f9",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf9f9",
+                        "on-background": "#1b1c1c",
+                        "text-primary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "primary": "#00204e",
+                        "tertiary-container": "#750015",
+                        "on-surface": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Hanken Grotesk', 'Noto Sans KR', sans-serif; }
+        .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .card-shadow { box-shadow: 0 4px 8px rgba(0, 32, 78, 0.04); }
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary { list-style: none; }
+        @media print {
+            @page { size: A3 landscape; margin: 12mm; }
+            body { background: #ffffff; }
+            .no-print, header button, .tab-button { display: none !important; }
+            /* 인쇄 시 모든 탭 펼침 */
+            .tab-content { display: block !important; }
+            .tab-content + .tab-content { page-break-before: always; }
+            /* 아코디언 모두 펼침 */
+            details { display: block !important; }
+            details > summary { display: none !important; }
+            details > *:not(summary) { display: block !important; }
+            /* sticky 비활성화 */
+            .sticky { position: static !important; }
+            /* 카드 페이지 내에서 잘리지 않게 */
+            section, .card-shadow { break-inside: avoid; page-break-inside: avoid; }
+            .card-shadow { box-shadow: none !important; }
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-button.active {
+            background-color: #00204e;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen font-body-md text-text-primary antialiased">
+<div class="w-full flex flex-col relative bg-surface">
+    <header class="border-b border-surface-border px-margin-desktop py-lg shrink-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-start gap-gutter">
+            <div class="flex gap-md items-start">
+                <div class="w-12 h-12 rounded-lg overflow-hidden border border-surface-border shrink-0 bg-surface-container flex items-center justify-center">
+                    <img alt="영국 Flag" class="w-full h-full object-cover" src="https://flagcdn.com/w160/gb.png"/>
+                </div>
+                <div>
+                    <div class="flex items-center gap-sm mb-xs flex-wrap">
+                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">Report ID: RPT_CTR_GB_006</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="font-label-sm text-label-sm text-text-secondary">Generated: 2026-06-21 22:37</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_baseline" data-en="Baseline">베이스라인</span>: <span data-i18n="country_name" data-en="United Kingdom">영국</span>(GB)</span>
+                        <span class="w-1 h-1 rounded-full bg-surface-border"></span>
+                        <span class="inline-flex items-center gap-xs px-2 py-[2px] rounded-full border font-label-sm text-label-sm uppercase tracking-wide bg-emerald-100 text-emerald-800 border-emerald-200">
+                            <span class="material-symbols-outlined text-[12px]">check_circle</span>
+                            운영중
+                        </span>
+                    </div>
+                    <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight m-0"><span data-i18n="report_title" data-en="United Kingdom Market Entry Diagnostic Report">영국 진출 진단 보고서</span></h1>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">
+                        <span data-i18n="header_target" data-en="Target">대상국</span>: <span data-i18n="country_name" data-en="United Kingdom">영국</span>(GB) ·
+                        <span data-i18n="header_region" data-en="Region">권역</span>: EU · 유럽 ·
+                        <span data-i18n="header_currency" data-en="Currency">통화</span>: GBP ·
+                        <span data-i18n="header_fx" data-en="FX base">FX 기준</span>: KRW ·
+                        <span data-i18n="header_data_year" data-en="Data year">데이터 기준연도</span> 2025
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-sm shrink-0 no-print">
+                <button id="lang-toggle" onclick="toggleLang()" class="flex items-center gap-xs px-md py-sm border border-surface-border text-text-secondary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">language</span>
+                    <span id="lang-label">EN</span>
+                </button>
+                <button id="btn-pdf" class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>PDF
+                </button>
+                <button id="btn-share" class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">share</span>Share
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 p-margin-desktop">
+        <div class="max-w-7xl mx-auto">
+            
+        <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-sm mb-xl sticky top-0 z-10 card-shadow">
+            <div class="flex gap-sm overflow-x-auto">
+                
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+                    data-tab="tab-0">
+                <span class="material-symbols-outlined text-[18px]">summarize</span>
+                <span data-i18n="tab" data-en="Summary">요약</span>
+                <span class="opacity-60 text-[10px]" data-i18n="tab_sub" data-en="Summary">Summary</span>
+            </button>
+            
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+                    data-tab="tab-1">
+                <span class="material-symbols-outlined text-[18px]">radar</span>
+                <span data-i18n="tab" data-en="Similarity">유사도 점수</span>
+                <span class="opacity-60 text-[10px]" data-i18n="tab_sub" data-en="Similarity">Similarity</span>
+            </button>
+            
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+                    data-tab="tab-2">
+                <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                <span data-i18n="tab" data-en="Decision Tree">시스템 결정 트리</span>
+                <span class="opacity-60 text-[10px]" data-i18n="tab_sub" data-en="Decision Tree">Decision Tree</span>
+            </button>
+            
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+                    data-tab="tab-3">
+                <span class="material-symbols-outlined text-[18px]">analytics</span>
+                <span data-i18n="tab" data-en="TCO">계약건수·구독료·TCO</span>
+                <span class="opacity-60 text-[10px]" data-i18n="tab_sub" data-en="TCO">TCO</span>
+            </button>
+            
+            <button class="tab-button flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
+                    data-tab="tab-4">
+                <span class="material-symbols-outlined text-[18px]">public</span>
+                <span data-i18n="tab" data-en="Market">시장·경쟁 배경</span>
+                <span class="opacity-60 text-[10px]" data-i18n="tab_sub" data-en="Market">Market</span>
+            </button>
+            
+            </div>
+        </div>
+        
+
+            <div class="tab-content active" id="tab-0">
+        <div class="flex flex-col gap-xl">
+            
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+                <h2 class="font-headline-md text-headline-md text-primary">요약</h2>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-md list-none p-0 m-0">
+                
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs"><span data-i18n="bullet_similarity" data-en="Similarity Assessment">유사도 평가</span></span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><span data-i18n="bullet_vs_baseline" data-en="vs. Baseline">베이스라인</span> <strong><span data-i18n="country_name" data-en="United Kingdom">영국</span>(GB)</strong> <span data-i18n="bullet_overall_sim" data-en="overall similarity">대비 종합 유사도</span> <strong>100.0<span data-i18n="bullet_pts_100" data-en=" / 100">점 / 100</span></strong></span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs"><span data-i18n="bullet_decision" data-en="System Decision">시스템 결정</span></span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><strong>Baseline Already Deployed</strong> — <span data-i18n="engine_msg" data-en="GB is the regional baseline — system (NetSol) is already operational. The new-entry decision tree does not apply.">GB는 권역 기준국 — 시스템(NetSol)이 이미 운영 중입니다. 신규 진출 결정 트리는 적용되지 않습니다.</span></span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs"><span data-i18n="bullet_10y_tco" data-en="10-Year TCO">10년 TCO</span></span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><span data-i18n="bullet_total" data-en="Total">총</span> <strong>£0</strong> <span data-i18n="bullet_tco_note" data-en="(System + Opex combined · base currency KRW)">(시스템 + 운영비 통합 · 환산 기준 통화 KRW)</span></span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary text-[18px] mt-[2px]">check_circle</span>
+                <div>
+                    <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-xs"><span data-i18n="bullet_build_contract" data-en="Build Duration / Contracts">구축 기간 / 계약</span></span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><span data-i18n="bullet_est_build" data-en="Estimated build duration">예상 구축 기간</span> <strong>0.0<span data-i18n="unit_months" data-en=" months">개월</span></strong> · <span data-i18n="bullet_est_new_contracts" data-en="Estimated new contracts">예상 신규 계약건수</span> <strong>0<span data-i18n="unit_per_year" data-en="/yr">건/년</span></strong></span>
+                </div>
+            </li>
+            
+            </ul>
+        </section>
+        
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-8 flex flex-col gap-xl">
+                    <div class="grid grid-cols-3 gap-gutter">
+                        
+            <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col h-full">
+                <div class="flex items-center justify-between mb-md">
+                    <span class="font-headline-md text-headline-md text-primary tracking-tight">유사도 점수</span>
+                    <span class="material-symbols-outlined text-emerald-800 text-[32px]">trending_up</span>
+                </div>
+                <div class="flex-1 flex items-end">
+                    <span class="font-display-lg text-display-lg text-primary leading-none">100.0</span>
+                </div>
+            </div>
+            
+            <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col h-full">
+                <div class="flex items-center justify-between mb-md">
+                    <span class="font-headline-md text-headline-md text-primary tracking-tight">예상 10년 TCO</span>
+                    <span class="material-symbols-outlined text-primary text-[32px]">payments</span>
+                </div>
+                <div class="flex-1 flex items-end">
+                    <span class="font-display-lg text-display-lg text-primary leading-none">£0</span>
+                </div>
+            </div>
+            
+            <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow flex flex-col h-full">
+                <div class="flex items-center justify-between mb-md">
+                    <span class="font-headline-md text-headline-md text-primary tracking-tight">예상 구축 기간</span>
+                    <span class="material-symbols-outlined text-primary text-[32px]">schedule</span>
+                </div>
+                <div class="flex-1 flex items-end">
+                    <span class="font-display-lg text-display-lg text-primary leading-none">0.0M</span>
+                </div>
+            </div>
+            
+                    </div>
+                    
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+                <h2 class="font-headline-md text-headline-md text-primary">시스템 결정 트리</h2>
+            </div>
+            
+            <style>
+                @keyframes dt-pulse {
+                    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,32,78,0.25); }
+                    70% { transform: scale(1.04); box-shadow: 0 0 0 16px rgba(0,32,78,0); }
+                    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,32,78,0); }
+                }
+                @keyframes dt-pop {
+                    0% { transform: scale(0.85); opacity: 0; }
+                    60% { transform: scale(1.08); opacity: 1; }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+                @keyframes dt-spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                @keyframes dt-flow {
+                    to { stroke-dashoffset: -24; }
+                }
+                @keyframes dt-dash {
+                    from { stroke-dashoffset: 1000; }
+                    to { stroke-dashoffset: 0; }
+                }
+                @keyframes dt-glow {
+                    0%, 100% { filter: drop-shadow(0 0 6px rgba(16,185,129,0.45)); }
+                    50% { filter: drop-shadow(0 0 14px rgba(16,185,129,0.9)); }
+                }
+                .dt-node-start { animation: dt-pulse 2.4s ease-in-out infinite; }
+                .dt-diamond { animation: dt-pop 0.6s ease-out 0.3s both; transform-origin: center; }
+                .dt-flow-line {
+                    stroke: #00204e;
+                    stroke-width: 2;
+                    stroke-dasharray: 6 6;
+                    animation: dt-flow 1.2s linear infinite;
+                    fill: none;
+                }
+                .dt-active-path {
+                    stroke: #10b981;
+                    stroke-width: 4;
+                    stroke-linecap: round;
+                    fill: none;
+                    stroke-dasharray: 1000;
+                    stroke-dashoffset: 1000;
+                    animation: dt-dash 1.6s ease-out 0.6s forwards, dt-glow 2s ease-in-out 2.2s infinite;
+                }
+                .dt-active-bullet { animation: dt-pop 0.5s ease-out 2.0s both, dt-glow 2s ease-in-out 2.4s infinite; transform-origin: center; transform-box: fill-box; }
+                .dt-branch-card { animation: dt-pop 0.55s ease-out both; transform-origin: top center; }
+                .dt-branch-b { animation-delay: 2.1s; }
+                .dt-branch-ext { animation-delay: 2.3s; }
+                .dt-branch-hq { animation-delay: 2.5s; }
+                .dt-branch-active { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+            </style>
+
+            <div class="flex flex-col items-center pt-md gap-sm">
+                <!-- 분기 로직 -->
+                <div class="w-full max-w-4xl">
+                    <div class="flex items-center gap-sm mb-xs">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-label-md text-label-md">①</span>
+                        <span class="font-label-md text-label-md text-text-secondary uppercase tracking-wider">분기 로직 (권역 내 시스템 → 점수 → 외부솔루션 기준점)</span>
+                    </div>
+                </div>
+                <svg class="w-full max-w-4xl block" viewBox="0 0 900 640" preserveAspectRatio="xMidYMid meet" style="margin-bottom: -8px;">
+                    <defs>
+                        <marker id="arrow-soft" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+                        </marker>
+                    </defs>
+
+                    <!-- (a) 권역 내 시스템 존재 다이아몬드 (top) -->
+                    <g class="dt-diamond">
+                        <polygon points="450,20 520,80 450,140 380,80" fill="#fbf9f9" stroke="#00204e" stroke-width="2"/>
+                        <text x="450" y="75" text-anchor="middle" font-size="11" fill="#00204e" font-weight="700">권역 내 구축</text>
+                        <text x="450" y="92" text-anchor="middle" font-size="11" fill="#00204e" font-weight="700">시스템 존재?</text>
+                    </g>
+
+                    <!-- (a) YES → 점수 다이아몬드 -->
+                    <path d="M450 140 L450 200" class="dt-flow-line" opacity="0.25" />
+                    <text x="465" y="175" text-anchor="start" font-size="11" font-weight="700" fill="#065f46" opacity="1">YES (영국)</text>
+
+                    <!-- (a) NO → 외부솔루션 기준점 다이아몬드 -->
+                    <path d="M520 80 L820 80 L820 480 L520 480" class="dt-flow-line" opacity="0.25" />
+                    <text x="700" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#854d0e" opacity="0.3">NO → 외부솔루션</text>
+
+                    <!-- (b) 점수 분기 다이아몬드 -->
+                    <g class="dt-diamond" style="animation-delay: 0.6s; opacity: 1">
+                        <polygon points="450,200 525,260 450,320 375,260" fill="#fbf9f9" stroke="#00204e" stroke-width="2"/>
+                        <text x="450" y="255" text-anchor="middle" font-size="10" fill="#00204e" font-weight="700">유사도</text>
+                        <text x="450" y="280" text-anchor="middle" font-size="18" fill="#00204e" font-weight="800">100.0</text>
+                    </g>
+
+                    <!-- (b) Score branch 1: ≥70 → B leaf -->
+                    <path d="M450 320 L450 360 L150 360 L150 560" class="dt-flow-line" opacity="0.25" />
+                    <text x="300" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46" opacity="1">≥ 70 → 권역 내 확산</text>
+
+                    <!-- (b) Score branch 2: 50~70 → HQ leaf -->
+                    <path d="M450 320 L450 360 L750 360 L750 560" class="dt-flow-line" opacity="0.25" />
+                    <text x="600" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#9f1239" opacity="0.3">50~70 → 본사 자체구축</text>
+
+                    <!-- (b) Score branch 3: <50 → secondary gate (with longer gap) -->
+                    <path d="M450 320 L450 420" class="dt-flow-line" opacity="0.25" />
+                    <text x="465" y="370" text-anchor="start" font-size="11" font-weight="700" fill="#854d0e" opacity="0.3">&lt; 50</text>
+
+                    <!-- (c) 외부솔루션 기준점 다이아몬드 -->
+                    <g class="dt-diamond" style="animation-delay: 1.0s; opacity: 0.35">
+                        <polygon points="450,420 520,480 450,540 380,480" fill="#fff7ed" stroke="#9a3412" stroke-width="2"/>
+                        <text x="450" y="475" text-anchor="middle" font-size="10" fill="#9a3412" font-weight="700">외부솔루션</text>
+                        <text x="450" y="492" text-anchor="middle" font-size="10" fill="#9a3412" font-weight="700">기준점 통과?</text>
+                    </g>
+
+                    <!-- (c) Gate → EXT leaf -->
+                    <path d="M450 540 L450 615" class="dt-flow-line" opacity="0.25" />
+                    <text x="465" y="585" text-anchor="start" font-size="11" font-weight="700" fill="#854d0e" opacity="0.3">YES → 외부솔루션</text>
+
+                    <!-- (c) Gate → HQ leaf (fallback) -->
+                    <path d="M520 480 L750 480 L750 560" class="dt-flow-line" opacity="0.25" />
+                    <text x="640" y="472" text-anchor="middle" font-size="11" font-weight="700" fill="#9f1239" opacity="0.3">NO (Fallback)</text>
+
+                    <!-- Active path: region NOT exists → gate YES → EXT -->
+                    
+
+                    <!-- Active path: region NOT exists → gate NO → HQ -->
+                    
+
+                    <!-- Active path: region exists, ≥70 → B -->
+                    <path d="M450 140 L450 200 M450 320 L450 360 L150 360 L150 560" class="dt-active-path" />
+
+                    <!-- Active path: region exists, 50~70 → HQ -->
+                    
+
+                    <!-- Active path: region exists, <50, gate YES → EXT -->
+                    
+
+                    <!-- Active path: region exists, <50, gate NO → HQ -->
+                    
+
+                    <!-- Final bullet at leaf -->
+                    <circle class="dt-active-bullet" cx="150" cy="560" r="7" fill="#10b981" />
+                </svg>
+
+                <!-- 처리 액션 (3 branches) -->
+                <div class="w-full max-w-4xl">
+                    <div class="flex items-center gap-sm mb-sm">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-label-md text-label-md">②</span>
+                        <span class="font-label-md text-label-md text-text-secondary uppercase tracking-wider">처리 (Action)</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-lg">
+                        <div class="dt-branch-card dt-branch-b bg-emerald-100/40 border-2 border-emerald-500 dt-branch-active rounded-xl p-md">
+                            <div class="flex items-center gap-xs mb-xs">
+                                <span class="material-symbols-outlined text-emerald-700 text-[20px]">expand_circle_down</span>
+                                <span class="font-label-md text-label-md text-emerald-800 uppercase tracking-wider">권역 내 확산 (영국 시스템)</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-emerald-900 leading-relaxed">권역 내 확산 시스템(영국 - NetSol) + 현지 특화 추가개발 → TCO 산정</p>
+                        </div>
+
+                        <div class="dt-branch-card dt-branch-ext bg-yellow-100/40 border-2 border-outline-variant opacity-40 rounded-xl p-md">
+                            <div class="flex items-center gap-xs mb-xs">
+                                <span class="material-symbols-outlined text-yellow-700 text-[20px]">extension</span>
+                                <span class="font-label-md text-label-md text-yellow-800 uppercase tracking-wider">외부솔루션</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-yellow-900 leading-relaxed">현지 사용 솔루션 + 로컬 솔루션 2~3종 추천 (기준점 통과 시)</p>
+                        </div>
+
+                        <div class="dt-branch-card dt-branch-hq bg-tertiary-fixed/40 border-2 border-outline-variant opacity-40 rounded-xl p-md">
+                            <div class="flex items-center gap-xs mb-xs">
+                                <span class="material-symbols-outlined text-accent-red text-[20px]">domain</span>
+                                <span class="font-label-md text-label-md text-tertiary uppercase tracking-wider">본사 자체구축</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-tertiary leading-relaxed">본사 시스템 사용 (€0 / 0M 기준)</p>
+                        </div>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-text-secondary mt-sm">※ 본사 자체구축 비용·기간은 어느 분기든 참고용으로 병기됩니다.</p>
+                </div>
+            </div>
+
+            <div class="bg-surface-container p-md rounded-lg border-l-4 border-primary mb-md">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                    <span class="font-semibold font-label-md text-label-md text-primary uppercase">최종 결정: Baseline Already Deployed</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"><span data-i18n="engine_msg" data-en="GB is the regional baseline — system (NetSol) is already operational. The new-entry decision tree does not apply.">GB는 권역 기준국 — 시스템(NetSol)이 이미 운영 중입니다. 신규 진출 결정 트리는 적용되지 않습니다.</span></p>
+            </div>
+
+            <div class="flex flex-col gap-md">
+                <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                    <span class="font-label-md text-label-md text-text-secondary">베이스라인 국가 / 시스템</span>
+                    <span class="font-semibold font-body-md text-body-md text-text-primary">영국 (NetSol)</span>
+                </div>
+                <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                    <span class="font-label-md text-label-md text-text-secondary">본사 자체구축 (참고)</span>
+                    <span class="font-semibold font-body-md text-body-md text-text-primary">€0 / 0M</span>
+                </div>
+            </div>
+        
+        </section>
+        
+                </div>
+                <div class="col-span-4 flex flex-col gap-xl">
+                    <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                        <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                            <h2 class="font-headline-md text-headline-md text-primary">결정 요약</h2>
+                        </div>
+                        <div class="flex flex-col gap-md">
+                            <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-secondary text-[18px]">account_tree</span>
+                                    </div>
+                                    <span class="font-label-md text-label-md text-text-primary">시스템 결정</span>
+                                </div>
+                                <div class="flex items-center gap-xs bg-emerald-100/50 text-emerald-800 px-2 py-1 rounded-full border border-emerald-200">
+                                    <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                    <span class="font-label-sm text-label-sm uppercase tracking-wide">Baseline Already Deployed</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-sm bg-surface rounded-lg border border-surface-container-highest">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-secondary text-[18px]">flag</span>
+                                    </div>
+                                    <span class="font-label-md text-label-md text-text-primary">베이스라인 국가</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-text-primary font-semibold">영국 (GB)</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">국가 종합 인사이트</h2>
+                </div>
+                <ul class="flex flex-col gap-sm list-none p-0 m-0">
+                    <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">유럽 최대급 자동차금융 시장이자 자사 NetSol 구축 실적을 보유한 권역 베이스라인 기준국.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">2025년 신차 등록 약 196만대(SMMT)로 EU 주요시장 대비 큰 규모이며, 신차 사적 구매의 80%+가 금융(주로 PCP)으로 조달되는 세계 최고 수준의 금융 침투율이 특징이다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">FLA 기준 소비자 자동차금융 신규 실행액이 연 £390억 규모로 시장 깊이가 깊다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">비용·난이도 드라이버는 규제 강도다 — FCA(금융행위감독청) 인가가 소비자신용의 핵심 관문이며, 2024~2025년 자동차 DCA(딜러 재량 수수료) 미스셀링 사태가 업계 전반의 보상·컴플라이언스 부담을 키운 핵심 리스크 플래그다(대법원 2025.8 판결로 일부 완화됐으나 FCA 보상 스킴 진행 중).</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">비즈니스 매력도(대형 시장·고침투율·성숙 PCP 생태계)는 최상위권이나, Brexit로 GDPR이 UK GDPR로 분기되고 EU 데이터 적정성 결정에 의존하는 점, DCA 사태 후 규제 불확실성이 매력도를 일부 상쇄한다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">IT 유사도는 베이스라인 자체이므로 만점 기준 — NetSol 코어·성숙한 CB(Experian/Equifax/TransUnion)·Open Banking 등 디지털 인프라가 권역 비교의 기준선이 된다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">다크호스는 EV 전환 속도(2025 ZEV Mandate 28%, 신차의 약 1/5이 BEV)와 그에 따른 잔가 리스크로, 리스·PCP 손익의 핵심 변수다.</span></li><li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[16px] mt-[2px]">arrow_right</span><span class="font-body-md text-body-md text-on-surface-variant leading-relaxed">본 데이터는 타 EU 후보국의 유사도·비용 산정 기준선으로 사용된다.</span></li>
+                </ul>
+            </section>
+            
+                </div>
+            </div>
+        </div>
+        </div>
+            <div class="tab-content" id="tab-1">
+        <div class="grid grid-cols-12 gap-gutter">
+            <div class="col-span-8 flex flex-col gap-xl">
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">radar</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">유사도 점수 (자기 베이스라인)</h2>
+                    </div>
+                    <div class="relative flex flex-col items-center">
+                        <div class="w-full aspect-square relative flex items-center justify-center mb-md max-w-md mx-auto">
+                            <svg class="w-full h-full overflow-visible" viewBox="0 0 200 200">
+                                <polygon fill="none" points="100,20 180,100 100,180 20,100" stroke="#DCDCDC" stroke-width="1"/>
+                                <polygon fill="none" points="100,40 160,100 100,160 40,100" stroke="#DCDCDC" stroke-width="1"/>
+                                <polygon fill="none" points="100,60 140,100 100,140 60,100" stroke="#DCDCDC" stroke-width="1"/>
+                                <polygon fill="none" points="100,80 120,100 100,120 80,100" stroke="#DCDCDC" stroke-width="1"/>
+                                <line stroke="#DCDCDC" stroke-width="1" x1="100" y1="20" x2="100" y2="180"/>
+                                <line stroke="#DCDCDC" stroke-width="1" x1="20" y1="100" x2="180" y2="100"/>
+                                <polygon fill="rgba(0, 32, 78, 0.15)" points="100,20.0 180.0,100 100,180.0 20.0,100" stroke="#00204e" stroke-width="2"/>
+                                <circle cx="100" cy="20.0" fill="#00204e" r="3"/>
+                                <circle cx="180.0" cy="100" fill="#00204e" r="3"/>
+                                <circle cx="100" cy="180.0" fill="#00204e" r="3"/>
+                                <circle cx="20.0" cy="100" fill="#00204e" r="3"/>
+                            </svg>
+                            <span class="absolute top-0 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">시스템</span>
+<span class="absolute right-0 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">상품</span>
+<span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">규제</span>
+<span class="absolute left-0 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">리스크</span>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-span-4 flex flex-col gap-xl">
+                <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assessment</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">축별 점수</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-sm mb-md">
+                        
+            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                <span class="font-label-sm text-label-sm text-text-secondary uppercase">시스템</span>
+                <span class="font-headline-md text-headline-md text-primary">100.0</span>
+            </div>
+            
+            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                <span class="font-label-sm text-label-sm text-text-secondary uppercase">상품</span>
+                <span class="font-headline-md text-headline-md text-primary">100.0</span>
+            </div>
+            
+            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                <span class="font-label-sm text-label-sm text-text-secondary uppercase">규제</span>
+                <span class="font-headline-md text-headline-md text-primary">100.0</span>
+            </div>
+            
+            <div class="flex flex-col p-sm bg-surface rounded-lg border border-surface-container-highest">
+                <span class="font-label-sm text-label-sm text-text-secondary uppercase">리스크</span>
+                <span class="font-headline-md text-headline-md text-primary">100.0</span>
+            </div>
+            
+                    </div>
+                    <div class="p-md bg-surface-container rounded-lg border-l-4 border-primary mb-sm">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">grade</span>
+                            <span class="font-semibold font-label-md text-label-md text-primary uppercase">Overall Score</span>
+                        </div>
+                        <div class="flex items-baseline gap-xs">
+                            <span class="font-headline-lg text-headline-lg text-primary">100.0</span>
+                            <span class="font-body-sm text-body-sm text-text-secondary">/ 100</span>
+                        </div>
+                    </div>
+                    <div class="p-md bg-emerald-50/60 rounded-lg border-l-4 border-emerald-600">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-emerald-700 text-[18px]">percent</span>
+                            <span class="font-semibold font-label-md text-label-md text-emerald-800 uppercase">TCO 적용 승수</span>
+                        </div>
+                        <div class="flex items-baseline gap-xs">
+                            <span class="font-headline-lg text-headline-lg text-emerald-700">50%</span>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-text-secondary mt-xs">유사도 90~100 → 50% 적용</p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-span-12"></div>
+            <div class="col-span-12">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                <h2 class="font-headline-md text-headline-md text-primary">유사도 산정 근거 항목 (원천 데이터)</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">솔루션 유형</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (Alfa Systems 클라우드 전환, NetSol Transcend)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">베이스라인 패키지 유형 — 비교 기준. 클라우드/SaaS 전환이 가장 앞선 시장으로 아키텍처 현대화 레퍼런스.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">디지털 채널 성숙도</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">5</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (Open Banking·온라인 신청·전자서명 보편, 디지털 딜러 선도)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Open Banking 세계 선도, 완전 디지털 신청·전자계약 보편화. 디지털 채널 성숙도 최상 — 베이스라인 기준(5).</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">디지털 딜러 성숙도</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">5</span> <span class="text-text-secondary font-body-sm">maturity_1to5</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 (Auto Trader·Cazoo·온라인 풀스택 판매, OEM 직판)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Auto Trader 등 온라인 마켓플레이스·디지털 풀스택 판매 선도. 임베디드 자동차금융 가장 발달 — 디지털 딜러 기준선(5).</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">라이선스 체제(세그먼트별)</span>
+                    <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 1</span>
+                    <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">PASS</span>
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">FCA CONC, Senior Managers & Certification Regime</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">소비자신용은 FCA full permission+SM&CR(임원책임제)로 거버넌스 공수 큼, B2B는 경감. Consumer Duty(2023~)로 소비자보호 의무 강화 — 컴플라이언스 부담 고려.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">데이터 현지화 의무</span>
+                    <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 1</span>
+                    <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">PASS</span>
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">UK GDPR, Data Protection Act 2018, EU-UK 적정성 결정(2021, 2025 연장)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">강제 현지화 없음. UK GDPR로 EU와 분기됐으나 적정성 결정으로 역내 이전 가능. 적정성 갱신 여부가 장기 리스크.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">차량회수 절차 용이성</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">4</span> <span class="text-text-secondary font-body-sm">ease_1to5</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Consumer Credit Act 1974(HP/PCP 회수 규정), FCA CONC</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">HP/PCP는 소유권 기반 회수 가능. 1/3 미만 납입 시 자력회수, 1/3 이상은 법원 명령(return order) 필요 — 절차 명확해 상대적 용이. 베이스라인 회수 모듈 기준.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+            </div>
+        </section>
+        </div>
+        </div>
+        </div>
+            <div class="tab-content" id="tab-2"><div class="flex flex-col gap-xl">
+        <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-start gap-md">
+                <div class="w-12 h-12 rounded-lg bg-[#E8F0FE] text-[#1967D2] flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="flex-1">
+                    <h2 class="font-headline-md text-headline-md text-primary m-0"><span data-i18n="engine_msg" data-en="Baseline — system decision tree does not apply">기준국 — 시스템 결정 트리 적용 불가</span></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-xs"><span data-i18n="engine_msg" data-en="GB is the regional baseline — system (NetSol) is already operational. The new-entry decision tree does not apply.">GB는 권역 기준국 — 시스템(NetSol)이 이미 운영 중입니다. 신규 진출 결정 트리는 적용되지 않습니다.</span></p>
+                    <div class="flex items-center gap-xs mt-sm"><span class="px-2 py-[2px] rounded bg-[#E8F0FE] text-[#1967D2] font-label-sm text-label-sm"><span data-i18n="header_baseline" data-en="Baseline">기준국</span> GB</span><span class="px-2 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">NetSol</span></div>
+                </div>
+            </div>
+        </div>
+        </div></div>
+            <div class="tab-content" id="tab-3"><div class="flex flex-col gap-xl">
+        <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-start gap-md">
+                <div class="w-12 h-12 rounded-lg bg-[#E8F0FE] text-[#1967D2] flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="flex-1">
+                    <h2 class="font-headline-md text-headline-md text-primary m-0"><span data-i18n="engine_msg" data-en="Baseline — TCO calculation does not apply">기준국 — TCO 산정 적용 불가</span></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-xs"><span data-i18n="engine_msg" data-en="GB is the regional baseline — new build cost/duration do not apply. For operational figures (existing volume, opex), see the separate management report.">GB는 권역 기준국 — 신규 구축 비용·기간이 적용되지 않습니다. 운영 현황(기존 누적 계약·운영비)은 별도 관리 보고서를 참조하세요.</span></p>
+                    
+                </div>
+            </div>
+        </div>
+        </div></div>
+            <div class="tab-content" id="tab-4">
+        <div class="flex flex-col gap-xl">
+            
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">summarize</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">국가 정성 요약</h2>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-md">유럽 최대급 자동차금융 시장이자 자사 NetSol 구축 베이스라인. 2025 신차 약 196만대(SMMT), 신차 사적구매 80%+ 금융(PCP 지배적). FLA 기준 소비자 자동차금융 연 약 £39bn. FCA 규제·DCA 미스셀링 사태가 컴플라이언스 핵심 변수. Open Banking·3대 CB로 IT 인프라 세계 최고.</p>
+                <div class="bg-surface-container/60 p-md rounded-lg border-l-4 border-primary">
+                    <div class="flex items-center gap-xs mb-xs">
+                        <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                        <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">권역 베이스라인 — 타 EU 후보국 유사도·비용 산정 기준선. PCP 중심 성숙 시장의 레퍼런스.</p>
+                </div>
+            </section>
+            
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-6">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">금융사 Top 5 (점유율 · 캡티브 강도)</h2>
+                </div>
+                <div class="text-right">
+                    <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Top 5 누적 점유율</div>
+                    <div class="font-headline-md text-headline-md text-primary">56.0<span class="font-body-sm text-body-sm text-text-secondary">%</span></div>
+                </div>
+            </div>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-text-secondary border-b border-surface-container-highest">
+                        <th class="py-xs pr-sm text-left font-label-sm text-label-sm uppercase">순위 · 기업</th>
+                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">점유율</th>
+                        <th class="py-xs pl-sm text-right font-label-sm text-label-sm uppercase">값</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-primary w-6 text-right">1</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Black Horse (Lloyds Banking Group)</span>
+                            <div class="flex items-center gap-xs mt-[2px]"></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 100.0%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">18.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">2</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Volkswagen Financial Services UK</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 72.2%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">13.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">3</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Santander Consumer (UK)</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 55.6%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">10.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">4</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">BMW Financial Services</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 44.4%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">8.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">5</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Ford Credit / FCE Bank</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 38.9%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">7.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="mt-md bg-surface-container/60 p-sm rounded-md border-l-4 border-primary"><div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">인사이트</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">은행계(Black Horse·Santander)와 OEM 캡티브(VWFS·BMW·Ford) 혼재. DCA 사태로 상위사 보상 부담 — 신규 진입은 중고·니어프라임 틈새 권장.</p></div>
+        </section>
+        </div>
+                <div class="col-span-6">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">OEM Top 5 (점유율 · 캡티브 보유)</h2>
+                </div>
+                <div class="text-right">
+                    <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Top 5 누적 점유율</div>
+                    <div class="font-headline-md text-headline-md text-primary">36.0<span class="font-body-sm text-body-sm text-text-secondary">%</span></div>
+                </div>
+            </div>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-text-secondary border-b border-surface-container-highest">
+                        <th class="py-xs pr-sm text-left font-label-sm text-label-sm uppercase">순위 · 기업</th>
+                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">점유율</th>
+                        <th class="py-xs pl-sm text-right font-label-sm text-label-sm uppercase">값</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-primary w-6 text-right">1</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Ford</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 100.0%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">9.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">2</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Volkswagen</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 88.9%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">8.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">3</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Kia</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 77.8%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">7.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">4</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">Audi</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 66.7%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">6.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md text-text-secondary w-6 text-right">5</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">BMW</span>
+                            <div class="flex items-center gap-xs mt-[2px]"><span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 66.7%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">6.0</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="mt-md bg-surface-container/60 p-sm rounded-md border-l-4 border-primary"><div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">인사이트</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Ford·VW·Kia가 상위, 캡티브 강한 VW·BMW·Ford 비중 주목. 중국 EV 브랜드(BYD·MG) 급성장 — 캡티브 미보유 브랜드 제휴 여지.</p></div>
+        </section>
+        </div>
+            </div>
+            
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">battery_charging_full</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">EV 보급률 · EV/ICE 잔존가치 추이</h2>
+                </div>
+                <div class="flex items-center gap-md"><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full" style="background:#005db7"></span><span class="font-label-sm text-label-sm text-text-secondary">EV 보급률</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full" style="background:#E63946"></span><span class="font-label-sm text-label-sm text-text-secondary">EV/ICE 잔존가치(3년)</span></div></div>
+            </div>
+            <svg class="w-full" viewBox="0 0 760 280" preserveAspectRatio="xMidYMid meet">
+                <line x1="50" y1="20.0" x2="740" y2="20.0" stroke="#e3e2e2" stroke-width="1"/><text x="44" y="24.0" font-size="10" fill="#747782" text-anchor="end">65</text><line x1="50" y1="76.0" x2="740" y2="76.0" stroke="#e3e2e2" stroke-width="1"/><text x="44" y="80.0" font-size="10" fill="#747782" text-anchor="end">50</text><line x1="50" y1="132.0" x2="740" y2="132.0" stroke="#e3e2e2" stroke-width="1"/><text x="44" y="136.0" font-size="10" fill="#747782" text-anchor="end">36</text><line x1="50" y1="188.0" x2="740" y2="188.0" stroke="#e3e2e2" stroke-width="1"/><text x="44" y="192.0" font-size="10" fill="#747782" text-anchor="end">21</text><line x1="50" y1="244.0" x2="740" y2="244.0" stroke="#e3e2e2" stroke-width="1"/><text x="44" y="248.0" font-size="10" fill="#747782" text-anchor="end">7</text>
+                <text x="50.0" y="260" font-size="10" fill="#747782" text-anchor="middle">2021</text><text x="126.66666666666666" y="260" font-size="10" fill="#747782" text-anchor="middle">2022</text><text x="203.33333333333331" y="260" font-size="10" fill="#747782" text-anchor="middle">2023</text><text x="280.0" y="260" font-size="10" fill="#747782" text-anchor="middle">2024</text><text x="356.66666666666663" y="260" font-size="10" fill="#747782" text-anchor="middle">2025</text><text x="433.33333333333337" y="260" font-size="10" fill="#747782" text-anchor="middle">2026</text><text x="510.0" y="260" font-size="10" fill="#747782" text-anchor="middle">2027</text><text x="586.6666666666666" y="260" font-size="10" fill="#747782" text-anchor="middle">2028</text><text x="663.3333333333333" y="260" font-size="10" fill="#747782" text-anchor="middle">2029</text><text x="740.0" y="260" font-size="10" fill="#747782" text-anchor="middle">2030</text>
+                <path d="M 50.0 225.33333333333334 L 126.66666666666666 206.04958677685948 L 203.33333333333331 206.43526170798899 L 280.0 194.4793388429752 L 356.66666666666663 192.93663911845732" fill="none" stroke="#005db7" stroke-width="2.5"/><circle cx="50.0" cy="225.33333333333334" r="3" fill="#005db7"/><circle cx="126.66666666666666" cy="206.04958677685948" r="3" fill="#005db7"/><circle cx="203.33333333333331" cy="206.43526170798899" r="3" fill="#005db7"/><circle cx="280.0" cy="194.4793388429752" r="3" fill="#005db7"/><circle cx="356.66666666666663" cy="192.93663911845732" r="3" fill="#005db7"/><path d="M 356.66666666666663 192.93663911845732 L 433.33333333333337 177.5096418732782 L 510.0 162.08264462809916 L 586.6666666666666 142.79889807162533 L 663.3333333333333 123.51515151515153 L 740.0 96.51790633608815" fill="none" stroke="#005db7" stroke-width="2.5" stroke-dasharray="6 4"/><circle cx="433.33333333333337" cy="177.5096418732782" r="3" fill="#005db7" opacity="0.6"/><circle cx="510.0" cy="162.08264462809916" r="3" fill="#005db7" opacity="0.6"/><circle cx="586.6666666666666" cy="142.79889807162533" r="3" fill="#005db7" opacity="0.6"/><circle cx="663.3333333333333" cy="123.51515151515153" r="3" fill="#005db7" opacity="0.6"/><circle cx="740.0" cy="96.51790633608815" r="3" fill="#005db7" opacity="0.6"/><path d="M 50.0 38.666666666666686 L 126.66666666666666 46.38016528925618 L 203.33333333333331 69.52066115702479 L 280.0 81.0909090909091 L 356.66666666666663 77.23415977961434" fill="none" stroke="#E63946" stroke-width="2.5"/><circle cx="50.0" cy="38.666666666666686" r="3" fill="#E63946"/><circle cx="126.66666666666666" cy="46.38016528925618" r="3" fill="#E63946"/><circle cx="203.33333333333331" cy="69.52066115702479" r="3" fill="#E63946"/><circle cx="280.0" cy="81.0909090909091" r="3" fill="#E63946"/><circle cx="356.66666666666663" cy="77.23415977961434" r="3" fill="#E63946"/><path d="M 356.66666666666663 77.23415977961434 L 433.33333333333337 77.23415977961434 L 510.0 73.37741046831957 L 586.6666666666666 73.37741046831957 L 663.3333333333333 69.52066115702479 L 740.0 69.52066115702479" fill="none" stroke="#E63946" stroke-width="2.5" stroke-dasharray="6 4"/><circle cx="433.33333333333337" cy="77.23415977961434" r="3" fill="#E63946" opacity="0.6"/><circle cx="510.0" cy="73.37741046831957" r="3" fill="#E63946" opacity="0.6"/><circle cx="586.6666666666666" cy="73.37741046831957" r="3" fill="#E63946" opacity="0.6"/><circle cx="663.3333333333333" cy="69.52066115702479" r="3" fill="#E63946" opacity="0.6"/><circle cx="740.0" cy="69.52066115702479" r="3" fill="#E63946" opacity="0.6"/>
+            </svg>
+            <p class="font-label-sm text-label-sm text-text-secondary mt-xs">실선=과거, 점선=전망 · 단위: %</p>
+        </section>
+        
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-8">
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">percent</span>
+                <h2 class="font-headline-md text-headline-md text-primary">경쟁사 금리 범위</h2>
+            </div>
+            <svg class="w-full" viewBox="0 0 760 120" preserveAspectRatio="xMidYMid meet">
+                
+            <g>
+                <text x="0" y="36.0" font-size="13" fill="#1b1c1c" font-weight="600">신차 자동차대출</text>
+                <line x1="430.0" y1="32.0" x2="700.0" y2="32.0" stroke="#00204e" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="430.0" cy="32.0" r="5" fill="#00204e"/>
+                <circle cx="700.0" cy="32.0" r="5" fill="#00204e"/>
+                <text x="424.0" y="36.0" font-size="11" fill="#434751" font-weight="600" text-anchor="end">5.0%</text>
+                <text x="708.0" y="36.0" font-size="11" fill="#434751" font-weight="600">10.0%</text>
+            </g>
+            
+            <g>
+                <text x="0" y="76.0" font-size="13" fill="#1b1c1c" font-weight="600">캡티브 프로모</text>
+                <line x1="160.0" y1="72.0" x2="484.0" y2="72.0" stroke="#10b981" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="160.0" cy="72.0" r="5" fill="#10b981"/>
+                <circle cx="484.0" cy="72.0" r="5" fill="#10b981"/>
+                <text x="154.0" y="76.0" font-size="11" fill="#434751" font-weight="600" text-anchor="end">0.0%</text>
+                <text x="492.0" y="76.0" font-size="11" fill="#434751" font-weight="600">6.0%</text>
+            </g>
+            
+            </svg>
+        </section>
+        </div>
+                <div class="col-span-4"></div>
+            </div>
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-6">
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">경쟁사 현황 (유형별)</h2>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-text-secondary">총 10개사</span>
+                </div>
+                <div class="bg-surface p-sm rounded-md border border-surface-container-highest mb-md"><div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-text-secondary text-[14px]">flag</span><span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">진출 형태</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">은행계 자회사(Black Horse/Lloyds·Santander) + OEM 캡티브(VWFS·BMW·Ford·Stellantis FS) + 독립계 전문여신사(MotoNovo·Close Brothers). 리스는 LeasePlan/Ayvens·Arval 등 다국적</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                <div class="p-sm bg-surface-container-low rounded-lg border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-xs">
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">account_balance</span>
+                            <span class="font-label-md text-label-md text-primary uppercase tracking-wider">은행계 자회사</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-text-secondary">1개</span>
+                    </div>
+                    <div class="flex flex-wrap gap-xs"><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Santander Consumer UK</span></div>
+                </div>
+                
+                <div class="p-sm bg-surface-container-low rounded-lg border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-xs">
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">directions_car</span>
+                            <span class="font-label-md text-label-md text-primary uppercase tracking-wider">OEM 캡티브</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-text-secondary">6개</span>
+                    </div>
+                    <div class="flex flex-wrap gap-xs"><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Volkswagen Financial Services</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">BMW Financial Services</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Ford Credit</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Stellantis Financial Services</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Toyota Financial Services</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Mercedes-Benz Financial</span></div>
+                </div>
+                
+                <div class="p-sm bg-surface-container-low rounded-lg border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-xs">
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">store</span>
+                            <span class="font-label-md text-label-md text-primary uppercase tracking-wider">전문 여신사·기타</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-text-secondary">3개</span>
+                    </div>
+                    <div class="flex flex-wrap gap-xs"><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Black Horse (Lloyds)</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">MotoNovo Finance</span><span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">Close Brothers Motor Finance</span></div>
+                </div>
+                </div>
+                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary mt-md">
+                    <div class="flex items-center gap-xs mb-xs">
+                        <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                        <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">은행계+OEM 캡티브가 신차 지배, 독립계(MotoNovo·Close Brothers)는 중고 강세. 베이스라인 시장의 경쟁 구도 — 타국 비교 참조.</p>
+                </div>
+            </section>
+            </div>
+                <div class="col-span-6">
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">브랜드 Top 10</h2>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-text-secondary">신차 등록 순위</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+                <div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0">1</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Ford</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0">2</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Volkswagen</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0">3</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Kia</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">4</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Audi</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">5</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">BMW</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">6</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Nissan</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">7</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Toyota</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">8</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Hyundai</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">9</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Vauxhall</span>
+                    
+                </div>
+                
+                <div class="flex items-center gap-sm p-sm bg-surface rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-text-secondary font-label-md text-label-md flex-shrink-0">10</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">Mercedes-Benz</span>
+                    <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                </div>
+                </div>
+                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary mt-md">
+                    <div class="flex items-center gap-xs mb-xs">
+                        <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                        <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Ford·VW·Kia 상위, 독일·일본·한국 브랜드 혼재. Tesla·BYD 등 EV 브랜드 부상. 다브랜드 딜러금융 제휴 기회.</p>
+                </div>
+            </section>
+            </div>
+            </div>
+            
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">policy</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">규제기관</h2>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-sm">FCA(금융행위감독청, 소비자신용 인가·감독) / PRA(건전성, 예금취급) / Bank of England(통화) / ICO(개인정보) / FOS(금융옴부즈만, DCA 분쟁) / CMA(경쟁)</p>
+                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                    <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">FCA가 소비자신용 핵심 규제. DCA 분쟁은 FOS·법원 경유, 데이터는 ICO. 다기관 거버넌스 대응 필요 — 베이스라인 규제 지형.</p>
+                </div>
+            </section>
+            
+            
+            <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">외부 이슈 스캔</h2>
+                </div>
+                <div class="flex flex-col gap-md">
+                    
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-xs">
+            <div class="flex items-center gap-xs flex-wrap">
+                <span class="bg-orange-100 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">auto_finance</span>
+                <span class="font-label-sm text-label-sm text-text-secondary">Auto Finance News · 2025-08-05</span>
+            </div>
+            <h4 class="font-label-md text-label-md text-text-primary leading-relaxed">영국 대법원, 자동차 딜러 수수료(DCA) 책임 일부 제한 판결…FCA 보상 스킴은 진행</h4>
+            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">So What</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">DCA 미스셀링 보상 규모 불확실성 일부 완화됐으나 FCA 산업 보상 스킴 진행 중. 신규 진입사도 수수료 투명성·Consumer Duty 준수 필수 — 컴플라이언스 비용 반영.</p>
+            </div>
+            <a class="text-primary underline" href="https://www.autofinancenews.net/..." target="_blank" rel="noopener">원문</a>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-xs">
+            <div class="flex items-center gap-xs flex-wrap">
+                <span class="bg-orange-100 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">auto_market</span>
+                <span class="font-label-sm text-label-sm text-text-secondary">Automotive News Europe · 2026-01-08</span>
+            </div>
+            <h4 class="font-label-md text-label-md text-text-primary leading-relaxed">영국 2025 신차 등록 약 196만대, BEV 점유 ZEV Mandate 압박 속 약 20%</h4>
+            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">So What</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">EV 전환 가속으로 PCP 잔가(GFV) 리스크 노출 확대. 신차 금융 기반은 견조하나 EV 잔가 보수적 설계 필요.</p>
+            </div>
+            <a class="text-primary underline" href="https://europe.autonews.com/..." target="_blank" rel="noopener">원문</a>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-xs">
+            <div class="flex items-center gap-xs flex-wrap">
+                <span class="bg-orange-100 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">auto_finance</span>
+                <span class="font-label-sm text-label-sm text-text-secondary">American Banker · 2026-02-12</span>
+            </div>
+            <h4 class="font-label-md text-label-md text-text-primary leading-relaxed">FCA Consumer Duty 시행 후 자동차금융 공정가치·취약고객 보호 의무 강화</h4>
+            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">So What</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">상품 가격·수수료 구조에 공정가치 입증 의무. GAP 보험 등 부수상품 재설계 필요 — 상품 거버넌스 공수 증가.</p>
+            </div>
+            <a class="text-primary underline" href="https://www.americanbanker.com/..." target="_blank" rel="noopener">원문</a>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-xs">
+            <div class="flex items-center gap-xs flex-wrap">
+                <span class="bg-orange-100 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">credit_abs</span>
+                <span class="font-label-sm text-label-sm text-text-secondary">S&P · 2026-03-20</span>
+            </div>
+            <h4 class="font-label-md text-label-md text-text-primary leading-relaxed">영국 auto loan/lease ABS 신용성과 견조, 잔가 노출은 모니터링 대상</h4>
+            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">So What</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">딜린퀀시 안정적이나 BEV 잔가가 ABS 리스크 요인. 충당금·잔가 가정 보수적 유지 권장.</p>
+            </div>
+            <a class="text-primary underline" href="https://www.spglobal.com/ratings/..." target="_blank" rel="noopener">원문</a>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-xs">
+            <div class="flex items-center gap-xs flex-wrap">
+                <span class="bg-orange-100 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">finance</span>
+                <span class="font-label-sm text-label-sm text-text-secondary">Financial Times · 2025-12-19</span>
+            </div>
+            <h4 class="font-label-md text-label-md text-text-primary leading-relaxed">BoE 2025년 기준금리 점진 인하로 4%대 진입, 소비자신용 환경 완화</h4>
+            <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">So What</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">조달비용 하향으로 자동차금융 마진·수요 우호적. 금리 리스크 낮아지나 DCA 보상 부담이 상쇄 요인.</p>
+            </div>
+            <a class="text-primary underline" href="https://www.ft.com/..." target="_blank" rel="noopener">원문</a>
+        </div>
+        
+            <div class="p-md bg-yellow-50 border border-yellow-200 rounded-lg">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-yellow-700 text-[18px]">warning</span>
+                    <span class="font-label-md text-label-md text-yellow-800 uppercase">geopolitical</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-yellow-700">관련 화이트리스트 이슈 미확보 — 실사 단계 보강 필요</p>
+            </div>
+            
+                </div>
+                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary mt-md">
+                    <div class="flex items-center gap-xs mb-xs">
+                        <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                        <span class="font-label-sm text-label-sm text-primary uppercase">종합 인사이트</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">DCA 미스셀링 보상과 Consumer Duty가 컴플라이언스의 양대 변수, EV 잔가가 손익 변수. 금리 완화·시장 규모는 우호적. geopolitical 카테고리는 영국 직접 관련 화이트리스트 이슈 미확보 — 실사 보강.</p>
+                </div>
+            </section>
+            
+            
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+                <h2 class="font-headline-md text-headline-md text-primary">시장·경쟁 핵심 지표 (원천 데이터)</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">금융사 순위(Top 5)</span>
+                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
+                    
+                </div>
+                
+            </div>
+            <div class="font-body-md text-body-md text-primary w-full mt-xs"><ul class="flex flex-col gap-xs w-full">
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">1</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Black Horse (Lloyds Banking Group)</span>
+                        
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 100%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 18%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">2</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Volkswagen Financial Services UK</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 72%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 13%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">3</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Santander Consumer (UK)</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 56%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 10%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-surface-container text-text-secondary font-label-sm text-label-sm flex-shrink-0">4</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">BMW Financial Services</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 44%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 8%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-surface-container text-text-secondary font-label-sm text-label-sm flex-shrink-0">5</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Ford Credit / FCE Bank</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 39%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 7%</span>
+                    </li>
+                    </ul></div>
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 추정 (은행계 Black Horse·Santander + OEM 캡티브 VWFS·BMW·Ford)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">은행계(Black Horse·Santander)와 OEM 캡티브(VWFS·BMW·Ford) 혼재. DCA 사태로 상위사 보상 부담 — 신규 진입은 중고·니어프라임 틈새 권장.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">금융사 점유율(Top 5)</span>
+                    <span class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 3</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">18</span> <span class="text-text-secondary font-body-sm">%</span></div>
+            </div>
+            
+            
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 0 1 105.24 38.71 L 87.14 47.23 A 30 30 0 0 0 60.00 30.00 Z" fill="#00204e"/><path d="M 105.24 38.71 A 50 50 0 1 1 60.00 10.00 L 60.00 30.00 A 30 30 0 1 0 87.14 47.23 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">18%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">Top 5</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">18%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">기타</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">82%</span></div>
+            </div>
+        </div>
+        
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">업계 추정 (Black Horse(Lloyds)·VWFS·Santander Consumer UK 등 상위)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">1위 추정 약 18%(Black Horse 등). 캡티브+은행계로 상위 집중되나 중고·니어프라임 틈새는 분산 — 신규 진입 여지 존재.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">경쟁사 금리 범위</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span>신차 PCP APR 약 5~10%(캡티브 프로모 0~6%), 중고/니어프라임 10~20%대</span></div>
+            </div>
+            
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">FCA / 업계 (PCP 표준 APR + 캡티브 서브벤션 프로모)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">신차 PCP 5~10%, 캡티브는 서브벤션 프로모로 0~6%. 중고·니어프라임은 두 자릿수. 금리상한 없어 가격 자유도 높으나 Consumer Duty 공정가치 입증 필요.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">OEM 순위(Top 5)</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                
+            </div>
+            <div class="font-body-md text-body-md text-primary w-full mt-xs"><ul class="flex flex-col gap-xs w-full">
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">1</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Ford</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 100%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 9%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">2</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Volkswagen</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 89%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 8%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex-shrink-0">3</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Kia</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 78%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 7%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-surface-container text-text-secondary font-label-sm text-label-sm flex-shrink-0">4</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">Audi</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 67%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 6%</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-xs">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-surface-container text-text-secondary font-label-sm text-label-sm flex-shrink-0">5</span>
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">BMW</span>
+                        <span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs"><span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 67%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">약 6%</span>
+                    </li>
+                    </ul></div>
+            
+            
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">SMMT 2025 브랜드별 신차 등록 (Ford·VW·Kia 상위권)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Ford·VW·Kia가 상위, 캡티브 강한 VW·BMW·Ford 비중 주목. 중국 EV 브랜드(BYD·MG) 급성장 — 캡티브 미보유 브랜드 제휴 여지.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">EV 보급률</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">20</span> <span class="text-text-secondary font-body-sm">%</span></div>
+            </div>
+            
+            
+        <div class="flex items-center gap-md bg-surface-container-low rounded-md p-sm">
+            <svg viewBox="0 0 120 120" style="width: 100px; height: 100px;" preserveAspectRatio="xMidYMid meet">
+                <path d="M 60.00 10.00 A 50 50 0 0 1 107.55 44.55 L 88.53 50.73 A 30 30 0 0 0 60.00 30.00 Z" fill="#00204e"/><path d="M 107.55 44.55 A 50 50 0 1 1 60.00 10.00 L 60.00 30.00 A 30 30 0 1 0 88.53 50.73 Z" fill="#c4c6d2"/>
+                <text x="60" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#00204e">20%</text>
+            </svg>
+            <div class="flex flex-col gap-xs flex-1">
+                <div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#00204e"></span><span class="font-label-sm text-label-sm text-text-secondary">EV</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">20%</span></div><div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-sm" style="background:#c4c6d2"></span><span class="font-label-sm text-label-sm text-text-secondary">ICE 외</span><span class="font-label-sm text-label-sm text-text-primary font-semibold">80%</span></div>
+            </div>
+        </div>
+        
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">45</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">12</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 64.61538461538461 L 70.66666666666666 57.24550898203593 L 105.33333333333333 57.3929064947029 L 140.0 52.823583602026716 L 174.66666666666666 52.23399355135882" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 52.23399355135882 L 209.33333333333334 46.33809304467987 L 244.0 40.442192538000924 L 278.66666666666663 33.07231690465223 L 313.3333333333333 25.70244127130355 L 348.0 15.384615384615394" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="64.61538461538461" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="57.24550898203593" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="57.3929064947029" r="2.5" fill="#00204e"/><circle cx="140.0" cy="52.823583602026716" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="52.23399355135882" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="46.33809304467987" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="40.442192538000924" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="33.07231690465223" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="25.70244127130355" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="15.384615384615394" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">14.6%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">17.6%</span>
+                    </span>
+                </div>
+                
+                </div>
+                
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">SMMT 2025 (BEV 신차 점유 약 20%), ZEV Mandate 2025 목표 28%</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">신차 BEV 점유 약 20%, ZEV Mandate(2025 28%→2030 80%) 규제가 전환 가속. 메이커 디스카운트로 BEV 보급 견인 — 잔가 모델에 EV 별도 곡선 필수.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+        <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
+            <div class="flex items-start justify-between gap-sm">
+                <div class="flex items-center gap-xs flex-wrap">
+                    <span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">EV·ICE 잔존가치 리스크</span>
+                    <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier 2</span>
+                    
+                </div>
+                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold"><span class="font-semibold">50</span> <span class="text-text-secondary font-body-sm">%</span></div>
+            </div>
+            
+            
+            
+                <div class="bg-surface-container-low rounded-md p-sm flex flex-col gap-xs">
+                    
+        <svg class="w-full" viewBox="0 0 360 90" preserveAspectRatio="xMidYMid meet" style="max-height: 100px;">
+            <line x1="36" y1="8.0" x2="348" y2="8.0" stroke="#e3e2e2"/><line x1="36" y1="40.0" x2="348" y2="40.0" stroke="#e3e2e2"/><line x1="36" y1="72.0" x2="348" y2="72.0" stroke="#e3e2e2"/>
+            <text x="32" y="14" font-size="9" fill="#747782" text-anchor="end">60</text><text x="32" y="71" font-size="9" fill="#747782" text-anchor="end">49</text>
+            <text x="36.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2021</text><text x="348.0" y="84" font-size="9" fill="#747782" text-anchor="middle">2030</text>
+            <path d="M 36.0 15.38461538461538 L 70.66666666666666 24.335664335664333 L 105.33333333333333 51.18881118881119 L 140.0 64.61538461538461 L 174.66666666666666 60.13986013986015" fill="none" stroke="#00204e" stroke-width="2"/>
+            <path d="M 174.66666666666666 60.13986013986015 L 209.33333333333334 60.13986013986015 L 244.0 55.66433566433567 L 278.66666666666663 55.66433566433567 L 313.3333333333333 51.18881118881119 L 348.0 51.18881118881119" fill="none" stroke="#005db7" stroke-width="2" stroke-dasharray="4 3" opacity="0.85"/>
+            <circle cx="36.0" cy="15.38461538461538" r="2.5" fill="#00204e"/><circle cx="70.66666666666666" cy="24.335664335664333" r="2.5" fill="#00204e"/><circle cx="105.33333333333333" cy="51.18881118881119" r="2.5" fill="#00204e"/><circle cx="140.0" cy="64.61538461538461" r="2.5" fill="#00204e"/><circle cx="174.66666666666666" cy="60.13986013986015" r="2.5" fill="#00204e"/><circle cx="209.33333333333334" cy="60.13986013986015" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="244.0" cy="55.66433566433567" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="278.66666666666663" cy="55.66433566433567" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="313.3333333333333" cy="51.18881118881119" r="2.5" fill="#005db7" opacity="0.7"/><circle cx="348.0" cy="51.18881118881119" r="2.5" fill="#005db7" opacity="0.7"/>
+        </svg>
+        
+                    
+                <div class="flex gap-md font-label-sm text-label-sm text-text-secondary">
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#00204e"></span>
+                        CAGR(과거): <span class="font-semibold text-text-primary">-4.4%</span>
+                    </span>
+                    <span class="inline-flex items-center gap-xs">
+                        <span class="w-2 h-2 rounded-full" style="background:#005db7;opacity:0.7"></span>
+                        CAGR(전망): <span class="font-semibold text-text-primary">1.0%</span>
+                    </span>
+                </div>
+                
+                </div>
+                
+            <details class="border-t border-surface-container-highest pt-sm group">
+                <summary class="flex items-center justify-between gap-xs cursor-pointer list-none">
+                    <div class="flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-text-secondary text-[14px]">info</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거 · 인사이트</span>
+                        <span class="bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">AI</span>
+                    </div>
+                    <span class="material-symbols-outlined text-text-secondary text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <div>
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-text-secondary text-[14px]">source</span>
+                            <span class="font-label-sm text-label-sm text-text-secondary uppercase">근거</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Cap HPI / Auto Trader 잔가 추정 (3년 BEV 잔가, 2023~24 급락 후 안정화)</p>
+                    </div>
+                    <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                        <div class="flex items-center gap-xs mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                            <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">BEV 3년 잔가 2023~24 급락(중고 EV 공급 과잉) 후 2025 안정화 조짐. PCP 잔가 보증(GFV)에 직접 영향 — 베이스라인 잔가 리스크 기준, EV 보수적 설계 필요.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+        
+            </div>
+        </section>
+        
+        </div>
+        </div>
+        </div>
+    </main>
+</div>
+
+<!-- Share Modal — QR 코드 + URL 복사 -->
+<div id="share-modal" class="no-print hidden fixed inset-0 z-[60] items-center justify-center" style="background: rgba(0, 32, 78, 0.4); backdrop-filter: blur(6px);">
+    <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_24px_rgba(0,32,78,0.16)] max-w-md w-full mx-md flex flex-col" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between px-lg py-md border-b border-surface-border">
+            <div>
+                <h3 class="font-headline-md text-headline-md text-primary m-0">보고서 공유</h3>
+                <p class="font-body-sm text-body-sm text-text-secondary mt-xs m-0">QR 스캔 또는 URL 복사로 공유</p>
+            </div>
+            <button id="share-close" class="text-on-surface-variant hover:text-primary p-xs rounded-full hover:bg-surface-container">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="px-lg py-lg flex flex-col items-center gap-md">
+            <div class="bg-white border-2 border-surface-border rounded-lg p-sm">
+                <img id="share-qr" src="" alt="QR Code" class="w-56 h-56" />
+            </div>
+            <div class="w-full">
+                <div class="text-label-sm text-text-secondary uppercase tracking-wider mb-xs">현재 페이지 URL</div>
+                <div class="flex items-stretch gap-xs">
+                    <input id="share-url" type="text" readonly class="flex-1 min-w-0 px-sm py-xs bg-surface-light border border-surface-border rounded text-body-sm text-on-surface-variant font-mono truncate" />
+                    <button id="share-copy" class="px-sm py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:scale-[0.98] transition-transform flex items-center gap-xs shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        <span id="share-copy-label">복사</span>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full grid grid-cols-2 gap-sm">
+                <button id="share-email" class="flex items-center justify-center gap-xs px-sm py-sm border border-primary text-primary rounded font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">mail</span>
+                    이메일로 보내기
+                </button>
+                <button id="share-download" class="flex items-center justify-center gap-xs px-sm py-sm border border-primary text-primary rounded font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    HTML 다운로드
+                </button>
+            </div>
+            <p class="text-label-sm text-text-secondary text-center">스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Tab switching functionality
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
+
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            button.classList.add('active');
+        });
+    });
+
+    // Set first tab as active
+    document.querySelector('.tab-button').classList.add('active');
+
+    // ───── i18n KO/EN 토글 ─────
+    // 1) data-i18n 속성: 명시적 매핑 (data-en 우선)
+    // 2) GLOSSARY: 한글 텍스트 노드를 자동 영문 치환 (정적 UI 라벨용)
+    const I18N_KEY = 'report_lang';
+    const GLOSSARY = {
+        // 탭 / 카드 / 패널 헤더
+        "요약": "Summary",
+        "유사도 점수": "Similarity Score",
+        "유사도": "Similarity",
+        "시스템 결정 트리": "System Decision Tree",
+        "결정 트리": "Decision Tree",
+        "결정 요약": "Decision Summary",
+        "계약건수·구독료·TCO": "Contracts · Subscription · TCO",
+        "시장·경쟁 배경": "Market & Competition",
+        "시장 배경": "Market Background",
+        "경쟁사 현황": "Competitor Landscape",
+        "근거 · 인사이트": "Evidence & Insights",
+        "근거": "Evidence",
+        "산식": "Formula",
+        "산식 보기": "View formula",
+        "근거 보기": "View evidence",
+        "상세 보기": "View details",
+        "더 보기": "More",
+        "기준국": "Baseline",
+        "대상국": "Target",
+        "베이스라인": "Baseline",
+        "베이스라인 국가 / 시스템": "Baseline / System",
+        "권역": "Region",
+        "권역 내 확산": "Regional expansion",
+        "권역 내 구축": "Regional build",
+        "권역 내 시스템 존재 다이아몬드": "Regional system present (diamond)",
+        "권역 미지정": "Region unset",
+        "권역 확산": "Regional expansion",
+        // 디멘전 / 항목
+        "솔루션 유형": "Solution Type",
+        "디지털 채널 성숙도": "Digital Channel Maturity",
+        "디지털 딜러 성숙도": "Digital Dealer Maturity",
+        "디지털 채널": "Digital Channel",
+        "라이선스 체제(세그먼트별)": "Licensing Regime (by segment)",
+        "라이선스 체제": "Licensing Regime",
+        "라이선스 종류": "License Type",
+        "라이선스": "License",
+        "데이터 현지화 의무": "Data Localization",
+        "데이터현지화": "Data Localization",
+        "차량회수 절차 용이성": "Repossession Ease",
+        "차량회수 절차": "Repossession Process",
+        "차량회수": "Repossession",
+        "법적 회수 소요기간": "Legal Recovery Period",
+        "구매 패턴(할부·리스 비중)": "Purchase Pattern (Installment/Lease)",
+        "구매 패턴": "Purchase Pattern",
+        "금융 이용률(신차)": "Finance Usage (New)",
+        "금융 이용률(중고차)": "Finance Usage (Used)",
+        "금융 이용률": "Finance Usage",
+        "금융 이용": "Finance Usage",
+        "신차 판매대수": "New Car Sales",
+        "캡티브 강도(점유율)": "Captive Intensity (Share)",
+        "캡티브 강도": "Captive Intensity",
+        "평균 신차가격": "Avg. New Car Price",
+        "평균 금리/APR": "Avg. Rate / APR",
+        "EV 보급률": "EV Adoption",
+        "EV·ICE 잔존가치 리스크": "EV·ICE Residual Value Risk",
+        "오토금융/리스 시장규모": "Auto Finance/Lease Market Size",
+        "오토금융 성장률(CAGR)": "Auto Finance Growth (CAGR)",
+        "GDP 성장률": "GDP Growth",
+        "자동차 판매대수": "Vehicle Sales",
+        "시장규모(CAGR)": "Market Size (CAGR)",
+        "금융이용유형": "Finance Type Mix",
+        "경쟁강도": "Competition Intensity",
+        // KPI / 점수
+        "종합 유사도": "Overall Similarity",
+        "종합 유사도 점수": "Overall Similarity Score",
+        "축별 유사도": "Per-Axis Similarity",
+        "축별 유사도 분해": "Per-Axis Breakdown",
+        "축별": "Per-axis",
+        "축": "Axis",
+        "시스템": "System",
+        "상품": "Product",
+        "규제": "Regulation",
+        "리스크": "Risk",
+        "리스크 등급": "Risk Level",
+        "매력도": "Attractiveness",
+        "퀵윈": "Quickwin",
+        "10년 TCO": "10-Year TCO",
+        "10년": "10 Years",
+        "10Y TCO": "10Y TCO",
+        "TCO": "TCO",
+        "총 TCO": "Total TCO",
+        "총비용": "Total Cost",
+        "총": "Total",
+        "구축비": "Build Cost",
+        "구축비용": "Build Cost",
+        "구축비용·기간 산식": "Build Cost·Duration Formula",
+        "구축 기간 / 계약": "Build Duration / Contract",
+        "구축기간": "Build Duration",
+        "구축기간(개월)": "Build Duration (months)",
+        "구축 + 유지(10Y), 운영비는 별도 통금액": "Build + Maintenance (10Y); Opex is a separate fixed amount.",
+        "구축비, 반복": "Build (one-off), Recurring",
+        "구축비는 Y0에 한 번, 반복비는 매년 누적": "Build is one-off in Y0; recurring costs accumulate annually.",
+        "특화개발비": "Customization Cost",
+        "특화개발 견적": "Customization Estimate",
+        "유지보수": "Maintenance",
+        "연 유지보수": "Annual Maintenance",
+        "연 유지비": "Annual Recurring",
+        "운영비": "Operations",
+        "운영비 통금액": "Total Opex",
+        "연 구독료": "Annual Subscription",
+        "구독료": "Subscription",
+        "구독료+유지보수": "Subscription + Maintenance",
+        "구독료 단가": "Per-unit Price",
+        "구독료 구간": "Subscription Tier",
+        "구독료 구간 (전체 소급)": "Subscription Tier (Retroactive)",
+        "구독료 구간표": "Subscription Tier Table",
+        "건/년": "/yr",
+        "건당 단가": "Per-unit Price",
+        "건당": "Per unit",
+        "건당 단가 · 누적 증가 시 자동 하향 (전 물량 소급)": "Per-unit price · auto-discounted as volume grows (retroactive to all volume).",
+        "계약건수": "Contracts",
+        "예상 계약건수": "Expected Contracts",
+        "누적 계약건수": "Cumulative Contracts",
+        "신규 누적": "New Cumulative",
+        "기존 누적": "Existing Cumulative",
+        "누적": "Cumulative",
+        "누적 총비용": "Cumulative Total Cost",
+        // 결정 트리
+        "최종 결정": "Final Decision",
+        "결정 분기와 무관 · 비교용": "Independent of branching · for reference",
+        "분기 경로": "Branch Path",
+        "유사도 평가": "Similarity Assessment",
+        "시스템 결정": "System Decision",
+        "기준점 통과": "Threshold passed",
+        "기준점": "Threshold",
+        "감점 없음": "No deduction",
+        "그 외": "Otherwise",
+        "기타": "Other",
+        // 시장·경쟁 배경
+        "금융사 순위": "Finance Company Ranking",
+        "금융사 점유율": "Finance Company Share",
+        "금융사 Top 5 (점유율 · 캡티브 강도)": "Finance Top 5 (Share · Captive Intensity)",
+        "금융사 Top5 + 캡티브 강도": "Finance Top 5 + Captive Intensity",
+        "금융사 (캡티브 계열)": "Captive Finance",
+        "OEM 순위": "OEM Ranking",
+        "브랜드 Top10": "Brand Top 10",
+        "브랜드": "Brand",
+        "경쟁사 리스트": "Competitor List",
+        "경쟁사 진출 형태": "Competitor Entry Form",
+        "경쟁사 금리 범위": "Competitor Rate Range",
+        "경쟁사": "Competitor",
+        "규제기관": "Regulator",
+        "외부 이슈 스캔": "External News Scan",
+        "핵심 이슈": "Key Issue",
+        "국가 종합 인사이트": "Country Overall Insight",
+        "국가 정성 요약": "Country Qualitative Summary",
+        "AI 코멘트": "AI Comment",
+        "AI 교차 인사이트": "AI Cross-Insights",
+        "AI 인사이트": "AI Insights",
+        // 데이터 품질
+        "데이터 품질": "Data Quality",
+        "근거 자료": "Source Material",
+        "출처": "Source",
+        "출처 신뢰도": "Source Reliability",
+        "Tier": "Tier",
+        "외부조사": "External",
+        "내부자료": "Internal",
+        "계산값": "Calculated",
+        "외부이슈": "News",
+        "사실확인됨": "Verified",
+        "조사 필요": "Research needed",
+        "관련 화이트리스트 이슈 미확보": "No whitelisted issue found",
+        "데이터 없음": "No data",
+        "원문": "Original",
+        // 단위·표기
+        "년": "yr",
+        "개월": "months",
+        "개": "count",
+        "개사": "firms",
+        "건": "contracts",
+        "건수": "Count",
+        "건수 산정 입력값": "Inputs for Volume Calc",
+        "구간": "Tier",
+        "월": "month",
+        "원": "KRW",
+        "통과": "Pass",
+        "탈락": "Fail",
+        "통과/탈락": "Pass / Fail",
+        "통과 게이트": "Passing Gate",
+        "통과 게이트 수": "Passing Gate Count",
+        // 공유 모달 / 버튼
+        "보고서 공유": "Share Report",
+        "QR 스캔 또는 URL 복사로 공유": "Share via QR scan or URL copy",
+        "현재 페이지 URL": "Current page URL",
+        "복사": "Copy",
+        "복사됨": "Copied",
+        "실패": "Failed",
+        "스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.": "Scan with smartphone camera to open on mobile.",
+        // 푸터·메타
+        "Report ID": "Report ID",
+        "생성": "Generated",
+        "생성일": "Generated",
+        "스냅샷": "Snapshot",
+        "엔진": "Engine",
+        "스키마": "Schema",
+        "컨피그": "Config",
+        "버전": "Version",
+        "FX 기준": "FX base",
+        "데이터 기준연도": "Data year",
+        "통화": "Currency",
+        "권역 내 확산 시스템": "Regional Expansion System",
+    };
+
+    // 한글 문자 포함 여부
+    function _hasKo(s) {
+        return /[\uAC00-\uD7A3]/.test(s);
+    }
+    // 텍스트 노드 자동 번역: GLOSSARY에 정확 일치하는 경우만 교체 (안전 우선)
+    function _walkAndTranslate(root, lang) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        const targets = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (!node.nodeValue) continue;
+            const trimmed = node.nodeValue.trim();
+            if (!trimmed) continue;
+            // 부모가 data-i18n 가졌으면 명시 매핑이 이미 처리하므로 스킵
+            const parentEl = node.parentElement;
+            if (parentEl && parentEl.closest('[data-i18n]')) continue;
+            if (parentEl && (parentEl.tagName === 'SCRIPT' || parentEl.tagName === 'STYLE')) continue;
+            targets.push({node, trimmed});
+        }
+        targets.forEach(({node, trimmed}) => {
+            // ko 백업
+            if (!node._koOriginal) node._koOriginal = node.nodeValue;
+            if (lang === 'en') {
+                const mapped = GLOSSARY[trimmed];
+                if (mapped) {
+                    // 원래 공백 유지하면서 본문만 교체
+                    node.nodeValue = node._koOriginal.replace(trimmed, mapped);
+                }
+            } else {
+                node.nodeValue = node._koOriginal;
+            }
+        });
+    }
+
+    function applyLang(lang) {
+        // 1) data-i18n 명시 매핑
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const ko = el.getAttribute('data-ko');
+            const en = el.getAttribute('data-en');
+            if (ko === null) el.setAttribute('data-ko', el.textContent);
+            const original = el.getAttribute('data-ko') || el.textContent;
+            el.textContent = (lang === 'en' && en) ? en : original;
+        });
+        // 2) GLOSSARY 기반 자동 번역
+        try { _walkAndTranslate(document.body, lang); } catch (_) {}
+        const label = document.getElementById('lang-label');
+        if (label) label.textContent = lang === 'en' ? '한' : 'EN';
+        document.documentElement.lang = lang;
+        try { localStorage.setItem(I18N_KEY, lang); } catch (_) {}
+    }
+    function toggleLang() {
+        const current = (document.documentElement.lang || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
+        applyLang(current === 'en' ? 'ko' : 'en');
+    }
+    try {
+        const saved = localStorage.getItem(I18N_KEY);
+        if (saved === 'en') applyLang('en');
+    } catch (_) {}
+
+    // PDF (browser print → save as PDF) — 인쇄 전 모든 아코디언 펼침, 끝나면 원복
+    function exportPDF() {
+        const tabs = document.querySelectorAll('.tab-content');
+        const details = document.querySelectorAll('details');
+        const tabState = Array.from(tabs).map(t => t.classList.contains('active'));
+        const detailState = Array.from(details).map(d => d.open);
+        details.forEach(d => d.open = true);
+        const restore = () => {
+            details.forEach((d, i) => d.open = detailState[i]);
+            tabs.forEach((t, i) => t.classList.toggle('active', tabState[i]));
+            window.removeEventListener('afterprint', restore);
+        };
+        window.addEventListener('afterprint', restore);
+        setTimeout(restore, 60000);
+        window.print();
+    }
+    const pdfBtn = document.getElementById('btn-pdf');
+    if (pdfBtn) pdfBtn.addEventListener('click', exportPDF);
+    // Cmd/Ctrl+P 단축키
+    window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'p') {
+            e.preventDefault();
+            exportPDF();
+        }
+    });
+
+    // Share modal (QR code + URL copy)
+    const shareBtn = document.getElementById('btn-share');
+    const shareModal = document.getElementById('share-modal');
+    const shareClose = document.getElementById('share-close');
+    const shareUrlInput = document.getElementById('share-url');
+    const shareQrImg = document.getElementById('share-qr');
+    const shareCopyBtn = document.getElementById('share-copy');
+    const shareCopyLabel = document.getElementById('share-copy-label');
+
+    function openShareModal() {
+        if (!shareModal) return;
+        const url = window.location.href;
+        shareUrlInput.value = url;
+        // 공개 무료 QR API (외부 호출 가능한 환경에서만 표시)
+        shareQrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&data=' + encodeURIComponent(url);
+        shareQrImg.onerror = () => {
+            shareQrImg.alt = 'QR 코드를 불러올 수 없습니다 (오프라인 환경). URL을 직접 복사해서 공유하세요.';
+        };
+        shareModal.classList.remove('hidden');
+        shareModal.style.display = 'flex';
+    }
+    function closeShareModal() {
+        if (!shareModal) return;
+        shareModal.classList.add('hidden');
+        shareModal.style.display = '';
+    }
+
+    if (shareBtn) shareBtn.addEventListener('click', openShareModal);
+    if (shareClose) shareClose.addEventListener('click', closeShareModal);
+    if (shareModal) {
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) closeShareModal();
+        });
+    }
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeShareModal();
+    });
+
+    if (shareCopyBtn) {
+        shareCopyBtn.addEventListener('click', async () => {
+            const url = shareUrlInput.value;
+            try {
+                if (navigator.clipboard) {
+                    await navigator.clipboard.writeText(url);
+                } else {
+                    shareUrlInput.select();
+                    document.execCommand('copy');
+                }
+                shareCopyLabel.textContent = '복사됨';
+                setTimeout(() => shareCopyLabel.textContent = '복사', 1500);
+            } catch (_) {
+                shareCopyLabel.textContent = '실패';
+                setTimeout(() => shareCopyLabel.textContent = '복사', 1500);
+            }
+        });
+    }
+
+    // Email
+    const shareEmailBtn = document.getElementById('share-email');
+    if (shareEmailBtn) {
+        shareEmailBtn.addEventListener('click', () => {
+            const title = document.title;
+            const url = window.location.href;
+            const body = [title, '', 'URL: ' + url, '', '— 자동 생성 보고서'].join('\n');
+            const mailto = 'mailto:?subject=' + encodeURIComponent('[보고서] ' + title) +
+                           '&body=' + encodeURIComponent(body);
+            window.location.href = mailto;
+        });
+    }
+
+    // HTML download
+    const shareDownloadBtn = document.getElementById('share-download');
+    if (shareDownloadBtn) {
+        shareDownloadBtn.addEventListener('click', () => {
+            try {
+                const html = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+                const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = (document.title || 'report') + '.html';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(blobUrl);
+            } catch (_) {}
+        });
+    }
+</script>
+</body>
+</html>

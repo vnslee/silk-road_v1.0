@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <!-- 브라우저 인쇄 시 PDF 기본 파일명에 이 title이 사용됨 -->
-    <title>RPT_RGN_EU_003 — 유럽(European Union) 권역 퀵윈 분석 보고서</title>
+    <title>RPT_RGN_EU_004 — 유럽(European Union) 권역 퀵윈 분석 보고서</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -116,9 +116,9 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-sm mb-xs">
-                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary"><span data-i18n="header_report_id" data-en="Report ID">Report ID</span>: RPT_RGN_EU_003</span>
+                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary"><span data-i18n="header_report_id" data-en="Report ID">Report ID</span>: RPT_RGN_EU_004</span>
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
-                        <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_generated" data-en="Generated">생성</span>: 2026-06-21 21:47</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_generated" data-en="Generated">생성</span>: 2026-06-21 22:26</span>
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
                         <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_baseline" data-en="Baseline">기준국</span> United Kingdom</span>
                     </div>
@@ -183,7 +183,7 @@
             <div>
                 <h2 class="font-headline-md text-headline-md text-primary mb-sm" data-i18n="summary_top3_title" data-en="Quickwin Ranking (Top 3)">퀵윈 순위 (Top 3)</h2>
                 <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">
-                    1위 근거: Poland(PL) — 매력도 66.8, IT유사도 70 구간, 퀵윈 70 구간 · 킬스위치 탈락국 0개. <span class="inline-flex items-center gap-1 px-2 py-[2px] rounded-full text-[10px] font-semibold tracking-wide" style="background:#E6F4EA;color:#137333">계산값</span>
+                    <span data-i18n="summary_top1_reason" data-en="Top-1 reasoning">1위 근거</span>: <span data-i18n="engine_msg" data-en="Poland(PL) — Attractiveness 66.8, IT band 70, Quickwin band 70">Poland(PL) — 매력도 66.8, IT유사도 70 구간, 퀵윈 70 구간</span> · <span data-i18n="summary_ks_excluded" data-en="Killswitch failed countries">킬스위치 탈락국</span> 0. <span class="inline-flex items-center gap-1 px-2 py-[2px] rounded-full text-[10px] font-semibold tracking-wide" style="background:#E6F4EA;color:#137333">계산값</span>
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
             <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-md shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
@@ -418,11 +418,11 @@
                         <ul class="flex flex-col gap-md">
             <li class="flex items-start gap-sm">
                 <span class="material-symbols-outlined text-[20px] mt-xs" style="color:#6B21A8">psychology</span>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">후보국 중 매력도 1위(PL)와 IT유사도 1위(AT)가 일치하지 않음 — 단기 확산(IT 유사)과 시장 잠재력(매력도) 사이 트레이드오프 존재.</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant"><span data-i18n="engine_msg" data-en="Top attractiveness (PL) and top IT similarity (AT) are different countries — trade-off between fast deployment (IT) and market potential (attractiveness).">후보국 중 매력도 1위(PL)와 IT유사도 1위(AT)가 일치하지 않음 — 단기 확산(IT 유사)과 시장 잠재력(매력도) 사이 트레이드오프 존재.</span></p>
             </li>
             <li class="flex items-start gap-sm">
                 <span class="material-symbols-outlined text-[20px] mt-xs" style="color:#6B21A8">psychology</span>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">기준국 UK은 이미 시스템 보유국 → 순위에서 제외(B국 시스템 확산의 비교 기준).</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant"><span data-i18n="engine_msg" data-en="Baseline UK already operates a deployed system — excluded from the ranking (used as the reference for system expansion).">기준국 UK은 이미 시스템 보유국 → 순위에서 제외(B국 시스템 확산의 비교 기준).</span></p>
             </li></ul>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
@@ -3561,7 +3561,7 @@
                     <td class="py-sm px-sm text-text-secondary">70</td>
                 </tr></tbody>
                         </table>
-                        <p class="mt-sm text-label-sm text-text-secondary">퀵윈 = 매력도×w_biz + IT유사도×w_it. 기준국(B국) 및 킬스위치 탈락국 제외. 10점 구간 표기.</p>
+                        <p class="mt-sm text-label-sm text-text-secondary"><span data-i18n="engine_msg" data-en="Quickwin = Attractiveness×w_biz + IT×w_it. Baseline and killswitch failures excluded. Reported in 10-point buckets.">퀵윈 = 매력도×w_biz + IT유사도×w_it. 기준국(B국) 및 킬스위치 탈락국 제외. 10점 구간 표기.</span></p>
                     </div>
                 </div>
                 <div class="lg:col-span-5">

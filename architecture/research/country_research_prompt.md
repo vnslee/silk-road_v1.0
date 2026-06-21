@@ -195,7 +195,8 @@ items 배열에 위 모든 항목 + 외부 이슈 스캔(NEWS)을 객체로.
 [저장 경로]
 생성된 country JSON은 아래 경로에 저장한다:
   app/backend/storage/data/research/country/{국가코드}/{국가코드}_{타임스탬프}.json
-- {국가코드}: ISO 3166-1 alpha-2 2자리 대문자 (예: DE, BR, IN, ES, PL, UK).
+- {국가코드}: ISO 3166-1 alpha-2 2자리 대문자 (예: DE, BR, IN, ES, PL, GB, CA, CL, AR, PR).
+  - 신규 추가국 / 권역 매핑: 캐나다 CA (NORTH_AMERICA) · 칠레 CL (SOUTH_AMERICA) · 아르헨티나 AR (SOUTH_AMERICA) · 푸에르토리코 PR (NORTH_AMERICA).
 - {타임스탬프}: ISO 8601 형식 YYYY-MM-DDTHHMM (예: 2026-06-21T1200).
 - 해당 국가 폴더가 없으면 새로 생성한다.
 - 동일 폴더의 {국가코드}_latest.json 포인터를 방금 생성한 파일 내용으로 갱신한다.

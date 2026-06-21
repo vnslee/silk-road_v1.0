@@ -57,6 +57,174 @@ REGION_NAMES = {
     "SA": ("남미", "South America"),
 }
 
+# UI 라벨 사전 (정적 UI 텍스트만; 본문/AI 메시지는 Phase 2~3에서 다룸)
+LABELS = {
+    # 헤더 / 버튼
+    "btn_pdf":            {"ko": "PDF", "en": "PDF"},
+    "btn_share":          {"ko": "공유", "en": "Share"},
+    "btn_lang_toggle":    {"ko": "EN", "en": "한"},
+    "header_report_id":   {"ko": "Report ID", "en": "Report ID"},
+    "header_generated":   {"ko": "생성", "en": "Generated"},
+    "header_baseline":    {"ko": "기준국", "en": "Baseline"},
+    "header_evaluated":   {"ko": "평가", "en": "Evaluated"},
+    "header_countries":   {"ko": "개국", "en": "countries"},
+    "footer_snapshot":    {"ko": "스냅샷", "en": "Snapshot"},
+    "footer_engine":      {"ko": "엔진", "en": "Engine"},
+    "footer_schema":      {"ko": "스키마", "en": "Schema"},
+    "footer_config":      {"ko": "컨피그", "en": "Config"},
+
+    # 탭 네비
+    "tab_summary":        {"ko": "요약", "en": "Summary"},
+    "tab_killswitch":     {"ko": "킬스위치", "en": "Killswitch"},
+    "tab_attractiveness": {"ko": "매력도", "en": "Attractiveness"},
+    "tab_it":             {"ko": "IT/순위", "en": "IT / Ranking"},
+    "tab_market":         {"ko": "시장배경", "en": "Market"},
+    "tab_summary_sub":    {"ko": "Summary", "en": "Summary"},
+    "tab_killswitch_sub": {"ko": "Kill-Switch", "en": "Kill-Switch"},
+    "tab_attr_sub":       {"ko": "Attractiveness", "en": "Attractiveness"},
+    "tab_it_sub":         {"ko": "IT & Ranking", "en": "IT & Ranking"},
+    "tab_market_sub":     {"ko": "Market", "en": "Market"},
+
+    # 요약 탭
+    "summary_top3_title":     {"ko": "퀵윈 순위 (Top 3)", "en": "Quickwin Ranking (Top 3)"},
+    "summary_rank":           {"ko": "Rank", "en": "Rank"},
+    "summary_attr_label":     {"ko": "매력도", "en": "Attractiveness"},
+    "summary_it_label":       {"ko": "IT 유사도", "en": "IT Similarity"},
+    "summary_overall_rank":   {"ko": "전체 순위", "en": "Full Ranking"},
+    "summary_ai_title":       {"ko": "AI 교차 인사이트", "en": "AI Cross-Insights"},
+    "summary_news_title":     {"ko": "외부 이슈 스캔", "en": "External News Scan"},
+    "summary_news_region":    {"ko": "권역 공통", "en": "Region-wide"},
+    "summary_no_ai":          {"ko": "AI 인사이트 없음", "en": "No AI insights"},
+    "summary_no_news":        {"ko": "권역 이슈 없음", "en": "No regional news"},
+    "summary_no_rank":        {"ko": "순위 데이터 없음", "en": "No ranking data"},
+    "summary_table_country":  {"ko": "국가", "en": "Country"},
+    "summary_table_attr":     {"ko": "매력도", "en": "Attr."},
+    "summary_table_it":       {"ko": "IT", "en": "IT"},
+    "summary_table_quickwin": {"ko": "퀵윈", "en": "Quickwin"},
+    "summary_baseline_excluded": {"ko": "이미 시스템 보유 — 순위 제외", "en": "Already deployed — excluded from ranking"},
+    "summary_top1_reason":    {"ko": "1위 근거", "en": "Top-1 reasoning"},
+    "summary_ks_excluded":    {"ko": "킬스위치 탈락국", "en": "Killswitch failed countries"},
+    "summary_news_source":    {"ko": "출처", "en": "Source"},
+    "summary_news_original":  {"ko": "원문", "en": "Original"},
+
+    # 킬스위치 탭
+    "ks_matrix_title":  {"ko": "킬스위치 매트릭스", "en": "Killswitch Matrix"},
+    "ks_status_pass":   {"ko": "통과", "en": "PASS"},
+    "ks_status_fail":   {"ko": "탈락", "en": "FAIL"},
+    "ks_status_unk":    {"ko": "확인 필요", "en": "UNKNOWN"},
+    "ks_overall":       {"ko": "종합", "en": "Overall"},
+    "ks_pass_count":    {"ko": "통과", "en": "Pass"},
+    "ks_fail_count":    {"ko": "탈락", "en": "Fail"},
+    "ks_explain_title": {"ko": "국가별 판정 근거", "en": "Per-Country Reasoning"},
+    "ks_passed_msg":    {"ko": "모든 게이트 PASS → 권역 스코어링 포함", "en": "All gates PASS → included in regional scoring"},
+    "ks_failed_msg":    {"ko": "한 개 이상의 게이트 FAIL → 스코어링 제외", "en": "One or more gates FAIL → excluded from scoring"},
+    "ks_view_evidence": {"ko": "근거 보기", "en": "View evidence"},
+    "ks_source":        {"ko": "출처", "en": "Source"},
+    "ks_excluded_note": {"ko": "은 이후 스코어링에서 제외", "en": "are excluded from subsequent scoring"},
+
+    # 매력도 탭
+    "attr_ranking_title":     {"ko": "비즈니스 매력도 순위", "en": "Business Attractiveness Ranking"},
+    "attr_contrib_title":     {"ko": "항목 기여분", "en": "Item Contributions"},
+    "attr_country_formula":   {"ko": "국가별 점수 산식", "en": "Per-Country Score Formula"},
+    "attr_view_formula":      {"ko": "산식 보기", "en": "View formula"},
+    "attr_score_axis":        {"ko": "정규화 (0~100)", "en": "Normalized (0~100)"},
+    "attr_raw_value":         {"ko": "조사값", "en": "Raw value"},
+    "attr_eff_weight":        {"ko": "유효 가중치", "en": "Effective weight"},
+    "attr_contribution":      {"ko": "기여", "en": "Contribution"},
+    "attr_contrib_eq":        {"ko": "기여 = 정규화 × 유효가중치", "en": "Contribution = Norm × Eff.Weight"},
+    "attr_source_item":       {"ko": "조사항목", "en": "Source item"},
+    "attr_dir_positive":      {"ko": "高=好 정점수", "en": "High=Good (positive)"},
+    "attr_dir_negative":      {"ko": "高=惡 역점수", "en": "High=Bad (reverse)"},
+    "attr_weights_note":      {"ko": "가중치", "en": "Weights"},
+    "attr_no_data":           {"ko": "데이터 없음", "en": "No data"},
+    "attr_formula_help":      {
+        "ko": "매력도 = Σ(정규화 × 유효가중치) ÷ Σ(유효가중치). 유효가중치 = 항목 가중치 × Tier 멀티플라이어 (Tier1=1.0 고정, Tier2~4는 config 조정 가능). 정규화는 권역 내 min~max 기준. 역점수 항목은 100 − 정규화값 적용(경쟁강도).",
+        "en": "Attractiveness = Σ(Normalized × Effective Weight) ÷ Σ(Effective Weight). Effective weight = item weight × Tier multiplier (Tier1=1.0 fixed; Tier2~4 configurable). Normalization is min-max across regional candidates. Reverse-scored items use (100 − normalized) for High=Bad axes (e.g. competition intensity).",
+    },
+    "attr_tier_unknown":      {"ko": "Tier 미상", "en": "Tier unknown"},
+
+    # IT 유사도 / 퀵윈 탭
+    "it_heatmap_title":  {"ko": "IT 유사도 히트맵", "en": "IT Similarity Heatmap"},
+    "it_vs_baseline":    {"ko": "vs 기준국", "en": "vs Baseline"},
+    "it_band_legend":    {"ko": "밴드", "en": "Band"},
+    "it_overall_col":    {"ko": "종합", "en": "Overall"},
+    "it_baseline_pill":  {"ko": "기준", "en": "Base"},
+    "it_sort_note":      {"ko": "정렬: 종합 점수 내림차순 · 기준국은 비교용으로 하단 표시. 셀 호버 시 raw 값 확인.", "en": "Sorted by overall band desc. Baseline is shown at the bottom for reference. Hover cells to see raw values."},
+    "it_quickwin_title": {"ko": "퀵윈 종합 순위", "en": "Quickwin Final Ranking"},
+    "it_scatter_title":  {"ko": "매력도 × IT 유사도", "en": "Attractiveness × IT Similarity"},
+    "it_scatter_axis_x": {"ko": "매력도 →", "en": "Attractiveness →"},
+    "it_scatter_axis_y": {"ko": "IT 유사도 →", "en": "IT Similarity →"},
+    "it_quad_optimal":   {"ko": "퀵윈 최적", "en": "Optimal Quickwin"},
+    "it_quad_short":     {"ko": "단기 진출", "en": "Short-Term"},
+    "it_quad_midterm":   {"ko": "중장기", "en": "Mid-Long Term"},
+    "it_quad_low":       {"ko": "후순위", "en": "Low Priority"},
+    "it_quad_q1_label":  {"ko": "퀵윈 최적 — 즉시 진출 1순위", "en": "Quickwin optimal — top entry candidate"},
+    "it_quad_q2_label":  {"ko": "단기 진출 — 시스템 빠르나 시장 작음(거점·실험)", "en": "Short-term — fast IT reuse, small market (foothold/experiment)"},
+    "it_quad_q3_label":  {"ko": "중장기 — 시장은 매력, 시스템 새로 짜야", "en": "Mid-long term — attractive market, new system needed"},
+    "it_quad_q4_label":  {"ko": "후순위/보류 — 둘 다 약함", "en": "Low priority — both weak"},
+    "it_legend_candidate": {"ko": "후보국", "en": "Candidates"},
+    "it_legend_baseline":  {"ko": "기준국 (비교용)", "en": "Baseline (reference)"},
+    "it_legend_ks_excluded":{"ko": "킬스위치 탈락 (제외)", "en": "Killswitch failed (excluded)"},
+    "it_top3_title":     {"ko": "상위 3개국 프로파일", "en": "Top-3 Country Profiles"},
+    "it_country_formula":{"ko": "국가별 IT 유사도 산식", "en": "Per-Country IT Similarity Formula"},
+    "it_qw_formula":     {"ko": "국가별 퀵윈 점수 산식", "en": "Per-Country Quickwin Formula"},
+    "it_target_country": {"ko": "대상국", "en": "Target"},
+    "it_band_score":     {"ko": "밴드 점수", "en": "Band score"},
+    "it_quickwin_band":  {"ko": "퀵윈 구간", "en": "Quickwin band"},
+    "it_qw_eligible":    {"ko": "평가 대상", "en": "Eligible"},
+    "it_qw_ks_excluded": {"ko": "킬스위치 탈락", "en": "KS failed"},
+    "it_qw_baseline_excluded": {"ko": "기준국 (제외)", "en": "Baseline (excluded)"},
+    "it_formula_help": {
+        "ko": "축별 raw 점수 = (수치 1~5) 100−|Δ|×20 / (범주·라이선스/솔루션) 텍스트 토큰 Jaccard 유사도 30+J×65 (완전 일치=100) / (gate) 동일=90·한쪽 PASS=50·기타=30. 유효가중치 = 항목 가중치 × Tier 멀티플라이어(대상국 데이터 신뢰도 기준, Tier1=1.0 고정). 종합 = Σ(raw × 유효가중치) ÷ Σ(유효가중치) → 10점 구간 반올림.",
+        "en": "Per-axis raw = numeric(100−|Δ|×20) / categorical(text Jaccard 30+J×65, exact=100) / gate(same=90, one PASS=50, else=30). Effective weight = item weight × Tier multiplier (based on target's data tier; Tier1=1.0 fixed). Overall = Σ(raw × Eff.W) ÷ Σ(Eff.W) → rounded to 10-point bucket.",
+    },
+    "it_qw_formula_help": {
+        "ko": "퀵윈 = 매력도 × w_biz + IT유사도 × w_it. 킬스위치 탈락국 제외, 10점 구간 표기.",
+        "en": "Quickwin = Attractiveness × w_biz + IT × w_it. Killswitch failures excluded; reported as 10-point buckets.",
+    },
+    "it_sum_to_band":    {"ko": "합산 → 구간", "en": "Sum → band"},
+    "it_news_keyword":   {"ko": "핵심 이슈", "en": "Key issue"},
+    "it_ai_comment":     {"ko": "AI 코멘트", "en": "AI Comment"},
+    "it_market_brief":   {"ko": "시장", "en": "Market"},
+    "it_competition_brief": {"ko": "경쟁", "en": "Competition"},
+    "it_ks_status":      {"ko": "킬스위치", "en": "Killswitch"},
+
+    # 시장 배경 탭
+    "market_title":       {"ko": "시장 배경 (참고)", "en": "Market Background (Reference)"},
+    "market_oem_top5":    {"ko": "OEM Top 5", "en": "OEM Top 5"},
+    "market_brand_top10": {"ko": "브랜드 Top 10", "en": "Brand Top 10"},
+    "market_competitors": {"ko": "주요 경쟁사", "en": "Key Competitors"},
+    "market_purchase":    {"ko": "구매 패턴(할부·리스)", "en": "Purchase Mix (Installment/Lease)"},
+    "market_avg_price":   {"ko": "평균 신차가격", "en": "Avg. New Car Price"},
+    "market_summary":     {"ko": "국가 요약", "en": "Country Summary"},
+    "market_research_needed": {"ko": "조사 필요", "en": "Research needed"},
+    "market_no_data":     {"ko": "데이터 없음", "en": "No data"},
+
+    # 산식 안내 카드 / 공통
+    "common_no_data":    {"ko": "데이터 없음", "en": "No data"},
+    "common_unknown":    {"ko": "—", "en": "—"},
+    "common_view_more":  {"ko": "더 보기", "en": "More"},
+
+    # 공유 모달
+    "share_title":       {"ko": "보고서 공유", "en": "Share Report"},
+    "share_desc":        {"ko": "QR 스캔 또는 URL 복사로 공유", "en": "Share via QR scan or URL copy"},
+    "share_url_label":   {"ko": "현재 페이지 URL", "en": "Current page URL"},
+    "share_copy":        {"ko": "복사", "en": "Copy"},
+    "share_copied":      {"ko": "복사됨", "en": "Copied"},
+    "share_qr_hint":     {"ko": "스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.", "en": "Scan with smartphone camera to open on mobile."},
+
+    # 추가 — 테이블 헤더 / pill
+    "tbl_rank":           {"ko": "순위", "en": "Rank"},
+    "tbl_country":        {"ko": "국가", "en": "Country"},
+    "tbl_quickwin":       {"ko": "퀵윈", "en": "Quickwin"},
+    "tbl_attractiveness": {"ko": "매력도", "en": "Attractiveness"},
+    "tbl_it":             {"ko": "IT", "en": "IT"},
+    "tbl_overall":        {"ko": "종합", "en": "Overall"},
+    "pill_baseline_ref":  {"ko": "기준국 (비교용)", "en": "Baseline (reference)"},
+}
+
+DEFAULT_LANG = "ko"
+
 
 # ---------------------------------------------------------------------------
 # Renderer
@@ -95,6 +263,42 @@ class RegionReportRenderer:
 
     def country_en(self, code: str) -> str:
         return COUNTRY_NAMES_EN.get(code, code)
+
+    # ── i18n helpers ──────────────────────────────────────────────────
+    def t(self, key: str) -> str:
+        """Plain text (KO baseline). 영문 토글이 필요 없는 단순 inline용."""
+        spec = LABELS.get(key)
+        return spec["ko"] if isinstance(spec, dict) else key
+
+    def t_span(self, key: str, extra_class: str = "") -> str:
+        """`<span data-i18n>` element — JS 토글로 KO↔EN 전환됨."""
+        spec = LABELS.get(key)
+        if not isinstance(spec, dict):
+            return self.esc(key)
+        ko = self.esc(spec.get("ko", ""))
+        en = self.esc(spec.get("en", ""))
+        cls = f' class="{extra_class}"' if extra_class else ""
+        return f'<span{cls} data-i18n="{key}" data-en="{en}">{ko}</span>'
+
+    def loc_span(self, value: Any, extra_class: str = "") -> str:
+        """엔진이 만든 {ko, en} dict를 <span data-i18n> 으로 출력.
+        - dict면 ko/en 둘 다 노출
+        - 문자열이면 그대로 (양 언어 동일 취급)
+        """
+        if isinstance(value, dict):
+            ko = self.esc(value.get("ko", ""))
+            en = self.esc(value.get("en", ""))
+            cls = f' class="{extra_class}"' if extra_class else ""
+            return f'<span{cls} data-i18n="engine_msg" data-en="{en}">{ko}</span>'
+        cls = f' class="{extra_class}"' if extra_class else ""
+        return f'<span{cls}>{self.esc(value)}</span>'
+
+    @staticmethod
+    def loc_text(value: Any, lang: str = "ko") -> str:
+        """엔진이 만든 dict에서 특정 언어 문자열 추출 (인라인 평문용)."""
+        if isinstance(value, dict):
+            return value.get(lang) or value.get("ko") or ""
+        return value or ""
 
     def badge(self, flag: str, suffix: str = "") -> str:
         if flag not in SOURCE_BADGES:
@@ -153,22 +357,22 @@ class RegionReportRenderer:
                     <span class="text-text-secondary text-body-sm">/100 (10점 구간)</span>
                 </div>
                 <div class="mt-sm grid grid-cols-2 gap-xs text-body-sm">
-                    <div><span class="text-text-secondary">매력도</span> <span class="font-semibold text-primary">{self.esc(attr) if attr is not None else "—"}</span></div>
-                    <div><span class="text-text-secondary">IT 유사도</span> <span class="font-semibold text-primary">{self.esc(it) if it is not None else "—"}</span></div>
+                    <div>{self.t_span("summary_attr_label", extra_class="text-text-secondary")} <span class="font-semibold text-primary">{self.esc(attr) if attr is not None else "—"}</span></div>
+                    <div>{self.t_span("summary_it_label", extra_class="text-text-secondary")} <span class="font-semibold text-primary">{self.esc(it) if it is not None else "—"}</span></div>
                 </div>
             </div>''')
-        kpis_html = "\n".join(kpi_cards) or '<div class="text-text-secondary">퀵윈 순위 없음</div>'
+        kpis_html = "\n".join(kpi_cards) or f'<div class="text-text-secondary">{self.t_span("summary_no_rank")}</div>'
 
-        # AI insights
+        # AI insights — 엔진이 {ko, en} dict 또는 plain string 으로 줄 수 있음
         ai = exec_sum.get("ai_cross_insight", {})
         ai_items = ai.get("insights", []) or []
         ai_html = "".join(f'''
             <li class="flex items-start gap-sm">
                 <span class="material-symbols-outlined text-[20px] mt-xs" style="color:#6B21A8">psychology</span>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">{self.esc(s)}</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">{self.loc_span(s)}</p>
             </li>''' for s in ai_items)
         if not ai_html:
-            ai_html = '<li class="text-text-secondary text-body-sm">AI 인사이트 없음</li>'
+            ai_html = f'<li class="text-text-secondary text-body-sm">{self.t_span("summary_no_ai")}</li>'
 
         # NEWS items — 권역 공통(region scope)은 강조, 국가별은 일반 카드
         news_items = (exec_sum.get("external_news_scan", {}) or {}).get("items", []) or []
@@ -220,9 +424,9 @@ class RegionReportRenderer:
         return f'''
         <section class="flex flex-col gap-xl">
             <div>
-                <h2 class="font-headline-md text-headline-md text-primary mb-sm">퀵윈 순위 (Top 3)</h2>
+                <h2 class="font-headline-md text-headline-md text-primary mb-sm" data-i18n="summary_top3_title" data-en="Quickwin Ranking (Top 3)">퀵윈 순위 (Top 3)</h2>
                 <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">
-                    1위 근거: {self.esc(why)} · 킬스위치 탈락국 {self.esc(failed_n)}개. {self.badge("CALC")}
+                    {self.t_span("summary_top1_reason")}: {self.loc_span(why)} · {self.t_span("summary_ks_excluded")} {self.esc(failed_n)}. {self.badge("CALC")}
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-md">{kpis_html}</div>
             </div>
@@ -231,7 +435,7 @@ class RegionReportRenderer:
                 <div class="lg:col-span-5">
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)] h-full">
                         <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                            <h2 class="font-headline-md text-headline-md text-primary m-0">전체 순위</h2>
+                            <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="summary_overall_rank" data-en="Full Ranking">전체 순위</h2>
                             {self.badge("CALC", "ranking")}
                         </div>
                         {self._render_summary_ranking()}
@@ -240,14 +444,14 @@ class RegionReportRenderer:
                 <div class="lg:col-span-7 flex flex-col gap-lg">
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
                         <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                            <h2 class="font-headline-md text-headline-md text-primary m-0">AI 교차 인사이트</h2>
+                            <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="summary_ai_title" data-en="AI Cross-Insights">AI 교차 인사이트</h2>
                             {self.badge("AI")}
                         </div>
                         <ul class="flex flex-col gap-md">{ai_html}</ul>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
                         <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                            <h2 class="font-headline-md text-headline-md text-primary m-0">외부 이슈 스캔</h2>
+                            <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="summary_news_title" data-en="External News Scan">외부 이슈 스캔</h2>
                             {self.badge("NEWS")}
                         </div>
                         <div class="flex flex-col gap-md">{news_html}</div>
@@ -286,16 +490,16 @@ class RegionReportRenderer:
                     <span class="text-label-sm text-text-secondary truncate">{self.esc(self.country_en(code))}</span>
                 </div>
                 <div class="col-span-2 text-right text-label-sm">
-                    <div class="text-text-secondary text-[10px]">매력도</div>
+                    {self.t_span("tbl_attractiveness", extra_class="text-text-secondary text-[10px]")}
                     <div class="text-primary font-medium">{self.esc(attr) if attr is not None else "—"}</div>
                 </div>
                 <div class="col-span-1 text-right text-label-sm">
-                    <div class="text-text-secondary text-[10px]">IT</div>
+                    {self.t_span("tbl_it", extra_class="text-text-secondary text-[10px]")}
                     <div class="text-primary font-medium">{self.esc(it) if it is not None else "—"}</div>
                 </div>
                 <div class="col-span-2 text-right">
                     <div class="text-2xl font-bold leading-none" style="color:{color}">{self.esc(band) if band is not None else "—"}</div>
-                    <div class="text-text-secondary text-[10px] mt-xs">퀵윈</div>
+                    {self.t_span("tbl_quickwin", extra_class="text-text-secondary text-[10px] mt-xs")}
                 </div>
             </div>''')
 
@@ -303,8 +507,8 @@ class RegionReportRenderer:
             f'<div class="px-xs py-sm flex items-center gap-xs text-label-sm text-text-secondary border-t border-dashed border-surface-border mt-xs">'
             f'<img src="{self.country_flag_url(baseline)}" class="w-4 h-3 object-cover rounded-sm" alt="">'
             f'<span>{self.esc(self.country_ko(baseline))}({self.esc(self.country_en(baseline))})</span>'
-            f'<span class="text-[10px] font-semibold px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2">기준국</span>'
-            f'<span>이미 시스템 보유 — 순위 제외</span>'
+            f'<span class="text-[10px] font-semibold px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2" data-i18n="header_baseline" data-en="Baseline">기준국</span>'
+            f'<span data-i18n="summary_baseline_excluded" data-en="Already deployed — excluded from ranking">이미 시스템 보유 — 순위 제외</span>'
             f'</div>'
             if baseline else ""
         )
@@ -312,10 +516,10 @@ class RegionReportRenderer:
         return f'''
         <div class="grid grid-cols-12 items-center gap-xs px-xs pb-xs border-b-2 border-surface-border text-label-sm text-text-secondary uppercase tracking-wider">
             <div class="col-span-1 text-center">#</div>
-            <div class="col-span-6">국가</div>
-            <div class="col-span-2 text-right">매력도</div>
-            <div class="col-span-1 text-right">IT</div>
-            <div class="col-span-2 text-right">퀵윈</div>
+            <div class="col-span-6">{self.t_span("tbl_country")}</div>
+            <div class="col-span-2 text-right">{self.t_span("tbl_attractiveness")}</div>
+            <div class="col-span-1 text-right">{self.t_span("tbl_it")}</div>
+            <div class="col-span-2 text-right">{self.t_span("tbl_quickwin")}</div>
         </div>
         <div class="flex flex-col">{"".join(rows)}</div>
         {baseline_note}'''
@@ -348,9 +552,9 @@ class RegionReportRenderer:
                 tip = self.esc(gate.get("value") or "")
                 cells.append(f'<td class="py-sm px-sm" title="{tip}">{pill}</td>')
             country_pill = (
-                '<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">통과</span>'
+                f'<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_pass")}</span>'
                 if passed else
-                '<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">탈락</span>'
+                f'<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_fail")}</span>'
             )
             rows_html.append(f'''
                 <tr class="border-b border-surface-border {row_class}">
@@ -374,9 +578,9 @@ class RegionReportRenderer:
             code = c.get("country")
             country_passed = c.get("pass")
             badge_pill = (
-                '<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">통과</span>'
+                f'<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_pass")}</span>'
                 if country_passed else
-                '<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">탈락</span>'
+                f'<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_fail")}</span>'
             )
             gate_rows = []
             for g in gates:
@@ -406,9 +610,10 @@ class RegionReportRenderer:
                 </div>''')
             gates_block = "".join(gate_rows) or '<div class="text-text-secondary text-body-sm py-sm">게이트 데이터 없음</div>'
 
-            summary_reason = (
-                "모든 게이트 PASS → 권역 스코어링 포함" if country_passed
-                else "한 개 이상의 게이트 FAIL → 스코어링 제외"
+            summary_reason_span = (
+                self.t_span("ks_passed_msg", extra_class="text-label-sm text-text-secondary ml-xs flex-1")
+                if country_passed else
+                self.t_span("ks_failed_msg", extra_class="text-label-sm text-text-secondary ml-xs flex-1")
             )
             explain_cards.append(f'''
             <details class="bg-surface-container-lowest border border-surface-border rounded-lg shadow-[0_2px_4px_rgba(0,32,78,0.04)] group">
@@ -417,8 +622,8 @@ class RegionReportRenderer:
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
                     <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     {badge_pill}
-                    <span class="text-label-sm text-text-secondary ml-xs flex-1">{summary_reason}</span>
-                    <span class="font-label-sm text-label-sm text-secondary">근거 보기</span>
+                    {summary_reason_span}
+                    {self.t_span("ks_view_evidence", extra_class="font-label-sm text-label-sm text-secondary")}
                 </summary>
                 <div class="px-md pb-md pt-xs">
                     {gates_block}
@@ -429,7 +634,7 @@ class RegionReportRenderer:
         return f'''
         <section class="flex flex-col gap-lg">
             <div class="flex items-center gap-sm">
-                <h2 class="font-headline-md text-headline-md text-primary m-0">킬스위치 매트릭스</h2>
+                <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="ks_matrix_title" data-en="Killswitch Matrix">킬스위치 매트릭스</h2>
                 {self.badge("EXT")} {self.badge("CALC", "status_matrix")}
             </div>
             <p class="font-body-sm text-body-sm text-on-surface-variant -mt-sm">
@@ -439,9 +644,9 @@ class RegionReportRenderer:
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b-2 border-surface-border">
-                            <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">국가</th>
+                            <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_country")}</th>
                             {head_cells}
-                            <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">종합</th>
+                            <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_overall")}</th>
                         </tr>
                     </thead>
                     <tbody class="font-body-sm text-body-sm">{rows}</tbody>
@@ -449,7 +654,7 @@ class RegionReportRenderer:
             </div>
 
             <div>
-                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm">국가별 판정 근거</h3>
+                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm" data-i18n="ks_explain_title" data-en="Per-Country Reasoning">국가별 판정 근거</h3>
                 <div class="flex flex-col gap-sm">{explain_html}</div>
             </div>
         </section>'''
@@ -613,15 +818,11 @@ class RegionReportRenderer:
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
                     <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     <span class="text-2xl font-bold ml-xs" style="color:{score_color}">{self.esc(score) if score is not None else "—"}</span>
-                    <span class="text-label-sm text-text-secondary flex-1">/100 — 항목별 정규화×가중치 합산</span>
-                    <span class="font-label-sm text-label-sm text-secondary">산식 보기</span>
+                    <span class="text-label-sm text-text-secondary flex-1" data-i18n="attr_formula_subtitle" data-en="/100 — sum of normalized × effective weights">/100 — 항목별 정규화×가중치 합산</span>
+                    {self.t_span("attr_view_formula", extra_class="font-label-sm text-label-sm text-secondary")}
                 </summary>
                 <div class="px-md pb-md pt-xs">
-                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant">
-                        <strong>산식:</strong> 매력도 = Σ(정규화 × 유효가중치) ÷ Σ(유효가중치).
-                        <strong>유효가중치 = 항목 가중치 × Tier 멀티플라이어</strong> (Tier1=1.0 고정, Tier2~4는 config 조정 가능).
-                        정규화는 권역 내 min~max 기준. 역점수 항목은 100 − 정규화값 적용(경쟁강도).
-                    </div>
+                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant" data-i18n="attr_formula_help" data-en="{self.esc(LABELS["attr_formula_help"]["en"])}">{self.esc(LABELS["attr_formula_help"]["ko"])}</div>
                     {axes_block}
                 </div>
             </details>''')
@@ -631,7 +832,7 @@ class RegionReportRenderer:
         <section class="flex flex-col gap-xl">
             <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
                 <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                    <h2 class="font-headline-md text-headline-md text-primary m-0">비즈니스 매력도 순위</h2>
+                    <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="attr_ranking_title" data-en="Business Attractiveness Ranking">비즈니스 매력도 순위</h2>
                     {self.badge("CALC", "ranking · 0~100")}
                 </div>
                 <div class="flex flex-col gap-sm">{bars_html}</div>
@@ -640,7 +841,7 @@ class RegionReportRenderer:
             <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
                 <div class="flex items-center justify-between mb-md border-b border-surface-border pb-sm">
                     <div class="flex items-center gap-sm">
-                        <h2 class="font-headline-md text-headline-md text-primary m-0">항목 기여분</h2>
+                        <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="attr_contrib_title" data-en="Item Contributions">항목 기여분</h2>
                         {self.badge("CALC", "composition")}
                     </div>
                     <div class="flex flex-wrap gap-md">{legend_html}</div>
@@ -652,7 +853,7 @@ class RegionReportRenderer:
             </div>
 
             <div>
-                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm">국가별 점수 산식</h3>
+                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm" data-i18n="attr_country_formula" data-en="Per-Country Score Formula">국가별 점수 산식</h3>
                 <div class="flex flex-col gap-sm">{explain_html}</div>
             </div>
         </section>'''
@@ -712,12 +913,12 @@ class RegionReportRenderer:
         # Use CSS grid for crisp alignment, no table borders
         grid_template = f"minmax(180px, 1.4fr) repeat({col_count}, minmax(80px, 1fr)) minmax(72px, 0.9fr)"
 
-        header_cells = ['<div class="px-sm py-xs text-label-sm text-text-secondary uppercase tracking-wider">국가</div>']
+        header_cells = [f'<div class="px-sm py-xs text-label-sm text-text-secondary uppercase tracking-wider">{self.t_span("tbl_country")}</div>']
         for a in axes_order:
             header_cells.append(
                 f'<div class="px-xs py-xs text-label-sm text-text-secondary text-center whitespace-normal leading-tight">{self.esc(a)}</div>'
             )
-        header_cells.append('<div class="px-xs py-xs text-label-sm text-text-secondary text-center uppercase tracking-wider">종합</div>')
+        header_cells.append(f'<div class="px-xs py-xs text-label-sm text-text-secondary text-center uppercase tracking-wider">{self.t_span("tbl_overall")}</div>')
         header_row = (
             f'<div class="grid items-end gap-[2px] mb-xs" style="grid-template-columns:{grid_template}">'
             + "".join(header_cells)
@@ -735,7 +936,7 @@ class RegionReportRenderer:
                 f'<img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm shrink-0" alt="">'
                 f'<span class="font-label-md text-label-md text-primary truncate">{self.esc(self.country_ko(code))}</span>'
                 f'<span class="text-label-sm text-text-secondary truncate">{self.esc(self.country_en(code))}</span>'
-                + ('<span class="text-[10px] font-semibold ml-xs px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2">기준</span>' if is_base else '')
+                + (f'<span class="text-[10px] font-semibold ml-xs px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2">{self.t_span("it_baseline_pill")}</span>' if is_base else '')
                 + '</div>'
             )
             cells = [country_cell]
@@ -777,7 +978,7 @@ class RegionReportRenderer:
         ]
         legend_html = (
             '<div class="flex items-center gap-xs flex-wrap">'
-            '<span class="text-label-sm text-text-secondary mr-xs">밴드</span>'
+            f'{self.t_span("it_band_legend", extra_class="text-label-sm text-text-secondary mr-xs")}'
             + "".join(
                 f'<div class="rounded px-2 py-[2px] text-label-sm font-semibold" style="background:{bg};color:{fg}">{label}</div>'
                 for label, bg, fg in legend_steps
@@ -848,45 +1049,45 @@ class RegionReportRenderer:
             <line x1="220" y1="20" x2="220" y2="260" stroke="#DCDCDC" stroke-dasharray="3,3"/>
             <line x1="40" y1="140" x2="400" y2="140" stroke="#DCDCDC" stroke-dasharray="3,3"/>
             <!-- Quadrant labels (희미하게, 데이터 위가 아닌 배경) -->
-            <text x="130" y="40" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600">② 단기 진출</text>
-            <text x="130" y="54" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↑ · 매력↓</text>
-            <text x="310" y="40" text-anchor="middle" font-size="10" fill="#137333" font-weight="700">① 퀵윈 최적</text>
-            <text x="310" y="54" text-anchor="middle" font-size="9" fill="#137333">IT↑ · 매력↑</text>
-            <text x="130" y="245" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600">④ 후순위</text>
-            <text x="130" y="258" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↓ · 매력↓</text>
-            <text x="310" y="245" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600">③ 중장기</text>
-            <text x="310" y="258" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↓ · 매력↑</text>
+            <text x="130" y="40" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600" data-i18n="it_quad_short" data-en="② {self.esc(LABELS["it_quad_short"]["en"])}">② {self.esc(LABELS["it_quad_short"]["ko"])}</text>
+            <text x="130" y="54" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↑ · {self.esc(LABELS["summary_attr_label"]["ko"])}↓</text>
+            <text x="310" y="40" text-anchor="middle" font-size="10" fill="#137333" font-weight="700" data-i18n="it_quad_optimal" data-en="① {self.esc(LABELS["it_quad_optimal"]["en"])}">① {self.esc(LABELS["it_quad_optimal"]["ko"])}</text>
+            <text x="310" y="54" text-anchor="middle" font-size="9" fill="#137333">IT↑ · {self.esc(LABELS["summary_attr_label"]["ko"])}↑</text>
+            <text x="130" y="245" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600" data-i18n="it_quad_low" data-en="④ {self.esc(LABELS["it_quad_low"]["en"])}">④ {self.esc(LABELS["it_quad_low"]["ko"])}</text>
+            <text x="130" y="258" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↓ · {self.esc(LABELS["summary_attr_label"]["ko"])}↓</text>
+            <text x="310" y="245" text-anchor="middle" font-size="10" fill="#9CA3AF" font-weight="600" data-i18n="it_quad_midterm" data-en="③ {self.esc(LABELS["it_quad_midterm"]["en"])}">③ {self.esc(LABELS["it_quad_midterm"]["ko"])}</text>
+            <text x="310" y="258" text-anchor="middle" font-size="9" fill="#9CA3AF">IT↓ · {self.esc(LABELS["summary_attr_label"]["ko"])}↑</text>
             <!-- Axis labels -->
-            <text x="220" y="285" text-anchor="middle" font-size="11" fill="#555555">매력도 →</text>
-            <text x="20" y="140" text-anchor="middle" font-size="11" fill="#555555" transform="rotate(-90 20 140)">IT 유사도 →</text>
+            <text x="220" y="285" text-anchor="middle" font-size="11" fill="#555555" data-i18n="it_scatter_axis_x" data-en="{self.esc(LABELS["it_scatter_axis_x"]["en"])}">{self.esc(LABELS["it_scatter_axis_x"]["ko"])}</text>
+            <text x="20" y="140" text-anchor="middle" font-size="11" fill="#555555" transform="rotate(-90 20 140)" data-i18n="it_scatter_axis_y" data-en="{self.esc(LABELS["it_scatter_axis_y"]["en"])}">{self.esc(LABELS["it_scatter_axis_y"]["ko"])}</text>
             {"".join(scatter_points)}
         </svg>'''
 
-        # 사분면 설명 박스 — 무엇을 보고 어떻게 해석할지
-        scatter_legend = '''
+        # 사분면 설명 박스
+        scatter_legend = f'''
         <div class="mt-md p-sm bg-surface-light border border-surface-border rounded-md">
             <div class="grid grid-cols-2 gap-xs text-label-sm">
                 <div class="flex items-start gap-xs">
                     <span class="font-bold" style="color:#137333">①</span>
-                    <span><strong>퀵윈 최적</strong> — 즉시 진출 1순위</span>
+                    {self.t_span("it_quad_q1_label")}
                 </div>
                 <div class="flex items-start gap-xs">
                     <span class="font-bold text-text-secondary">②</span>
-                    <span><strong>단기 진출</strong> — 시스템 빠르나 시장 작음(거점·실험)</span>
+                    {self.t_span("it_quad_q2_label")}
                 </div>
                 <div class="flex items-start gap-xs">
                     <span class="font-bold text-text-secondary">③</span>
-                    <span><strong>중장기</strong> — 시장은 매력, 시스템 새로 짜야</span>
+                    {self.t_span("it_quad_q3_label")}
                 </div>
                 <div class="flex items-start gap-xs">
                     <span class="font-bold text-text-secondary">④</span>
-                    <span><strong>후순위/보류</strong> — 둘 다 약함</span>
+                    {self.t_span("it_quad_q4_label")}
                 </div>
             </div>
             <div class="mt-sm pt-xs border-t border-surface-border flex items-center gap-md text-label-sm text-text-secondary flex-wrap">
-                <span class="flex items-center gap-xs"><span class="inline-block w-3 h-3 rounded-full border border-white" style="background:#E63946"></span>후보국</span>
-                <span class="flex items-center gap-xs"><span class="inline-block w-3 h-3 rounded-full bg-white border-2" style="border-color:#6B21A8;font-size:8px;line-height:8px;text-align:center;color:#6B21A8">★</span>기준국 (비교용)</span>
-                <span class="flex items-center gap-xs"><span class="inline-block w-2 h-2 rounded-full opacity-60" style="background:#9CA3AF"></span>킬스위치 탈락 (제외)</span>
+                <span class="flex items-center gap-xs"><span class="inline-block w-3 h-3 rounded-full border border-white" style="background:#E63946"></span>{self.t_span("it_legend_candidate")}</span>
+                <span class="flex items-center gap-xs"><span class="inline-block w-3 h-3 rounded-full bg-white border-2" style="border-color:#6B21A8;font-size:8px;line-height:8px;text-align:center;color:#6B21A8">★</span>{self.t_span("it_legend_baseline")}</span>
+                <span class="flex items-center gap-xs"><span class="inline-block w-2 h-2 rounded-full opacity-60" style="background:#9CA3AF"></span>{self.t_span("it_legend_ks_excluded")}</span>
             </div>
         </div>'''
 
@@ -900,9 +1101,9 @@ class RegionReportRenderer:
             news = card.get("top_news") or {}
             ks_pass = card.get("killswitch_pass")
             ks_pill = (
-                '<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">통과</span>'
+                f'<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_pass")}</span>'
                 if ks_pass else
-                '<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">탈락</span>'
+                f'<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">{self.t_span("ks_status_fail")}</span>'
             )
 
             def line(label: str, val: Any, flag: str) -> str:
@@ -980,7 +1181,7 @@ class RegionReportRenderer:
                 news_block = (
                     f'<div class="mt-sm bg-surface-light border border-surface-border rounded-md p-sm">'
                     f'<div class="flex items-center justify-between mb-xs">'
-                    f'<span class="font-label-sm text-label-sm text-text-secondary uppercase">핵심 이슈</span>'
+                    f'{self.t_span("it_news_keyword", extra_class="font-label-sm text-label-sm text-text-secondary uppercase")}'
                     f'{self.badge("NEWS", self.esc(news.get("date") or ""))}'
                     f'</div>'
                     f'<div class="font-label-md text-label-md text-primary mb-xs">{self.esc(news.get("headline"))}</div>'
@@ -996,7 +1197,7 @@ class RegionReportRenderer:
                     f'<div class="mt-sm bg-[#F3E8FD]/40 border border-[#E9D5FF] rounded-md p-sm">'
                     f'<div class="flex items-center gap-xs mb-xs">'
                     f'<span class="material-symbols-outlined text-[16px]" style="color:#6B21A8">psychology</span>'
-                    f'<span class="font-label-sm text-label-sm uppercase tracking-wider" style="color:#6B21A8">AI 코멘트</span>'
+                    f'{self.t_span("it_ai_comment", extra_class="font-label-sm text-label-sm uppercase tracking-wider")}'
                     f'{self.badge("AI")}'
                     f'</div>'
                     f'<div class="text-body-sm text-on-surface-variant">{self.esc(ai_comment)}</div>'
@@ -1018,24 +1219,24 @@ class RegionReportRenderer:
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-label-sm text-label-sm text-text-secondary uppercase">퀵윈</div>
+                        {self.t_span("tbl_quickwin", extra_class="font-label-sm text-label-sm text-text-secondary uppercase")}
                         <div class="text-2xl font-bold" style="color:{self.score_color(card.get("quickwin_score_band"))}">{self.esc(card.get("quickwin_score_band"))}</div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-xs mb-sm">
                     <div class="bg-surface-light rounded-md p-xs text-center">
-                        <div class="font-label-sm text-label-sm text-text-secondary">매력도</div>
+                        {self.t_span("summary_attr_label", extra_class="font-label-sm text-label-sm text-text-secondary")}
                         <div class="font-semibold text-primary">{self.esc(card.get("attractiveness"))}</div>
                     </div>
                     <div class="bg-surface-light rounded-md p-xs text-center">
-                        <div class="font-label-sm text-label-sm text-text-secondary">IT 구간</div>
+                        {self.t_span("summary_it_label", extra_class="font-label-sm text-label-sm text-text-secondary")}
                         <div class="font-semibold text-primary">{self.esc(card.get("it_similarity_band"))}</div>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-between text-body-sm mb-xs">
-                    <span class="text-text-secondary">킬스위치</span>
+                    {self.t_span("it_ks_status", extra_class="text-text-secondary")}
                     {ks_pill}
                 </div>
 
@@ -1108,23 +1309,23 @@ class RegionReportRenderer:
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-sm text-body-sm">
                         <div class="bg-surface-light rounded p-xs">
-                            <div class="text-label-sm text-text-secondary mb-xs">기준국 {self.esc(self.country_en(baseline))}</div>
+                            <div class="text-label-sm text-text-secondary mb-xs"><span data-i18n="header_baseline" data-en="Baseline">기준국</span> {self.esc(self.country_en(baseline))}</div>
                             <div class="text-primary">{self.esc(bv) if bv is not None else "—"}</div>
                         </div>
                         <div class="bg-surface-light rounded p-xs">
-                            <div class="text-label-sm text-text-secondary mb-xs">대상국 {self.esc(self.country_en(code))}</div>
+                            <div class="text-label-sm text-text-secondary mb-xs"><span data-i18n="it_target_country" data-en="Target">대상국</span> {self.esc(self.country_en(code))}</div>
                             <div class="text-primary">{self.esc(tv) if tv is not None else "—"}</div>
                         </div>
                         <div class="rounded p-xs" style="background:rgba(0,93,183,0.06)">
-                            <div class="text-label-sm text-text-secondary mb-xs">밴드 점수</div>
+                            {self.t_span("it_band_score", extra_class="text-label-sm text-text-secondary mb-xs")}
                             <div class="font-bold" style="color:{self.score_color(band)}">{self.esc(band) if band is not None else "—"} <span class="text-label-sm text-text-secondary font-normal">(raw {self.esc(raw)})</span></div>
                         </div>
                     </div>
-                    <div class="text-label-sm text-text-secondary mt-xs">산식: {self.esc(derive)}</div>
+                    <div class="text-label-sm text-text-secondary mt-xs">{self.esc(derive)}</div>
                 </div>''')
             axes_block = "".join(axis_rows) or '<div class="text-text-secondary text-body-sm py-sm">축 데이터 없음</div>'
 
-            base_label = " <span class='text-label-sm text-secondary'>· 기준국</span>" if is_base else ""
+            base_label = f" {self.t_span('it_baseline_pill', extra_class='text-label-sm text-secondary')}" if is_base else ""
             it_explain_cards.append(f'''
             <details class="bg-surface-container-lowest border border-surface-border rounded-lg shadow-[0_2px_4px_rgba(0,32,78,0.04)] group">
                 <summary class="cursor-pointer list-none px-md py-sm flex items-center gap-sm hover:bg-surface-light rounded-lg">
@@ -1132,17 +1333,11 @@ class RegionReportRenderer:
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
                     <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span>{base_label}</span>
                     <span class="text-2xl font-bold ml-xs" style="color:{total_color}">{self.esc(total) if total is not None else "—"}</span>
-                    <span class="text-label-sm text-text-secondary flex-1">/100 (10점 구간, raw {self.esc(raw_total)})</span>
-                    <span class="font-label-sm text-label-sm text-secondary">산식 보기</span>
+                    <span class="text-label-sm text-text-secondary flex-1">/100 (raw {self.esc(raw_total)})</span>
+                    {self.t_span("attr_view_formula", extra_class="font-label-sm text-label-sm text-secondary")}
                 </summary>
                 <div class="px-md pb-md pt-xs">
-                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant">
-                        <strong>산식:</strong> 축별 raw 점수 = (수치 1~5) 100−|Δ|×20 /
-                        (범주·라이선스/솔루션) 텍스트 토큰 Jaccard 유사도 30+J×65 (완전 일치=100) /
-                        (gate) 동일=90·한쪽 PASS=50·기타=30.
-                        <strong>유효가중치 = 항목 가중치 × Tier 멀티플라이어</strong>(대상국 데이터 신뢰도 기준, Tier1=1.0 고정).
-                        종합 = Σ(raw × 유효가중치) ÷ Σ(유효가중치) → 10점 구간 반올림.
-                    </div>
+                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant" data-i18n="it_formula_help" data-en="{self.esc(LABELS["it_formula_help"]["en"])}">{self.esc(LABELS["it_formula_help"]["ko"])}</div>
                     {axes_block}
                 </div>
             </details>''')
@@ -1163,11 +1358,11 @@ class RegionReportRenderer:
             w_biz = (qw.get("weights") or {}).get("w_biz", 0.6)
             w_it = (qw.get("weights") or {}).get("w_it", 0.4)
             if is_baseline:
-                status_pill = '<span class="px-2 py-[2px] bg-[#E8F0FE] text-[#1967D2] rounded-md font-label-sm text-label-sm">기준국 (제외)</span>'
+                status_pill = f'<span class="px-2 py-[2px] bg-[#E8F0FE] text-[#1967D2] rounded-md font-label-sm text-label-sm">{self.t_span("it_qw_baseline_excluded")}</span>'
             elif excluded:
-                status_pill = '<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">킬스위치 탈락</span>'
+                status_pill = f'<span class="px-2 py-[2px] bg-[#FCE8E6] text-[#C5221F] rounded-md font-label-sm text-label-sm">{self.t_span("it_qw_ks_excluded")}</span>'
             else:
-                status_pill = '<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">평가 대상</span>'
+                status_pill = f'<span class="px-2 py-[2px] bg-[#E6F4EA] text-[#137333] rounded-md font-label-sm text-label-sm">{self.t_span("it_qw_eligible")}</span>'
             if attr is not None and it_raw is not None:
                 derive = (
                     f"{attr} × {w_biz} + {it_raw} × {w_it} = "
@@ -1183,26 +1378,24 @@ class RegionReportRenderer:
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
                     <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     <span class="text-2xl font-bold ml-xs" style="color:{self.score_color(qw_band)}">{self.esc(qw_band) if qw_band is not None else "—"}</span>
-                    <span class="text-label-sm text-text-secondary flex-1">퀵윈 구간</span>
+                    {self.t_span("it_quickwin_band", extra_class="text-label-sm text-text-secondary flex-1")}
                     {status_pill}
                 </summary>
                 <div class="px-md pb-md pt-xs">
-                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant">
-                        <strong>산식:</strong> 퀵윈 = 매력도 × w_biz({w_biz}) + IT유사도 × w_it({w_it}). 킬스위치 탈락국 제외, 10점 구간 표기.
-                    </div>
+                    <div class="bg-surface-light border border-surface-border rounded-md p-sm mb-sm font-body-sm text-on-surface-variant" data-i18n="it_qw_formula_help" data-en="{self.esc(LABELS["it_qw_formula_help"]["en"])}">{self.esc(LABELS["it_qw_formula_help"]["ko"])}</div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-sm text-body-sm">
                         <div class="bg-surface-light rounded p-sm">
-                            <div class="text-label-sm text-text-secondary mb-xs">매력도 (탭 2-1)</div>
+                            {self.t_span("summary_attr_label", extra_class="text-label-sm text-text-secondary mb-xs")}
                             <div class="text-2xl font-bold text-primary">{self.esc(attr) if attr is not None else "—"}</div>
                             <div class="text-label-sm text-text-secondary mt-xs">× {w_biz}</div>
                         </div>
                         <div class="bg-surface-light rounded p-sm">
-                            <div class="text-label-sm text-text-secondary mb-xs">IT 유사도 (탭 2-2)</div>
+                            {self.t_span("summary_it_label", extra_class="text-label-sm text-text-secondary mb-xs")}
                             <div class="text-2xl font-bold text-primary">{self.esc(it_raw) if it_raw is not None else "—"}</div>
-                            <div class="text-label-sm text-text-secondary mt-xs">밴드 {self.esc(it_band)} · × {w_it}</div>
+                            <div class="text-label-sm text-text-secondary mt-xs">× {w_it}</div>
                         </div>
                         <div class="rounded p-sm" style="background:rgba(0,93,183,0.06)">
-                            <div class="text-label-sm text-text-secondary mb-xs">합산 → 구간</div>
+                            {self.t_span("it_sum_to_band", extra_class="text-label-sm text-text-secondary mb-xs")}
                             <div class="text-2xl font-bold" style="color:{self.score_color(qw_band)}">{self.esc(qw_band) if qw_band is not None else "—"}</div>
                             <div class="text-label-sm text-text-secondary mt-xs">raw {self.esc(qw_raw) if qw_raw is not None else "—"}</div>
                         </div>
@@ -1217,40 +1410,40 @@ class RegionReportRenderer:
             <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)]">
                 <div class="flex items-center justify-between gap-sm mb-md border-b border-surface-border pb-sm flex-wrap">
                     <div class="flex items-center gap-sm">
-                        <h2 class="font-headline-md text-headline-md text-primary m-0">IT 유사도 히트맵</h2>
-                        <span class="text-label-sm text-text-secondary">vs 기준국 {self.esc(self.country_en(baseline))}</span>
+                        <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="it_heatmap_title" data-en="IT Similarity Heatmap">IT 유사도 히트맵</h2>
+                        <span class="text-label-sm text-text-secondary"><span data-i18n="it_vs_baseline" data-en="vs Baseline">vs 기준국</span> {self.esc(self.country_en(baseline))}</span>
                         {self.badge("CALC", "10점 구간")}
                     </div>
                     {legend_html}
                 </div>
                 {heatmap_block}
-                <p class="mt-md text-label-sm text-text-secondary">정렬: 종합 점수 내림차순 · 기준국은 비교용으로 하단 표시. 셀 호버 시 raw 값 확인.</p>
+                <p class="mt-md text-label-sm text-text-secondary" data-i18n="it_sort_note" data-en="{self.esc(LABELS["it_sort_note"]["en"])}">{self.esc(LABELS["it_sort_note"]["ko"])}</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
                 <div class="lg:col-span-7">
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)] h-full">
                         <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                            <h2 class="font-headline-md text-headline-md text-primary m-0">퀵윈 종합 순위</h2>
+                            <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="it_quickwin_title" data-en="Quickwin Final Ranking">퀵윈 종합 순위</h2>
                             {self.badge("CALC")}
                         </div>
                         <table class="w-full text-left border-collapse">
                             <thead><tr class="border-b-2 border-surface-border">
-                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">순위</th>
-                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">국가</th>
-                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">퀵윈</th>
-                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">매력도</th>
-                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">IT</th>
+                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_rank")}</th>
+                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_country")}</th>
+                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_quickwin")}</th>
+                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_attractiveness")}</th>
+                                <th class="py-sm px-sm font-label-md text-label-md text-text-secondary uppercase">{self.t_span("tbl_it")}</th>
                             </tr></thead>
                             <tbody class="font-body-sm">{qw_html}</tbody>
                         </table>
-                        <p class="mt-sm text-label-sm text-text-secondary">{self.esc(qw.get("note") or "")}</p>
+                        <p class="mt-sm text-label-sm text-text-secondary">{self.loc_span(qw.get("note") or "")}</p>
                     </div>
                 </div>
                 <div class="lg:col-span-5">
                     <div class="bg-surface-container-lowest border border-surface-border rounded-lg p-lg shadow-[0_4px_8px_rgba(0,32,78,0.04)] h-full">
                         <div class="flex items-center gap-sm mb-md border-b border-surface-border pb-sm">
-                            <h2 class="font-headline-md text-headline-md text-primary m-0">매력도 × IT 유사도</h2>
+                            <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="it_scatter_title" data-en="Attractiveness × IT Similarity">매력도 × IT 유사도</h2>
                             {self.badge("CALC", "2축")}
                         </div>
                         {scatter_svg}
@@ -1261,19 +1454,19 @@ class RegionReportRenderer:
 
             <div>
                 <div class="flex items-center gap-sm mb-md">
-                    <h2 class="font-headline-md text-headline-md text-primary m-0">상위 3개국 프로파일</h2>
+                    <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="it_top3_title" data-en="Top-3 Country Profiles">상위 3개국 프로파일</h2>
                     {self.badge("CALC")} {self.badge("EXT")} {self.badge("NEWS")} {self.badge("AI")}
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-md">{cards_html}</div>
             </div>
 
             <div>
-                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm">국가별 IT 유사도 산식</h3>
+                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm" data-i18n="it_country_formula" data-en="Per-Country IT Similarity Formula">국가별 IT 유사도 산식</h3>
                 <div class="flex flex-col gap-sm">{it_explain_html}</div>
             </div>
 
             <div>
-                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm">국가별 퀵윈 점수 산식</h3>
+                <h3 class="font-label-md text-label-md uppercase tracking-wider text-text-secondary mb-sm" data-i18n="it_qw_formula" data-en="Per-Country Quickwin Formula">국가별 퀵윈 점수 산식</h3>
                 <div class="flex flex-col gap-sm">{qw_explain_html}</div>
             </div>
         </section>'''
@@ -1312,42 +1505,42 @@ class RegionReportRenderer:
                 <div class="flex flex-col gap-sm">
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">OEM Top 5</span>
+                            {self.t_span("market_oem_top5", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT", "ranking")}
                         </div>
                         {render_list(c.get("oem_top5"))}
                     </div>
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">브랜드 Top 10</span>
+                            {self.t_span("market_brand_top10", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT", "ranking")}
                         </div>
                         {render_list(c.get("brand_top10"), max_items=10)}
                     </div>
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">주요 경쟁사</span>
+                            {self.t_span("market_competitors", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT")}
                         </div>
                         {render_list(c.get("competitors"), max_items=6)}
                     </div>
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">구매 패턴(할부·리스)</span>
+                            {self.t_span("market_purchase", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT")}
                         </div>
                         <div class="text-body-sm text-on-surface-variant">{self.esc(c.get("purchase_pattern"))}{self.esc(c.get("purchase_pattern_unit") or "")}</div>
                     </div>
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">평균 신차가격</span>
+                            {self.t_span("market_avg_price", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT", "single_value")}
                         </div>
                         <div class="text-body-sm text-on-surface-variant">{self.esc(c.get("avg_new_car_price"))}</div>
                     </div>
                     <div>
                         <div class="flex items-center gap-xs mb-xs">
-                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">국가 요약</span>
+                            {self.t_span("market_summary", extra_class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary")}
                             {self.badge("EXT", "qualitative")}
                         </div>
                         <div class="text-body-sm text-on-surface-variant">{self.esc((c.get("qualitative_summary") or "")[:280])}{"…" if len(c.get("qualitative_summary") or "") > 280 else ""}</div>
@@ -1359,7 +1552,7 @@ class RegionReportRenderer:
         return f'''
         <section class="flex flex-col gap-lg">
             <div class="flex items-center gap-sm">
-                <h2 class="font-headline-md text-headline-md text-primary m-0">시장 배경 (참고)</h2>
+                <h2 class="font-headline-md text-headline-md text-primary m-0" data-i18n="market_title" data-en="Market Background (Reference)">시장 배경 (참고)</h2>
                 {self.badge("EXT")}
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-md">{cards_html}</div>
@@ -1368,23 +1561,25 @@ class RegionReportRenderer:
     # ------------------------- HTML Shell -----------------------------
 
     TABS = [
-        ("tab-summary", "요약", "Summary", "summarize"),
-        ("tab-killswitch", "킬스위치", "Kill-Switch", "verified_user"),
-        ("tab-attractiveness", "매력도", "Attractiveness", "trending_up"),
-        ("tab-it", "IT/순위", "IT & Ranking", "leaderboard"),
-        ("tab-market", "시장배경", "Market", "public"),
+        ("tab-summary",        "tab_summary",        "tab_summary_sub",    "summarize"),
+        ("tab-killswitch",     "tab_killswitch",     "tab_killswitch_sub", "verified_user"),
+        ("tab-attractiveness", "tab_attractiveness", "tab_attr_sub",       "trending_up"),
+        ("tab-it",             "tab_it",             "tab_it_sub",         "leaderboard"),
+        ("tab-market",         "tab_market",         "tab_market_sub",     "public"),
     ]
 
     def render_tabs_nav(self) -> str:
         parts = []
-        for i, (tid, ko, en, icon) in enumerate(self.TABS):
+        for i, (tid, main_key, sub_key, icon) in enumerate(self.TABS):
             active = "active" if i == 0 else ""
+            main_label = self.t_span(main_key)
+            sub_label = self.t_span(sub_key, extra_class="opacity-60 text-[10px]")
             parts.append(f'''
             <button class="tab-button {active} flex items-center gap-xs px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-container text-text-secondary"
                     data-tab="{tid}">
                 <span class="material-symbols-outlined text-[18px]">{icon}</span>
-                <span>{ko}</span>
-                <span class="opacity-60 text-[10px]">{en}</span>
+                {main_label}
+                {sub_label}
             </button>''')
         return f'''
         <div class="bg-surface-container-lowest border border-surface-border rounded-xl p-sm mb-xl sticky top-0 z-10 card-shadow">
@@ -1540,19 +1735,23 @@ class RegionReportRenderer:
                 </div>
                 <div>
                     <div class="flex items-center gap-sm mb-xs">
-                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">Report ID: {self.esc(report_id)}</span>
+                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary"><span data-i18n="header_report_id" data-en="Report ID">Report ID</span>: {self.esc(report_id)}</span>
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
-                        <span class="font-label-sm text-label-sm text-text-secondary">Generated: {self.esc(generated_str)}</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_generated" data-en="Generated">생성</span>: {self.esc(generated_str)}</span>
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
-                        <span class="font-label-sm text-label-sm text-text-secondary">기준국 {self.esc(self.country_en(baseline))}</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary"><span data-i18n="header_baseline" data-en="Baseline">기준국</span> {self.esc(self.country_en(baseline))}</span>
                     </div>
                     <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight m-0">{self.esc(title)}</h1>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">
-                        평가 {len(evaluated)}개국: {", ".join(f"{self.esc(self.country_ko(c))}({self.esc(self.country_en(c))})" for c in evaluated)}{" · " + fx_note if fx_note else ""}
+                        <span data-i18n="header_evaluated" data-en="Evaluated">평가</span> {len(evaluated)}<span data-i18n="header_countries" data-en="countries">개국</span>: {", ".join(f"{self.esc(self.country_ko(c))}({self.esc(self.country_en(c))})" for c in evaluated)}{" · " + fx_note if fx_note else ""}
                     </p>
                 </div>
             </div>
             <div class="flex items-center gap-sm shrink-0">
+                <button id="lang-toggle" onclick="toggleLang()" class="flex items-center gap-xs px-md py-sm border border-surface-border text-text-secondary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">language</span>
+                    <span id="lang-label">EN</span>
+                </button>
                 <button onclick="exportPDF()" class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-light transition-colors">
                     <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>PDF
                 </button>
@@ -1574,7 +1773,7 @@ class RegionReportRenderer:
     </main>
     <footer class="border-t border-surface-border px-margin-desktop py-md text-label-sm text-text-secondary">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-sm">
-            <span>스냅샷: {self.esc(self.report.get("data_snapshot_id"))} · 엔진 {self.esc(self.report.get("engine_version"))} · 스키마 {self.esc(self.report.get("schema_version"))} · 컨피그 v{self.esc(self.report.get("config_version"))}</span>
+            <span><span data-i18n="footer_snapshot" data-en="Snapshot">스냅샷</span>: {self.esc(self.report.get("data_snapshot_id"))} · <span data-i18n="footer_engine" data-en="Engine">엔진</span> {self.esc(self.report.get("engine_version"))} · <span data-i18n="footer_schema" data-en="Schema">스키마</span> {self.esc(self.report.get("schema_version"))} · <span data-i18n="footer_config" data-en="Config">컨피그</span> v{self.esc(self.report.get("config_version"))}</span>
             <span>{fx_note}</span>
         </div>
     </footer>
@@ -1585,8 +1784,8 @@ class RegionReportRenderer:
     <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_24px_rgba(0,32,78,0.16)] max-w-md w-full mx-md flex flex-col" onclick="event.stopPropagation()">
         <div class="flex items-center justify-between px-lg py-md border-b border-surface-border">
             <div>
-                <h3 class="font-headline-md text-headline-md text-primary m-0">보고서 공유</h3>
-                <p class="font-body-sm text-body-sm text-text-secondary mt-xs m-0">QR 스캔 또는 URL 복사로 공유</p>
+                <h3 class="font-headline-md text-headline-md text-primary m-0" data-i18n="share_title" data-en="Share Report">보고서 공유</h3>
+                <p class="font-body-sm text-body-sm text-text-secondary mt-xs m-0" data-i18n="share_desc" data-en="Share via QR scan or URL copy">QR 스캔 또는 URL 복사로 공유</p>
             </div>
             <button onclick="closeShareModal()" class="text-on-surface-variant hover:text-primary p-xs rounded-full hover:bg-surface-container">
                 <span class="material-symbols-outlined">close</span>
@@ -1597,16 +1796,16 @@ class RegionReportRenderer:
                 <img id="share-qr" src="" alt="QR Code" class="w-56 h-56" />
             </div>
             <div class="w-full">
-                <div class="text-label-sm text-text-secondary uppercase tracking-wider mb-xs">현재 페이지 URL</div>
+                <div class="text-label-sm text-text-secondary uppercase tracking-wider mb-xs" data-i18n="share_url_label" data-en="Current page URL">현재 페이지 URL</div>
                 <div class="flex items-stretch gap-xs">
                     <input id="share-url" type="text" readonly class="flex-1 min-w-0 px-sm py-xs bg-surface-light border border-surface-border rounded text-body-sm text-on-surface-variant font-mono truncate" />
                     <button onclick="copyShareUrl()" class="px-sm py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:scale-[0.98] transition-transform flex items-center gap-xs shrink-0">
                         <span class="material-symbols-outlined text-[18px]">content_copy</span>
-                        <span id="share-copy-label">복사</span>
+                        <span id="share-copy-label" data-i18n="share_copy" data-en="Copy">복사</span>
                     </button>
                 </div>
             </div>
-            <p class="text-label-sm text-text-secondary text-center">스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.</p>
+            <p class="text-label-sm text-text-secondary text-center" data-i18n="share_qr_hint" data-en="Scan with smartphone camera to open on mobile.">스마트폰 카메라로 QR 코드 스캔 시 모바일 브라우저에서 열림.</p>
         </div>
     </div>
 </div>
@@ -1620,6 +1819,32 @@ class RegionReportRenderer:
             btn.classList.add('active');
         }});
     }});
+
+    // i18n KO/EN 토글 — data-i18n 속성 가진 요소의 textContent 교체
+    const I18N_KEY = 'report_lang';
+    function applyLang(lang) {{
+        document.querySelectorAll('[data-i18n]').forEach(el => {{
+            const ko = el.getAttribute('data-ko');
+            const en = el.getAttribute('data-en');
+            // 첫 호출 시 한글 원본을 data-ko에 백업
+            if (ko === null) el.setAttribute('data-ko', el.textContent);
+            const original = el.getAttribute('data-ko') || el.textContent;
+            el.textContent = (lang === 'en' && en) ? en : original;
+        }});
+        const label = document.getElementById('lang-label');
+        if (label) label.textContent = lang === 'en' ? '한' : 'EN';
+        document.documentElement.lang = lang;
+        try {{ localStorage.setItem(I18N_KEY, lang); }} catch (_) {{}}
+    }}
+    function toggleLang() {{
+        const current = (document.documentElement.lang || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
+        applyLang(current === 'en' ? 'ko' : 'en');
+    }}
+    // 페이지 로드 시 저장된 언어 복원
+    try {{
+        const saved = localStorage.getItem(I18N_KEY);
+        if (saved === 'en') applyLang('en');
+    }} catch (_) {{}}
 
     // PDF 저장 — 모든 탭/아코디언을 펼치고 인쇄 대화상자 호출, 인쇄 후 원복
     function exportPDF() {{
@@ -1685,17 +1910,20 @@ class RegionReportRenderer:
     async function copyShareUrl() {{
         const url = document.getElementById('share-url').value;
         const label = document.getElementById('share-copy-label');
+        const isEn = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+        const TXT_COPIED = isEn ? 'Copied' : '복사됨';
+        const TXT_COPY   = isEn ? 'Copy' : '복사';
+        const TXT_FAIL   = isEn ? 'Failed' : '실패';
         try {{
             await navigator.clipboard.writeText(url);
-            label.textContent = '복사됨';
-            setTimeout(() => {{ label.textContent = '복사'; }}, 1500);
+            label.textContent = TXT_COPIED;
+            setTimeout(() => {{ label.textContent = TXT_COPY; }}, 1500);
         }} catch (err) {{
-            // Fallback: select & legacy execCommand
             const input = document.getElementById('share-url');
             input.select();
-            try {{ document.execCommand('copy'); label.textContent = '복사됨'; }}
-            catch {{ label.textContent = '실패'; }}
-            setTimeout(() => {{ label.textContent = '복사'; }}, 1500);
+            try {{ document.execCommand('copy'); label.textContent = TXT_COPIED; }}
+            catch {{ label.textContent = TXT_FAIL; }}
+            setTimeout(() => {{ label.textContent = TXT_COPY; }}, 1500);
         }}
     }}
 </script>

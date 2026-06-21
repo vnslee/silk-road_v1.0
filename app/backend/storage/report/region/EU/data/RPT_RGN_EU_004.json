@@ -1,0 +1,2727 @@
+{
+  "report_id": "RPT_RGN_EU_004",
+  "report_type": "type2_region",
+  "title": "European Union 권역 퀵윈 순위 보고서",
+  "target": {
+    "region": "EU",
+    "evaluated_countries": [
+      "ES",
+      "PL",
+      "IT",
+      "PT",
+      "UK",
+      "NL",
+      "AT",
+      "DK"
+    ],
+    "baseline_country": "UK"
+  },
+  "generated_at": "2026-06-21T22:26:52.367556",
+  "generated_by": "engine",
+  "data_snapshot_id": "2026-06-21T12:55:20.332614",
+  "config_version": "1.3",
+  "engine_version": "v1.0",
+  "schema_version": "1.1",
+  "fx": {
+    "base": "KRW",
+    "as_of": "2026-06-01",
+    "rates": {
+      "KRW": 1.0,
+      "EUR": 1450.0,
+      "PLN": 330.0,
+      "GBP": 1680.0,
+      "USD": 1320.0,
+      "CZK": 58.0,
+      "HUF": 3.8,
+      "AUD": 880.0
+    },
+    "note": "기준통화=KRW. 각 통화 1단위당 KRW 환산율. 관리자가 입력하며 스냅샷에 고정됨."
+  },
+  "region_meta": {
+    "region": "European Union",
+    "region_ko": "유럽권역",
+    "code": "EU",
+    "fetched_at": "2026-06-21T12:55:20.332614",
+    "fetched_by": "aggregator"
+  },
+  "data_quality": {
+    "total_countries": 8,
+    "countries": [
+      "ES",
+      "PL",
+      "IT",
+      "PT",
+      "UK",
+      "NL",
+      "AT",
+      "DK"
+    ],
+    "timeseries_coverage_avg": 64.58333333333334,
+    "source_tiers": {
+      "tier1": 145,
+      "tier2": 107,
+      "tier3": 132,
+      "tier4": 0
+    },
+    "country_completeness": {
+      "ES": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "PL": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "IT": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "PT": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "UK": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "NL": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "AT": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      },
+      "DK": {
+        "total_items": 48,
+        "target_items": 48,
+        "completeness": 100.0
+      }
+    },
+    "critical_gaps": [],
+    "readiness": {
+      "can_generate": true,
+      "tabs": {
+        "2-0": {
+          "name": "Kill Switch Filter",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "2-1": {
+          "name": "Business Attractiveness",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "2-2": {
+          "name": "IT/Speed-to-Market Similarity",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        },
+        "2-3": {
+          "name": "Market Background",
+          "ready": true,
+          "missing_count": 0,
+          "missing_fields": []
+        }
+      }
+    }
+  },
+  "tabs": {
+    "tab_2_0_killswitch": {
+      "nature": "status_matrix",
+      "source_flag": "CALC",
+      "gates": [
+        "외국인 지분 한도",
+        "외환·배당 송금 자유도",
+        "데이터 현지화 의무",
+        "국가신용등급"
+      ],
+      "countries": [
+        {
+          "country": "ES",
+          "country_name": "Spain",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 사전 인가 필요)",
+              "source": "스페인 외국인투자법(RD 664/1999 등), EU 자본자유이동",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당/이자 비거주자 원천징수 19%, EU 지침 면제 가능)",
+              "source": "PwC Spain Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, 스페인 개인정보보호법(LOPDGDD)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "A (S&P, 2025.9 상향) / A3 (Moody's) / A- (Fitch), 안정적",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025); S&P는 2025.9 A-에서 A로 상향",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "PL",
+          "country_name": "Poland",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 KNF 사전 인가/통보 필요)",
+              "source": "폴란드 외국인투자법, EU 자본자유이동",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당/이자 비거주자 원천징수 19~20%, EU 지침·조세조약 면제 가능)",
+              "source": "폴란드 외환법, PwC Poland Withholding Taxes",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, 폴란드 개인정보보호법(UODO)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "A- (S&P, 2025 유지) / A2 (Moody's) / A- (Fitch), 안정적",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025); EU·NATO 회원국 프리미엄",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "IT",
+          "country_name": "Italy",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 BdI 사전 인가 필요)",
+              "source": "이탈리아 외국인투자법(DL 21/2012 Golden Power 포함), EU 자본자유이동",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당/이자 비거주자 원천징수 26%, EU 지침·조세조약 면제 가능)",
+              "source": "PwC Italy Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, 이탈리아 개인정보보호법(D.Lgs. 196/2003 + 101/2018), Garante Privacy",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "BBB (S&P, 2025) / Baa3 (Moody's, 2025.11 안정→긍정 상향) / BBB (Fitch), 긍정적/안정적",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025); Moody's 2025.11 전망 상향",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "PT",
+          "country_name": "Portugal",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 BdP 사전 인가 필요)",
+              "source": "포르투갈 외국인투자법, EU 자본자유이동",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당/이자 비거주자 원천징수 25%, EU 지침·조세조약 면제 가능)",
+              "source": "PwC Portugal Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, Lei 58/2019(GDPR 이행법), CNPD(Comissão Nacional de Proteção de Dados)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "A- (S&P, 2024 상향) / A3 (Moody's, 2024 상향) / A- (Fitch), 안정적",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025); 2017~2024 단계 상향 트렌드",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "UK",
+          "country_name": "United Kingdom",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (금융업은 FCA/PRA 인가 필요, NSI Act 안보심사 대상 가능)",
+              "source": "UK 회사법, National Security and Investment Act 2021, FCA",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음, 배당 원천징수 0%, 이자 20%(조약 감면)",
+              "source": "HMRC, Bank of England (외환자유)",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "source": "UK GDPR, Data Protection Act 2018, EU-UK 적정성 결정(2021, 2025 연장)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "AA (S&P, 안정적) / Aa3 (Moody's) / AA- (Fitch)",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025)",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "NL",
+          "country_name": "Netherlands",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 DNB/AFM 사전 인가 필요)",
+              "source": "네덜란드 외국인투자법, EU 자본자유이동, Wet Vifo(2023 외국인 투자 사전심사법, 핵심 인프라·기술 한정)",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당 15%·이자 0%, EU 지침·조세조약 면제 가능)",
+              "source": "PwC Netherlands Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, Uitvoeringswet AVG(GDPR 이행법), Autoriteit Persoonsgegevens(AP, 개인정보보호청)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "AAA (S&P/Moody's/Fitch 만장일치, 2025 안정적)",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025 AAA 유지)",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "AT",
+          "country_name": "Austria",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 FMA/OeNB 사전 인가 필요)",
+              "source": "오스트리아 외국인투자법, EU 자본자유이동, Investitionskontrollgesetz 2020(외국인 투자 사전심사법, 핵심 인프라 한정)",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당 27.5%·이자 0%(법인), EU 지침·조세조약 면제 가능)",
+              "source": "PwC Austria Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, Datenschutzgesetz(DSG), DSB(Datenschutzbehörde)",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "AA+ (S&P, 2025) / Aa1 (Moody's) / AA+ (Fitch), 안정적",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025); 독일과 동급 신용도",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        },
+        {
+          "country": "DK",
+          "country_name": "Denmark",
+          "pass": true,
+          "gates": {
+            "외국인 지분 한도": {
+              "status": "PASS",
+              "value": "100% 허용 (EU 회원국, 금융업은 FSA 사전 인가 필요)",
+              "source": "덴마크 외국인투자법, EU 자본자유이동, Lov om screening af visse udenlandske direkte investeringer 2021",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "외환·배당 송금 자유도": {
+              "status": "PASS",
+              "value": "외환 통제 없음 (배당·이자 비거주자 원천징수 22%, EU 지침·조세조약 면제 가능)",
+              "source": "PwC Denmark Withholding Taxes, EU 모자회사·이자로열티 지침",
+              "tier": 1,
+              "gate_scope": "country"
+            },
+            "데이터 현지화 의무": {
+              "status": "PASS",
+              "value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "source": "EU GDPR, Databeskyttelsesloven(GDPR 이행법), Datatilsynet",
+              "tier": 1,
+              "gate_scope": "operating_model"
+            },
+            "국가신용등급": {
+              "status": "PASS",
+              "value": "AAA (S&P/Moody's/Fitch 만장일치, 2025 안정적)",
+              "source": "S&P·Moody's·Fitch 국가신용등급 (2025 AAA 유지)",
+              "tier": 1,
+              "gate_scope": "country"
+            }
+          }
+        }
+      ],
+      "passed": [
+        "ES",
+        "PL",
+        "IT",
+        "PT",
+        "UK",
+        "NL",
+        "AT",
+        "DK"
+      ],
+      "failed": [],
+      "passed_count": 8,
+      "failed_count": 0
+    },
+    "tab_2_1_attractiveness": {
+      "nature": "ranking",
+      "source_flag": "CALC",
+      "weights": {
+        "GDP 성장률": 0.25,
+        "자동차 판매대수": 0.2,
+        "시장규모(CAGR)": 0.2,
+        "금융 이용률": 0.15,
+        "금융이용유형": 0.1,
+        "경쟁강도": 0.1
+      },
+      "tier_weights": {
+        "tier1": 1.0,
+        "tier2": 0.85,
+        "tier3": 0.7,
+        "tier4": 0.5,
+        "_note": "출처 신뢰도(Tier)별 점수 가중 배수. Tier1=1.0 고정. Tier2~4는 관리자가 조정 가능. 매력도·IT 유사도 산식에서 항목 가중치에 곱해 effective weight = item_weight × tier_multiplier 로 사용."
+      },
+      "axes": {
+        "GDP 성장률": {
+          "ES": 75.0,
+          "PL": 100.0,
+          "IT": 42.9,
+          "PT": 82.1,
+          "UK": 0.0,
+          "NL": 57.1,
+          "AT": 57.1,
+          "DK": 71.4
+        },
+        "자동차 판매대수": {
+          "ES": 54.6,
+          "PL": 21.8,
+          "IT": 77.6,
+          "PT": 2.7,
+          "UK": 100.0,
+          "NL": 11.7,
+          "AT": 3.9,
+          "DK": 0.0
+        },
+        "시장규모(CAGR)": {
+          "ES": 39.1,
+          "PL": 62.3,
+          "IT": 50.7,
+          "PT": 0.0,
+          "UK": 100.0,
+          "NL": 27.5,
+          "AT": 4.3,
+          "DK": 2.9
+        },
+        "금융 이용률": {
+          "ES": 0.0,
+          "PL": 81.8,
+          "IT": 22.7,
+          "PT": 45.5,
+          "UK": 100.0,
+          "NL": 68.2,
+          "AT": 54.5,
+          "DK": 90.9
+        },
+        "금융이용유형": {
+          "ES": 0.0,
+          "PL": 68.0,
+          "IT": 20.0,
+          "PT": 20.0,
+          "UK": 100.0,
+          "NL": 20.0,
+          "AT": 28.0,
+          "DK": 40.0
+        },
+        "경쟁강도": {
+          "ES": 60.0,
+          "PL": 80.0,
+          "IT": 40.0,
+          "PT": 80.0,
+          "UK": 40.0,
+          "NL": 100.0,
+          "AT": 0.0,
+          "DK": 100.0
+        }
+      },
+      "countries": [
+        {
+          "country": "ES",
+          "country_name": "Spain",
+          "attractiveness_score": 43.9,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 8.5,
+              "normalized": 75.0,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 13.12
+            },
+            "자동차 판매대수": {
+              "raw_value": 1148650.0,
+              "normalized": 54.6,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 9.28
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 18000.0,
+              "normalized": 39.1,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 5.47
+            },
+            "금융 이용률": {
+              "raw_value": 60.0,
+              "normalized": 0.0,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 0.0
+            },
+            "금융이용유형": {
+              "raw_value": 55.0,
+              "normalized": 0.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 0.0
+            },
+            "경쟁강도": {
+              "raw_value": 40.0,
+              "normalized": 60.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 4.2
+            }
+          },
+          "rank": 5
+        },
+        {
+          "country": "PL",
+          "country_name": "Poland",
+          "attractiveness_score": 66.8,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 9.9,
+              "normalized": 100.0,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 17.5
+            },
+            "자동차 판매대수": {
+              "raw_value": 560000.0,
+              "normalized": 21.8,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 3.71
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 26000.0,
+              "normalized": 62.3,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 10.59
+            },
+            "금융 이용률": {
+              "raw_value": 78.0,
+              "normalized": 81.8,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 8.59
+            },
+            "금융이용유형": {
+              "raw_value": 72.0,
+              "normalized": 68.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 5.78
+            },
+            "경쟁강도": {
+              "raw_value": 35.0,
+              "normalized": 80.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 5.6
+            }
+          },
+          "rank": 2
+        },
+        {
+          "country": "IT",
+          "country_name": "Italy",
+          "attractiveness_score": 47.1,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 6.7,
+              "normalized": 42.9,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 7.51
+            },
+            "자동차 판매대수": {
+              "raw_value": 1560000.0,
+              "normalized": 77.6,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 13.19
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 22000.0,
+              "normalized": 50.7,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 7.1
+            },
+            "금융 이용률": {
+              "raw_value": 65.0,
+              "normalized": 22.7,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 2.38
+            },
+            "금융이용유형": {
+              "raw_value": 60.0,
+              "normalized": 20.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 1.4
+            },
+            "경쟁강도": {
+              "raw_value": 45.0,
+              "normalized": 40.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 2.8
+            }
+          },
+          "rank": 3
+        },
+        {
+          "country": "PT",
+          "country_name": "Portugal",
+          "attractiveness_score": 36.1,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 8.9,
+              "normalized": 82.1,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 14.37
+            },
+            "자동차 판매대수": {
+              "raw_value": 218000.0,
+              "normalized": 2.7,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 0.46
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 4500.0,
+              "normalized": 0.0,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 0.0
+            },
+            "금융 이용률": {
+              "raw_value": 70.0,
+              "normalized": 45.5,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 4.78
+            },
+            "금융이용유형": {
+              "raw_value": 60.0,
+              "normalized": 20.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 1.7
+            },
+            "경쟁강도": {
+              "raw_value": 35.0,
+              "normalized": 80.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 5.6
+            }
+          },
+          "rank": 7
+        },
+        {
+          "country": "UK",
+          "country_name": "United Kingdom",
+          "attractiveness_score": 73.8,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 4.3,
+              "normalized": 0.0,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 0.0
+            },
+            "자동차 판매대수": {
+              "raw_value": 1962000.0,
+              "normalized": 100.0,
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 20.0
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 39000.0,
+              "normalized": 100.0,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 17.0
+            },
+            "금융 이용률": {
+              "raw_value": 82.0,
+              "normalized": 100.0,
+              "weight": 0.15,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.1275,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 12.75
+            },
+            "금융이용유형": {
+              "raw_value": 80.0,
+              "normalized": 100.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 8.5
+            },
+            "경쟁강도": {
+              "raw_value": 45.0,
+              "normalized": 40.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 2.8
+            }
+          },
+          "rank": 1
+        },
+        {
+          "country": "NL",
+          "country_name": "Netherlands",
+          "attractiveness_score": 42.5,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 7.5,
+              "normalized": 57.1,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 9.99
+            },
+            "자동차 판매대수": {
+              "raw_value": 380000.0,
+              "normalized": 11.7,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 1.99
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 14000.0,
+              "normalized": 27.5,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 3.85
+            },
+            "금융 이용률": {
+              "raw_value": 75.0,
+              "normalized": 68.2,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 7.16
+            },
+            "금융이용유형": {
+              "raw_value": 60.0,
+              "normalized": 20.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 1.7
+            },
+            "경쟁강도": {
+              "raw_value": 30.0,
+              "normalized": 100.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 7.0
+            }
+          },
+          "rank": 6
+        },
+        {
+          "country": "AT",
+          "country_name": "Austria",
+          "attractiveness_score": 26.0,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 7.5,
+              "normalized": 57.1,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 9.99
+            },
+            "자동차 판매대수": {
+              "raw_value": 240000.0,
+              "normalized": 3.9,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 0.66
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 6000.0,
+              "normalized": 4.3,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 0.6
+            },
+            "금융 이용률": {
+              "raw_value": 72.0,
+              "normalized": 54.5,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 5.72
+            },
+            "금융이용유형": {
+              "raw_value": 62.0,
+              "normalized": 28.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 2.38
+            },
+            "경쟁강도": {
+              "raw_value": 55.0,
+              "normalized": 0.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 0.0
+            }
+          },
+          "rank": 8
+        },
+        {
+          "country": "DK",
+          "country_name": "Denmark",
+          "attractiveness_score": 44.1,
+          "contributions": {
+            "GDP 성장률": {
+              "raw_value": 8.3,
+              "normalized": 71.4,
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "reverse": false,
+              "source_item": "오토금융 성장률(CAGR)",
+              "contribution": 12.5
+            },
+            "자동차 판매대수": {
+              "raw_value": 170000.0,
+              "normalized": 0.0,
+              "weight": 0.2,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.17,
+              "reverse": false,
+              "source_item": "신차 판매대수",
+              "contribution": 0.0
+            },
+            "시장규모(CAGR)": {
+              "raw_value": 5500.0,
+              "normalized": 2.9,
+              "weight": 0.2,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.14,
+              "reverse": false,
+              "source_item": "오토금융/리스 시장규모",
+              "contribution": 0.41
+            },
+            "금융 이용률": {
+              "raw_value": 80.0,
+              "normalized": 90.9,
+              "weight": 0.15,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.105,
+              "reverse": false,
+              "source_item": "금융 이용률(신차)",
+              "contribution": 9.54
+            },
+            "금융이용유형": {
+              "raw_value": 65.0,
+              "normalized": 40.0,
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "reverse": false,
+              "source_item": "구매 패턴(할부·리스 비중)",
+              "contribution": 3.4
+            },
+            "경쟁강도": {
+              "raw_value": 30.0,
+              "normalized": 100.0,
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "reverse": true,
+              "source_item": "캡티브 강도(점유율)",
+              "contribution": 7.0
+            }
+          },
+          "rank": 4
+        }
+      ],
+      "ranking": [
+        {
+          "rank": 1,
+          "country": "UK",
+          "score": 73.8
+        },
+        {
+          "rank": 2,
+          "country": "PL",
+          "score": 66.8
+        },
+        {
+          "rank": 3,
+          "country": "IT",
+          "score": 47.1
+        },
+        {
+          "rank": 4,
+          "country": "DK",
+          "score": 44.1
+        },
+        {
+          "rank": 5,
+          "country": "ES",
+          "score": 43.9
+        },
+        {
+          "rank": 6,
+          "country": "NL",
+          "score": 42.5
+        },
+        {
+          "rank": 7,
+          "country": "PT",
+          "score": 36.1
+        },
+        {
+          "rank": 8,
+          "country": "AT",
+          "score": 26.0
+        }
+      ],
+      "method": "min-max normalize per axis → effective weight = item_weight × tier_multiplier → weighted average. config: values.biz_attractiveness × tier_weights."
+    },
+    "tab_2_2_it_similarity": {
+      "nature": "score_multiaxis",
+      "source_flag": "CALC",
+      "baseline_country": "UK",
+      "weights": {
+        "솔루션 유형": 0.3,
+        "디지털 채널 성숙도": 0.25,
+        "라이선스 종류": 0.2,
+        "데이터현지화": 0.15,
+        "차량회수 절차": 0.1
+      },
+      "tier_weights": {
+        "tier1": 1.0,
+        "tier2": 0.85,
+        "tier3": 0.7,
+        "tier4": 0.5,
+        "_note": "출처 신뢰도(Tier)별 점수 가중 배수. Tier1=1.0 고정. Tier2~4는 관리자가 조정 가능. 매력도·IT 유사도 산식에서 항목 가중치에 곱해 effective weight = item_weight × tier_multiplier 로 사용."
+      },
+      "countries": [
+        {
+          "country": "ES",
+          "country_name": "Spain",
+          "it_similarity_raw": 65.8,
+          "it_similarity_band": 70,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 57.1,
+              "score_band": 60
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "target_value": 4,
+              "baseline_value": 5,
+              "score_raw": 80.0,
+              "score_band": 80
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=EFC 인가(S.A.+최저자본 €5M+스페인은행 감독), B2B 운용리스(렌팅)=인가 부담 경감",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 39.3,
+              "score_band": 40
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "target_value": 3,
+              "baseline_value": 4,
+              "score_raw": 80.0,
+              "score_band": 80
+            }
+          },
+          "rank": 6
+        },
+        {
+          "country": "PL",
+          "country_name": "Poland",
+          "it_similarity_raw": 69.4,
+          "it_similarity_band": 70,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(PKO·mBank) + 캡티브 패키지 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 51.7,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 5,
+              "baseline_value": 5,
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자신용=KNF 등록(자본금 PLN 1M+감사회+상시 감독), B2B 리스=인가 부담 없음(상법상 일반 회사)",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 35.7,
+              "score_band": 40
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "target_value": 3,
+              "baseline_value": 4,
+              "score_raw": 80.0,
+              "score_band": 80
+            }
+          },
+          "rank": 5
+        },
+        {
+          "country": "IT",
+          "country_name": "Italy",
+          "it_similarity_raw": 60.9,
+          "it_similarity_band": 60,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(UniCredit·Intesa) + 캡티브 패키지 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 51.7,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.175,
+              "target_value": 4,
+              "baseline_value": 5,
+              "score_raw": 80.0,
+              "score_band": 80
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=TUB Art. 106 등록(S.p.A.+최저자본 €2M+BdI 감독), B2B 리스=Art. 106 등록 의무, NLT(렌터카)=일반 회사+ANIASA 자율규제",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 32.3,
+              "score_band": 30
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "target_value": 2,
+              "baseline_value": 4,
+              "score_raw": 60.0,
+              "score_band": 60
+            }
+          },
+          "rank": 8
+        },
+        {
+          "country": "PT",
+          "country_name": "Portugal",
+          "it_similarity_raw": 63.1,
+          "it_similarity_band": 60,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(CGD·BCP·BPI) + 캡티브 패키지 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 50.3,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 4,
+              "baseline_value": 5,
+              "score_raw": 80.0,
+              "score_band": 80
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=SFC(Sociedade Financeira para Crédito) 인가(S.A.+자본금 €7.5M+BdP 감독), B2B 렌팅(AOR)=IFIC 단순등록+ANCAVE 자율규제",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 32.3,
+              "score_band": 30
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.07,
+              "target_value": 3,
+              "baseline_value": 4,
+              "score_raw": 80.0,
+              "score_band": 80
+            }
+          },
+          "rank": 7
+        },
+        {
+          "country": "UK",
+          "country_name": "United Kingdom",
+          "it_similarity_raw": 98.3,
+          "it_similarity_band": 100,
+          "is_baseline": true,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.255,
+              "target_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 5,
+              "baseline_value": 5,
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "target_value": 4,
+              "baseline_value": 4,
+              "score_raw": 100.0,
+              "score_band": 100
+            }
+          },
+          "rank": 1
+        },
+        {
+          "country": "NL",
+          "country_name": "Netherlands",
+          "it_similarity_raw": 69.5,
+          "it_similarity_band": 70,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(ABN AMRO·Rabobank·ING) + 다국적 리스사 자체 시스템 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 47.1,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 5,
+              "baseline_value": 5,
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=Wft Art. 2:60 인가(B.V.+자본금 €730k+AFM/DNB 감독), B2B 운용리스=Wft 인가 면제(일반 B.V., VRL/NVL 자율규제)",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 32.4,
+              "score_band": 30
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "target_value": 4,
+              "baseline_value": 4,
+              "score_raw": 100.0,
+              "score_band": 100
+            }
+          },
+          "rank": 3
+        },
+        {
+          "country": "AT",
+          "country_name": "Austria",
+          "it_similarity_raw": 69.8,
+          "it_similarity_band": 70,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(Erste·RBI·Bank Austria) + 캡티브(Porsche Bank) 자체 코어 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 48.1,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 5,
+              "baseline_value": 5,
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=BWG §1 Z2 등록(AG+자본금 €5M+FMA/OeNB 감독), B2B 운용리스=BWG 인가 면제(GmbH+VÖL 자율규제)",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 32.4,
+              "score_band": 30
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "target_value": 4,
+              "baseline_value": 4,
+              "score_raw": 100.0,
+              "score_band": 100
+            }
+          },
+          "rank": 2
+        },
+        {
+          "country": "DK",
+          "country_name": "Denmark",
+          "it_similarity_raw": 69.5,
+          "it_similarity_band": 70,
+          "is_baseline": false,
+          "axes": {
+            "솔루션 유형": {
+              "source_item": "솔루션 유형",
+              "weight": 0.3,
+              "tier": 3,
+              "tier_multiplier": 0.7,
+              "effective_weight": 0.21,
+              "target_value": "글로벌 패키지 + 은행계 자체 코어(Danske Bank·Nordea·Jyske) + 다국적 리스사 자체 시스템 혼재",
+              "baseline_value": "글로벌 패키지(NetSol/Alfa) + 대형사 자체 코어 혼재, SaaS 전환 진행",
+              "score_raw": 47.1,
+              "score_band": 50
+            },
+            "디지털 채널 성숙도": {
+              "source_item": "디지털 채널 성숙도",
+              "weight": 0.25,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.2125,
+              "target_value": 5,
+              "baseline_value": 5,
+              "score_raw": 100.0,
+              "score_band": 100
+            },
+            "라이선스 종류": {
+              "source_item": "라이선스 체제(세그먼트별)",
+              "weight": 0.2,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.2,
+              "target_value": "소비자 여신=FSA 인가 finansieringsselskab(A/S+자본금 DKK 8M+FSA 감독), B2B 운용리스=FSA 인가 면제(일반 ApS/A/S+Finans og Leasing 자율규제)",
+              "baseline_value": "소비자신용=FCA full permission(SM&CR 적용), B2B 리스·플릿=인가 부담 경감",
+              "score_raw": 32.4,
+              "score_band": 30
+            },
+            "데이터현지화": {
+              "source_item": "데이터 현지화 의무",
+              "weight": 0.15,
+              "tier": 1,
+              "tier_multiplier": 1.0,
+              "effective_weight": 0.15,
+              "target_value": "EU GDPR 직접 적용, EU 역내 이전 자유, 강제 현지화 없음",
+              "baseline_value": "UK GDPR + DPA 2018 적용, 강제 현지화 없음, EU 적정성 결정 의존(2025 연장)",
+              "score_raw": 90.0,
+              "score_band": 90
+            },
+            "차량회수 절차": {
+              "source_item": "차량회수 절차 용이성",
+              "weight": 0.1,
+              "tier": 2,
+              "tier_multiplier": 0.85,
+              "effective_weight": 0.085,
+              "target_value": 4,
+              "baseline_value": 4,
+              "score_raw": 100.0,
+              "score_band": 100
+            }
+          },
+          "rank": 4
+        }
+      ],
+      "ranking": [
+        {
+          "rank": 1,
+          "country": "UK",
+          "score_band": 100
+        },
+        {
+          "rank": 2,
+          "country": "AT",
+          "score_band": 70
+        },
+        {
+          "rank": 3,
+          "country": "NL",
+          "score_band": 70
+        },
+        {
+          "rank": 4,
+          "country": "DK",
+          "score_band": 70
+        },
+        {
+          "rank": 5,
+          "country": "PL",
+          "score_band": 70
+        },
+        {
+          "rank": 6,
+          "country": "ES",
+          "score_band": 70
+        },
+        {
+          "rank": 7,
+          "country": "PT",
+          "score_band": 60
+        },
+        {
+          "rank": 8,
+          "country": "IT",
+          "score_band": 60
+        }
+      ],
+      "method": "축별 raw = 수치(100−|Δ|×20) / 범주(텍스트 Jaccard 30+J×65) / gate(동일=90·한쪽 PASS=50) → effective weight = item_weight × tier_multiplier → 가중평균 raw → 10점 구간 반올림.",
+      "note": "10점 구간 표기. 소수점·1점 단위 비교 금지(spec). 동률 시 raw로 타이브레이크. Tier 가중은 대상국 데이터 신뢰도 기준."
+    },
+    "tab_2_3_market_background": {
+      "nature": "ranking",
+      "source_flag": "EXT",
+      "countries": [
+        {
+          "country": "ES",
+          "country_name": "Spain",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Toyota",
+              "market_share": "8.39%"
+            },
+            {
+              "rank": 2,
+              "name": "Renault",
+              "market_share": "7.25%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen",
+              "market_share": "6.66%"
+            },
+            {
+              "rank": 4,
+              "name": "Hyundai",
+              "market_share": "5.97%"
+            },
+            {
+              "rank": 5,
+              "name": "SEAT",
+              "market_share": "5.76%"
+            }
+          ],
+          "brand_top10": [
+            "Toyota",
+            "Renault",
+            "Volkswagen",
+            "Hyundai",
+            "SEAT",
+            "Dacia",
+            "Kia",
+            "Peugeot",
+            "Mercedes-Benz",
+            "BMW"
+          ],
+          "purchase_pattern": 55,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Santander Consumer Finance",
+            "CA Auto Bank",
+            "Cetelem (BNP Paribas)",
+            "Volkswagen Financial Services",
+            "Toyota Kreditbank",
+            "Mercedes-Benz Financial",
+            "BMW Bank",
+            "Sabadell Consumer Finance",
+            "CaixaBank Consumer"
+          ],
+          "competitor_entry_form": "은행계 자회사(Santander Consumer·Cetelem·CA Auto Bank) + OEM 캡티브(VW FS·Toyota·BMW·MB) + 일부 EFC 인가 전문 여신사. 렌팅은 ALD/Arval/Alphabet 등 다국적 플릿 리스사 주도",
+          "competitor_rates": "신차 자동차대출 TAE 약 6~10% (프로모 0~3% 캡티브 한정), 소비자신용 평균 TEDR 약 7%",
+          "avg_new_car_price": "약 €30,000~32,000 (turismos 평균 거래가, 전동화로 상승 추세)",
+          "qualitative_summary": "EU 5위권 자동차 시장(2025 신차 114.9만대, +12.9%). 은행계 소비자금융(Santander Consumer·CA Auto Bank·Cetelem 약 60%)+OEM 캡티브 혼재, 렌팅(운용리스) 고성장(점유 25.6%, EV 51%). 소비자금융은 EFC 인가(€5M)·2026 금리상한법 적용, B2B 리스·렌팅은 유연. EU GDPR·SEPA·성숙 CB로 IT 재사용성 높음."
+        },
+        {
+          "country": "PL",
+          "country_name": "Poland",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Toyota",
+              "market_share": "13.8%"
+            },
+            {
+              "rank": 2,
+              "name": "Skoda",
+              "market_share": "10.5%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen",
+              "market_share": "7.6%"
+            },
+            {
+              "rank": 4,
+              "name": "Kia",
+              "market_share": "6.9%"
+            },
+            {
+              "rank": 5,
+              "name": "Hyundai",
+              "market_share": "6.2%"
+            }
+          ],
+          "brand_top10": [
+            "Toyota",
+            "Skoda",
+            "Volkswagen",
+            "Kia",
+            "Hyundai",
+            "BMW",
+            "Audi",
+            "Dacia",
+            "Ford",
+            "Mercedes-Benz"
+          ],
+          "purchase_pattern": 72,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "PKO Leasing",
+            "mLeasing (mBank)",
+            "Santander Leasing",
+            "EFL (Crédit Agricole)",
+            "Volkswagen Financial Services",
+            "Toyota Bank Polska",
+            "BMW Financial Services",
+            "Mercedes-Benz Financial",
+            "Stellantis Financial Services",
+            "Arval (BNP Paribas)",
+            "ALD/Ayvens",
+            "Carefleet",
+            "Alphabet (BMW)",
+            "LeasePlan"
+          ],
+          "competitor_entry_form": "은행계 리스 자회사(PKO·mLeasing·Santander·EFL) + OEM 캡티브(VW FS·Toyota Bank·Stellantis FS·BMW·MB) + 다국적 플릿 리스사(Arval·ALD/Ayvens·Alphabet·LeasePlan·Carefleet). KNF 인가 EFC 또는 상법상 Sp. z o.o. 형태가 일반적",
+          "competitor_rates": "신차 자동차대출 APR 약 9~14% (프로모 0~3% 캡티브 한정), 운용리스 월 임대료 1.0~1.8% (잔가·기간 의존), 소비자신용 평균 APR NBP 통계 약 11%",
+          "avg_new_car_price": "약 PLN 145,000 (€33,000~34,000, turismos 평균 거래가, 전동화·SUV 비중 상승으로 우상향)",
+          "qualitative_summary": "EU 6위·CEE 1위 자동차 시장(2025 신차 56만대, +5.7%). 리스 주도 구조(신차 70%+) — ZPL 회원사가 시장 90%+. 캡티브(VW FS·Toyota·Stellantis FS 35%)+은행계 리스(PKO·mLeasing·Santander 55%) 양강. 소비자신용은 KNF 인가(PLN 1M)+2023 금리상한법 적용, B2B 리스는 무면허(상법상 즉시 가능). EU GDPR·SEPA·BIK·BLIK·PolishAPI로 IT 재사용성 높음."
+        },
+        {
+          "country": "IT",
+          "country_name": "Italy",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Fiat",
+              "market_share": "11.2%"
+            },
+            {
+              "rank": 2,
+              "name": "Toyota",
+              "market_share": "8.5%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen",
+              "market_share": "7.8%"
+            },
+            {
+              "rank": 4,
+              "name": "Dacia",
+              "market_share": "7.0%"
+            },
+            {
+              "rank": 5,
+              "name": "Peugeot",
+              "market_share": "6.5%"
+            }
+          ],
+          "brand_top10": [
+            "Fiat",
+            "Toyota",
+            "Volkswagen",
+            "Dacia",
+            "Peugeot",
+            "Citroën",
+            "Renault",
+            "Jeep",
+            "Ford",
+            "Hyundai"
+          ],
+          "purchase_pattern": 60,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Stellantis Financial Services",
+            "Volkswagen Financial Services",
+            "Findomestic Banca (BNP Paribas)",
+            "Agos Ducato (Crédit Agricole)",
+            "Toyota Financial Services Italia",
+            "BMW Bank Italia",
+            "Mercedes-Benz Financial Services Italia",
+            "UniCredit Leasing",
+            "Intesa Sanpaolo (Banca Intesa Leasint)",
+            "BNL BNP Paribas Leasing",
+            "Arval Italia (BNP Paribas)",
+            "ALD/Ayvens Italia",
+            "LeasePlan Italia",
+            "Alphabet Italia (BMW)",
+            "Leasys (Stellantis NLT)"
+          ],
+          "competitor_entry_form": "OEM 캡티브(Stellantis FS·VW FS·Toyota·BMW·MB) + 소비자신용 전문은행(Findomestic·Agos·Compass) + 은행계 리스(UniCredit·Intesa·BNL) + NLT 다국적(Arval·ALD/Ayvens·LeasePlan·Alphabet·Leasys). TUB Art. 106 등록 형태가 일반적",
+          "competitor_rates": "신차 자동차대출 TAEG 약 7~11% (프로모 0~3% 캡티브 한정, Stellantis FS Black Friday 0%), 소비자신용 평균 TAEG BdI 통계 약 9%",
+          "avg_new_car_price": "약 €28,500 (turismos 평균 거래가, 전동화·SUV 비중 상승으로 우상향)",
+          "qualitative_summary": "EU 4위 자동차 시장(2025 신차 156만대, -0.8%). 캡티브 주도(Stellantis FS 18%·VW FS·Toyota·BMW 등 약 45%)+은행계(UniCredit·Intesa·BNL 25%)+독립계(30%) 구조. NLT(장기렌트) 고성장(점유 28%, EV 30%+). 소비자금융은 TUB Art. 106 등록(€2M)·Tasso Soglia 적용, B2B 리스·NLT는 유연. EU GDPR·SEPA·CRIF·PagoPA·SPID로 IT 재사용성 높음. 단 사법회수 4~7년이 회수 리스크 핵심."
+        },
+        {
+          "country": "PT",
+          "country_name": "Portugal",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Peugeot",
+              "market_share": "10.5%"
+            },
+            {
+              "rank": 2,
+              "name": "Renault",
+              "market_share": "8.2%"
+            },
+            {
+              "rank": 3,
+              "name": "BMW",
+              "market_share": "7.5%"
+            },
+            {
+              "rank": 4,
+              "name": "Mercedes-Benz",
+              "market_share": "7.0%"
+            },
+            {
+              "rank": 5,
+              "name": "Volkswagen",
+              "market_share": "6.5%"
+            }
+          ],
+          "brand_top10": [
+            "Peugeot",
+            "Renault",
+            "BMW",
+            "Mercedes-Benz",
+            "Volkswagen",
+            "Citroën",
+            "Toyota",
+            "Hyundai",
+            "Dacia",
+            "Tesla"
+          ],
+          "purchase_pattern": 60,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Santander Consumer Portugal",
+            "Banco BPI (CaixaBank)",
+            "Volkswagen Bank Portugal",
+            "Banco BCP/Millennium",
+            "Stellantis Financial Services",
+            "Cetelem Portugal (BNP Paribas PF)",
+            "Cofidis Portugal",
+            "Toyota Financial Services Portugal",
+            "Mercedes-Benz Financial",
+            "BMW Bank Portugal",
+            "Ayvens Portugal (ALD+LeasePlan)",
+            "Arval Portugal (BNP Paribas)",
+            "LeasePlan Portugal",
+            "Alphabet Portugal (BMW)",
+            "Externato (현지 렌팅)"
+          ],
+          "competitor_entry_form": "은행계 자회사(Santander Consumer·BPI·BCP·CGD) + OEM 캡티브(VW·Stellantis·Toyota·BMW·MB) + 다국적 렌팅(Ayvens·Arval·LeasePlan·Alphabet) + 소비자신용 전문(Cetelem·Cofidis). SFC 인가 또는 IFIC 형태가 일반적",
+          "competitor_rates": "신차 자동차대출 TAEG 약 7~11% (프로모 0~3% 캡티브 한정), 렌팅(AOR) 월 임대료 €350~600 (잔가·기간 의존), 소비자신용 평균 TAEG BdP 통계 약 8.5%",
+          "avg_new_car_price": "약 €27,500 (turismos 평균 거래가, ES 대비 약간 낮음, EV·SUV로 우상향)",
+          "qualitative_summary": "EU 14위 자동차 시장(2025 신차 22만대, +4.3%). 이베리아 보조 시장으로 단독 진입보다 ES 통합 진입의 보조 시장 가치 큼. 캡티브(Stellantis·VW·Renault 약 35%)+은행계(Santander·BCP·CGD·BPI 약 35%)+다국적 렌팅(Ayvens·Arval 약 20%) 구조. 렌팅(AOR) 30%+ 점유, EV 28% EU 톱5. 소비자금융은 SFC 인가(€7.5M)·DL 133/2009 금리상한, B2B 렌팅은 IFIC 단순등록+ANCAVE. EU GDPR·SEPA·MULTIBANCO·CRC로 IT 재사용성 높음. AAA→A- 신용 회복세."
+        },
+        {
+          "country": "UK",
+          "country_name": "United Kingdom",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Ford",
+              "market_share": "약 9%"
+            },
+            {
+              "rank": 2,
+              "name": "Volkswagen",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 3,
+              "name": "Kia",
+              "market_share": "약 7%"
+            },
+            {
+              "rank": 4,
+              "name": "Audi",
+              "market_share": "약 6%"
+            },
+            {
+              "rank": 5,
+              "name": "BMW",
+              "market_share": "약 6%"
+            }
+          ],
+          "brand_top10": [
+            "Ford",
+            "Volkswagen",
+            "Kia",
+            "Audi",
+            "BMW",
+            "Nissan",
+            "Toyota",
+            "Hyundai",
+            "Vauxhall",
+            "Mercedes-Benz"
+          ],
+          "purchase_pattern": 80,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Black Horse (Lloyds)",
+            "Volkswagen Financial Services",
+            "Santander Consumer UK",
+            "BMW Financial Services",
+            "Ford Credit",
+            "Stellantis Financial Services",
+            "Toyota Financial Services",
+            "MotoNovo Finance",
+            "Close Brothers Motor Finance",
+            "Mercedes-Benz Financial"
+          ],
+          "competitor_entry_form": "은행계 자회사(Black Horse/Lloyds·Santander) + OEM 캡티브(VWFS·BMW·Ford·Stellantis FS) + 독립계 전문여신사(MotoNovo·Close Brothers). 리스는 LeasePlan/Ayvens·Arval 등 다국적",
+          "competitor_rates": "신차 PCP APR 약 5~10%(캡티브 프로모 0~6%), 중고/니어프라임 10~20%대",
+          "avg_new_car_price": "약 £35,000~40,000 (신차 평균 거래가, EV 비중 상승으로 상향)",
+          "qualitative_summary": "유럽 최대급 자동차금융 시장이자 자사 NetSol 구축 베이스라인. 2025 신차 약 196만대(SMMT), 신차 사적구매 80%+ 금융(PCP 지배적). FLA 기준 소비자 자동차금융 연 약 £39bn. FCA 규제·DCA 미스셀링 사태가 컴플라이언스 핵심 변수. Open Banking·3대 CB로 IT 인프라 세계 최고."
+        },
+        {
+          "country": "NL",
+          "country_name": "Netherlands",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Volkswagen",
+              "market_share": "10.2%"
+            },
+            {
+              "rank": 2,
+              "name": "Kia",
+              "market_share": "8.6%"
+            },
+            {
+              "rank": 3,
+              "name": "Toyota",
+              "market_share": "7.8%"
+            },
+            {
+              "rank": 4,
+              "name": "Volvo",
+              "market_share": "6.5%"
+            },
+            {
+              "rank": 5,
+              "name": "Tesla",
+              "market_share": "6.0%"
+            }
+          ],
+          "brand_top10": [
+            "Volkswagen",
+            "Kia",
+            "Toyota",
+            "Volvo",
+            "Tesla",
+            "BMW",
+            "Peugeot",
+            "Hyundai",
+            "Renault",
+            "Mercedes-Benz"
+          ],
+          "purchase_pattern": 60,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Ayvens (ALD+LeasePlan)",
+            "Athlon (Mercedes-Benz Mobility)",
+            "Arval (BNP Paribas)",
+            "Volkswagen Financial Services",
+            "Alphabet (BMW)",
+            "Toyota Financial Services NL",
+            "Stellantis Financial Services",
+            "Hyundai Capital Netherlands",
+            "Driver Lease (현지 중견)",
+            "Justlease",
+            "MisterGreen (EV 전문)",
+            "Bynco (디지털 리테일)",
+            "DirectLease"
+          ],
+          "competitor_entry_form": "다국적 리스사 자회사(Ayvens·Athlon·Arval·Alphabet·LeasePlan) + OEM 캡티브(VW FS·Toyota·Stellantis·Hyundai Capital) + Wft 인가 EFC + EV 전문(MisterGreen)·디지털(Bynco) 신생. 운용리스는 B.V. 즉시 가능, 소비자금융은 Wft 인가 필요",
+          "competitor_rates": "신차 자동차대출 APR 약 6~10% (프로모 0~3% 캡티브 한정), 운용리스 월 임대료 €350~700 (잔가·기간·BEV 의존), 소비자신용 평균 DNB 통계 약 7.5%",
+          "avg_new_car_price": "약 €42,000 (turismos 평균 거래가, EV·SUV 비중 높아 EU 평균 상회)",
+          "qualitative_summary": "EU 9위 자동차 시장(2025 신차 38만대, ±0%) — 규모 중위지만 운용리스 침투·EV 보급은 EU 1위. 다국적 리스사 주도(Ayvens/ALD·LeasePlan·Arval·Athlon 약 45%)+OEM 캡티브(VW·Stellantis·Toyota 30%)+은행계·독립계(25%) 구조. 소비자금융은 Wft 인가(€730k)·Wck 35a 사용자금리, B2B 운용리스는 인가 면제. EU GDPR·SEPA·iDEAL·BKR·DigiD로 IT 재사용성 최상위. AAA 국가신용, 이자 원천세 0% — EU Holding 허브로 활용 가능."
+        },
+        {
+          "country": "AT",
+          "country_name": "Austria",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Volkswagen",
+              "market_share": "12.5%"
+            },
+            {
+              "rank": 2,
+              "name": "Skoda",
+              "market_share": "10.0%"
+            },
+            {
+              "rank": 3,
+              "name": "BMW",
+              "market_share": "8.5%"
+            },
+            {
+              "rank": 4,
+              "name": "Seat/Cupra",
+              "market_share": "7.0%"
+            },
+            {
+              "rank": 5,
+              "name": "Audi",
+              "market_share": "6.5%"
+            }
+          ],
+          "brand_top10": [
+            "Volkswagen",
+            "Skoda",
+            "BMW",
+            "Seat/Cupra",
+            "Audi",
+            "Toyota",
+            "Hyundai",
+            "Mercedes-Benz",
+            "Kia",
+            "Renault"
+          ],
+          "purchase_pattern": 62,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Porsche Bank (VW그룹)",
+            "Ayvens Austria (ALD+LeasePlan)",
+            "Raiffeisen-Leasing",
+            "BAWAG P.S.K. Leasing",
+            "Erste Group/s Leasing",
+            "BMW Austria Leasing",
+            "Mercedes-Benz Financial Services Austria",
+            "Toyota Financial Services Austria",
+            "Stellantis Financial Services Austria",
+            "Arval Austria (BNP Paribas)",
+            "Alphabet Austria (BMW)",
+            "Sixt Leasing Austria",
+            "UniCredit Bank Austria/Bank Austria Leasing"
+          ],
+          "competitor_entry_form": "OEM 캡티브(Porsche Bank·VW FS·BMW·MB·Toyota·Stellantis) + 오스트리아 은행계(Raiffeisen·BAWAG·Erste·Bank Austria) + 다국적 리스사(Ayvens·Arval·Alphabet·Sixt). 운용리스는 GmbH 즉시 가능, 소비자금융은 FMA 인가 필요",
+          "competitor_rates": "신차 자동차대출 APR 약 5~9% (프로모 0~3% Porsche Bank 압도), 운용리스 월 임대료 €350~700, 소비자신용 평균 OeNB 통계 약 7%",
+          "avg_new_car_price": "약 €36,000 (turismos 평균 거래가, NoVA 등록세+EV·SUV 비중으로 EU 평균 상회)",
+          "qualitative_summary": "EU 12위 자동차 시장(2025 신차 24만대 보합). Porsche Bank(VW그룹) 단독 35%+로 EU 최강 캡티브 구조 — OEM 캡티브 합산 55%·다국적 리스 20%·은행계 15%·독립계 10%. 운용리스 60%+로 EU 톱급. 소비자금융은 BWG §1 Z2 등록(€5M)·VKrG §6 사용자금리, B2B 운용리스는 VÖL 자율규제. EU GDPR·SEPA·EPS·KSV1870·ID Austria로 IT 재사용성 최상위. AA+ 신용·이자 0%·EU/CEE 본부 활용 가능."
+        },
+        {
+          "country": "DK",
+          "country_name": "Denmark",
+          "oem_top5": [
+            {
+              "rank": 1,
+              "name": "Tesla",
+              "market_share": "12.5%"
+            },
+            {
+              "rank": 2,
+              "name": "Volkswagen",
+              "market_share": "10.2%"
+            },
+            {
+              "rank": 3,
+              "name": "Toyota",
+              "market_share": "8.5%"
+            },
+            {
+              "rank": 4,
+              "name": "Kia",
+              "market_share": "7.8%"
+            },
+            {
+              "rank": 5,
+              "name": "Volvo",
+              "market_share": "6.5%"
+            }
+          ],
+          "brand_top10": [
+            "Tesla",
+            "Volkswagen",
+            "Toyota",
+            "Kia",
+            "Volvo",
+            "Skoda",
+            "BMW",
+            "Hyundai",
+            "Audi",
+            "Peugeot"
+          ],
+          "purchase_pattern": 65,
+          "purchase_pattern_unit": "%",
+          "competitors": [
+            "Ayvens Denmark (ALD+LeasePlan)",
+            "Arval Denmark (BNP Paribas)",
+            "Volkswagen Financial Services Denmark",
+            "Nordea Finans",
+            "Jyske Finans",
+            "Toyota Financial Services Denmark",
+            "Stellantis Financial Services Denmark",
+            "BMW Bank Denmark",
+            "Mercedes-Benz Financial Denmark",
+            "Alphabet Denmark (BMW)",
+            "Athlon Car Lease Denmark",
+            "Dansk Bilfinansiering",
+            "DLR Kredit (현지 중견)"
+          ],
+          "competitor_entry_form": "다국적 리스사 자회사(Ayvens·Arval·Athlon·Alphabet) + OEM 캡티브(VW FS·Toyota·Stellantis·BMW·MB) + 북유럽 은행계(Nordea Finans·Jyske Finans·Danske). 운용리스는 ApS/A/S 즉시 가능, 소비자금융은 FSA 인가 필요",
+          "competitor_rates": "신차 자동차대출 APR 약 5~8% (프로모 0~3% 캡티브 한정), 운용리스 월 임대료 DKK 3,000~6,000 (€400~800, 등록세 회피 splitleasing), 소비자신용 평균 Nationalbanken 통계 약 6.5%",
+          "avg_new_car_price": "약 €40,000 (turismos 평균 거래가, 등록세+EV·SUV 비중으로 EU 평균 상회)",
+          "qualitative_summary": "EU 16위 자동차 시장(2025 신차 17만대) — 등록세(90~150%)로 시장 크게 위축. BEV 점유 60%(EU 1위)·운용리스 80%+로 단위경제 우수. 다국적 리스(Ayvens·Arval·LeasePlan 35%)+OEM 캡티브(VW·Toyota·Stellantis 30%)+은행계(20%) 구조. 소비자금융은 2020 forbrugslån 강화로 사실상 비매력, B2B 운용리스는 FSA 인가 면제로 매우 유연. EU GDPR·SEPA·MitID·MobilePay·RKI로 IT 재사용성 최상위. AAA 신용·이자 원천세 EU 지침 0% — Nordic 허브 활용 가능."
+        }
+      ]
+    },
+    "quickwin": {
+      "nature": "ranking",
+      "source_flag": "CALC",
+      "weights": {
+        "w_biz": 0.6,
+        "w_it": 0.4
+      },
+      "baseline_country": "UK",
+      "rows": [
+        {
+          "country": "ES",
+          "country_name": "Spain",
+          "attractiveness": 43.9,
+          "it_similarity": 65.8,
+          "it_similarity_band": 70,
+          "quickwin_raw": 52.7,
+          "quickwin_band": 50,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 4
+        },
+        {
+          "country": "PL",
+          "country_name": "Poland",
+          "attractiveness": 66.8,
+          "it_similarity": 69.4,
+          "it_similarity_band": 70,
+          "quickwin_raw": 67.8,
+          "quickwin_band": 70,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 1
+        },
+        {
+          "country": "IT",
+          "country_name": "Italy",
+          "attractiveness": 47.1,
+          "it_similarity": 60.9,
+          "it_similarity_band": 60,
+          "quickwin_raw": 52.6,
+          "quickwin_band": 50,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 5
+        },
+        {
+          "country": "PT",
+          "country_name": "Portugal",
+          "attractiveness": 36.1,
+          "it_similarity": 63.1,
+          "it_similarity_band": 60,
+          "quickwin_raw": 46.9,
+          "quickwin_band": 50,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 6
+        },
+        {
+          "country": "UK",
+          "country_name": "United Kingdom",
+          "attractiveness": 73.8,
+          "it_similarity": 98.3,
+          "it_similarity_band": 100,
+          "quickwin_raw": 83.6,
+          "quickwin_band": 80,
+          "is_baseline": true,
+          "killswitch_excluded": false,
+          "excluded": true,
+          "exclusion_reason": "baseline (기준국, 후보 아님)"
+        },
+        {
+          "country": "NL",
+          "country_name": "Netherlands",
+          "attractiveness": 42.5,
+          "it_similarity": 69.5,
+          "it_similarity_band": 70,
+          "quickwin_raw": 53.3,
+          "quickwin_band": 50,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 3
+        },
+        {
+          "country": "AT",
+          "country_name": "Austria",
+          "attractiveness": 26.0,
+          "it_similarity": 69.8,
+          "it_similarity_band": 70,
+          "quickwin_raw": 43.5,
+          "quickwin_band": 40,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 7
+        },
+        {
+          "country": "DK",
+          "country_name": "Denmark",
+          "attractiveness": 44.1,
+          "it_similarity": 69.5,
+          "it_similarity_band": 70,
+          "quickwin_raw": 54.3,
+          "quickwin_band": 50,
+          "is_baseline": false,
+          "killswitch_excluded": false,
+          "excluded": false,
+          "exclusion_reason": null,
+          "rank": 2
+        }
+      ],
+      "ranking": [
+        {
+          "rank": 1,
+          "country": "PL",
+          "score_band": 70,
+          "attractiveness": 66.8,
+          "it_similarity_band": 70
+        },
+        {
+          "rank": 2,
+          "country": "DK",
+          "score_band": 50,
+          "attractiveness": 44.1,
+          "it_similarity_band": 70
+        },
+        {
+          "rank": 3,
+          "country": "NL",
+          "score_band": 50,
+          "attractiveness": 42.5,
+          "it_similarity_band": 70
+        },
+        {
+          "rank": 4,
+          "country": "ES",
+          "score_band": 50,
+          "attractiveness": 43.9,
+          "it_similarity_band": 70
+        },
+        {
+          "rank": 5,
+          "country": "IT",
+          "score_band": 50,
+          "attractiveness": 47.1,
+          "it_similarity_band": 60
+        },
+        {
+          "rank": 6,
+          "country": "PT",
+          "score_band": 50,
+          "attractiveness": 36.1,
+          "it_similarity_band": 60
+        },
+        {
+          "rank": 7,
+          "country": "AT",
+          "score_band": 40,
+          "attractiveness": 26.0,
+          "it_similarity_band": 70
+        }
+      ],
+      "note": {
+        "ko": "퀵윈 = 매력도×w_biz + IT유사도×w_it. 기준국(B국) 및 킬스위치 탈락국 제외. 10점 구간 표기.",
+        "en": "Quickwin = Attractiveness×w_biz + IT×w_it. Baseline and killswitch failures excluded. Reported in 10-point buckets."
+      }
+    },
+    "top3_country_cards": [
+      {
+        "rank": 1,
+        "country": "PL",
+        "country_name": "Poland",
+        "quickwin_score_band": 70,
+        "attractiveness": 66.8,
+        "it_similarity_band": 70,
+        "killswitch_pass": true,
+        "market_brief": {
+          "신차_판매대수": 560000,
+          "금융_이용률_신차": 78,
+          "EV_보급률": 7.5
+        },
+        "competition_brief": {
+          "금융사_Top5": [
+            {
+              "rank": 1,
+              "name": "PKO Leasing",
+              "market_share": "약 18%"
+            },
+            {
+              "rank": 2,
+              "name": "mLeasing (mBank)",
+              "market_share": "약 14%"
+            },
+            {
+              "rank": 3,
+              "name": "Santander Leasing",
+              "market_share": "약 11%"
+            },
+            {
+              "rank": 4,
+              "name": "EFL (Crédit Agricole)",
+              "market_share": "약 9%"
+            },
+            {
+              "rank": 5,
+              "name": "Volkswagen Financial Services",
+              "market_share": "약 8%"
+            }
+          ],
+          "경쟁사_진출_형태": "은행계 리스 자회사(PKO·mLeasing·Santander·EFL) + OEM 캡티브(VW FS·Toyota Bank·Stellantis FS·BMW·MB) + 다국적 플릿 리스사(Arval·ALD/Ayvens·Alphabet·LeasePlan·Carefleet). KNF 인가 EFC 또는 상법상 Sp. z o.o. 형태가 일반적"
+        },
+        "top_news": {
+          "news_category": "auto_market",
+          "headline": "폴란드 2025년 신차 등록 56만대로 +5.7%, CEE 최대 시장 지위 강화",
+          "so_what": "시장 회복·확장으로 금융 침투 기반 견조 — 진입 타이밍 우호적. 법인 등록 비중 70%+로 B2B 리스 우선 전략의 근거 강화.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-01-22",
+          "url": "https://europe.autonews.com/..."
+        },
+        "ai_comment": "B2B 리스·운용리스(CFM)로 빠른 진입 → EV·중고 틈새 → KNF 인가 기반 소비자금융 확장의 단계적 전략 유효. CEE 허브로 활용 가능.",
+        "source_flags": {
+          "rank": "CALC",
+          "score": "CALC",
+          "market": "EXT",
+          "competition": "EXT",
+          "news": "NEWS",
+          "ai_comment": "AI"
+        }
+      },
+      {
+        "rank": 2,
+        "country": "DK",
+        "country_name": "Denmark",
+        "quickwin_score_band": 50,
+        "attractiveness": 44.1,
+        "it_similarity_band": 70,
+        "killswitch_pass": true,
+        "market_brief": {
+          "신차_판매대수": 170000,
+          "금융_이용률_신차": 80,
+          "EV_보급률": 60
+        },
+        "competition_brief": {
+          "금융사_Top5": [
+            {
+              "rank": 1,
+              "name": "Ayvens (구 ALD+LeasePlan)",
+              "market_share": "약 18%"
+            },
+            {
+              "rank": 2,
+              "name": "Arval (BNP Paribas)",
+              "market_share": "약 11%"
+            },
+            {
+              "rank": 3,
+              "name": "Volkswagen Financial Services Denmark",
+              "market_share": "약 10%"
+            },
+            {
+              "rank": 4,
+              "name": "Nordea Finans",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 5,
+              "name": "Jyske Bank Finans / Jyske Finans",
+              "market_share": "약 7%"
+            }
+          ],
+          "경쟁사_진출_형태": "다국적 리스사 자회사(Ayvens·Arval·Athlon·Alphabet) + OEM 캡티브(VW FS·Toyota·Stellantis·BMW·MB) + 북유럽 은행계(Nordea Finans·Jyske Finans·Danske). 운용리스는 ApS/A/S 즉시 가능, 소비자금융은 FSA 인가 필요"
+        },
+        "top_news": {
+          "news_category": "auto_market",
+          "headline": "덴마크 2025년 BEV 점유 50% 돌파, EU에서 NO 다음 글로벌 2위",
+          "so_what": "BEV 압도적 시장 — EV 운용리스 전문 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우, 한국 OEM(Kia·Hyundai) EV 라인업 우위 활용.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-01-28",
+          "url": "https://europe.autonews.com/..."
+        },
+        "ai_comment": "운용리스·EV 전문 진입 → brugtleasing 중고리스 확장 → SE·NO·FI Nordic 통합 운영. 소비자금융은 사실상 진입 비매력 — B2B 한정 전략.",
+        "source_flags": {
+          "rank": "CALC",
+          "score": "CALC",
+          "market": "EXT",
+          "competition": "EXT",
+          "news": "NEWS",
+          "ai_comment": "AI"
+        }
+      },
+      {
+        "rank": 3,
+        "country": "NL",
+        "country_name": "Netherlands",
+        "quickwin_score_band": 50,
+        "attractiveness": 42.5,
+        "it_similarity_band": 70,
+        "killswitch_pass": true,
+        "market_brief": {
+          "신차_판매대수": 380000,
+          "금융_이용률_신차": 75,
+          "EV_보급률": 35
+        },
+        "competition_brief": {
+          "금융사_Top5": [
+            {
+              "rank": 1,
+              "name": "Ayvens (구 ALD+LeasePlan, SocGen+BNP)",
+              "market_share": "약 25%"
+            },
+            {
+              "rank": 2,
+              "name": "Athlon (Mercedes-Benz Mobility)",
+              "market_share": "약 10%"
+            },
+            {
+              "rank": 3,
+              "name": "Arval (BNP Paribas)",
+              "market_share": "약 8%"
+            },
+            {
+              "rank": 4,
+              "name": "Volkswagen Financial Services",
+              "market_share": "약 7%"
+            },
+            {
+              "rank": 5,
+              "name": "Alphabet (BMW)",
+              "market_share": "약 5%"
+            }
+          ],
+          "경쟁사_진출_형태": "다국적 리스사 자회사(Ayvens·Athlon·Arval·Alphabet·LeasePlan) + OEM 캡티브(VW FS·Toyota·Stellantis·Hyundai Capital) + Wft 인가 EFC + EV 전문(MisterGreen)·디지털(Bynco) 신생. 운용리스는 B.V. 즉시 가능, 소비자금융은 Wft 인가 필요"
+        },
+        "top_news": {
+          "news_category": "auto_market",
+          "headline": "네덜란드 2025년 신차 등록 38만대 보합, BEV 점유 30%+로 EU 톱 유지",
+          "so_what": "시장 규모는 정체이나 EV 침투율로 단위경제 우수 — BEV 운용리스 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-01-25",
+          "url": "https://europe.autonews.com/..."
+        },
+        "ai_comment": "운용리스·EV로 즉시 진입(Wft 면제) → EV 잔가 모델 정교화 → Wft 인가 기반 소비자금융 단계 확장. Holding 허브 활용 시 글로벌 자본 효율 극대화.",
+        "source_flags": {
+          "rank": "CALC",
+          "score": "CALC",
+          "market": "EXT",
+          "competition": "EXT",
+          "news": "NEWS",
+          "ai_comment": "AI"
+        }
+      }
+    ],
+    "executive_summary": {
+      "core_conclusion": {
+        "source_flag": "CALC",
+        "top3": [
+          {
+            "rank": 1,
+            "country": "PL",
+            "score_band": 70,
+            "attractiveness": 66.8,
+            "it_similarity_band": 70
+          },
+          {
+            "rank": 2,
+            "country": "DK",
+            "score_band": 50,
+            "attractiveness": 44.1,
+            "it_similarity_band": 70
+          },
+          {
+            "rank": 3,
+            "country": "NL",
+            "score_band": 50,
+            "attractiveness": 42.5,
+            "it_similarity_band": 70
+          }
+        ],
+        "killswitch_failed_count": 0,
+        "why_top1": {
+          "ko": "Poland(PL) — 매력도 66.8, IT유사도 70 구간, 퀵윈 70 구간",
+          "en": "Poland(PL) — Attractiveness 66.8, IT band 70, Quickwin band 70"
+        }
+      },
+      "ai_cross_insight": {
+        "source_flag": "AI",
+        "insights": [
+          {
+            "ko": "후보국 중 매력도 1위(PL)와 IT유사도 1위(AT)가 일치하지 않음 — 단기 확산(IT 유사)과 시장 잠재력(매력도) 사이 트레이드오프 존재.",
+            "en": "Top attractiveness (PL) and top IT similarity (AT) are different countries — trade-off between fast deployment (IT) and market potential (attractiveness)."
+          },
+          {
+            "ko": "기준국 UK은 이미 시스템 보유국 → 순위에서 제외(B국 시스템 확산의 비교 기준).",
+            "en": "Baseline UK already operates a deployed system — excluded from the ranking (used as the reference for system expansion)."
+          }
+        ]
+      },
+      "external_news_scan": {
+        "source_flag": "NEWS",
+        "items": [
+          {
+            "country": null,
+            "scope": "region",
+            "headline": "4월 유럽 신차 시장, 전동화 차량이 성장 견인 — EV 등록 38% 급증·BEV 점유율 22.2%",
+            "so_what": "전동화 가속이 권역 공통으로 진행 → 리스 잔가(GFV) 리스크 확대. EV 별도 잔가 곡선을 보수적으로 반영한 리스 손익 설계 필요.",
+            "publisher": "WardsAuto",
+            "date": "2026-06-09",
+            "url": "https://www.wardsauto.com/news/electrified-vehicles-boost-eu-sales-in-april/821975/",
+            "news_category": "auto_market"
+          },
+          {
+            "country": null,
+            "scope": "region",
+            "headline": "EU, 중국산 PHEV에 추가 관세 준비 — 'EV 관세 우회' 차단 목적",
+            "so_what": "관세로 역내 차량가·모델 구성 변동 가능 → 차량가 가정·재고금융 부담에 파급. 진입 초기 물량·가격 가정 보수적으로.",
+            "publisher": "Automotive News Europe",
+            "date": "2026-06-19",
+            "url": "https://www.autonews.com/ev/ane-eu-prepares-phev-tariffs-china-imports-0619/",
+            "news_category": "auto_market"
+          },
+          {
+            "country": "PL",
+            "scope": "country",
+            "headline": "폴란드 2025년 신차 등록 56만대로 +5.7%, CEE 최대 시장 지위 강화",
+            "so_what": "시장 회복·확장으로 금융 침투 기반 견조 — 진입 타이밍 우호적. 법인 등록 비중 70%+로 B2B 리스 우선 전략의 근거 강화.",
+            "publisher": "Automotive News Europe",
+            "date": null
+          },
+          {
+            "country": "NL",
+            "scope": "country",
+            "headline": "네덜란드 2025년 신차 등록 38만대 보합, BEV 점유 30%+로 EU 톱 유지",
+            "so_what": "시장 규모는 정체이나 EV 침투율로 단위경제 우수 — BEV 운용리스 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우.",
+            "publisher": "Automotive News Europe",
+            "date": null
+          },
+          {
+            "country": "DK",
+            "scope": "country",
+            "headline": "덴마크 2025년 BEV 점유 50% 돌파, EU에서 NO 다음 글로벌 2위",
+            "so_what": "BEV 압도적 시장 — EV 운용리스 전문 진입에 최적 환경. 잔가 모델 정교화가 손익 좌우, 한국 OEM(Kia·Hyundai) EV 라인업 우위 활용.",
+            "publisher": "Automotive News Europe",
+            "date": null
+          }
+        ],
+        "region_news_count": 2,
+        "note": {
+          "ko": "권역 공통 이슈 2건 + 상위 3개국 헤드라인. '조사 필요' 항목은 제외.",
+          "en": "2 region-wide issues + top-3 country headlines. '조사 필요' (research needed) entries excluded."
+        }
+      }
+    }
+  }
+}
