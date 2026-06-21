@@ -40,7 +40,9 @@ python3 app/backend/engine/generation/country_report_engine.py app/backend/stora
 # 권역 진단 리포트 JSON 생성 (인자: 권역 리서치 JSON 경로) — report/region/<REGION>/data 출력
 python3 app/backend/engine/generation/region_report_engine.py app/backend/storage/data/research/region/EU/EU_latest.json
 
-# 보고서 렌더링은 별도 실행 (리포트 JSON이 이미 있을 때) — 인자는 리포트 JSON 경로
+# 보고서 렌더링 — 인자는 리포트 JSON 경로 (단독 실행 가능)
+# 참고: country 생성 엔진(country_report_engine.py)은 리포트 JSON 저장 후 country_report_renderer를 자동 호출해 HTML까지 만든다.
+#       region 생성 엔진은 자동 호출하지 않으므로 권역 보고서 HTML은 아래처럼 별도 실행한다(country↔region 비대칭).
 # 국가 보고서(PR1): report/country/<CODE>/data → report/country/<CODE>/html
 python3 app/backend/engine/rendering/country_report_renderer.py app/backend/storage/report/country/ES/data/RPT_CTR_ES_001.json
 # 권역 보고서(PR2): report/region/<REGION>/data → report/region/<REGION>/html
@@ -66,7 +68,7 @@ python3 app/backend/engine/rendering/region_detail_renderer.py EU
 ## 데이터 계약
 
 - 리서치 데이터 스키마·생성 프롬프트는 `architecture/research/` 참조 (country 정의됨, region 예정).
-- `internal_latest.json`은 스코어링 룰셋(weights, scoring_rules, quick_win_rules, similarity_brackets, maintenance_rate)과 사내 자산(country_assets)을 담는다.
+- `internal_latest.json`(현재 v1.3)은 스코어링 룰셋(`values`{biz_attractiveness·it_readiness·report_blend}, `similarity_item_weights`, `tier_weights`, `scoring_rules`, `quick_win_rules`, `similarity_brackets`, `maintenance_rate` 등)과 사내 자산(`country_assets`)을 담는다. 전체 키 정의·산식 매핑의 단일 출처는 `app/backend/storage/data/internal/README.md`다. (구버전 v1.2의 `weights` 키는 `values`/`similarity_item_weights`/`tier_weights`로 분리됨.)
 
 ## Git
 

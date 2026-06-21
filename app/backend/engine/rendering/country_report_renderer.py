@@ -8,7 +8,7 @@ Implements data nature -> chart type mapping from render spec.
 
 import json
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, List, Any, Optional
 from datetime import datetime
 
 

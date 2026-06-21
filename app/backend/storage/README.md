@@ -14,9 +14,10 @@ storage/
 │   ├── country/<CODE>/
 │   │   ├── data/           # 국가 진단 리포트 (JSON) — RPT_CTR_<CODE>_<NNN>.json
 │   │   └── html/           # 국가 진단 보고서 (HTML) — RPT_CTR_<CODE>_<NNN>.html
-│   └── region/<REGION>/
-│       ├── data/           # 권역 진단 리포트 (JSON) — RPT_RGN_<REGION>_<NNN>.json
-│       └── html/           # 권역 진단 보고서 (HTML) — RPT_RGN_<REGION>_<NNN>.html
+│   ├── region/<REGION>/
+│   │   ├── data/           # 권역 진단 리포트 (JSON) — RPT_RGN_<REGION>_<NNN>.json
+│   │   └── html/           # 권역 진단 보고서 (HTML) — RPT_RGN_<REGION>_<NNN>.html
+│   └── analysis/<REGION>/  # 권역 갭 분석(유형2) JSON — 정식 리포트와 별개 라인 (report/README.md 참조)
 └── detail/                # 상세화면(P1/P2) 결과물 (도메인 → html)
     ├── country/<CODE>/html/   # 국가 상세화면 (HTML) — country_detail_renderer 산출
     └── region/<REGION>/html/  # 권역 상세화면 (HTML) — region_detail_renderer 산출

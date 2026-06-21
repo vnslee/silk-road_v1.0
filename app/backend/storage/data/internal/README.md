@@ -282,6 +282,5 @@
 
 - `engine/generation/region_report_engine.py` — 권역(유형2) 보고서 엔진
 - `engine/generation/country_report_engine.py` — 국가(유형1) 보고서 엔진
-- `engine/rendering/ruleset_config_renderer.py` — 이 config를 UI로 시각화하는 페이지 생성기
 - `architecture/research/report_generate_req.md` — 보고서 생성 명세서 (정책 출처)
 - `architecture/research/report_render_req.md` — 렌더링 명세서

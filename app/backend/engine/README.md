@@ -25,10 +25,13 @@
 | `rendering/templates/` | `country_detail_template.html` | 국가 상세화면(P1) 템플릿. `{{COUNTRY_EN}}`·`{{GENERAL_CARDS}}`·`{{CHARTS}}`·`{{INSIGHT_PANEL}}`·`{{DETAIL_SECTIONS}}` 등 치환 |
 | `rendering/templates/` | `region_detail_template.html` | 권역 상세화면(P2) 템플릿. `{{REGION_EN}}`·`{{KPI_CARDS}}`·`{{ENTERED_LIST}}`·`{{QUICKWIN_TABLE}}`·`{{PERF_CHART}}` 등 치환 |
 
+> `templates/` 폴더에는 `country_report_template.html`·`region_report_template.html`도 있으나, 현재 보고서 렌더러가 인라인 f-string으로 HTML을 생성하므로 **어떤 엔진도 이 두 파일을 참조하지 않습니다(미사용)**. 템플릿을 실제로 읽는 것은 위 두 detail 템플릿뿐입니다.
+
 ## 모듈 의존 관계
 
-- `generation`(보고서 리포트 JSON 생성)과 `rendering`(HTML 렌더링)은 인자(JSON 경로)로 연결되는 별도 실행 단계입니다 — `generation`이 `rendering`을 직접 호출하지 않습니다(렌더링은 별도로 실행).
-- `rendering` 엔진은 `rendering/templates/`의 HTML 템플릿을 읽어 플레이스홀더를 치환하는 방식으로 HTML을 생성합니다 (템플릿 경로: `<엔진폴더>/templates/`).
+- `generation`(보고서 리포트 JSON 생성)과 `rendering`(HTML 렌더링)은 인자(JSON 경로)로 연결되며, 렌더러는 리포트 JSON 경로만 있으면 단독 실행할 수 있습니다.
+  - **단**, `country_report_engine.py`의 `main()`은 리포트 JSON 저장 후 `country_report_renderer`를 **자동 호출**해 HTML까지 생성합니다. `region_report_engine.py`는 자동 호출하지 않으므로 권역 보고서 HTML은 `region_report_renderer.py`를 별도로 실행해야 합니다(country↔region 비대칭).
+- **보고서(report) 렌더러**(`country_report_renderer.py`·`region_report_renderer.py`)는 템플릿 파일을 읽지 않고 인라인 f-string으로 HTML을 생성합니다. 템플릿 치환 방식(`rendering/templates/`의 `{{PLACEHOLDER}}`)은 **상세화면(detail) 렌더러**(`country_detail_template.html`·`region_detail_template.html`)만 사용합니다.
 - 상세화면(detail) 렌더러는 같은 `rendering/` 폴더의 `render_helpers`를 `sys.path`에 추가해 `import ... as rre`로 포맷·차트 헬퍼(`esc`·`fmt_value`·`line_chart`·`bar`·`score_color`·`card` 등)를 재사용합니다.
 
 ## 실행

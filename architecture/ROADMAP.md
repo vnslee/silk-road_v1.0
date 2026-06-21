@@ -7,7 +7,7 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
 
 ## 현재 상태 요약 (착수 전 기준선)
 
-- **있음**: 엔진 코어 — 보고서 generation 엔진 country·region 양쪽 구현됨(`generation/{country,region}_report_engine.py` → 리포트 JSON), **보고서 렌더링도 country(PR1)·region(PR2) 양쪽 구현됨**(`rendering/{country,region}_report_renderer.py`), **상세화면(P1/P2) 렌더링 엔진도 country·region 양쪽 구현됨**(`rendering/{country,region}_detail_renderer.py` → `storage/detail/`), 공유 헬퍼 `rendering/render_helpers.py`, research 데이터(country ES, region EU — P1/P2·보고서 검증용 샘플), internal 룰셋, 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
+- **있음**: 엔진 코어 — 보고서 generation 엔진 country·region 양쪽 구현됨(`generation/{country,region}_report_engine.py` → 리포트 JSON), **보고서 렌더링도 country(PR1)·region(PR2) 양쪽 구현됨**(`rendering/{country,region}_report_renderer.py`), **상세화면(P1/P2) 렌더링 엔진도 country·region 양쪽 구현됨**(`rendering/{country,region}_detail_renderer.py` → `storage/detail/`), 공유 헬퍼 `rendering/render_helpers.py`, research 데이터(country 10개국 AT·BR·DK·ES·GB·IT·MX·NL·PL·PT, region EU — P1/P2·보고서 검증용), internal 룰셋(v1.3), 화면 디자인 명세 8종(`architecture/design/stitch/html`), Claude Code 워크플로우(.claude/)
 - **설치됨**: FastAPI, uvicorn, boto3, pydantic, Jinja2, requests, weasyprint(+pango/cairo)
 - **없음(구현 대상)**: 백엔드 API 레이어, region/country 리서치 실행 코드(Bedrock), 프론트엔드, requirements.txt, Dockerfile, CloudFormation 템플릿
 - **예정**: region 리서치 프롬프트·스키마(`architecture/research/`에 country만 있음 → region 추가 예정)
@@ -31,6 +31,7 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
   - 두 축이 같은 API 형태/경로 규칙(`report/<country|region>/<ID>/data·html·pdf`)을 공유하도록 정합.
   - `requirements.txt` 생성(현재 설치 패키지 고정).
 - **산출물**: API 서버, country/region 리포트 산출 경로·응답 형태 통일
+- **참조**: 생성·렌더 입출력 계약과 산출물↔화면 매핑은 [`PIPELINE.md`](PIPELINE.md) §0·§3·§4.
 - **의존**: 없음(가장 먼저)
 
 ### 2차 — 챗봇 + 리서치 (Bedrock, country/region 공통)
@@ -40,6 +41,7 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
   - 챗봇 응답 로직: 보유 정보 기반 답변 + 정보 없을 때 리서치 트리거(`web_design_spec.md` 5-3 국가 / 5-4 권역 분기 따름)
   - 1차 API에 챗봇/리서치 엔드포인트 추가
 - **산출물**: Bedrock 호출 모듈, 챗봇 API, region 리서치 명세
+- **참조**: 리서치 수행 흐름(트리거·Bedrock·스키마 검증·저장 규약)은 [`PIPELINE.md`](PIPELINE.md) §2.
 - **의존**: 1차(API 레이어)
 
 ### 3차 — 프론트엔드 (React + Vite)
@@ -50,6 +52,7 @@ AI-DLC 워크플로우는 한 번에 전체가 아니라 **이 로드맵의 한 
   - 1·2차 API 연동
 - **스킬 활용**: mockup→React 변환·화면 구현은 `frontend-design` 스킬(2-pass=토큰 이식→mockup 대비 충실도 점검 + 품질 게이트)로, 접근성·반응형·폼·차트(PR1/PR2) 점검은 `ui-ux-pro-max` 스킬로 한다. 두 스킬 모두 디자인을 **생성하지 않으며**, `DESIGN.md`/mockup/`web_design_spec.md`가 source of truth(상세는 CLAUDE.md 컨벤션 우선순위).
 - **산출물**: `app/frontend/` React+Vite 앱, `package.json`
+- **참조**: 화면 플로우(데이터/산출물 관점)는 [`PIPELINE.md`](PIPELINE.md) §1, **렌더 HTML embed 방식(iframe)·chrome 책임 경계는 §5**(프론트 핵심 결정). 화면 정적 명세는 `web_design_spec.md`가 SoT.
 - **의존**: 1차·2차(API)
 
 ### 4차 — 배포 (Docker → ECR → CloudFormation)
