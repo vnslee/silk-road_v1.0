@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Type 1 Report Engine: Single-Country TCO (Total Cost of Ownership) Analysis
+Country Report Engine: Single-Country TCO (Total Cost of Ownership) Analysis
 
-Converts single country research JSON (schema v1.1) into Type 1 reports
+Converts single country research JSON (schema v1.1) into country-level reports
 with tabs for market analysis, regulatory requirements, IT infrastructure,
 and competitive landscape.
 """
@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 
-class Type1ReportEngine:
-    """Generate Type 1 (single-country TCO) reports from country research data."""
+class CountryReportEngine:
+    """Generate country-level (single-country TCO) reports from country research data."""
 
     TYPE1_TABS = {
         "1-1": {
@@ -46,7 +46,7 @@ class Type1ReportEngine:
     }
 
     def __init__(self, country_data_path: str, output_base_path: str = "storage/report"):
-        """Initialize Type 1 report engine with country data.
+        """Initialize country report engine with country data.
 
         Args:
             country_data_path: Path to single country JSON file
@@ -288,18 +288,18 @@ class Type1ReportEngine:
 
 
 def main():
-    """CLI entry point for Type 1 report generation."""
+    """CLI entry point for country report generation."""
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python type1_report_engine.py <country_data_json> [output_base_path]")
-        print("Example: python type1_report_engine.py data/country/ES_latest.json")
+        print("Usage: python country_report_engine.py <country_data_json> [output_base_path]")
+        print("Example: python country_report_engine.py data/country/ES_latest.json")
         sys.exit(1)
 
     country_data_path = sys.argv[1]
     output_base = sys.argv[2] if len(sys.argv) > 2 else "storage/report"
 
-    engine = Type1ReportEngine(country_data_path, output_base)
+    engine = CountryReportEngine(country_data_path, output_base)
 
     if not engine.load_country_data():
         sys.exit(1)
@@ -309,7 +309,7 @@ def main():
     print(readable)
 
     json_path = engine.save_gap_report(gap_report)
-    print(f"📁 Type 1 gap analysis JSON saved: {json_path}")
+    print(f"📁 Country gap analysis JSON saved: {json_path}")
 
     return 0 if gap_report.get("type1_readiness", {}).get("can_generate") else 1
 

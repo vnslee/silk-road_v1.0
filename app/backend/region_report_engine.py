@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Type 2 Report Engine: Region-Based Ranking and Comparative Analysis
+Region Report Engine: Region-Based Ranking and Comparative Analysis
 
-Converts region research data (aggregating multiple countries) into Type 2 reports
+Converts region research data (aggregating multiple countries) into region-level reports
 with tabs for market ranking, attractiveness scoring, competitive positioning,
 and strategic recommendations.
 """
@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 
-class Type2ReportEngine:
-    """Generate Type 2 (region-based ranking) reports from regional research data."""
+class RegionReportEngine:
+    """Generate region-level (ranking and comparative) reports from regional research data."""
 
     TYPE2_TABS = {
         "2-0": {
@@ -44,7 +44,7 @@ class Type2ReportEngine:
     }
 
     def __init__(self, region_data_path: str, output_base_path: str = "storage/report"):
-        """Initialize Type 2 report engine with region data.
+        """Initialize region report engine with region data.
 
         Args:
             region_data_path: Path to region JSON file (containing multiple countries)
@@ -262,7 +262,7 @@ class Type2ReportEngine:
         """Generate human-readable gap analysis report."""
         lines = [
             f"\n{'='*70}",
-            f"TYPE 2 GAP ANALYSIS: {gap_report['region']} ({gap_report['region_code']})",
+            f"REGION GAP ANALYSIS: {gap_report['region']} ({gap_report['region_code']})",
             f"{'='*70}",
             f"Generated: {gap_report['generated_at']}",
             f"Schema Version: {gap_report['schema_version']}",
@@ -308,7 +308,7 @@ class Type2ReportEngine:
             lines.append("  None - all required fields present across region!")
         lines.append("")
 
-        lines.append("TYPE 2 REPORT (REGION RANKING) READINESS:")
+        lines.append("REGION REPORT (RANKING & COMPARATIVE) READINESS:")
         type2 = gap_report["type2_readiness"]
         lines.append(f"  Can Generate: {'YES ✓' if type2['can_generate'] else 'NO ✗'}")
         for tab_id, status in type2["tabs"].items():
@@ -324,18 +324,18 @@ class Type2ReportEngine:
 
 
 def main():
-    """CLI entry point for Type 2 report generation."""
+    """CLI entry point for region report generation."""
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python type2_report_engine.py <region_data_json> [output_base_path]")
-        print("Example: python type2_report_engine.py data/region/EU_region.json")
+        print("Usage: python region_report_engine.py <region_data_json> [output_base_path]")
+        print("Example: python region_report_engine.py data/region/EU_region.json")
         sys.exit(1)
 
     region_data_path = sys.argv[1]
     output_base = sys.argv[2] if len(sys.argv) > 2 else "storage/report"
 
-    engine = Type2ReportEngine(region_data_path, output_base)
+    engine = RegionReportEngine(region_data_path, output_base)
 
     if not engine.load_region_data():
         sys.exit(1)
@@ -345,7 +345,7 @@ def main():
     print(readable)
 
     json_path = engine.save_gap_report(gap_report)
-    print(f"📁 Type 2 gap analysis JSON saved: {json_path}")
+    print(f"📁 Region gap analysis JSON saved: {json_path}")
 
     return 0 if gap_report.get("type2_readiness", {}).get("can_generate") else 1
 
