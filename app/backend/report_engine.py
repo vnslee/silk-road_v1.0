@@ -113,14 +113,23 @@ class ReportEngine:
         if not self.country_data:
             return self.report_type
 
-        # TYPE2: Region-based data contains "region" at top level and lists of countries
-        # TYPE1: Country-based data contains "country" code (2-letter) at top level
-        if "region" in self.country_data:
-            return "TYPE2"
-        elif "country" in self.country_data and "code" in self.country_data:
+        # TYPE1: Country-based data contains "code" with 2-letter country code (e.g., "ES", "DE", "IT")
+        # TYPE2: Region-based data contains "code" with region name (e.g., "EU", "APAC", "NORTH_AMERICA")
+        #        or "region" field with regional data structure (list of countries)
+        if "code" in self.country_data:
+            code = self.country_data["code"]
+            # 2-letter codes indicate country-level data (TYPE1)
+            if isinstance(code, str) and len(code) == 2 and code.isupper():
+                return "TYPE1"
+            # Region-level indicators (longer codes or special region names)
+            elif isinstance(code, str) and (len(code) > 2 or "_" in code):
+                return "TYPE2"
+
+        # Fallback: check for country field indicating single country
+        if "country" in self.country_data and "code" in self.country_data:
             return "TYPE1"
-        else:
-            return self.report_type
+
+        return self.report_type
 
     def analyze_data_structure(self) -> Dict[str, Any]:
         """Analyze country data structure and identify gaps."""
