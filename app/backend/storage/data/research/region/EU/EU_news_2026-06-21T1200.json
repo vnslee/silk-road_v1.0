@@ -1,0 +1,78 @@
+{
+  "region": "European Union",
+  "region_ko": "유럽권역",
+  "code": "EU",
+  "baseline_country": "GB",
+  "schema_version": "1.0",
+  "fetched_at": "2026-06-21T12:00:00+09:00",
+  "fetched_by": "ai",
+  "overall_insight": "EU 권역은 전동화가 시장 성장을 사실상 견인하는 국면이다. 2026년 들어 EV·PHEV 등록이 두 자릿수로 급증해 BEV 점유율이 20%대로 올라섰고, 이는 리스 잔가(GFV) 가정을 권역 공통으로 재점검해야 할 핵심 변수다. 동시에 EU가 중국산 PHEV에 대한 추가 관세를 준비하면서 역내 차량가·물량 구성에 불확실성이 커지고 있어, 진입 초기 물량·잔가 가정을 보수적으로 잡는 전략이 유효하다. 한편 지정학·금리(ECB)·신용(ABS) 카테고리는 화이트리스트 출처로 6개월 내 권역 단위 이슈를 확보하지 못해 실사 단계 보강 대상으로 남는다. 전동화 가속이라는 권역 공통 함의가 가장 또렷하며, EV 잔가 곡선을 별도로 반영한 리스 손익 설계가 권역 진입의 우선 과제다.",
+  "items": [
+    {
+      "item": "권역 외부 이슈 스캔",
+      "category": "business",
+      "role": "context",
+      "context_type": "news",
+      "value": [
+        {
+          "news_category": "auto_market",
+          "scope": "region",
+          "headline": "4월 유럽 신차 시장, 전동화 차량이 성장 견인 — EV 등록 38% 급증·BEV 점유율 22.2%",
+          "so_what": "전동화 가속이 권역 공통으로 진행 → 리스 잔가(GFV) 리스크 확대. EV 별도 잔가 곡선을 보수적으로 반영한 리스 손익 설계 필요.",
+          "publisher": "WardsAuto",
+          "pub_date": "2026-06-09",
+          "url": "https://www.wardsauto.com/news/electrified-vehicles-boost-eu-sales-in-april/821975/"
+        },
+        {
+          "news_category": "auto_market",
+          "scope": "region",
+          "headline": "EU, 중국산 PHEV에 추가 관세 준비 — 'EV 관세 우회' 차단 목적",
+          "so_what": "관세로 역내 차량가·모델 구성 변동 가능 → 차량가 가정·재고금융 부담에 파급. 진입 초기 물량·가격 가정 보수적으로.",
+          "publisher": "Automotive News Europe",
+          "pub_date": "2026-06-19",
+          "url": "https://www.autonews.com/ev/ane-eu-prepares-phev-tariffs-china-imports-0619/"
+        },
+        {
+          "news_category": "geopolitical",
+          "scope": "",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        },
+        {
+          "news_category": "finance",
+          "scope": "",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        },
+        {
+          "news_category": "auto_finance",
+          "scope": "",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        },
+        {
+          "news_category": "credit_abs",
+          "scope": "",
+          "headline": "조사 필요",
+          "so_what": "조사 필요",
+          "publisher": "",
+          "pub_date": "",
+          "url": ""
+        }
+      ],
+      "tier": 3,
+      "source": "화이트리스트(WardsAuto · Automotive News Europe)",
+      "insight": "전동화 가속이 권역 공통 함의로 가장 또렷 — EV 잔가 리스크 보수 반영이 진입 우선 과제. geopolitical·finance·auto_finance·credit_abs는 화이트리스트 출처(Reuters·FT·Moody's·S&P·Fitch 등) 접근 제약으로 6개월 내 권역 이슈 미확보 — 실사 단계 보강 필요.",
+      "insight_ai_generated": true
+    }
+  ]
+}

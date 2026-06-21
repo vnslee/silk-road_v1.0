@@ -145,6 +145,49 @@ class RegionReportEngine:
             return None
         return amount * rate
 
+    def _load_region_news(self, max_items: int = 3) -> List[Dict[str, Any]]:
+        """권역 단위 뉴스 파일에서 '조사 필요' 가 아닌 항목을 최대 N건 반환.
+
+        파일 위치: region_data_path와 같은 디렉토리의 {CODE}_news_latest.json.
+        스키마: items[].value = [{headline, so_what, publisher, pub_date, url, news_category, scope}, ...]
+        """
+        from pathlib import Path
+        region_path = Path(self.region_data_path)
+        region_code = (self.region_data or {}).get("code") or region_path.parent.name
+        news_path = region_path.parent / f"{region_code}_news_latest.json"
+        if not news_path.exists():
+            return []
+        try:
+            with open(news_path, "r", encoding="utf-8") as f:
+                news_doc = json.load(f)
+        except Exception as e:
+            print(f"Error loading region news: {e}")
+            return []
+        items = news_doc.get("items") or []
+        collected: List[Dict[str, Any]] = []
+        for it in items:
+            val = it.get("value")
+            if not isinstance(val, list):
+                continue
+            for entry in val:
+                if not isinstance(entry, dict):
+                    continue
+                headline = (entry.get("headline") or "").strip()
+                if not headline or headline == "조사 필요":
+                    continue
+                collected.append({
+                    "scope": "region",
+                    "headline": headline,
+                    "so_what": entry.get("so_what"),
+                    "publisher": entry.get("publisher"),
+                    "date": entry.get("pub_date") or entry.get("date"),
+                    "url": entry.get("url"),
+                    "news_category": entry.get("news_category"),
+                })
+                if len(collected) >= max_items:
+                    return collected
+        return collected
+
     def _tier_multiplier(self, tier: Any) -> float:
         """Return weight multiplier for a source tier (1.0 for missing/invalid).
 
@@ -813,8 +856,22 @@ class RegionReportEngine:
                 f"규제·신용등급 게이트로 사전 차단(스코어링 제외)."
             )
 
-        # C. 외부 이슈 스캔 (NEWS, 권역 + 상위3국)
+        # C. 외부 이슈 스캔 (NEWS) — 권역 공통 이슈를 가장 위에, 그 다음 상위 3개국 헤드라인
         news: List[Dict[str, Any]] = []
+        # C-1. 권역 단위 뉴스 (별도 파일 {CODE}_news_latest.json)
+        region_news = self._load_region_news(max_items=3)
+        for item in region_news:
+            news.append({
+                "country": None,                  # 권역 공통 — 특정 국가 없음
+                "scope": "region",
+                "headline": item.get("headline"),
+                "so_what": item.get("so_what"),
+                "publisher": item.get("publisher"),
+                "date": item.get("date"),
+                "url": item.get("url"),
+                "news_category": item.get("news_category"),
+            })
+        # C-2. 상위 3개국 헤드라인
         for country in self.region_data.get("countries", []):
             code = country.get("code")
             if code not in [t["country"] for t in top3]:
@@ -825,6 +882,7 @@ class RegionReportEngine:
                 first = country_news[0]
                 news.append({
                     "country": code,
+                    "scope": "country",
                     "headline": first.get("headline") if isinstance(first, dict) else str(first),
                     "so_what": first.get("so_what") if isinstance(first, dict) else None,
                     "publisher": first.get("publisher") if isinstance(first, dict) else None,
@@ -845,7 +903,8 @@ class RegionReportEngine:
             "external_news_scan": {
                 "source_flag": "NEWS",
                 "items": news,
-                "note": "권역 + 상위 3개국 헤드라인. 추가 권역 공통 이슈는 향후 별도 수집.",
+                "region_news_count": len(region_news),
+                "note": f"권역 공통 이슈 {len(region_news)}건 + 상위 3개국 헤드라인. '조사 필요' 항목은 제외.",
             },
         }
 

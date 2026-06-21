@@ -132,17 +132,56 @@ class CountryReportRenderer:
             return '<span class="text-text-secondary italic">N/A</span>'
 
         if isinstance(value, list):
-            if value and isinstance(value[0], dict):
+            # 1) 순위형 — [{rank, name, market_share}]: 미니 바 + 캡티브 칩
+            if value and isinstance(value[0], dict) and any("market_share" in e or "name" in e for e in value):
+                # 점유율 숫자 추출 (최댓값 기준 막대 비율)
+                def _pct(s):
+                    import re as _re
+                    m = _re.search(r"(\d+(?:\.\d+)?)", str(s or ""))
+                    return float(m.group(1)) if m else 0.0
+                max_pct = max((_pct(e.get("market_share")) for e in value), default=0.0) or 1.0
                 rows = []
                 for entry in value:
-                    parts = []
-                    if "rank" in entry:
-                        parts.append(f'<span class="text-text-secondary">#{entry["rank"]}</span>')
-                    parts.append(f'<span class="font-semibold">{entry.get("name", "")}</span>')
-                    if "market_share" in entry:
-                        parts.append(f'<span class="text-text-secondary">{entry["market_share"]}</span>')
-                    rows.append(f'<li class="flex items-center gap-xs">{" ".join(parts)}</li>')
-                return f'<ul class="flex flex-col gap-xs font-body-sm text-body-sm">{"".join(rows)}</ul>'
+                    rank = entry.get("rank", "")
+                    name = entry.get("name", "")
+                    share = entry.get("market_share", "")
+                    pct = _pct(share)
+                    bar_w = (pct / max_pct) * 100 if max_pct else 0
+                    captive = self._has_captive_hint(name) if hasattr(self, "_has_captive_hint") else False
+                    cap_chip = (
+                        '<span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm ml-xs">'
+                        '<span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>'
+                        if captive else ''
+                    )
+                    rank_pill_cls = "bg-primary text-on-primary" if (isinstance(rank, int) and rank <= 3) or str(rank) in ("1","2","3") else "bg-surface-container text-text-secondary"
+                    rank_html = f'<span class="inline-flex items-center justify-center w-5 h-5 rounded-full {rank_pill_cls} font-label-sm text-label-sm flex-shrink-0">{rank}</span>' if rank != "" else ''
+                    rows.append(f'''
+                    <li class="flex items-center gap-xs">
+                        {rank_html}
+                        <span class="font-label-md text-label-md text-text-primary flex-1 truncate">{name}</span>
+                        {cap_chip}
+                        <div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: {bar_w:.0f}%"></div>
+                        </div>
+                        <span class="font-label-md text-label-md text-text-secondary w-12 text-right">{share}</span>
+                    </li>
+                    ''')
+                return f'<ul class="flex flex-col gap-xs w-full">{"".join(rows)}</ul>'
+
+            # 2) 단순 브랜드/회사 문자열 리스트 — 칩 그리드
+            if value and all(isinstance(v, str) for v in value):
+                chips = []
+                for i, name in enumerate(value):
+                    captive = self._has_captive_hint(name) if hasattr(self, "_has_captive_hint") else False
+                    cap_dot = '<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>' if captive else ''
+                    chips.append(
+                        f'<span class="inline-flex items-center gap-xs bg-surface-container-low border border-surface-container-highest rounded-full px-sm py-[2px] font-label-sm text-label-sm text-text-primary">'
+                        f'<span class="font-label-sm text-label-sm text-text-secondary">{i+1}</span>'
+                        f'<span>{name}</span>{cap_dot}'
+                        f'</span>'
+                    )
+                return f'<div class="flex flex-wrap gap-xs">{"".join(chips)}</div>'
+
             return ", ".join(str(v) for v in value)
 
         if isinstance(value, (int, float)) and unit not in ("type", "match", "regime"):
@@ -391,6 +430,16 @@ class CountryReportRenderer:
             center = f"{composition[0]['value']:.0f}%"
             donut_html = self._render_donut(composition, center_label=center)
 
+        # 값이 리스트형(순위/브랜드 등)이면 전체 폭으로 펼치고, 단일값은 우측 정렬 유지
+        is_list_value = isinstance(item.get("value"), list)
+        value_html = self._format_item_value(item)
+        if is_list_value:
+            value_block = f'<div class="font-body-md text-body-md text-primary w-full mt-xs">{value_html}</div>'
+            header_extras = ""
+        else:
+            value_block = ""
+            header_extras = f'<div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold">{value_html}</div>'
+
         return f'''
         <div class="p-md bg-surface rounded-lg border border-surface-container-highest flex flex-col gap-sm">
             <div class="flex items-start justify-between gap-sm">
@@ -399,8 +448,9 @@ class CountryReportRenderer:
                     <span class="bg-{tier_color}-100 text-{tier_color}-800 border border-{tier_color}-200 px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase">Tier {tier}</span>
                     {gate_badge}
                 </div>
-                <div class="font-body-md text-body-md text-primary text-right max-w-[55%] font-semibold">{self._format_item_value(item)}</div>
+                {header_extras}
             </div>
+            {value_block}
             {donut_html}
             {timeseries_html}
             <details class="border-t border-surface-container-highest pt-sm group">
@@ -525,6 +575,111 @@ class CountryReportRenderer:
             if it.get("item") == name:
                 return it
         return None
+
+    # Captive brand hints (대표 캡티브 OEM/금융사). 표 안 배지에 사용.
+    _CAPTIVE_HINTS = {
+        # OEM (캡티브 금융사 보유)
+        "Toyota", "Volkswagen", "VW", "BMW", "Mercedes-Benz", "Mercedes",
+        "Audi", "Ford", "Renault", "Hyundai", "Kia", "Honda", "Nissan",
+        "Peugeot", "Stellantis", "Fiat", "Volvo", "SEAT", "Skoda",
+        # 금융사 (캡티브 계열)
+        "Santander Consumer", "BMW Bank", "Volkswagen Financial",
+        "Toyota Financial", "Mercedes-Benz Bank", "Ford Credit",
+        "Hyundai Capital", "Kia Capital", "Renault Bank",
+    }
+
+    def _has_captive_hint(self, name: str) -> bool:
+        if not name:
+            return False
+        return any(k.lower() in name.lower() for k in self._CAPTIVE_HINTS)
+
+    def render_top5_ranking_panel(self, title: str, icon: str,
+                                    rows: List[Dict[str, Any]],
+                                    metric_label: str = "점유율",
+                                    show_captive: bool = True,
+                                    insight: Optional[str] = None) -> str:
+        """Top 5 ranking panel — compact table + mini share bar + cumulative share footer.
+
+        Each row: {label, value(%)} (optional `captive: bool`, `extra: str`).
+        """
+        if not rows:
+            return ""
+        rows = list(rows)[:5]
+        max_v = max((r.get("value") or 0) for r in rows) or 1
+        cumulative = sum((r.get("value") or 0) for r in rows)
+
+        body_rows = ""
+        for i, r in enumerate(rows):
+            v = r.get("value") or 0
+            label = r.get("label") or ""
+            bar_pct = (v / max_v) * 100
+            captive = r.get("captive")
+            if captive is None and show_captive:
+                captive = self._has_captive_hint(label)
+            captive_chip = (
+                '<span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm" title="캡티브 금융사 보유 추정">'
+                '<span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>'
+                if captive else ''
+            )
+            extra = r.get("extra") or ""
+            extra_html = f'<span class="font-label-sm text-label-sm text-text-secondary ml-xs">{extra}</span>' if extra else ''
+            rank_class = "text-primary" if i == 0 else "text-text-secondary"
+            body_rows += f'''
+            <tr class="border-b border-surface-container-highest last:border-b-0">
+                <td class="py-sm pr-sm align-middle">
+                    <div class="flex items-center gap-sm">
+                        <span class="font-headline-md text-headline-md {rank_class} w-6 text-right">{i+1}</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary">{label}</span>
+                            <div class="flex items-center gap-xs mt-[2px]">{captive_chip}{extra_html}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="py-sm px-sm align-middle w-[40%]">
+                    <div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary" style="width: {bar_pct:.1f}%"></div>
+                    </div>
+                </td>
+                <td class="py-sm pl-sm align-middle text-right w-[80px]">
+                    <span class="font-headline-md text-headline-md text-primary">{v:.1f}</span>
+                    <span class="font-label-sm text-label-sm text-text-secondary">%</span>
+                </td>
+            </tr>
+            '''
+
+        insight_html = (
+            f'<div class="mt-md bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">'
+            f'<div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>'
+            f'<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">인사이트</span></div>'
+            f'<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{insight}</p></div>'
+            if insight else ''
+        )
+
+        return f'''
+        <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
+            <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">{icon}</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">{title}</h2>
+                </div>
+                <div class="text-right">
+                    <div class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">Top 5 누적 {metric_label}</div>
+                    <div class="font-headline-md text-headline-md text-primary">{cumulative:.1f}<span class="font-body-sm text-body-sm text-text-secondary">%</span></div>
+                </div>
+            </div>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-text-secondary border-b border-surface-container-highest">
+                        <th class="py-xs pr-sm text-left font-label-sm text-label-sm uppercase">순위 · 기업</th>
+                        <th class="py-xs px-sm text-left font-label-sm text-label-sm uppercase">{metric_label}</th>
+                        <th class="py-xs pl-sm text-right font-label-sm text-label-sm uppercase">값</th>
+                    </tr>
+                </thead>
+                <tbody>{body_rows}</tbody>
+            </table>
+            {insight_html}
+        </section>
+        '''
 
     def render_horizontal_bar_chart(self, title: str, icon: str,
                                      rows: List[Dict[str, Any]],
@@ -2156,19 +2311,26 @@ class CountryReportRenderer:
         )
 
         # ---------- Charts ----------
-        # 1) 금융사 Top5 + 캡티브 강도 — horizontal bar
+        import re as _re
+        def _parse_share(raw):
+            if raw is None:
+                return 0
+            m = _re.search(r"(\d+(?:\.\d+)?)", str(raw))
+            return float(m.group(1)) if m else 0
+
+        # 1) 금융사 Top5 + 캡티브 강도
         fin_item = self._find_tab14_item("금융사 순위(Top 5)")
         fin_rows = []
         if fin_item and isinstance(fin_item.get("value"), list):
             for r in fin_item["value"][:5]:
-                share_raw = str(r.get("market_share", "")).replace("약", "").replace("%", "").strip()
-                try:
-                    v = float(share_raw)
-                except Exception:
-                    v = 0
-                fin_rows.append({"label": r.get("name", ""), "value": round(v, 1)})
-        finance_chart = self.render_horizontal_bar_chart(
-            "금융사 Top 5 (점유율)", "account_balance", fin_rows
+                fin_rows.append({
+                    "label": r.get("name", ""),
+                    "value": round(_parse_share(r.get("market_share")), 1),
+                })
+        finance_chart = self.render_top5_ranking_panel(
+            "금융사 Top 5 (점유율 · 캡티브 강도)", "account_balance",
+            fin_rows, metric_label="점유율",
+            insight=(fin_item or {}).get("insight"),
         )
 
         # 2) OEM Top5
@@ -2176,14 +2338,14 @@ class CountryReportRenderer:
         oem_rows = []
         if oem_item and isinstance(oem_item.get("value"), list):
             for r in oem_item["value"][:5]:
-                share_raw = str(r.get("market_share", "")).replace("약", "").replace("%", "").strip()
-                try:
-                    v = float(share_raw)
-                except Exception:
-                    v = 0
-                oem_rows.append({"label": r.get("name", ""), "value": round(v, 1)})
-        oem_chart = self.render_horizontal_bar_chart(
-            "OEM Top 5 (점유율)", "directions_car", oem_rows
+                oem_rows.append({
+                    "label": r.get("name", ""),
+                    "value": round(_parse_share(r.get("market_share")), 1),
+                })
+        oem_chart = self.render_top5_ranking_panel(
+            "OEM Top 5 (점유율 · 캡티브 보유)", "directions_car",
+            oem_rows, metric_label="점유율",
+            insight=(oem_item or {}).get("insight"),
         )
 
         # 3) 경쟁사 금리 범위 — best effort: extract numbers
@@ -2273,21 +2435,83 @@ class CountryReportRenderer:
             </section>
             '''
 
-        # Competitors / entry form / brand block
+        # Competitor categorization (자동 그룹핑 — 회사명·진출형태 텍스트 기반)
         competitor_cards = ""
         if competitors:
             comp_list = competitors.get("value") or []
+
+            def _classify_competitor(name: str) -> str:
+                n = name.lower()
+                # OEM 캡티브 (브랜드명 + Financial/Bank/Kredit/Credit/Capital)
+                oem_brands = ["volkswagen", "vw", "toyota", "bmw", "mercedes", "audi",
+                              "ford", "renault", "hyundai", "kia", "nissan", "honda",
+                              "peugeot", "stellantis", "fiat"]
+                if any(b in n for b in oem_brands):
+                    return "oem_captive"
+                # 플릿 리스 (ALD/Arval/Alphabet/Ayvens/LeasePlan)
+                if any(k in n for k in ["ald", "arval", "alphabet", "ayvens", "leaseplan"]):
+                    return "fleet_lease"
+                # 은행계 (Santander, Cetelem(BNP), CaixaBank, Sabadell, CA Auto Bank, BNP)
+                if any(k in n for k in ["santander", "cetelem", "bnp", "caixa", "sabadell",
+                                          "ca auto", "credit agricole", "barclays", "hsbc"]):
+                    return "bank"
+                return "specialty"
+
+            groups = {
+                "bank": {"label": "은행계 자회사", "icon": "account_balance",
+                          "color": "primary", "members": []},
+                "oem_captive": {"label": "OEM 캡티브", "icon": "directions_car",
+                                "color": "secondary", "members": []},
+                "fleet_lease": {"label": "플릿/렌팅 리스사", "icon": "garage",
+                                 "color": "secondary", "members": []},
+                "specialty": {"label": "전문 여신사·기타", "icon": "store",
+                               "color": "outline", "members": []},
+            }
+            for c in comp_list:
+                groups[_classify_competitor(c)]["members"].append(c)
+
+            cards_html = ""
+            for key, g in groups.items():
+                if not g["members"]:
+                    continue
+                chips = "".join(
+                    f'<span class="inline-flex items-center gap-xs bg-surface rounded-full border border-surface-container-highest px-sm py-[2px] font-label-sm text-label-sm text-text-primary">{m}</span>'
+                    for m in g["members"]
+                )
+                cards_html += f'''
+                <div class="p-sm bg-surface-container-low rounded-lg border border-surface-container-highest">
+                    <div class="flex items-center justify-between mb-xs">
+                        <div class="flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-primary text-[18px]">{g["icon"]}</span>
+                            <span class="font-label-md text-label-md text-primary uppercase tracking-wider">{g["label"]}</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-text-secondary">{len(g["members"])}개</span>
+                    </div>
+                    <div class="flex flex-wrap gap-xs">{chips}</div>
+                </div>
+                '''
+
+            entry_text = (entry_form or {}).get("value", "")
+            entry_html = (
+                f'<div class="bg-surface p-sm rounded-md border border-surface-container-highest mb-md">'
+                f'<div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-text-secondary text-[14px]">flag</span>'
+                f'<span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">진출 형태</span></div>'
+                f'<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{entry_text}</p></div>'
+                if entry_text else ''
+            )
+
             competitor_cards = f'''
             <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
-                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
-                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
-                    <h2 class="font-headline-md text-headline-md text-primary">경쟁사 현황</h2>
+                <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">경쟁사 현황 (유형별)</h2>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-text-secondary">총 {len(comp_list)}개사</span>
                 </div>
-                <div class="grid grid-cols-2 gap-sm mb-md">
-                    {"".join(f'<div class="p-sm bg-surface rounded-lg border border-surface-container-highest font-body-sm text-body-sm">{c}</div>' for c in comp_list)}
-                </div>
-                {f'<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-sm"><strong>진출 형태:</strong> {entry_form.get("value", "")}</p>' if entry_form else ''}
-                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary">
+                {entry_html}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">{cards_html}</div>
+                <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary mt-md">
                     <div class="flex items-center gap-xs mb-xs">
                         <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
                         <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
@@ -2297,19 +2521,47 @@ class CountryReportRenderer:
             </section>
             '''
 
+        # Brand Top 10 — 컴팩트 2열 카드 (rank pill + brand name + captive chip)
         brand_html = ""
         if brand_top10:
             brands = brand_top10.get("value") or []
+
+            def _brand_row(rank, name):
+                captive = self._has_captive_hint(name)
+                cap_chip = (
+                    '<span class="inline-flex items-center gap-xs bg-secondary-container/30 text-secondary border border-secondary/40 px-2 py-[1px] rounded-full font-label-sm text-label-sm">'
+                    '<span class="material-symbols-outlined text-[12px]">verified</span>캡티브</span>'
+                    if captive else ''
+                )
+                # 1~3위는 강조 배경
+                pill_bg = "bg-primary text-on-primary" if rank <= 3 else "bg-surface-container text-text-secondary"
+                row_bg = "bg-surface-container-low" if rank <= 3 else "bg-surface"
+                return f'''
+                <div class="flex items-center gap-sm p-sm {row_bg} rounded-md border border-surface-container-highest">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full {pill_bg} font-label-md text-label-md flex-shrink-0">{rank}</span>
+                    <span class="font-body-md text-body-md text-text-primary flex-1 truncate">{name}</span>
+                    {cap_chip}
+                </div>
+                '''
+
+            grid_html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">' + \
+                "".join(_brand_row(i + 1, n) for i, n in enumerate(brands[:10])) + "</div>"
+
             brand_html = f'''
             <section class="bg-surface-container-lowest border border-surface-border rounded-xl p-lg card-shadow">
-                <div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-border">
-                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-                    <h2 class="font-headline-md text-headline-md text-primary">브랜드 Top10</h2>
+                <div class="flex items-center justify-between gap-sm mb-md pb-sm border-b border-surface-border">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+                        <h2 class="font-headline-md text-headline-md text-primary">브랜드 Top 10</h2>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-text-secondary">신차 등록 순위</span>
                 </div>
-                <ol class="grid grid-cols-2 gap-sm font-body-sm text-body-sm list-decimal list-inside">
-                    {"".join(f'<li class="p-xs">{b}</li>' for b in brands)}
-                </ol>
+                {grid_html}
                 <div class="bg-surface-container/60 p-sm rounded-md border-l-4 border-primary mt-md">
+                    <div class="flex items-center gap-xs mb-xs">
+                        <span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span>
+                        <span class="font-label-sm text-label-sm text-primary uppercase">인사이트</span>
+                    </div>
                     <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{brand_top10.get("insight", "")}</p>
                 </div>
             </section>

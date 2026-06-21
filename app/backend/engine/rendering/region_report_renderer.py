@@ -40,6 +40,16 @@ COUNTRY_NAMES_KO = {
     "BR": "브라질",
 }
 
+COUNTRY_NAMES_EN = {
+    "ES": "Spain", "PL": "Poland", "IT": "Italy", "PT": "Portugal",
+    "UK": "United Kingdom", "GB": "United Kingdom",
+    "NL": "Netherlands", "AT": "Austria", "DK": "Denmark",
+    "DE": "Germany", "FR": "France", "CZ": "Czech Republic", "HU": "Hungary",
+    "US": "United States", "CA": "Canada", "MX": "Mexico",
+    "AU": "Australia", "NZ": "New Zealand", "JP": "Japan", "KR": "South Korea",
+    "SG": "Singapore", "BR": "Brazil",
+}
+
 REGION_NAMES = {
     "EU": ("유럽", "European Union"),
     "NA": ("북미", "North America"),
@@ -82,6 +92,9 @@ class RegionReportRenderer:
 
     def country_ko(self, code: str) -> str:
         return COUNTRY_NAMES_KO.get(code, code)
+
+    def country_en(self, code: str) -> str:
+        return COUNTRY_NAMES_EN.get(code, code)
 
     def badge(self, flag: str, suffix: str = "") -> str:
         if flag not in SOURCE_BADGES:
@@ -130,7 +143,7 @@ class RegionReportRenderer:
                         <span class="text-2xl">{medals[i]}</span>
                         <div>
                             <div class="font-label-sm text-label-sm uppercase tracking-wider text-text-secondary">Rank #{entry.get("rank")}</div>
-                            <div class="font-headline-md text-headline-md text-primary mt-[2px]">{self.esc(ko)} <span class="text-text-secondary text-body-md">({self.esc(code)})</span></div>
+                            <div class="font-headline-md text-headline-md text-primary mt-[2px]">{self.esc(ko)} <span class="text-text-secondary text-body-md">({self.esc(self.country_en(code))})</span></div>
                         </div>
                     </div>
                     {self.badge("CALC")}
@@ -157,19 +170,45 @@ class RegionReportRenderer:
         if not ai_html:
             ai_html = '<li class="text-text-secondary text-body-sm">AI 인사이트 없음</li>'
 
-        # NEWS items
+        # NEWS items — 권역 공통(region scope)은 강조, 국가별은 일반 카드
         news_items = (exec_sum.get("external_news_scan", {}) or {}).get("items", []) or []
         news_html_parts = []
         for n in news_items:
+            is_region = (n.get("scope") == "region") or (n.get("country") in (None, ""))
+            if is_region:
+                scope_pill = (
+                    '<span class="font-label-sm text-label-sm font-semibold px-2 py-[2px] rounded-full" '
+                    'style="background:#FEF3C7;color:#B45309">권역 공통</span>'
+                )
+                card_style = 'border-2 border-[#F6AE2D]/40 bg-[#FEF7E6]'
+                cat_label = n.get("news_category")
+                cat_pill = (
+                    f'<span class="text-[10px] uppercase tracking-wider text-text-secondary ml-xs">{self.esc(cat_label)}</span>'
+                    if cat_label else ""
+                )
+                header_left = f'{scope_pill}{cat_pill}'
+            else:
+                header_left = (
+                    f'<span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">'
+                    f'{self.esc(self.country_ko(n.get("country", "")) or n.get("country") or "권역")}'
+                    f'</span>'
+                )
+                card_style = 'border border-surface-border bg-surface-light'
+            url = n.get("url")
+            url_link = (
+                f'<a href="{self.esc(url)}" target="_blank" rel="noopener" '
+                f'class="font-label-sm text-label-sm text-secondary hover:underline ml-xs">↗ 원문</a>'
+                if url else ""
+            )
             news_html_parts.append(f'''
-            <div class="border border-surface-border rounded-lg p-md bg-surface-light">
-                <div class="flex items-center justify-between mb-xs">
-                    <span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">{self.esc(n.get("country") or "권역")}</span>
+            <div class="rounded-lg p-md {card_style}">
+                <div class="flex items-center justify-between mb-xs flex-wrap gap-xs">
+                    <div class="flex items-center gap-xs">{header_left}</div>
                     {self.badge("NEWS", self.esc(n.get("date") or ""))}
                 </div>
                 <h4 class="font-label-md text-label-md text-primary mb-xs">{self.esc(n.get("headline") or "")}</h4>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">{self.esc(n.get("so_what") or "")}</p>
-                <p class="font-label-sm text-label-sm text-text-secondary mt-xs">출처: {self.esc(n.get("publisher") or "—")}</p>
+                <p class="font-label-sm text-label-sm text-text-secondary mt-xs">출처: {self.esc(n.get("publisher") or "—")}{url_link}</p>
             </div>''')
         news_html = "\n".join(news_html_parts) or '<div class="text-text-secondary text-body-sm">권역 이슈 없음</div>'
 
@@ -244,7 +283,7 @@ class RegionReportRenderer:
                 <div class="col-span-6 flex items-center gap-xs">
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm shrink-0" alt="">
                     <span class="font-label-md text-label-md text-primary truncate">{self.esc(self.country_ko(code))}</span>
-                    <span class="text-label-sm text-text-secondary">{self.esc(code)}</span>
+                    <span class="text-label-sm text-text-secondary truncate">{self.esc(self.country_en(code))}</span>
                 </div>
                 <div class="col-span-2 text-right text-label-sm">
                     <div class="text-text-secondary text-[10px]">매력도</div>
@@ -263,7 +302,7 @@ class RegionReportRenderer:
         baseline_note = (
             f'<div class="px-xs py-sm flex items-center gap-xs text-label-sm text-text-secondary border-t border-dashed border-surface-border mt-xs">'
             f'<img src="{self.country_flag_url(baseline)}" class="w-4 h-3 object-cover rounded-sm" alt="">'
-            f'<span>{self.esc(self.country_ko(baseline))}({self.esc(baseline)})</span>'
+            f'<span>{self.esc(self.country_ko(baseline))}({self.esc(self.country_en(baseline))})</span>'
             f'<span class="text-[10px] font-semibold px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2">기준국</span>'
             f'<span>이미 시스템 보유 — 순위 제외</span>'
             f'</div>'
@@ -318,7 +357,7 @@ class RegionReportRenderer:
                     <td class="py-sm px-sm font-medium text-primary whitespace-nowrap">
                         <span class="inline-flex items-center gap-xs">
                             <img src="{self.country_flag_url(c.get("country",""))}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                            {self.esc(self.country_ko(c.get("country","")))} <span class="text-text-secondary">({self.esc(c.get("country"))})</span>
+                            {self.esc(self.country_ko(c.get("country","")))} <span class="text-text-secondary">({self.esc(self.country_en(c.get("country","")))})</span>
                         </span>
                     </td>
                     {''.join(cells)}
@@ -376,7 +415,7 @@ class RegionReportRenderer:
                 <summary class="cursor-pointer list-none px-md py-sm flex items-center gap-sm hover:bg-surface-light rounded-lg">
                     <span class="material-symbols-outlined text-[20px] text-text-secondary transition-transform group-open:rotate-90">chevron_right</span>
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(code)})</span></span>
+                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     {badge_pill}
                     <span class="text-label-sm text-text-secondary ml-xs flex-1">{summary_reason}</span>
                     <span class="font-label-sm text-label-sm text-secondary">근거 보기</span>
@@ -435,7 +474,7 @@ class RegionReportRenderer:
                         <span class="font-label-sm text-label-sm text-text-secondary w-5 text-right">#{r.get("rank")}</span>
                         <img src="{self.country_flag_url(r.get("country",""))}" class="w-5 h-4 object-cover rounded-sm" alt="">
                         <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(r.get("country","")))}</span>
-                        <span class="font-label-sm text-label-sm text-text-secondary">{self.esc(r.get("country"))}</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary">{self.esc(self.country_en(r.get("country","")))}</span>
                     </div>
                     <div class="col-span-7">
                         <div class="w-full h-4 bg-surface-container rounded-full overflow-hidden">
@@ -572,7 +611,7 @@ class RegionReportRenderer:
                 <summary class="cursor-pointer list-none px-md py-sm flex items-center gap-sm hover:bg-surface-light rounded-lg">
                     <span class="material-symbols-outlined text-[20px] text-text-secondary transition-transform group-open:rotate-90">chevron_right</span>
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(code)})</span></span>
+                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     <span class="text-2xl font-bold ml-xs" style="color:{score_color}">{self.esc(score) if score is not None else "—"}</span>
                     <span class="text-label-sm text-text-secondary flex-1">/100 — 항목별 정규화×가중치 합산</span>
                     <span class="font-label-sm text-label-sm text-secondary">산식 보기</span>
@@ -695,7 +734,7 @@ class RegionReportRenderer:
                 f'<div class="px-sm py-sm flex items-center gap-xs {"opacity-70" if is_base else ""}">'
                 f'<img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm shrink-0" alt="">'
                 f'<span class="font-label-md text-label-md text-primary truncate">{self.esc(self.country_ko(code))}</span>'
-                f'<span class="text-label-sm text-text-secondary">{self.esc(code)}</span>'
+                f'<span class="text-label-sm text-text-secondary truncate">{self.esc(self.country_en(code))}</span>'
                 + ('<span class="text-[10px] font-semibold ml-xs px-[6px] py-[1px] rounded-full" style="background:#E8F0FE;color:#1967D2">기준</span>' if is_base else '')
                 + '</div>'
             )
@@ -762,7 +801,7 @@ class RegionReportRenderer:
                     <td class="py-sm px-sm">
                         <span class="inline-flex items-center gap-xs">
                             <img src="{self.country_flag_url(r.get("country"))}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                            {self.esc(self.country_ko(r.get("country")))} <span class="text-text-secondary">({self.esc(r.get("country"))})</span>
+                            {self.esc(self.country_ko(r.get("country")))} <span class="text-text-secondary">({self.esc(self.country_en(r.get("country","")))})</span>
                         </span>
                     </td>
                     <td class="py-sm px-sm font-semibold" style="color:{self.score_color(r.get("score_band"))}">{self.esc(r.get("score_band"))}</td>
@@ -974,7 +1013,7 @@ class RegionReportRenderer:
                             <div class="flex items-center gap-xs mt-[2px]">
                                 <img src="{self.country_flag_url(code)}" class="w-6 h-4 object-cover rounded-sm" alt="">
                                 <h3 class="font-headline-md text-headline-md text-primary m-0">{self.esc(self.country_ko(code))}</h3>
-                                <span class="text-text-secondary">({self.esc(code)})</span>
+                                <span class="text-text-secondary">({self.esc(self.country_en(code))})</span>
                             </div>
                         </div>
                     </div>
@@ -1069,11 +1108,11 @@ class RegionReportRenderer:
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-sm text-body-sm">
                         <div class="bg-surface-light rounded p-xs">
-                            <div class="text-label-sm text-text-secondary mb-xs">기준국 {self.esc(baseline)}</div>
+                            <div class="text-label-sm text-text-secondary mb-xs">기준국 {self.esc(self.country_en(baseline))}</div>
                             <div class="text-primary">{self.esc(bv) if bv is not None else "—"}</div>
                         </div>
                         <div class="bg-surface-light rounded p-xs">
-                            <div class="text-label-sm text-text-secondary mb-xs">대상국 {self.esc(code)}</div>
+                            <div class="text-label-sm text-text-secondary mb-xs">대상국 {self.esc(self.country_en(code))}</div>
                             <div class="text-primary">{self.esc(tv) if tv is not None else "—"}</div>
                         </div>
                         <div class="rounded p-xs" style="background:rgba(0,93,183,0.06)">
@@ -1091,7 +1130,7 @@ class RegionReportRenderer:
                 <summary class="cursor-pointer list-none px-md py-sm flex items-center gap-sm hover:bg-surface-light rounded-lg">
                     <span class="material-symbols-outlined text-[20px] text-text-secondary transition-transform group-open:rotate-90">chevron_right</span>
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(code)})</span>{base_label}</span>
+                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span>{base_label}</span>
                     <span class="text-2xl font-bold ml-xs" style="color:{total_color}">{self.esc(total) if total is not None else "—"}</span>
                     <span class="text-label-sm text-text-secondary flex-1">/100 (10점 구간, raw {self.esc(raw_total)})</span>
                     <span class="font-label-sm text-label-sm text-secondary">산식 보기</span>
@@ -1142,7 +1181,7 @@ class RegionReportRenderer:
                 <summary class="cursor-pointer list-none px-md py-sm flex items-center gap-sm hover:bg-surface-light rounded-lg">
                     <span class="material-symbols-outlined text-[20px] text-text-secondary transition-transform group-open:rotate-90">chevron_right</span>
                     <img src="{self.country_flag_url(code)}" class="w-5 h-4 object-cover rounded-sm" alt="">
-                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(code)})</span></span>
+                    <span class="font-label-md text-label-md text-primary">{self.esc(self.country_ko(code))} <span class="text-text-secondary font-normal">({self.esc(self.country_en(code))})</span></span>
                     <span class="text-2xl font-bold ml-xs" style="color:{self.score_color(qw_band)}">{self.esc(qw_band) if qw_band is not None else "—"}</span>
                     <span class="text-label-sm text-text-secondary flex-1">퀵윈 구간</span>
                     {status_pill}
@@ -1179,7 +1218,7 @@ class RegionReportRenderer:
                 <div class="flex items-center justify-between gap-sm mb-md border-b border-surface-border pb-sm flex-wrap">
                     <div class="flex items-center gap-sm">
                         <h2 class="font-headline-md text-headline-md text-primary m-0">IT 유사도 히트맵</h2>
-                        <span class="text-label-sm text-text-secondary">vs 기준국 {self.esc(baseline)}</span>
+                        <span class="text-label-sm text-text-secondary">vs 기준국 {self.esc(self.country_en(baseline))}</span>
                         {self.badge("CALC", "10점 구간")}
                     </div>
                     {legend_html}
@@ -1268,7 +1307,7 @@ class RegionReportRenderer:
                 <div class="flex items-center gap-sm mb-sm border-b border-surface-border pb-sm">
                     <img src="{self.country_flag_url(code)}" class="w-6 h-4 object-cover rounded-sm" alt="">
                     <h3 class="font-headline-md text-headline-md text-primary m-0">{self.esc(self.country_ko(code))}</h3>
-                    <span class="text-text-secondary">({self.esc(code)})</span>
+                    <span class="text-text-secondary">({self.esc(self.country_en(code))})</span>
                 </div>
                 <div class="flex flex-col gap-sm">
                     <div>
@@ -1505,11 +1544,11 @@ class RegionReportRenderer:
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
                         <span class="font-label-sm text-label-sm text-text-secondary">Generated: {self.esc(generated_str)}</span>
                         <span class="w-1 h-1 rounded-full bg-surface-border"></span>
-                        <span class="font-label-sm text-label-sm text-text-secondary">기준국 {self.esc(baseline)}</span>
+                        <span class="font-label-sm text-label-sm text-text-secondary">기준국 {self.esc(self.country_en(baseline))}</span>
                     </div>
                     <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight m-0">{self.esc(title)}</h1>
                     <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">
-                        평가 {len(evaluated)}개국: {", ".join(f"{self.esc(self.country_ko(c))}({self.esc(c)})" for c in evaluated)}{" · " + fx_note if fx_note else ""}
+                        평가 {len(evaluated)}개국: {", ".join(f"{self.esc(self.country_ko(c))}({self.esc(self.country_en(c))})" for c in evaluated)}{" · " + fx_note if fx_note else ""}
                     </p>
                 </div>
             </div>
