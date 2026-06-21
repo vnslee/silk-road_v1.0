@@ -3,9 +3,21 @@
   "updated_at": "2026-06-01T00:00:00+09:00",
 
   "country_assets": {
-    "UK":  { "solution": "NetSol",     "build_cost": 5000, "build_months": 18, "reuse_factor": 0.70 },
-    "USA": { "solution": "Salesforce", "build_cost": 6000, "build_months": 20, "reuse_factor": 0.50 },
-    "AU":  { "solution": "Self-built",  "build_cost": 4500, "build_months": 16, "reuse_factor": 1.00 }
+    "GB": { "solution": "NetSol",     "build_cost": 5000, "build_months": 18, "reuse_factor": 0.70 },
+    "US": { "solution": "Salesforce", "build_cost": 6000, "build_months": 20, "reuse_factor": 0.50 },
+    "AU": { "solution": "Self-built", "build_cost": 4500, "build_months": 16, "reuse_factor": 1.00 }
+  },
+
+  "region_baselines": {
+    "EU": "GB",
+    "NA": "US",
+    "APAC": "AU"
+  },
+
+  "country_to_region": {
+    "ES": "EU", "PL": "EU", "CZ": "EU", "HU": "EU", "DE": "EU", "FR": "EU", "IT": "EU", "GB": "EU",
+    "US": "NA", "CA": "NA", "MX": "NA",
+    "AU": "APAC", "NZ": "APAC", "JP": "APAC", "KR": "APAC", "SG": "APAC"
   },
 
   "similarity_brackets": [
@@ -18,11 +30,71 @@
 
   "maintenance_rate": 0.18,
 
+  "subscription_tiers": [
+    { "min_volume": 0, "max_volume": 100, "price_per_unit": 1.0, "currency": "EUR" },
+    { "min_volume": 101, "max_volume": 200, "price_per_unit": 0.9, "currency": "EUR" },
+    { "min_volume": 201, "max_volume": 500, "price_per_unit": 0.8, "currency": "EUR" },
+    { "min_volume": 501, "max_volume": 1000, "price_per_unit": 0.7, "currency": "EUR" },
+    { "min_volume": 1001, "max_volume": 999999, "price_per_unit": 0.6, "currency": "EUR" }
+  ],
+
+  "existing_total_volume": 80,
+
+  "operational_cost_10y": {
+    "amount": 50000,
+    "currency": "EUR",
+    "note": "시스템과 별도인 내부 운영비용 (10년 통금액)"
+  },
+
+  "hq_build_baseline": {
+    "cost": 8000,
+    "months": 24,
+    "currency": "EUR",
+    "note": "본사 자체구축 시 기본 비용/기간 (참고용)"
+  },
+
+  "maintenance_cost_annual": {
+    "amount": 500,
+    "currency": "EUR",
+    "note": "연간 유지보수 비용"
+  },
+
   "fx": {
-    "base": "EUR",
+    "base": "KRW",
     "as_of": "2026-06-01",
-    "rates": { "EUR": 1.0, "PLN": 0.23, "GBP": 1.17, "USD": 0.92 },
-    "note": "통화→base(EUR) 환산율. <CCY>_M 단위 금액 항목(시장규모 등) 정규화 전 EUR로 통일. 사람이 관리."
+    "rates": {
+      "KRW": 1.0,
+      "EUR": 1450.0,
+      "PLN": 330.0,
+      "GBP": 1680.0,
+      "USD": 1320.0,
+      "CZK": 58.0,
+      "HUF": 3.8,
+      "AUD": 880.0
+    },
+    "note": "기준통화=KRW. 각 통화 1단위당 KRW 환산율. 관리자가 입력하며 스냅샷에 고정됨."
+  },
+
+  "values": {
+    "biz_attractiveness": {
+      "GDP 성장률": 0.25,
+      "자동차 판매대수": 0.20,
+      "시장규모(CAGR)": 0.20,
+      "금융 침투율": 0.15,
+      "금융이용유형": 0.10,
+      "경쟁강도": 0.10
+    },
+    "it_readiness": {
+      "솔루션 유형": 0.30,
+      "디지털 채널 성숙도": 0.25,
+      "라이선스 종류": 0.20,
+      "데이터현지화": 0.15,
+      "차량회수 절차": 0.10
+    },
+    "report_blend": {
+      "w_biz": 0.60,
+      "w_it": 0.40
+    }
   },
 
   "weights": {

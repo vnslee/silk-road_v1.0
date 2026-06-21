@@ -45,16 +45,19 @@ class CountryReportEngine:
         }
     }
 
-    def __init__(self, country_data_path: str, output_base_path: str = "storage/report"):
+    def __init__(self, country_data_path: str, internal_data_path: str = "storage/data/internal/internal_latest.json", output_base_path: str = "storage/report"):
         """Initialize country report engine with country data.
 
         Args:
             country_data_path: Path to single country JSON file
+            internal_data_path: Path to internal config/parameters JSON
             output_base_path: Base output directory for reports
         """
         self.country_data_path = country_data_path
+        self.internal_data_path = internal_data_path
         self.output_base = output_base_path
         self.country_data: Optional[Dict] = None
+        self.internal_data: Optional[Dict] = None
         self.report_type = "TYPE1"
 
     def load_country_data(self) -> bool:
@@ -65,6 +68,16 @@ class CountryReportEngine:
             return True
         except Exception as e:
             print(f"Error loading country data: {e}")
+            return False
+
+    def load_internal_data(self) -> bool:
+        """Load internal config/parameters JSON file."""
+        try:
+            with open(self.internal_data_path, 'r', encoding='utf-8') as f:
+                self.internal_data = json.load(f)
+            return True
+        except Exception as e:
+            print(f"Error loading internal data: {e}")
             return False
 
     def analyze_data_structure(self) -> Dict[str, Any]:
@@ -296,32 +309,519 @@ class CountryReportEngine:
 
         return "\n".join(lines)
 
+    def resolve_base_country(self, target_country: str) -> str:
+        """Resolve baseline country for the target country's region.
+
+        Args:
+            target_country: Target country code (ISO 3166-1 alpha-2)
+
+        Returns:
+            Baseline country code for the region (e.g., 'GB' for EU)
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+
+        country_to_region = self.internal_data.get("country_to_region", {})
+        region_baselines = self.internal_data.get("region_baselines", {})
+
+        region = country_to_region.get(target_country)
+        if not region:
+            return "GB"  # fallback default
+
+        return region_baselines.get(region, "GB")
+
+    def _score_item_from_dimensions(self, item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Compute an item-level similarity score from per-dimension target/base scores.
+
+        Each dimension carries target_score and base_score on a 1~5 scale. The gap
+        (|target - base|) determines closeness: 0 gap → 100, 4 gap → 0.
+        Returns None when the item has no score_dimensions block.
+        """
+        dims = item.get("score_dimensions")
+        if not dims:
+            return None
+
+        dim_results = []
+        for dim_name, dim in dims.items():
+            t = dim.get("target_score")
+            b = dim.get("base_score")
+            if t is None or b is None:
+                continue
+            gap = abs(float(t) - float(b))
+            similarity = max(0.0, (1.0 - gap / 4.0) * 100.0)  # 1~5 → max gap 4 → 0
+            dim_results.append({
+                "dimension": dim_name,
+                "target_score": t,
+                "base_score": b,
+                "gap": gap,
+                "similarity": similarity,
+                "note": dim.get("note", ""),
+            })
+
+        if not dim_results:
+            return None
+
+        item_similarity = sum(d["similarity"] for d in dim_results) / len(dim_results)
+        return {
+            "item": item.get("item"),
+            "axis": item.get("similarity_axis"),
+            "weight": item.get("similarity_weight", 0.0),
+            "dimensions": dim_results,
+            "item_similarity": item_similarity,
+        }
+
+    def calculate_similarity_score(self, target_country: str, base_country: str) -> Dict[str, Any]:
+        """Calculate similarity score between target country and base country.
+
+        Returns:
+            Dict with overall score and axis breakdown
+        """
+        items = (self.country_data or {}).get("items", []) or []
+        scored_items = []
+        for it in items:
+            scored = self._score_item_from_dimensions(it)
+            if scored:
+                scored_items.append(scored)
+
+        # Aggregate per axis (system / product / regulatory / risk)
+        axis_buckets: Dict[str, List[Dict[str, Any]]] = {}
+        for s in scored_items:
+            axis = s.get("axis") or "system"
+            axis_buckets.setdefault(axis, []).append(s)
+
+        axes: Dict[str, float] = {}
+        for axis, group in axis_buckets.items():
+            weight_sum = sum(s.get("weight", 0.0) for s in group) or len(group)
+            weighted = sum(s["item_similarity"] * (s.get("weight") or 1.0) for s in group)
+            axes[axis] = weighted / weight_sum
+
+        # Fallback to placeholder when nothing was scored
+        if not scored_items:
+            return {
+                "overall_score": 0.0,
+                "axes": {},
+                "items": [],
+                "method": "dimension_based",
+                "note": "score_dimensions가 country_data에 정의되지 않음",
+            }
+
+        overall_weight = sum(s.get("weight", 0.0) for s in scored_items) or len(scored_items)
+        overall = sum(s["item_similarity"] * (s.get("weight") or 1.0) for s in scored_items) / overall_weight
+
+        return {
+            "overall_score": overall,
+            "axes": axes,
+            "items": scored_items,
+            "method": "dimension_based",
+            "scale": "1~5 per dimension → gap 0=100, gap 4=0",
+        }
+
+    def determine_system_decision(self, similarity_score: float, base_country: str) -> Dict[str, Any]:
+        """Determine system decision based on similarity score.
+
+        Args:
+            similarity_score: Overall similarity score (0-100)
+            base_country: Base country code
+
+        Returns:
+            Decision result with path and details
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+
+        country_assets = self.internal_data.get("country_assets", {}) or {}
+        base_info = country_assets.get(base_country, {})
+        hq_baseline = self.internal_data.get("hq_build_baseline", {})
+        base_solution = base_info.get("solution", "N/A")
+        region_system_exists = base_country in country_assets
+
+        # Stage 1 — does the region already have a deployed system?
+        if not region_system_exists:
+            # No region system → straight into external-solution review (then HQ fallback)
+            decision = "external_solution"
+            recommendation = "권역 내 확산 가능 시스템 없음 → 외부솔루션 검토 (미달 시 본사 자체구축)"
+        elif similarity_score >= 70:
+            decision = "baseline_system_expansion"
+            recommendation = f"권역 내 확산: {base_country} 시스템({base_solution}) 현지화"
+        elif similarity_score >= 50:
+            decision = "hq_build"
+            recommendation = "본사 자체구축 추천 (유사도 중간 구간)"
+        else:
+            decision = "external_solution"
+            recommendation = "현지 외부솔루션 2~3종 추천"
+
+        return {
+            "decision": decision,
+            "similarity_score": similarity_score,
+            "recommendation": recommendation,
+            "base_country": base_country,
+            "base_system": base_solution,
+            "region_system_exists": region_system_exists,
+            "hq_baseline_cost": hq_baseline.get("cost", 0),
+            "hq_baseline_months": hq_baseline.get("months", 0),
+            "hq_baseline_currency": hq_baseline.get("currency", "EUR")
+        }
+
+    def calculate_similarity_discount(self, similarity_score: float) -> float:
+        """Map similarity score to discount percentage.
+
+        Args:
+            similarity_score: Overall similarity score (0-100)
+
+        Returns:
+            Discount multiplier (e.g., 0.70 for 70%)
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+
+        brackets = self.internal_data.get("similarity_brackets", [])
+
+        for bracket in brackets:
+            if bracket["min"] <= similarity_score <= bracket["max"]:
+                return bracket["discount"]
+
+        return 0.0
+
+    def calculate_expected_contracts(self, target_country_data: Dict) -> int:
+        """Calculate expected contract volume for target country.
+
+        Args:
+            target_country_data: Country data with market info
+
+        Returns:
+            Expected annual contract count
+        """
+        # TODO: Extract from country_data items:
+        # - 신차 판매대수
+        # - 금융 이용률(신차)
+        # - 구매 패턴(할부·리스 비중)
+        # - 우리사 예상 점유율 (from internal?)
+
+        # Placeholder calculation
+        return 120
+
+    def calculate_subscription_fee(self, new_volume: int) -> Dict[str, Any]:
+        """Calculate subscription fee with volume-based tiering.
+
+        All existing volume is repriced at the new tier rate.
+
+        Args:
+            new_volume: New contracts to add
+
+        Returns:
+            Subscription fee details
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+
+        existing_volume = self.internal_data.get("existing_total_volume", 0)
+        total_volume = existing_volume + new_volume
+        tiers = self.internal_data.get("subscription_tiers", [])
+
+        # Find applicable tier
+        applicable_tier = None
+        for tier in tiers:
+            if tier["min_volume"] <= total_volume <= tier["max_volume"]:
+                applicable_tier = tier
+                break
+
+        if not applicable_tier:
+            # Use highest tier if volume exceeds all ranges
+            applicable_tier = tiers[-1] if tiers else {"price_per_unit": 1.0, "currency": "EUR"}
+
+        unit_price = applicable_tier["price_per_unit"]
+        annual_fee = total_volume * unit_price
+
+        return {
+            "existing_volume": existing_volume,
+            "new_volume": new_volume,
+            "total_volume": total_volume,
+            "unit_price": unit_price,
+            "currency": applicable_tier.get("currency", "EUR"),
+            "annual_fee": annual_fee,
+            "note": "All volume repriced at new tier rate"
+        }
+
+    def calculate_tco_10y(self, target_country: str, base_country: str) -> Dict[str, Any]:
+        """Calculate 10-year TCO for target country.
+
+        Args:
+            target_country: Target country code
+            base_country: Base country code for reuse
+
+        Returns:
+            TCO breakdown
+        """
+        if not self.internal_data:
+            self.load_internal_data()
+
+        # Get similarity and discount
+        similarity = self.calculate_similarity_score(target_country, base_country)
+        discount = self.calculate_similarity_discount(similarity["overall_score"])
+
+        # Get base country build info
+        base_info = self.internal_data.get("country_assets", {}).get(base_country, {})
+        base_cost = base_info.get("build_cost", 5000)
+        base_months = base_info.get("build_months", 18)
+
+        # Calculate build cost with discount
+        build_cost = base_cost * discount
+        build_months = base_months * discount
+
+        # Localization/customization cost (placeholder - should be based on gap analysis)
+        customization_cost = base_cost * 0.15
+
+        # Calculate subscription
+        expected_volume = self.calculate_expected_contracts(self.country_data or {})
+        subscription = self.calculate_subscription_fee(expected_volume)
+        annual_subscription = subscription["annual_fee"]
+
+        # Maintenance
+        maintenance_annual = self.internal_data.get("maintenance_cost_annual", {}).get("amount", 500)
+
+        # Operations
+        operations_10y = self.internal_data.get("operational_cost_10y", {}).get("amount", 50000)
+
+        # Total TCO
+        system_cost = build_cost + customization_cost + (annual_subscription * 10) + (maintenance_annual * 10)
+        total_tco = system_cost + operations_10y
+
+        return {
+            "build_cost": build_cost,
+            "build_months": build_months,
+            "customization_cost": customization_cost,
+            "annual_subscription": annual_subscription,
+            "annual_maintenance": maintenance_annual,
+            "operations_10y": operations_10y,
+            "system_cost_10y": system_cost,
+            "total_tco_10y": total_tco,
+            "currency": "EUR",
+            "similarity_score": similarity["overall_score"],
+            "discount_applied": discount,
+            "expected_contracts": expected_volume,
+            "subscription_details": subscription,
+            "subscription_tiers": self.internal_data.get("subscription_tiers", []),
+            "existing_total_volume": self.internal_data.get("existing_total_volume", 0),
+        }
+
+    def _extract_item_detail(self, item_name: str) -> Optional[Dict[str, Any]]:
+        """Extract full detail of a single item from country_data.items by name.
+
+        Returns the item dict (value, unit, source, insight, tier, timeseries, ...)
+        or None if the item is not present.
+        """
+        if not self.country_data:
+            return None
+
+        for item in self.country_data.get("items", []):
+            if item.get("item") == item_name:
+                return {
+                    "item": item.get("item"),
+                    "category": item.get("category"),
+                    "role": item.get("role"),
+                    "value": item.get("value"),
+                    "unit": item.get("unit"),
+                    "direction": item.get("direction"),
+                    "axis": item.get("axis"),
+                    "gate_result": item.get("gate_result"),
+                    "gate_scope": item.get("gate_scope"),
+                    "segment": item.get("segment"),
+                    "context_type": item.get("context_type"),
+                    "timeseries": item.get("timeseries"),
+                    "tier": item.get("tier"),
+                    "source": item.get("source"),
+                    "insight": item.get("insight"),
+                    "insight_ai_generated": item.get("insight_ai_generated"),
+                }
+        return None
+
+    def _collect_tab_items(self, tab_id: str) -> List[Dict[str, Any]]:
+        """Collect full item details for every required_field of a tab.
+
+        Missing items are returned as stubs with status='missing' so the
+        renderer can surface the gap rather than silently dropping the row.
+        """
+        tab_spec = self.TYPE1_TABS.get(tab_id, {})
+        results: List[Dict[str, Any]] = []
+        for field in tab_spec.get("required_fields", []):
+            detail = self._extract_item_detail(field)
+            if detail is None:
+                results.append({"item": field, "status": "missing"})
+            else:
+                detail["status"] = "present"
+                results.append(detail)
+        return results
+
+    def generate_type1_report(self) -> Dict[str, Any]:
+        """Generate complete Type 1 (single country TCO) report.
+
+        Returns:
+            Complete report with all tabs and data quality assessment
+        """
+        if not self.country_data:
+            self.load_country_data()
+        if not self.internal_data:
+            self.load_internal_data()
+
+        target_country = self.country_data.get("code", "N/A")
+        base_country = self.resolve_base_country(target_country)
+
+        # Data quality and gap analysis
+        analysis = self.analyze_data_structure()
+        quality = self._assess_data_quality()
+        readiness = self._assess_type1_readiness(analysis)
+
+        # Tab 1-1: Similarity Scoring
+        # calculate_similarity_score()가 디멘전 채점 결과를 'items'에 채움.
+        # 보조적인 raw evidence는 별도 'evidence_items' 키로 분리해서 보관.
+        similarity = self.calculate_similarity_score(target_country, base_country)
+        similarity["evidence_items"] = self._collect_tab_items("1-1")
+
+        # Tab 1-2: System Decision Tree (+ regulatory item evidence)
+        decision = self.determine_system_decision(similarity["overall_score"], base_country)
+        decision["items"] = self._collect_tab_items("1-2")
+
+        # Tab 1-3: Contract Volume & 10Y TCO (+ volume/penetration evidence)
+        tco = self.calculate_tco_10y(target_country, base_country)
+        tco["items"] = self._collect_tab_items("1-3")
+
+        # Tab 1-4: Market & Competition — fully sourced from country_data.items
+        tab_1_4_items = self._collect_tab_items("1-4")
+        market = {
+            "items": tab_1_4_items,
+            "competitors": self._extract_item_detail("경쟁사 리스트"),
+            "competitor_entry_form": self._extract_item_detail("경쟁사 진출 형태"),
+            "brand_top10": self._extract_item_detail("브랜드 Top10"),
+            "news": self._extract_item_detail("외부 이슈 스캔"),
+            "regulators": self._extract_item_detail("규제기관 식별"),
+            "country_summary": self._extract_item_detail("해당국 정성 요약"),
+        }
+
+        report = {
+            "report_id": f"RPT_CTR_{target_country}_001",
+            "report_type": "type1_country",
+            "title": f"{self.country_data.get('country', target_country)} Auto Finance Entry Cost & TCO Report",
+            "target": {
+                "country": target_country,
+                "base_country": base_country
+            },
+            "generated_at": datetime.now().isoformat(),
+            "schema_version": self.country_data.get("schema_version", "N/A"),
+
+            "overall_insight": self.country_data.get("overall_insight"),
+            "country_meta": {
+                "country": self.country_data.get("country"),
+                "country_ko": self.country_data.get("country_ko"),
+                "region": self.country_data.get("region"),
+                "currency": self.country_data.get("currency"),
+                "data_year": self.country_data.get("data_year"),
+                "fetched_at": self.country_data.get("fetched_at"),
+                "fetched_by": self.country_data.get("fetched_by"),
+            },
+
+            "data_quality": {
+                "completeness_pct": (analysis["total_items"] / 48 * 100) if analysis["total_items"] <= 48 else (48 / analysis["total_items"] * 100),
+                "total_items": analysis["total_items"],
+                "target_items": 48,
+                "timeseries_coverage": quality.get("timeseries_coverage", 0),
+                "source_tiers": quality.get("source_tiers", {}),
+                "items_by_category": analysis.get("items_by_category", {}),
+                "critical_gaps": self._identify_critical_gaps(analysis),
+                "readiness": readiness
+            },
+
+            "tabs": {
+                "tab_1_1_similarity": similarity,
+                "tab_1_2_decision": decision,
+                "tab_1_3_tco": tco,
+                "tab_1_4_market": market,
+            }
+        }
+
+        return report
+
+    def save_type1_report(self, report: Dict[str, Any]) -> str:
+        """Save Type 1 report to file with RPT_CTR_{code}_nnn.json naming.
+
+        Args:
+            report: Complete Type 1 report
+
+        Returns:
+            Path to saved report file
+        """
+        country_code = report["target"]["country"]
+        output_dir = Path(self.output_base) / "country" / country_code / "data"
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Find next sequence number
+        existing_files = list(output_dir.glob(f"RPT_CTR_{country_code}_*.json"))
+        next_num = 1
+        if existing_files:
+            max_num = max(
+                int(f.stem.split("_")[-1])
+                for f in existing_files
+                if f.stem.split("_")[-1].isdigit()
+            )
+            next_num = max_num + 1
+
+        output_file = output_dir / f"RPT_CTR_{country_code}_{next_num:03d}.json"
+
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+
+        return str(output_file)
+
 
 def main():
     """CLI entry point for country report generation."""
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python country_report_engine.py <country_data_json> [output_base_path]")
+        print("Usage: python country_report_engine.py <country_data_json> [internal_data_json] [output_base_path]")
         print("Example: python country_report_engine.py data/country/ES_latest.json")
+        print("         python country_report_engine.py data/country/ES_latest.json storage/data/internal/internal_latest.json")
         sys.exit(1)
 
     country_data_path = sys.argv[1]
-    output_base = sys.argv[2] if len(sys.argv) > 2 else "storage/report"
+    internal_data_path = sys.argv[2] if len(sys.argv) > 2 else "storage/data/internal/internal_latest.json"
+    output_base = sys.argv[3] if len(sys.argv) > 3 else "storage/report"
 
-    engine = CountryReportEngine(country_data_path, output_base)
+    engine = CountryReportEngine(country_data_path, internal_data_path, output_base)
 
     if not engine.load_country_data():
         sys.exit(1)
 
-    gap_report = engine.generate_gap_report()
-    readable = engine.generate_readable_gap_report(gap_report)
-    print(readable)
+    if not engine.load_internal_data():
+        print("Warning: Could not load internal data, some features may be limited")
 
-    json_path = engine.save_gap_report(gap_report)
-    print(f"📁 Country gap analysis JSON saved: {json_path}")
+    # Generate Type 1 report with integrated data quality check
+    print("="*70)
+    print("Generating Type 1 Report (TCO Analysis with Data Quality Check)...")
+    print("="*70)
 
-    return 0 if gap_report.get("type1_readiness", {}).get("can_generate") else 1
+    type1_report = engine.generate_type1_report()
+
+    # Display data quality summary
+    quality = type1_report["data_quality"]
+    print(f"\nData Quality:")
+    print(f"  Completeness: {quality['completeness_pct']:.1f}% ({quality['total_items']}/{quality['target_items']} items)")
+    print(f"  Timeseries Coverage: {quality['timeseries_coverage']:.1f}%")
+    print(f"  Critical Gaps: {len(quality['critical_gaps'])}")
+
+    can_generate = quality["readiness"].get("can_generate", False)
+
+    if can_generate:
+        type1_path = engine.save_type1_report(type1_report)
+        print(f"\n📊 Type 1 TCO Report saved: {type1_path}")
+        print(f"\n10Y TCO: {type1_report['tabs']['tab_1_3_tco']['total_tco_10y']:,.0f} EUR")
+        print(f"Similarity Score: {type1_report['tabs']['tab_1_1_similarity']['overall_score']:.1f}")
+        print(f"Decision: {type1_report['tabs']['tab_1_2_decision']['recommendation']}")
+        return 0
+    else:
+        print("\n⚠️  Data gaps exist but report generated for review")
+        type1_path = engine.save_type1_report(type1_report)
+        print(f"📊 Report saved: {type1_path}")
+        return 1
 
 
 if __name__ == "__main__":
